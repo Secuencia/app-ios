@@ -7,12 +7,27 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B964D9C61D7D018900033B13 /* PictureCaptureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B964D9C51D7D018900033B13 /* PictureCaptureViewController.swift */; };
+		B964D9C81D7D01A700033B13 /* TextCaptureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B964D9C71D7D01A700033B13 /* TextCaptureViewController.swift */; };
+		B964D9CA1D7D01C100033B13 /* ContactCaptureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B964D9C91D7D01C100033B13 /* ContactCaptureViewController.swift */; };
+		B964D9CC1D7D02C900033B13 /* AudioCaptureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B964D9CB1D7D02C900033B13 /* AudioCaptureViewController.swift */; };
+		B964D9CE1D7D02ED00033B13 /* StoryListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B964D9CD1D7D02ED00033B13 /* StoryListViewController.swift */; };
+		B964D9D01D7D030800033B13 /* StoryDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B964D9CF1D7D030800033B13 /* StoryDetailViewController.swift */; };
+		B964D9D21D7D033E00033B13 /* PictureCardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B964D9D11D7D033E00033B13 /* PictureCardCollectionViewCell.swift */; };
+		B964D9D41D7D035000033B13 /* TextCardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B964D9D31D7D035000033B13 /* TextCardCollectionViewCell.swift */; };
+		B964D9D61D7D035D00033B13 /* ContactCardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B964D9D51D7D035D00033B13 /* ContactCardCollectionViewCell.swift */; };
+		B964D9D81D7D037500033B13 /* AudioCardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B964D9D71D7D037500033B13 /* AudioCardCollectionViewCell.swift */; };
+		B964D9DA1D7D039300033B13 /* PictureCardView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B964D9D91D7D039300033B13 /* PictureCardView.xib */; };
+		B964D9DC1D7D03A700033B13 /* TextCardView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B964D9DB1D7D03A700033B13 /* TextCardView.xib */; };
+		B964D9DE1D7D03B400033B13 /* ContactCardView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B964D9DD1D7D03B400033B13 /* ContactCardView.xib */; };
+		B964D9E01D7D03BE00033B13 /* AudioCardView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B964D9DF1D7D03BE00033B13 /* AudioCardView.xib */; };
 		B9A87AB31D6C9C6D00145B93 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A87AB21D6C9C6D00145B93 /* AppDelegate.swift */; };
-		B9A87AB51D6C9C6D00145B93 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A87AB41D6C9C6D00145B93 /* ViewController.swift */; };
+		B9A87AB51D6C9C6D00145B93 /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A87AB41D6C9C6D00145B93 /* DashboardViewController.swift */; };
 		B9A87AB81D6C9C6D00145B93 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B9A87AB61D6C9C6D00145B93 /* Main.storyboard */; };
 		B9A87ABA1D6C9C6D00145B93 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B9A87AB91D6C9C6D00145B93 /* Assets.xcassets */; };
 		B9A87ABD1D6C9C6D00145B93 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B9A87ABB1D6C9C6D00145B93 /* LaunchScreen.storyboard */; };
 		B9A87AC81D6C9C6D00145B93 /* IsaacsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A87AC71D6C9C6D00145B93 /* IsaacsTests.swift */; };
+		B9AD038E1D7E547E00466000 /* CardViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9AD038D1D7E547E00466000 /* CardViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -26,9 +41,23 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B964D9C51D7D018900033B13 /* PictureCaptureViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PictureCaptureViewController.swift; sourceTree = "<group>"; };
+		B964D9C71D7D01A700033B13 /* TextCaptureViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextCaptureViewController.swift; sourceTree = "<group>"; };
+		B964D9C91D7D01C100033B13 /* ContactCaptureViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactCaptureViewController.swift; sourceTree = "<group>"; };
+		B964D9CB1D7D02C900033B13 /* AudioCaptureViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioCaptureViewController.swift; sourceTree = "<group>"; };
+		B964D9CD1D7D02ED00033B13 /* StoryListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryListViewController.swift; sourceTree = "<group>"; };
+		B964D9CF1D7D030800033B13 /* StoryDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryDetailViewController.swift; sourceTree = "<group>"; };
+		B964D9D11D7D033E00033B13 /* PictureCardCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PictureCardCollectionViewCell.swift; sourceTree = "<group>"; };
+		B964D9D31D7D035000033B13 /* TextCardCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextCardCollectionViewCell.swift; sourceTree = "<group>"; };
+		B964D9D51D7D035D00033B13 /* ContactCardCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactCardCollectionViewCell.swift; sourceTree = "<group>"; };
+		B964D9D71D7D037500033B13 /* AudioCardCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioCardCollectionViewCell.swift; sourceTree = "<group>"; };
+		B964D9D91D7D039300033B13 /* PictureCardView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PictureCardView.xib; sourceTree = "<group>"; };
+		B964D9DB1D7D03A700033B13 /* TextCardView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TextCardView.xib; sourceTree = "<group>"; };
+		B964D9DD1D7D03B400033B13 /* ContactCardView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ContactCardView.xib; sourceTree = "<group>"; };
+		B964D9DF1D7D03BE00033B13 /* AudioCardView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AudioCardView.xib; sourceTree = "<group>"; };
 		B9A87AAF1D6C9C6C00145B93 /* Isaacs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Isaacs.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B9A87AB21D6C9C6D00145B93 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		B9A87AB41D6C9C6D00145B93 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		B9A87AB41D6C9C6D00145B93 /* DashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
 		B9A87AB71D6C9C6D00145B93 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B9A87AB91D6C9C6D00145B93 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B9A87ABC1D6C9C6D00145B93 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -36,6 +65,7 @@
 		B9A87AC31D6C9C6D00145B93 /* IsaacsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IsaacsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B9A87AC71D6C9C6D00145B93 /* IsaacsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IsaacsTests.swift; sourceTree = "<group>"; };
 		B9A87AC91D6C9C6D00145B93 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B9AD038D1D7E547E00466000 /* CardViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +86,59 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B964D9C01D7CFF0E00033B13 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				B964D9C21D7CFF5800033B13 /* Card */,
+				B9A87AB41D6C9C6D00145B93 /* DashboardViewController.swift */,
+				B964D9C51D7D018900033B13 /* PictureCaptureViewController.swift */,
+				B964D9C71D7D01A700033B13 /* TextCaptureViewController.swift */,
+				B964D9C91D7D01C100033B13 /* ContactCaptureViewController.swift */,
+				B964D9CB1D7D02C900033B13 /* AudioCaptureViewController.swift */,
+				B964D9CD1D7D02ED00033B13 /* StoryListViewController.swift */,
+				B964D9CF1D7D030800033B13 /* StoryDetailViewController.swift */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		B964D9C11D7CFF1A00033B13 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		B964D9C21D7CFF5800033B13 /* Card */ = {
+			isa = PBXGroup;
+			children = (
+				B9AD038D1D7E547E00466000 /* CardViewCell.swift */,
+				B964D9D11D7D033E00033B13 /* PictureCardCollectionViewCell.swift */,
+				B964D9D31D7D035000033B13 /* TextCardCollectionViewCell.swift */,
+				B964D9D51D7D035D00033B13 /* ContactCardCollectionViewCell.swift */,
+				B964D9D71D7D037500033B13 /* AudioCardCollectionViewCell.swift */,
+			);
+			name = Card;
+			sourceTree = "<group>";
+		};
+		B964D9C31D7D004900033B13 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				B964D9C41D7D005F00033B13 /* CardCollectionCells */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		B964D9C41D7D005F00033B13 /* CardCollectionCells */ = {
+			isa = PBXGroup;
+			children = (
+				B964D9D91D7D039300033B13 /* PictureCardView.xib */,
+				B964D9DB1D7D03A700033B13 /* TextCardView.xib */,
+				B964D9DD1D7D03B400033B13 /* ContactCardView.xib */,
+				B964D9DF1D7D03BE00033B13 /* AudioCardView.xib */,
+			);
+			name = CardCollectionCells;
+			sourceTree = "<group>";
+		};
 		B9A87AA61D6C9C6C00145B93 = {
 			isa = PBXGroup;
 			children = (
@@ -77,8 +160,11 @@
 		B9A87AB11D6C9C6C00145B93 /* Isaacs */ = {
 			isa = PBXGroup;
 			children = (
+				B9AD038F1D7E60C800466000 /* Logic */,
+				B964D9C31D7D004900033B13 /* Views */,
+				B964D9C11D7CFF1A00033B13 /* Models */,
+				B964D9C01D7CFF0E00033B13 /* Controllers */,
 				B9A87AB21D6C9C6D00145B93 /* AppDelegate.swift */,
-				B9A87AB41D6C9C6D00145B93 /* ViewController.swift */,
 				B9A87AB61D6C9C6D00145B93 /* Main.storyboard */,
 				B9A87AB91D6C9C6D00145B93 /* Assets.xcassets */,
 				B9A87ABB1D6C9C6D00145B93 /* LaunchScreen.storyboard */,
@@ -94,6 +180,13 @@
 				B9A87AC91D6C9C6D00145B93 /* Info.plist */,
 			);
 			path = IsaacsTests;
+			sourceTree = "<group>";
+		};
+		B9AD038F1D7E60C800466000 /* Logic */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Logic;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -177,7 +270,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B964D9DC1D7D03A700033B13 /* TextCardView.xib in Resources */,
+				B964D9DE1D7D03B400033B13 /* ContactCardView.xib in Resources */,
 				B9A87ABD1D6C9C6D00145B93 /* LaunchScreen.storyboard in Resources */,
+				B964D9E01D7D03BE00033B13 /* AudioCardView.xib in Resources */,
+				B964D9DA1D7D039300033B13 /* PictureCardView.xib in Resources */,
 				B9A87ABA1D6C9C6D00145B93 /* Assets.xcassets in Resources */,
 				B9A87AB81D6C9C6D00145B93 /* Main.storyboard in Resources */,
 			);
@@ -197,7 +294,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B9A87AB51D6C9C6D00145B93 /* ViewController.swift in Sources */,
+				B964D9D21D7D033E00033B13 /* PictureCardCollectionViewCell.swift in Sources */,
+				B964D9D81D7D037500033B13 /* AudioCardCollectionViewCell.swift in Sources */,
+				B964D9CA1D7D01C100033B13 /* ContactCaptureViewController.swift in Sources */,
+				B9A87AB51D6C9C6D00145B93 /* DashboardViewController.swift in Sources */,
+				B964D9C61D7D018900033B13 /* PictureCaptureViewController.swift in Sources */,
+				B964D9C81D7D01A700033B13 /* TextCaptureViewController.swift in Sources */,
+				B9AD038E1D7E547E00466000 /* CardViewCell.swift in Sources */,
+				B964D9D61D7D035D00033B13 /* ContactCardCollectionViewCell.swift in Sources */,
+				B964D9CC1D7D02C900033B13 /* AudioCaptureViewController.swift in Sources */,
+				B964D9D41D7D035000033B13 /* TextCardCollectionViewCell.swift in Sources */,
+				B964D9D01D7D030800033B13 /* StoryDetailViewController.swift in Sources */,
+				B964D9CE1D7D02ED00033B13 /* StoryListViewController.swift in Sources */,
 				B9A87AB31D6C9C6D00145B93 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -390,6 +498,7 @@
 				B9A87ACE1D6C9C6D00145B93 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B9A87ACF1D6C9C6D00145B93 /* Build configuration list for PBXNativeTarget "IsaacsTests" */ = {
 			isa = XCConfigurationList;
@@ -398,6 +507,7 @@
 				B9A87AD11D6C9C6D00145B93 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

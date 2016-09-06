@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="69l-Ey-edE">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="69l-Ey-edE">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -7,10 +7,10 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Dashboard View Controller-->
         <scene sceneID="xOW-1Z-7FR">
             <objects>
-                <viewController id="kQl-nM-JfE" customClass="ViewController" customModule="Isaacs" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="kQl-nM-JfE" customClass="DashboardViewController" customModule="Isaacs" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="QTN-00-0ap"/>
                         <viewControllerLayoutGuide type="bottom" id="S0D-Rg-qOk"/>
@@ -120,12 +120,13 @@
         <!--Contact-->
         <scene sceneID="uRK-YW-cbQ">
             <objects>
-                <viewController title="Contact" id="LB0-Ij-FDc" sceneMemberID="viewController">
+                <viewController title="Contact" id="LB0-Ij-FDc" customClass="ContactCaptureViewController" customModule="Isaacs" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="HOc-ou-Euk"/>
                         <viewControllerLayoutGuide type="bottom" id="yKH-du-UBl"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="ByA-wB-PeO">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Contacto" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ROO-VD-T9q">
@@ -167,12 +168,13 @@
         <!--Audio-->
         <scene sceneID="YE1-op-KmF">
             <objects>
-                <viewController title="Audio" id="2Gg-fv-4RO" sceneMemberID="viewController">
+                <viewController title="Audio" id="2Gg-fv-4RO" customClass="AudioCaptureViewController" customModule="Isaacs" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="rEF-BB-2CP"/>
                         <viewControllerLayoutGuide type="bottom" id="jFK-Ps-78o"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="6aR-Um-cmc">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Audio" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sQO-j2-G2k">
@@ -180,9 +182,6 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
-                                <variation key="heightClass=regular" misplaced="YES">
-                                    <rect key="frame" x="277" y="389" width="44" height="21"/>
-                                </variation>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -217,7 +216,7 @@
         <!--Historias-->
         <scene sceneID="0Vx-vw-X5S">
             <objects>
-                <tableViewController title="Historias" id="fBH-eP-dn9" sceneMemberID="viewController">
+                <tableViewController title="Historias" id="fBH-eP-dn9" customClass="StoryListViewController" customModule="Isaacs" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" indicatorStyle="black" dataMode="static" style="plain" sectionIndexMinimumDisplayRowCount="3" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="dnq-eb-pIR">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -373,7 +372,7 @@
         <!--Historia Detail-->
         <scene sceneID="7E5-OA-7UU">
             <objects>
-                <collectionViewController title="Historia Detail" id="YGD-nU-BRR" sceneMemberID="viewController">
+                <collectionViewController title="Historia Detail" id="YGD-nU-BRR" customClass="StoryDetailViewController" customModule="Isaacs" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="W3H-pf-rwf">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -394,28 +393,7 @@
                                 <rect key="frame" x="0.0" y="-64" width="600" height="800"/>
                             </variation>
                         </label>
-                        <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell1" id="2it-qZ-4tJ">
-                                <rect key="frame" x="0.0" y="64" width="99.5" height="97"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="99.5" height="97"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                </view>
-                                <color key="backgroundColor" red="1" green="0.20649369479999999" blue="0.25690855480000002" alpha="1" colorSpace="calibratedRGB"/>
-                            </collectionViewCell>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell2" id="Uza-Uu-hCI">
-                                <rect key="frame" x="125" y="64" width="99.5" height="97"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="99.5" height="97"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                </view>
-                                <color key="backgroundColor" red="0.35568632890000002" green="0.52464953709999995" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                            </collectionViewCell>
-                        </cells>
+                        <cells/>
                         <connections>
                             <outlet property="dataSource" destination="YGD-nU-BRR" id="Idi-pt-Bvo"/>
                             <outlet property="delegate" destination="YGD-nU-BRR" id="rtv-Ue-r39"/>
@@ -445,12 +423,13 @@
         <!--Picture-->
         <scene sceneID="1T1-Ke-1Cd">
             <objects>
-                <viewController title="Picture" id="TUW-Sr-QWD" sceneMemberID="viewController">
+                <viewController title="Picture" id="TUW-Sr-QWD" customClass="PictureCaptureViewController" customModule="Isaacs" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="DM5-vc-kTR"/>
                         <viewControllerLayoutGuide type="bottom" id="apj-MG-Iuh"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="pHf-JZ-vhH">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Picture" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZFC-8d-SNQ">
@@ -492,12 +471,13 @@
         <!--Text-->
         <scene sceneID="yAe-d2-T73">
             <objects>
-                <viewController title="Text" id="Zna-M5-ITi" sceneMemberID="viewController">
+                <viewController title="Text" id="Zna-M5-ITi" customClass="TextCaptureViewController" customModule="Isaacs" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="oQF-Sq-oSg"/>
                         <viewControllerLayoutGuide type="bottom" id="EFj-iq-kYY"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="eNz-tb-d0U">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Texto" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A9Z-UZ-flK">

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class DashboardViewController: UIViewController {
 
     @IBOutlet weak var pic_button: UIButton!
     @IBOutlet weak var audio_button: UIButton!
