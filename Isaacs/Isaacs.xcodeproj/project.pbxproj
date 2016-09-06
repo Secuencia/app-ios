@@ -31,6 +31,8 @@
 		B9AD03911D7EF9B400466000 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B9AD03901D7EF9B400466000 /* CoreData.framework */; };
 		B9AD03941D7EF9F700466000 /* Stories.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B9AD03921D7EF9F700466000 /* Stories.xcdatamodeld */; };
 		B9AD03CD1D7F02F400466000 /* StoryPersistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9AD03CC1D7F02F400466000 /* StoryPersistence.swift */; };
+		B9AD04471D7F6EC300466000 /* Story.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9AD04451D7F6EC300466000 /* Story.swift */; };
+		B9AD04491D7F715800466000 /* DataPersistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9AD04481D7F715800466000 /* DataPersistence.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,6 +74,8 @@
 		B9AD03901D7EF9B400466000 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		B9AD03931D7EF9F700466000 /* Stories.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Stories.xcdatamodel; sourceTree = "<group>"; };
 		B9AD03CC1D7F02F400466000 /* StoryPersistence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryPersistence.swift; sourceTree = "<group>"; };
+		B9AD04451D7F6EC300466000 /* Story.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Story.swift; sourceTree = "<group>"; };
+		B9AD04481D7F715800466000 /* DataPersistence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataPersistence.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +114,7 @@
 		B964D9C11D7CFF1A00033B13 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				B9AD04451D7F6EC300466000 /* Story.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -129,7 +134,6 @@
 		B9A87AA61D6C9C6C00145B93 = {
 			isa = PBXGroup;
 			children = (
-				B9AD03921D7EF9F700466000 /* Stories.xcdatamodeld */,
 				B9AD03901D7EF9B400466000 /* CoreData.framework */,
 				B9A87AB11D6C9C6C00145B93 /* Isaacs */,
 				B9A87AC61D6C9C6D00145B93 /* IsaacsTests */,
@@ -149,6 +153,7 @@
 		B9A87AB11D6C9C6C00145B93 /* Isaacs */ = {
 			isa = PBXGroup;
 			children = (
+				B9AD03921D7EF9F700466000 /* Stories.xcdatamodeld */,
 				B964D9C41D7D005F00033B13 /* Cards */,
 				B9AD038F1D7E60C800466000 /* Logic */,
 				B964D9C11D7CFF1A00033B13 /* Models */,
@@ -184,6 +189,7 @@
 			isa = PBXGroup;
 			children = (
 				B9AD03CC1D7F02F400466000 /* StoryPersistence.swift */,
+				B9AD04481D7F715800466000 /* DataPersistence.swift */,
 			);
 			name = Persistence;
 			sourceTree = "<group>";
@@ -339,10 +345,12 @@
 				B964D9D21D7D033E00033B13 /* PictureCardCollectionViewCell.swift in Sources */,
 				B964D9D81D7D037500033B13 /* AudioCardCollectionViewCell.swift in Sources */,
 				B964D9CA1D7D01C100033B13 /* ContactCaptureViewController.swift in Sources */,
+				B9AD04471D7F6EC300466000 /* Story.swift in Sources */,
 				B9A87AB51D6C9C6D00145B93 /* DashboardViewController.swift in Sources */,
 				B964D9C61D7D018900033B13 /* PictureCaptureViewController.swift in Sources */,
 				B964D9C81D7D01A700033B13 /* TextCaptureViewController.swift in Sources */,
 				B9AD038E1D7E547E00466000 /* CardViewCell.swift in Sources */,
+				B9AD04491D7F715800466000 /* DataPersistence.swift in Sources */,
 				B9AD03CD1D7F02F400466000 /* StoryPersistence.swift in Sources */,
 				B964D9D61D7D035D00033B13 /* ContactCardCollectionViewCell.swift in Sources */,
 				B964D9CC1D7D02C900033B13 /* AudioCaptureViewController.swift in Sources */,
@@ -562,7 +570,8 @@
 				B9AD03931D7EF9F700466000 /* Stories.xcdatamodel */,
 			);
 			currentVersion = B9AD03931D7EF9F700466000 /* Stories.xcdatamodel */;
-			path = Stories.xcdatamodeld;
+			name = Stories.xcdatamodeld;
+			path = ../Stories.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
