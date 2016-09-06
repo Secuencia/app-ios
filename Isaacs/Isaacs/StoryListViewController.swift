@@ -21,6 +21,33 @@ class StoryListViewController: UITableViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func createStory(sender: AnyObject) {
+        let alert = UIAlertController(title: "Nueva historia",
+                                      message: "",
+                                      preferredStyle: .Alert)
+        
+        let saveAction = UIAlertAction(title: "Crear", style: .Default, handler: {
+                                        (action:UIAlertAction) -> Void in
+                                            print("Historia creada " + (alert.textFields!.first?.text)!)
+            }
+        )
+        
+        let cancelAction = UIAlertAction(title: "Cancelar",
+                                         style: .Default) { (action: UIAlertAction) -> Void in
+                                            print("Cancelado")
+        }
+        
+        alert.addTextFieldWithConfigurationHandler {
+            (textField: UITextField) -> Void in
+        }
+        
+        alert.addAction(saveAction)
+        alert.addAction(cancelAction)
+        
+        presentViewController(alert,
+                              animated: true,
+                              completion: nil)
+    }
 
     /*
     // MARK: - Navigation

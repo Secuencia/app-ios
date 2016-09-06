@@ -364,6 +364,14 @@
                             <outlet property="delegate" destination="fBH-eP-dn9" id="7LO-uI-vLW"/>
                         </connections>
                     </tableView>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Mis Historias" id="59x-Mq-enH">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="wUf-sO-zGV">
+                            <connections>
+                                <action selector="createStory:" destination="fBH-eP-dn9" id="LYL-wX-INB"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ie6-3h-CoV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
