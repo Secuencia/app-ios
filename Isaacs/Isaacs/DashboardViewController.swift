@@ -10,16 +10,14 @@ import UIKit
 
 class DashboardViewController: UIViewController {
 
-    @IBOutlet weak var pic_button: UIButton!
-    @IBOutlet weak var audio_button: UIButton!
-    @IBOutlet weak var text_button: UIButton!
-    @IBOutlet weak var contact_button: UIButton!
+   
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
     }
     
-    override func viewDidAppear(animated: Bool)
+    /*override func viewDidAppear(animated: Bool)
     {
         let width_portion = self.view.bounds.width/4;
         
@@ -46,7 +44,7 @@ class DashboardViewController: UIViewController {
             
             self.contact_button.center.x = self.view.bounds.width - self.contact_button.bounds.width/2
         })
-    }
+    }*/
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
