@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		37FCEE441D7FA55500A74FDC /* TagsRecomendator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37FCEE431D7FA55500A74FDC /* TagsRecomendator.swift */; };
 		B964D9C61D7D018900033B13 /* PictureCaptureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B964D9C51D7D018900033B13 /* PictureCaptureViewController.swift */; };
 		B964D9C81D7D01A700033B13 /* TextCaptureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B964D9C71D7D01A700033B13 /* TextCaptureViewController.swift */; };
 		B964D9CA1D7D01C100033B13 /* ContactCaptureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B964D9C91D7D01C100033B13 /* ContactCaptureViewController.swift */; };
@@ -46,6 +47,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		37FCEE431D7FA55500A74FDC /* TagsRecomendator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagsRecomendator.swift; sourceTree = "<group>"; };
 		B964D9C51D7D018900033B13 /* PictureCaptureViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PictureCaptureViewController.swift; sourceTree = "<group>"; };
 		B964D9C71D7D01A700033B13 /* TextCaptureViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextCaptureViewController.swift; sourceTree = "<group>"; };
 		B964D9C91D7D01C100033B13 /* ContactCaptureViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactCaptureViewController.swift; sourceTree = "<group>"; };
@@ -197,6 +199,7 @@
 		B9AD03CE1D7F0F9D00466000 /* Add-ins */ = {
 			isa = PBXGroup;
 			children = (
+				37FCEE431D7FA55500A74FDC /* TagsRecomendator.swift */,
 			);
 			name = "Add-ins";
 			sourceTree = "<group>";
@@ -355,6 +358,7 @@
 				B964D9D61D7D035D00033B13 /* ContactCardCollectionViewCell.swift in Sources */,
 				B964D9CC1D7D02C900033B13 /* AudioCaptureViewController.swift in Sources */,
 				B964D9D41D7D035000033B13 /* TextCardCollectionViewCell.swift in Sources */,
+				37FCEE441D7FA55500A74FDC /* TagsRecomendator.swift in Sources */,
 				B964D9D01D7D030800033B13 /* StoryDetailViewController.swift in Sources */,
 				B964D9CE1D7D02ED00033B13 /* StoryListViewController.swift in Sources */,
 				B9A87AB31D6C9C6D00145B93 /* AppDelegate.swift in Sources */,
