@@ -11,49 +11,86 @@ import UIKit
 class DashboardViewController: UIViewController {
 
    
+    @IBOutlet weak var textContentButton: UIButton!
+    @IBOutlet weak var visualMediaContentButton: UIButton!
+    @IBOutlet weak var audioContentButton: UIButton!
+    @IBOutlet weak var contactContentButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+        
+        // Default Text button styling
+        //textContentButton.layer.borderWidth = 2
+        //textContentButton.layer.borderColor = UIColor.darkGrayColor().CGColor
+        textContentButton.layer.shadowRadius = 3
+        textContentButton.layer.shadowOffset = CGSize(width: 3, height: 3)
+        textContentButton.layer.shadowColor = UIColor.lightGrayColor().CGColor
+        
+        
+        // Visual Media button styling
+        visualMediaContentButton.backgroundColor = UIColor.cyanColor()
+        visualMediaContentButton.layer.cornerRadius = 20
+        visualMediaContentButton.layer.borderWidth = 0
+        visualMediaContentButton.layer.borderColor = UIColor.clearColor().CGColor
+        
+        
+        // Audio button styling
+        audioContentButton.backgroundColor = UIColor.orangeColor()
+        audioContentButton.layer.cornerRadius = 20
+        audioContentButton.layer.borderWidth = 0
+        audioContentButton.layer.borderColor = UIColor.clearColor().CGColor
+        
+        // Contact button styling
+        contactContentButton.backgroundColor = UIColor.magentaColor()
+        contactContentButton.layer.cornerRadius = 20
+        contactContentButton.layer.borderWidth = 0
+        contactContentButton.layer.borderColor = UIColor.clearColor().CGColor
+        
+        
         // Do any additional setup after loading the view, typically from a nib.
     }
     
-    /*override func viewDidAppear(animated: Bool)
-    {
-        let width_portion = self.view.bounds.width/4;
-        
-        UIView.animateWithDuration(2.0, animations: {
-            
-            //Audio button
-            self.audio_button.center.y = self.view.bounds.height - self.audio_button.bounds.height - 50
-            
-            self.audio_button.center.x = self.audio_button.bounds.width/2
-            
-            //Pic button
-            self.pic_button.center.y = self.view.bounds.height - self.pic_button.bounds.height - 50
-            
-            self.pic_button.center.x = width_portion * 2 - self.pic_button.bounds.width
-            
-            //Text button
-            self.text_button.center.y = self.view.bounds.height - self.text_button.bounds.height - 50;
-            
-            self.text_button.center.x = width_portion * 2 + self.pic_button.bounds.width
-            
-            
-            //Contact Button
-            self.contact_button.center.y = self.view.bounds.height - self.contact_button.bounds.height - 50;
-            
-            self.contact_button.center.x = self.view.bounds.width - self.contact_button.bounds.width/2
-        })
-    }*/
-
+    /*override func viewDidLayoutSubviews() {
+     super.viewDidLayoutSubviews()
+     
+     button.layer.cornerRadius = button.frame.height / 2
+     
+     buttonCamera.layer.cornerRadius = button.frame.height / 2
+     
+     buttonContact.layer.cornerRadius = buttonContact.frame.height / 2
+     }*/
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-    @IBAction func captureSelection(sender: UIButton) {
-        print("Entre")
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+        if (segue.identifier == "textSegue") {
+            let inputController: InputViewController = segue.destinationViewController as! InputViewController
+            inputController.context = "text"
+        }
+        
+        if (segue.identifier == "photoSegue") {
+            let inputController: InputViewController = segue.destinationViewController as! InputViewController
+            inputController.context = "photo"
+        }
+        
+        if (segue.identifier == "audioSegue") {
+            let inputController: InputViewController = segue.destinationViewController as! InputViewController
+            inputController.context = "audio"
+        }
+        
+        if (segue.identifier == "contactSegue") {
+            let inputController: InputViewController = segue.destinationViewController as! InputViewController
+            inputController.context = "contact"
+        }
     }
 
+    
+    
 }
 

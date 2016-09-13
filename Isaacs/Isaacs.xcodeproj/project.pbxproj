@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		378E158B1D882CE400F94008 /* InputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 378E158A1D882CE400F94008 /* InputViewController.swift */; };
 		37FCEE441D7FA55500A74FDC /* TagsRecomendator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37FCEE431D7FA55500A74FDC /* TagsRecomendator.swift */; };
 		B964D9C61D7D018900033B13 /* PictureCaptureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B964D9C51D7D018900033B13 /* PictureCaptureViewController.swift */; };
 		B964D9C81D7D01A700033B13 /* TextCaptureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B964D9C71D7D01A700033B13 /* TextCaptureViewController.swift */; };
@@ -49,6 +50,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		378E158A1D882CE400F94008 /* InputViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputViewController.swift; sourceTree = "<group>"; };
 		37FCEE431D7FA55500A74FDC /* TagsRecomendator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagsRecomendator.swift; sourceTree = "<group>"; };
 		B964D9C51D7D018900033B13 /* PictureCaptureViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PictureCaptureViewController.swift; sourceTree = "<group>"; };
 		B964D9C71D7D01A700033B13 /* TextCaptureViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextCaptureViewController.swift; sourceTree = "<group>"; };
@@ -113,6 +115,7 @@
 				B964D9CB1D7D02C900033B13 /* AudioCaptureViewController.swift */,
 				B964D9CD1D7D02ED00033B13 /* StoryListViewController.swift */,
 				B964D9CF1D7D030800033B13 /* StoryDetailViewController.swift */,
+				378E158A1D882CE400F94008 /* InputViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -356,6 +359,7 @@
 				B964D9D21D7D033E00033B13 /* PictureCardCollectionViewCell.swift in Sources */,
 				B964D9D81D7D037500033B13 /* AudioCardCollectionViewCell.swift in Sources */,
 				B96E245F1D877EF000182DA3 /* Content.swift in Sources */,
+				378E158B1D882CE400F94008 /* InputViewController.swift in Sources */,
 				B964D9CA1D7D01C100033B13 /* ContactCaptureViewController.swift in Sources */,
 				B9AD04471D7F6EC300466000 /* Story.swift in Sources */,
 				B9A87AB51D6C9C6D00145B93 /* DashboardViewController.swift in Sources */,
