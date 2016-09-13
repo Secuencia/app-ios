@@ -12,11 +12,13 @@ import CoreData
 class StoryListViewController: UITableViewController {
 
     var stories : [Story] = []
+    let storyPersistence : StoryPersistence = StoryPersistence()
+    let contentPersistence : ContentPersistence = ContentPersistence()
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        stories = StoryPersistence().getAll();
+        stories = self.storyPersistence.getAll();
     }
 
     override func didReceiveMemoryWarning() {
@@ -43,6 +45,21 @@ class StoryListViewController: UITableViewController {
         return cell!
     }
     
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let story : Story = stories[indexPath.row]
+        let content : Content = story.mutableSetValueForKey("contents").allObjects[0] as! Content
+        print(content.data)
+        print ((content.mutableSetValueForKey("stories").allObjects[0] as! Story).title)
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if(segue.identifier == "story_detail"){
+            let destination : StoryDetailViewController = segue.destinationViewController as! StoryDetailViewController
+            let path = self.tableView.indexPathForSelectedRow!
+            destination.story = self.stories[path.row]
+        }
+    }
+    
     @IBAction func createStory(sender: AnyObject) {
         let alert = UIAlertController(title: "Nueva historia",
                                       message: "",
@@ -50,8 +67,14 @@ class StoryListViewController: UITableViewController {
         
         let saveAction = UIAlertAction(title: "Crear", style: .Default, handler: {
                                         (action:UIAlertAction) -> Void in
-            self.saveName((alert.textFields!.first?.text)!)
-                                            
+            
+            let newStory : Story = self.storyPersistence.createEntity()
+            let newContent : Content = self.contentPersistence.createEntity()
+            newContent.data = "string de json bien chimbita"
+            newStory.title = alert.textFields!.first?.text!
+            newStory.mutableSetValueForKey("contents").addObject(newContent)
+            self.storyPersistence.save()
+            self.reloadData()
             }
         )
         
@@ -72,8 +95,9 @@ class StoryListViewController: UITableViewController {
                               completion: nil)
     }
     
-    func saveName(name: String) {
-        StoryPersistence().save(name)
+    func reloadData(){
+        self.stories = self.storyPersistence.getAll()
+        self.tableView.reloadData()
     }
 
     /*

@@ -1,12 +1,20 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="10174" systemVersion="15G1004" minimumToolsVersion="Xcode 7.0">
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="10174" systemVersion="16A320" minimumToolsVersion="Xcode 7.0">
+    <entity name="Content" representedClassName="Content" syncable="YES">
+        <attribute name="data" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="date_created" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="stories" toMany="YES" deletionRule="Nullify" destinationEntity="Story" inverseName="contents" inverseEntity="Story" syncable="YES"/>
+    </entity>
     <entity name="Story" representedClassName="Story" syncable="YES">
         <attribute name="brief" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="date_created" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="last_modified" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="contents" toMany="YES" deletionRule="Cascade" destinationEntity="Content" inverseName="stories" inverseEntity="Content" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Story" positionX="-45" positionY="0" width="128" height="105"/>
+        <element name="Story" positionX="-45" positionY="0" width="128" height="120"/>
+        <element name="Content" positionX="-45" positionY="27" width="128" height="105"/>
     </elements>
 </model>

@@ -10,7 +10,9 @@ import UIKit
 
 class StoryDetailViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout{
     
+    var story : Story!
     private var longPressGesture: UILongPressGestureRecognizer!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -19,6 +21,9 @@ class StoryDetailViewController: UICollectionViewController, UICollectionViewDel
         
         longPressGesture = UILongPressGestureRecognizer(target: self, action: #selector(StoryDetailViewController.handleLongGesture(_:)))
         self.collectionView!.addGestureRecognizer(longPressGesture)
+        
+        print("___________________ACA va la historia________________")
+        print(self.story.title)
     }
 
     override func didReceiveMemoryWarning() {
@@ -55,7 +60,6 @@ class StoryDetailViewController: UICollectionViewController, UICollectionViewDel
         else{
             cell = collectionView.dequeueReusableCellWithReuseIdentifier("text_card", forIndexPath: indexPath) as! TextCardCollectionViewCell
         }
-        print("Row" + String(indexPath.row))
         return cell
     }
     

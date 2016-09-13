@@ -11,6 +11,13 @@ import CoreData
 
 class DataPersistence : NSObject{
     
+    class var sharedInstance: DataPersistence {
+        struct Singleton {
+            static let instance = DataPersistence()
+        }
+        return Singleton.instance
+    }
+    
     var managedObjectContext: NSManagedObjectContext
     
     override  init() {
@@ -37,6 +44,5 @@ class DataPersistence : NSObject{
         } catch {
             fatalError("Error migrating store: \(error)")
         }
-        
     }
 }
