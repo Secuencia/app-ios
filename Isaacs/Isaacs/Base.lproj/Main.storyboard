@@ -84,7 +84,7 @@
         <scene sceneID="7E5-OA-7UU">
             <objects>
                 <collectionViewController title="Historia Detail" id="YGD-nU-BRR" customClass="StoryDetailViewController" customModule="Isaacs" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" id="W3H-pf-rwf">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="W3H-pf-rwf">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -248,7 +248,7 @@
                                     <constraint firstAttribute="height" constant="30" id="Il5-K5-HwC"/>
                                     <constraint firstAttribute="width" constant="30" id="hOu-TB-uKf"/>
                                 </constraints>
-                                <state key="normal" backgroundImage="gridIcon"/>
+                                <state key="normal" backgroundImage="contentsIcon"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qc6-UC-o1Y">
                                 <constraints>
@@ -301,7 +301,7 @@
                                     <constraint firstAttribute="height" constant="30" id="JNG-PE-p69"/>
                                     <constraint firstAttribute="width" constant="30" id="V06-qE-qIM"/>
                                 </constraints>
-                                <state key="normal" backgroundImage="listIcon"/>
+                                <state key="normal" backgroundImage="historiesIcon"/>
                                 <connections>
                                     <segue destination="fBH-eP-dn9" kind="show" id="kHJ-NV-XAr"/>
                                 </connections>
@@ -404,8 +404,7 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="bottomToolbarConstraint" destination="ERY-rX-pWZ" id="jdh-TR-yTc"/>
-                        <outlet property="initialBottomToolbarConstraint" destination="ERY-rX-pWZ" id="WbJ-Rh-De3"/>
+                        <outlet property="bottomToolbarConstraintValue" destination="ERY-rX-pWZ" id="nOu-Iq-kew"/>
                         <outlet property="navbar" destination="2cV-y5-OZh" id="CA0-71-t5K"/>
                         <outlet property="textView" destination="8jG-Rq-poJ" id="Kd6-9I-r7e"/>
                     </connections>
@@ -416,9 +415,9 @@
         </scene>
     </scenes>
     <resources>
-        <image name="gridIcon" width="52" height="52"/>
-        <image name="listIcon" width="52" height="52"/>
-        <image name="settingsIcon" width="52" height="52"/>
+        <image name="contentsIcon" width="52" height="52"/>
+        <image name="historiesIcon" width="52" height="52"/>
+        <image name="settingsIcon" width="256" height="256"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="gAk-Sj-uxa"/>

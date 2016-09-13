@@ -16,6 +16,15 @@ class DashboardViewController: UIViewController {
     @IBOutlet weak var audioContentButton: UIButton!
     @IBOutlet weak var contactContentButton: UIButton!
     
+    
+    override func viewWillAppear(animated: Bool) {
+        self.navigationController?.navigationBarHidden = true
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        self.navigationController?.navigationBarHidden = false
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -70,6 +79,7 @@ class DashboardViewController: UIViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
         if (segue.identifier == "textSegue") {
+            print("Entra")
             let inputController: InputViewController = segue.destinationViewController as! InputViewController
             inputController.context = "text"
         }

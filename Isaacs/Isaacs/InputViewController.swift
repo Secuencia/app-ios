@@ -13,7 +13,8 @@ class InputViewController: UIViewController, UITextViewDelegate {
     
     @IBOutlet weak var textView: UITextView!
     @IBOutlet weak var navbar: UINavigationBar!
-    @IBOutlet weak var bottomToolbarConstraint: NSLayoutConstraint!
+
+    @IBOutlet weak var bottomToolbarConstraintValue: NSLayoutConstraint!
     
     
     var initialBottomToolbarConstraintValue: CGFloat?
@@ -25,8 +26,8 @@ class InputViewController: UIViewController, UITextViewDelegate {
         
         textView.delegate = self
         textView.font = UIFont(name: "Georgia", size: 15.0)
-        
-        self.initialBottomToolbarConstraintValue = bottomToolbarConstraint.constant
+
+        self.initialBottomToolbarConstraintValue = bottomToolbarConstraintValue.constant
         
         enableKeyboardHideOnTap()
         
@@ -63,7 +64,7 @@ class InputViewController: UIViewController, UITextViewDelegate {
         
         UIView.animateWithDuration(duration) { () -> Void in
             
-            self.bottomToolbarConstraint.constant = keyboardFrame.size.height + 5
+            self.bottomToolbarConstraintValue.constant = keyboardFrame.size.height + 5
             
             self.view.layoutIfNeeded()
             
@@ -76,7 +77,7 @@ class InputViewController: UIViewController, UITextViewDelegate {
         
         UIView.animateWithDuration(duration) { () -> Void in
             
-            self.bottomToolbarConstraint.constant = self.initialBottomToolbarConstraintValue!
+            self.bottomToolbarConstraintValue.constant = self.initialBottomToolbarConstraintValue!
             self.view.layoutIfNeeded()
             
         }
