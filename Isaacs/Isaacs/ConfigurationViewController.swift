@@ -22,6 +22,8 @@ class ConfigurationViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+        
+        // New config for testing git
     }
     
 
