@@ -23,7 +23,7 @@ class ConfigurationViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
         
-        // New config for testing git
+        // New config for testing git #1
     }
     
 
