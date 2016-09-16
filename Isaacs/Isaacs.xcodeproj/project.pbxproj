@@ -10,6 +10,8 @@
 		37895A781D8859FE0094E286 /* ConfigurationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37895A771D8859FE0094E286 /* ConfigurationViewController.swift */; };
 		378E158B1D882CE400F94008 /* InputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 378E158A1D882CE400F94008 /* InputViewController.swift */; };
 		37FCEE441D7FA55500A74FDC /* TagsRecomendator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37FCEE431D7FA55500A74FDC /* TagsRecomendator.swift */; };
+		B9646F681D8A4DF3000516D9 /* Content.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9646F641D8A4DF3000516D9 /* Content.swift */; };
+		B9646F6A1D8A4DF3000516D9 /* Story.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9646F661D8A4DF3000516D9 /* Story.swift */; };
 		B964D9C61D7D018900033B13 /* PictureCaptureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B964D9C51D7D018900033B13 /* PictureCaptureViewController.swift */; };
 		B964D9C81D7D01A700033B13 /* TextCaptureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B964D9C71D7D01A700033B13 /* TextCaptureViewController.swift */; };
 		B964D9CA1D7D01C100033B13 /* ContactCaptureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B964D9C91D7D01C100033B13 /* ContactCaptureViewController.swift */; };
@@ -24,7 +26,6 @@
 		B964D9DC1D7D03A700033B13 /* TextCardView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B964D9DB1D7D03A700033B13 /* TextCardView.xib */; };
 		B964D9DE1D7D03B400033B13 /* ContactCardView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B964D9DD1D7D03B400033B13 /* ContactCardView.xib */; };
 		B964D9E01D7D03BE00033B13 /* AudioCardView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B964D9DF1D7D03BE00033B13 /* AudioCardView.xib */; };
-		B96E245F1D877EF000182DA3 /* Content.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96E245C1D877EF000182DA3 /* Content.swift */; };
 		B96E24611D8787F800182DA3 /* ContentPersistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96E24601D8787F800182DA3 /* ContentPersistence.swift */; };
 		B9A87AB31D6C9C6D00145B93 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A87AB21D6C9C6D00145B93 /* AppDelegate.swift */; };
 		B9A87AB51D6C9C6D00145B93 /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A87AB41D6C9C6D00145B93 /* DashboardViewController.swift */; };
@@ -32,11 +33,9 @@
 		B9A87ABA1D6C9C6D00145B93 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B9A87AB91D6C9C6D00145B93 /* Assets.xcassets */; };
 		B9A87ABD1D6C9C6D00145B93 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B9A87ABB1D6C9C6D00145B93 /* LaunchScreen.storyboard */; };
 		B9A87AC81D6C9C6D00145B93 /* IsaacsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A87AC71D6C9C6D00145B93 /* IsaacsTests.swift */; };
-		B9AD038E1D7E547E00466000 /* CardViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9AD038D1D7E547E00466000 /* CardViewCell.swift */; };
 		B9AD03911D7EF9B400466000 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B9AD03901D7EF9B400466000 /* CoreData.framework */; };
 		B9AD03941D7EF9F700466000 /* Stories.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B9AD03921D7EF9F700466000 /* Stories.xcdatamodeld */; };
 		B9AD03CD1D7F02F400466000 /* StoryPersistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9AD03CC1D7F02F400466000 /* StoryPersistence.swift */; };
-		B9AD04471D7F6EC300466000 /* Story.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9AD04451D7F6EC300466000 /* Story.swift */; };
 		B9AD04491D7F715800466000 /* DataPersistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9AD04481D7F715800466000 /* DataPersistence.swift */; };
 /* End PBXBuildFile section */
 
@@ -54,6 +53,9 @@
 		37895A771D8859FE0094E286 /* ConfigurationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigurationViewController.swift; sourceTree = "<group>"; };
 		378E158A1D882CE400F94008 /* InputViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputViewController.swift; sourceTree = "<group>"; };
 		37FCEE431D7FA55500A74FDC /* TagsRecomendator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagsRecomendator.swift; sourceTree = "<group>"; };
+		B9646F4B1D8A4D66000516D9 /* Isaacs-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Isaacs-Bridging-Header.h"; sourceTree = "<group>"; };
+		B9646F641D8A4DF3000516D9 /* Content.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Content.swift; path = ../Content.swift; sourceTree = "<group>"; };
+		B9646F661D8A4DF3000516D9 /* Story.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Story.swift; path = ../Story.swift; sourceTree = "<group>"; };
 		B964D9C51D7D018900033B13 /* PictureCaptureViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PictureCaptureViewController.swift; sourceTree = "<group>"; };
 		B964D9C71D7D01A700033B13 /* TextCaptureViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextCaptureViewController.swift; sourceTree = "<group>"; };
 		B964D9C91D7D01C100033B13 /* ContactCaptureViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactCaptureViewController.swift; sourceTree = "<group>"; };
@@ -68,7 +70,6 @@
 		B964D9DB1D7D03A700033B13 /* TextCardView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TextCardView.xib; sourceTree = "<group>"; };
 		B964D9DD1D7D03B400033B13 /* ContactCardView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ContactCardView.xib; sourceTree = "<group>"; };
 		B964D9DF1D7D03BE00033B13 /* AudioCardView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AudioCardView.xib; sourceTree = "<group>"; };
-		B96E245C1D877EF000182DA3 /* Content.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Content.swift; sourceTree = "<group>"; };
 		B96E24601D8787F800182DA3 /* ContentPersistence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentPersistence.swift; sourceTree = "<group>"; };
 		B9A87AAF1D6C9C6C00145B93 /* Isaacs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Isaacs.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B9A87AB21D6C9C6D00145B93 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -80,11 +81,9 @@
 		B9A87AC31D6C9C6D00145B93 /* IsaacsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IsaacsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B9A87AC71D6C9C6D00145B93 /* IsaacsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IsaacsTests.swift; sourceTree = "<group>"; };
 		B9A87AC91D6C9C6D00145B93 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B9AD038D1D7E547E00466000 /* CardViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardViewCell.swift; sourceTree = "<group>"; };
 		B9AD03901D7EF9B400466000 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		B9AD03931D7EF9F700466000 /* Stories.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Stories.xcdatamodel; sourceTree = "<group>"; };
 		B9AD03CC1D7F02F400466000 /* StoryPersistence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryPersistence.swift; sourceTree = "<group>"; };
-		B9AD04451D7F6EC300466000 /* Story.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Story.swift; sourceTree = "<group>"; };
 		B9AD04481D7F715800466000 /* DataPersistence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataPersistence.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -107,6 +106,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B9646F321D8A4D04000516D9 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				B9646F641D8A4DF3000516D9 /* Content.swift */,
+				B9646F661D8A4DF3000516D9 /* Story.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
 		B964D9C01D7CFF0E00033B13 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -123,19 +131,9 @@
 			name = Controllers;
 			sourceTree = "<group>";
 		};
-		B964D9C11D7CFF1A00033B13 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				B9AD04451D7F6EC300466000 /* Story.swift */,
-				B96E245C1D877EF000182DA3 /* Content.swift */,
-			);
-			name = Models;
-			sourceTree = "<group>";
-		};
 		B964D9C41D7D005F00033B13 /* Cards */ = {
 			isa = PBXGroup;
 			children = (
-				B9AD038D1D7E547E00466000 /* CardViewCell.swift */,
 				B9AD03D21D7F105600466000 /* AudioCard */,
 				B9AD03D11D7F104F00466000 /* ContactCard */,
 				B9AD03D01D7F104900466000 /* TextCard */,
@@ -151,6 +149,7 @@
 				B9A87AB11D6C9C6C00145B93 /* Isaacs */,
 				B9A87AC61D6C9C6D00145B93 /* IsaacsTests */,
 				B9A87AB01D6C9C6C00145B93 /* Products */,
+				B9646F4B1D8A4D66000516D9 /* Isaacs-Bridging-Header.h */,
 			);
 			sourceTree = "<group>";
 		};
@@ -169,7 +168,7 @@
 				B9AD03921D7EF9F700466000 /* Stories.xcdatamodeld */,
 				B964D9C41D7D005F00033B13 /* Cards */,
 				B9AD038F1D7E60C800466000 /* Logic */,
-				B964D9C11D7CFF1A00033B13 /* Models */,
+				B9646F321D8A4D04000516D9 /* Models */,
 				B964D9C01D7CFF0E00033B13 /* Controllers */,
 				B9A87AB21D6C9C6D00145B93 /* AppDelegate.swift */,
 				B9A87AB61D6C9C6D00145B93 /* Main.storyboard */,
@@ -361,20 +360,19 @@
 			files = (
 				B964D9D21D7D033E00033B13 /* PictureCardCollectionViewCell.swift in Sources */,
 				B964D9D81D7D037500033B13 /* AudioCardCollectionViewCell.swift in Sources */,
-				B96E245F1D877EF000182DA3 /* Content.swift in Sources */,
 				378E158B1D882CE400F94008 /* InputViewController.swift in Sources */,
 				B964D9CA1D7D01C100033B13 /* ContactCaptureViewController.swift in Sources */,
-				B9AD04471D7F6EC300466000 /* Story.swift in Sources */,
 				B9A87AB51D6C9C6D00145B93 /* DashboardViewController.swift in Sources */,
 				B964D9C61D7D018900033B13 /* PictureCaptureViewController.swift in Sources */,
 				B96E24611D8787F800182DA3 /* ContentPersistence.swift in Sources */,
 				B964D9C81D7D01A700033B13 /* TextCaptureViewController.swift in Sources */,
-				B9AD038E1D7E547E00466000 /* CardViewCell.swift in Sources */,
 				B9AD04491D7F715800466000 /* DataPersistence.swift in Sources */,
+				B9646F681D8A4DF3000516D9 /* Content.swift in Sources */,
 				B9AD03CD1D7F02F400466000 /* StoryPersistence.swift in Sources */,
 				37895A781D8859FE0094E286 /* ConfigurationViewController.swift in Sources */,
 				B964D9D61D7D035D00033B13 /* ContactCardCollectionViewCell.swift in Sources */,
 				B964D9CC1D7D02C900033B13 /* AudioCaptureViewController.swift in Sources */,
+				B9646F6A1D8A4DF3000516D9 /* Story.swift in Sources */,
 				B964D9D41D7D035000033B13 /* TextCardCollectionViewCell.swift in Sources */,
 				37FCEE441D7FA55500A74FDC /* TagsRecomendator.swift in Sources */,
 				B964D9D01D7D030800033B13 /* StoryDetailViewController.swift in Sources */,
@@ -511,10 +509,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = Isaacs/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.inspect.Isaacs;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Isaacs-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 2.3;
 			};
 			name = Debug;
@@ -523,10 +524,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = Isaacs/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.inspect.Isaacs;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Isaacs-Bridging-Header.h";
 				SWIFT_VERSION = 2.3;
 			};
 			name = Release;

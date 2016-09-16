@@ -45,13 +45,6 @@ class StoryListViewController: UITableViewController {
         return cell!
     }
     
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        let story : Story = stories[indexPath.row]
-        let content : Content = story.mutableSetValueForKey("contents").allObjects[0] as! Content
-        print(content.data)
-        print ((content.mutableSetValueForKey("stories").allObjects[0] as! Story).title)
-    }
-    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if(segue.identifier == "story_detail"){
             let destination : StoryDetailViewController = segue.destinationViewController as! StoryDetailViewController
@@ -71,8 +64,13 @@ class StoryListViewController: UITableViewController {
             let newStory : Story = self.storyPersistence.createEntity()
             let newContent : Content = self.contentPersistence.createEntity()
             newContent.data = "string de json bien chimbita"
+            newContent.type = Content.types.Text.rawValue
+            let newContent2 : Content = self.contentPersistence.createEntity()
+            newContent2.data = "string de json bien chimbita"
+            newContent2.type = Content.types.Picture.rawValue
             newStory.title = alert.textFields!.first?.text!
             newStory.mutableSetValueForKey("contents").addObject(newContent)
+            newStory.mutableSetValueForKey("contents").addObject(newContent2)
             self.storyPersistence.save()
             self.reloadData()
             }
