@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		374565F01D8CABDC00E725D7 /* PhotoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374565EF1D8CABDC00E725D7 /* PhotoTableViewCell.swift */; };
+		374565F21D8CABF100E725D7 /* TextTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374565F11D8CABF100E725D7 /* TextTableViewCell.swift */; };
+		374565F41D8CAC3300E725D7 /* ContactTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374565F31D8CAC3300E725D7 /* ContactTableViewCell.swift */; };
+		374565F61D8CAC4B00E725D7 /* RecordTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374565F51D8CAC4B00E725D7 /* RecordTableViewCell.swift */; };
+		374565FC1D8CAD7E00E725D7 /* ModuleCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374565FB1D8CAD7E00E725D7 /* ModuleCollectionViewCell.swift */; };
 		37895A781D8859FE0094E286 /* ConfigurationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37895A771D8859FE0094E286 /* ConfigurationViewController.swift */; };
 		378E158B1D882CE400F94008 /* InputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 378E158A1D882CE400F94008 /* InputViewController.swift */; };
 		37FCEE441D7FA55500A74FDC /* TagsRecomendator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37FCEE431D7FA55500A74FDC /* TagsRecomendator.swift */; };
@@ -50,6 +55,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		374565EF1D8CABDC00E725D7 /* PhotoTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoTableViewCell.swift; sourceTree = "<group>"; };
+		374565F11D8CABF100E725D7 /* TextTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextTableViewCell.swift; sourceTree = "<group>"; };
+		374565F31D8CAC3300E725D7 /* ContactTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactTableViewCell.swift; sourceTree = "<group>"; };
+		374565F51D8CAC4B00E725D7 /* RecordTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordTableViewCell.swift; sourceTree = "<group>"; };
+		374565FB1D8CAD7E00E725D7 /* ModuleCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModuleCollectionViewCell.swift; sourceTree = "<group>"; };
 		37895A771D8859FE0094E286 /* ConfigurationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigurationViewController.swift; sourceTree = "<group>"; };
 		378E158A1D882CE400F94008 /* InputViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputViewController.swift; sourceTree = "<group>"; };
 		37FCEE431D7FA55500A74FDC /* TagsRecomendator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagsRecomendator.swift; sourceTree = "<group>"; };
@@ -106,6 +116,29 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		374565F81D8CACD800E725D7 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				B9AD03D21D7F105600466000 /* AudioCard */,
+				B9AD03D11D7F104F00466000 /* ContactCard */,
+				B9AD03D01D7F104900466000 /* TextCard */,
+				B9AD03CF1D7F104300466000 /* PictureCard */,
+			);
+			name = Presentation;
+			sourceTree = "<group>";
+		};
+		374565FA1D8CACFD00E725D7 /* Data Entry */ = {
+			isa = PBXGroup;
+			children = (
+				374565EF1D8CABDC00E725D7 /* PhotoTableViewCell.swift */,
+				374565F11D8CABF100E725D7 /* TextTableViewCell.swift */,
+				374565F31D8CAC3300E725D7 /* ContactTableViewCell.swift */,
+				374565F51D8CAC4B00E725D7 /* RecordTableViewCell.swift */,
+				374565FB1D8CAD7E00E725D7 /* ModuleCollectionViewCell.swift */,
+			);
+			name = "Data Entry";
+			sourceTree = "<group>";
+		};
 		B9646F321D8A4D04000516D9 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -134,10 +167,8 @@
 		B964D9C41D7D005F00033B13 /* Cards */ = {
 			isa = PBXGroup;
 			children = (
-				B9AD03D21D7F105600466000 /* AudioCard */,
-				B9AD03D11D7F104F00466000 /* ContactCard */,
-				B9AD03D01D7F104900466000 /* TextCard */,
-				B9AD03CF1D7F104300466000 /* PictureCard */,
+				374565FA1D8CACFD00E725D7 /* Data Entry */,
+				374565F81D8CACD800E725D7 /* Presentation */,
 			);
 			name = Cards;
 			sourceTree = "<group>";
@@ -366,8 +397,13 @@
 				B964D9C61D7D018900033B13 /* PictureCaptureViewController.swift in Sources */,
 				B96E24611D8787F800182DA3 /* ContentPersistence.swift in Sources */,
 				B964D9C81D7D01A700033B13 /* TextCaptureViewController.swift in Sources */,
+				374565FC1D8CAD7E00E725D7 /* ModuleCollectionViewCell.swift in Sources */,
 				B9AD04491D7F715800466000 /* DataPersistence.swift in Sources */,
+				374565F21D8CABF100E725D7 /* TextTableViewCell.swift in Sources */,
 				B9646F681D8A4DF3000516D9 /* Content.swift in Sources */,
+				374565F01D8CABDC00E725D7 /* PhotoTableViewCell.swift in Sources */,
+				374565F41D8CAC3300E725D7 /* ContactTableViewCell.swift in Sources */,
+				374565F61D8CAC4B00E725D7 /* RecordTableViewCell.swift in Sources */,
 				B9AD03CD1D7F02F400466000 /* StoryPersistence.swift in Sources */,
 				37895A781D8859FE0094E286 /* ConfigurationViewController.swift in Sources */,
 				B964D9D61D7D035D00033B13 /* ContactCardCollectionViewCell.swift in Sources */,

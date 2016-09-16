@@ -81,22 +81,22 @@ class DashboardViewController: UIViewController {
         if (segue.identifier == "textSegue") {
             print("Entra")
             let inputController: InputViewController = segue.destinationViewController as! InputViewController
-            inputController.context = "text"
+            inputController.entryModule = 0
         }
         
         if (segue.identifier == "photoSegue") {
             let inputController: InputViewController = segue.destinationViewController as! InputViewController
-            inputController.context = "photo"
+            inputController.entryModule = 1
         }
         
         if (segue.identifier == "audioSegue") {
             let inputController: InputViewController = segue.destinationViewController as! InputViewController
-            inputController.context = "audio"
+            inputController.entryModule = 2
         }
         
         if (segue.identifier == "contactSegue") {
             let inputController: InputViewController = segue.destinationViewController as! InputViewController
-            inputController.context = "contact"
+            inputController.entryModule = 3
         }
     }
 
