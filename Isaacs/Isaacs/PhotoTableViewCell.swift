@@ -13,6 +13,8 @@ class PhotoTableViewCell: UITableViewCell {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var photoView: UIImageView!
     @IBOutlet weak var notesTextView: UITextView!
+    @IBOutlet weak var containerView: UIView!
     
     var beingEdited = true
+
 }

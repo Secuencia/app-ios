@@ -11,6 +11,7 @@ import UIKit
 class TextTableViewCell: UITableViewCell {
 
     @IBOutlet weak var myText: UITextView!
+    @IBOutlet weak var containerView: UIView!
     
     
     var beingEdited = true{

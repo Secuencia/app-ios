@@ -17,14 +17,6 @@ class DashboardViewController: UIViewController {
     @IBOutlet weak var contactContentButton: UIButton!
     
     
-    override func viewWillAppear(animated: Bool) {
-        self.navigationController?.navigationBarHidden = true
-    }
-    
-    override func viewWillDisappear(animated: Bool) {
-        self.navigationController?.navigationBarHidden = false
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -34,6 +26,8 @@ class DashboardViewController: UIViewController {
         //textContentButton.layer.borderWidth = 2
         //textContentButton.layer.borderColor = UIColor.darkGrayColor().CGColor
         textContentButton.layer.shadowRadius = 3
+        textContentButton.layer.borderWidth = 1
+        textContentButton.layer.borderColor = UIColor.lightGrayColor().CGColor
         textContentButton.layer.shadowOffset = CGSize(width: 3, height: 3)
         textContentButton.layer.shadowColor = UIColor.lightGrayColor().CGColor
         
@@ -43,6 +37,9 @@ class DashboardViewController: UIViewController {
         visualMediaContentButton.layer.cornerRadius = 20
         visualMediaContentButton.layer.borderWidth = 0
         visualMediaContentButton.layer.borderColor = UIColor.clearColor().CGColor
+        visualMediaContentButton.setImage(UIImage(named: "Camera"), forState: .Normal)
+        visualMediaContentButton.tintColor = UIColor.whiteColor()
+        visualMediaContentButton.imageEdgeInsets = UIEdgeInsets(top: 7, left: 7, bottom: 7, right: 7)
         
         
         // Audio button styling
@@ -50,12 +47,18 @@ class DashboardViewController: UIViewController {
         audioContentButton.layer.cornerRadius = 20
         audioContentButton.layer.borderWidth = 0
         audioContentButton.layer.borderColor = UIColor.clearColor().CGColor
+        audioContentButton.setImage(UIImage(named: "Record"), forState: .Normal)
+        audioContentButton.tintColor = UIColor.whiteColor()
+        audioContentButton.imageEdgeInsets = UIEdgeInsets(top: 7, left: 7, bottom: 7, right: 7)
         
         // Contact button styling
         contactContentButton.backgroundColor = UIColor.magentaColor()
         contactContentButton.layer.cornerRadius = 20
         contactContentButton.layer.borderWidth = 0
         contactContentButton.layer.borderColor = UIColor.clearColor().CGColor
+        contactContentButton.setImage(UIImage(named: "Contact"), forState: .Normal)
+        contactContentButton.tintColor = UIColor.whiteColor()
+        contactContentButton.imageEdgeInsets = UIEdgeInsets(top: 7, left: 7, bottom: 7, right: 7)
         
         
         // Do any additional setup after loading the view, typically from a nib.
@@ -79,7 +82,6 @@ class DashboardViewController: UIViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
         if (segue.identifier == "textSegue") {
-            print("Entra")
             let inputController: InputViewController = segue.destinationViewController as! InputViewController
             inputController.entryModule = 0
         }
@@ -100,7 +102,6 @@ class DashboardViewController: UIViewController {
         }
     }
 
-    
     
 }
 

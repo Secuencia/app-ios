@@ -11,6 +11,7 @@ import CoreData
 
 @objc(Content)
 public class Content: NSManagedObject {
+    
     enum types:String{
         case Audio = "Audio"
         case Contact = "Contact"

@@ -12,7 +12,9 @@ class ContactTableViewCell: UITableViewCell {
 
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var additionalInfoText: UITextView!
+    @IBOutlet weak var profilePicture: UIImageView!
     @IBOutlet weak var pictureButton: UIButton!
+    @IBOutlet weak var containerView: UIView!
     
     var beingEdited = true{
         didSet{
