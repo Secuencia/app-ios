@@ -110,7 +110,7 @@ class InputViewController: UIViewController, UINavigationControllerDelegate, UII
         switch modulesTypes[indexPath.section] {
         case Modules.Text.rawValue: return createTextCell(indexPath)
         case Modules.Photo.rawValue: return createPhotoCell(indexPath)
-        case Modules.Audio.rawValue: return createContactCell(indexPath)
+        case Modules.Audio.rawValue: return createAudioCell(indexPath)
         case Modules.Contact.rawValue: return createContactCell(indexPath)
         default: return createTextCell(indexPath)
         }
@@ -243,13 +243,22 @@ class InputViewController: UIViewController, UINavigationControllerDelegate, UII
         
     }
     
+    func createAudioCell(indexPath: NSIndexPath) -> AudioTableViewCell {
+        let audioCell = tableView.dequeueReusableCellWithIdentifier("audio_cell", forIndexPath: indexPath) as! AudioTableViewCell
+        
+        // Style
+        audioCell.containerView.layer.borderWidth = 2.0
+        audioCell.containerView.layer.borderColor = UIColor.darkGrayColor().CGColor
+        audioCell.containerView.layer.cornerRadius = 10.0
+        audioCell.backgroundColor = UIColor.clearColor()
+        // Style
+
+        return audioCell
+    }
+    
     func addContactImage(sender: UIButton!) {
         globalImageStatus = "contact"
         contactIndexPath = NSIndexPath(forRow: sender.tag, inSection: 0)
-    }
-    
-    func styleAudioCell() {
-        print("Not implemented yet")
     }
     
     
@@ -372,6 +381,8 @@ class InputViewController: UIViewController, UINavigationControllerDelegate, UII
     
     func insertAudio() {
         print("Audio: To Be implemented")
+        modulesTypes.append(Modules.Audio.rawValue)
+        tableView.reloadData()
     }
     
     func insertContact() {
