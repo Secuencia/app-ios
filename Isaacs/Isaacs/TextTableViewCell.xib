@@ -40,7 +40,7 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
-                <outlet property="containerView" destination="H2p-sc-9uM" id="0T5-an-UrW"/>
+                <outlet property="containerView" destination="oKY-Te-Qll" id="5Hn-1u-OFh"/>
                 <outlet property="myText" destination="GwU-lU-cyE" id="2VE-Xp-NEH"/>
             </connections>
             <point key="canvasLocation" x="-8.5" y="112"/>

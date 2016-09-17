@@ -67,7 +67,7 @@ class InputViewController: UIViewController, UINavigationControllerDelegate, UII
     
     var contents = [Content]()
     
-    
+    var images = [UIImage]()
     
     var historias = ["Pepita", "Sutana", "Menguana"]
     
@@ -166,9 +166,6 @@ class InputViewController: UIViewController, UINavigationControllerDelegate, UII
         
         let textCell = tableView.dequeueReusableCellWithIdentifier("text_cell", forIndexPath: indexPath) as! TextTableViewCell
         
-        
-        //textCell.myText.text = modules[indexPath.section] as! String
-        
         // Style
         textCell.containerView.layer.borderWidth = 2.0
         textCell.containerView.layer.borderColor = UIColor.darkGrayColor().CGColor
@@ -184,23 +181,12 @@ class InputViewController: UIViewController, UINavigationControllerDelegate, UII
             if textCell.myText.isFirstResponder() {textCell.myText.resignFirstResponder()}
         }
         
-        /*if !moduleStates[indexPath.section] {
-            textCell.beingEdited = false
-            textCell.userInteractionEnabled = false
-            if textCell.myText.isFirstResponder() {textCell.myText.resignFirstResponder()}
-        }else{
-            textCell.myText.becomeFirstResponder()
-        }*/
-        
         return textCell
     }
     
     func createPhotoCell(indexPath: NSIndexPath) -> PhotoTableViewCell {
         
         let photoCell = tableView.dequeueReusableCellWithIdentifier("photo_cell", forIndexPath: indexPath) as! PhotoTableViewCell
-        photoCell.photoView.image = (modules[indexPath.section] as! [AnyObject])[1] as? UIImage
-        photoCell.titleLabel.text = (modules[indexPath.section] as! [AnyObject])[0] as? String
-        photoCell.notesTextView.text = (modules[indexPath.section] as! [AnyObject])[2] as? String
         
         // Style
         photoCell.containerView.layer.borderWidth = 2.0
@@ -209,7 +195,15 @@ class InputViewController: UIViewController, UINavigationControllerDelegate, UII
         photoCell.backgroundColor = UIColor.clearColor()
         // Style
         
-        if !moduleStates[indexPath.section] {photoCell.beingEdited = false}
+        photoCell.imageView?.image = images[0]
+        
+        if indexPath.section == editedContentIndex && editing {
+            photoCell.notesTextView.becomeFirstResponder()
+        }else{
+            photoCell.beingEdited = false
+            photoCell.userInteractionEnabled = false
+            if photoCell.notesTextView.isFirstResponder() {photoCell.notesTextView.resignFirstResponder()}
+        }
         
         return photoCell
         
@@ -340,6 +334,14 @@ class InputViewController: UIViewController, UINavigationControllerDelegate, UII
     
     func insertPicture(media: String) {
         
+        let newContent = ContentPersistence().createEntity(); newContent.type = Content.types.Picture.rawValue
+        
+        contents.append(newContent)
+        editing = true
+        editedContentIndex = contents.count - 1
+        modulesTypes.append(Modules.Photo.rawValue)
+
+        
         picker = UIImagePickerController()
         picker.delegate = self
         
@@ -351,18 +353,36 @@ class InputViewController: UIViewController, UINavigationControllerDelegate, UII
         
         globalImageStatus = "photo"
         
+        //tableView.reloadData()
+        
         presentViewController(picker, animated: true, completion: nil)
     }
     
     
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
         
+        print(info)
         
         if globalImageStatus == "photo" {
             if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
-                modulesTypes.append(Modules.Photo.rawValue)
-                moduleStates.append(false)
-                modules.append(["Random image 1",image,"Descripcion"])
+                
+                print("NUMBER OF SECTIONS", tableView.numberOfSections)
+                print("New content index: ", editedContentIndex)
+                
+                images.append(image)
+                
+                /*let dict = [
+                "title":"Titulo por defecto",
+                "imagen":image,
+                "notes":""
+                ]
+                
+                //contents[editedContentIndex!].data = JsonConverter.dictToJson(dict)*/
+                
+                print(image)
+                
+                //moduleStates.append(false)
+                //modules.append(["Random image 1",image,"Descripcion"])
             }else{
                 print("Something went wrong")
             }
@@ -378,8 +398,8 @@ class InputViewController: UIViewController, UINavigationControllerDelegate, UII
             contactIndexPath = nil
         }
         
-        picker.dismissViewControllerAnimated(true, completion: nil)
         tableView.reloadData()
+        picker.dismissViewControllerAnimated(true, completion: nil)
         
     }
     
@@ -406,7 +426,7 @@ class InputViewController: UIViewController, UINavigationControllerDelegate, UII
         if let index = editedContentIndex {
             var json: String?
             switch contents[index].type! {
-                case Content.types.Text.rawValue: json = "{'title':'titulo','body' : '"+((tableView.cellForRowAtIndexPath(NSIndexPath(forRow: 0, inSection: editedContentIndex!)) as? TextTableViewCell)?.myText.text)!+"','otra propiedad' : 'nueva propiedad'}"
+                case Content.types.Text.rawValue: json = createDict(((tableView.cellForRowAtIndexPath(NSIndexPath(forRow: 0, inSection: editedContentIndex!)) as? TextTableViewCell)?.myText.text)!)
                 case Content.types.Picture.rawValue: json = ""
                 case Content.types.Audio.rawValue: json = ""
                 case Content.types.Contact.rawValue: json = ""
@@ -417,14 +437,12 @@ class InputViewController: UIViewController, UINavigationControllerDelegate, UII
             persistenceContext.save()
         }
         
-        /*for (index, value) in moduleStates.enumerate() {
-            if value {
-                if modulesTypes[index] == Modules.Text.rawValue {
-                    let textCell = tableView.cellForRowAtIndexPath(NSIndexPath(forItem: 0, inSection: index)) as! TextTableViewCell
-                    modules[index] = textCell.myText.text
-                }
-            }
-        }*/
+    }
+    
+    func createDict(bodyText: String) -> String {
+        let dict: [String: String] = ["title":"titulo por defecto", "body":bodyText,"otra propiedad":"nueva propiedad"]
+        let json: String = JsonConverter.dictToJson(dict)
+        return json
     }
     
     // MARK: End of session actions
