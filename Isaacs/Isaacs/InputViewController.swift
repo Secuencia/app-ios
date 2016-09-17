@@ -379,7 +379,6 @@ class InputViewController: UIViewController, UINavigationControllerDelegate, UII
     }
     
     func insertContact() {
-        print("ENTRE A INSERT CONTACT")
         modulesTypes.append(Modules.Contact.rawValue)
         moduleStates.append(true)
         modules.append(["","",""])
@@ -393,17 +392,16 @@ class InputViewController: UIViewController, UINavigationControllerDelegate, UII
     
     func saveCurrentlyEditingContent() {
         
-        print("ENTRE AL SAVE")
         if let index = editedContentIndex {
-        print("ENTRE AL SAVE MAS ADENTRO")
             var json: String?
-            switch contents[index] {
+            switch contents[index].type! {
                 case Content.types.Text.rawValue: json = "{'title':'titulo','body' : '"+((tableView.cellForRowAtIndexPath(NSIndexPath(forRow: 0, inSection: editedContentIndex!)) as? TextTableViewCell)?.myText.text)!+"','otra propiedad' : 'nueva propiedad'}"
                 case Content.types.Picture.rawValue: json = ""
                 case Content.types.Audio.rawValue: json = ""
                 case Content.types.Contact.rawValue: json = ""
                 default: json = nil
             }
+            print("ESTE ES EL JSON: ",json)
             contents[index].data = json
             persistenceContext.save()
         }
@@ -424,7 +422,7 @@ class InputViewController: UIViewController, UINavigationControllerDelegate, UII
     @IBAction func saveSession(sender: UIBarButtonItem) {
         print("This is the data of the session")
         print(modulesTypes)
-        print(modules)
+        print(contents)
         
         self.dismissViewControllerAnimated(true, completion: nil)
     }
