@@ -84,7 +84,16 @@ class ContentListViewController: UIViewController, UICollectionViewDelegate,UICo
     
     func createTextCell(indexPath: NSIndexPath) -> TextCardCollectionViewCell {
         let textCell = collectionView.dequeueReusableCellWithReuseIdentifier("text_card", forIndexPath: indexPath) as! TextCardCollectionViewCell
-        textCell.textLabel.text = contents[indexPath.row].data
+        var jsonData = contents[indexPath.row].data!
+        var text: String = ""
+        do {
+            let json = try NSJSONSerialization.JSONObjectWithData(jsonData.dataUsingEncoding(NSUTF8StringEncoding)!, options: .AllowFragments)
+            if let text = json["json"] as? String {
+                textCell.textLabel.text = text
+            }
+        }catch{
+            print("Error info: \(error)")
+        }
         return textCell
     }
     

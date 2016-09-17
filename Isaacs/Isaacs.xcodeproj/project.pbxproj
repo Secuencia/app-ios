@@ -39,6 +39,7 @@
 		B9A24C441D8CE10C0007F3DD /* ContentListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A24C431D8CE10C0007F3DD /* ContentListViewController.swift */; };
 		B9A24C4C1D8D132C0007F3DD /* TitleCardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A24C4A1D8D132C0007F3DD /* TitleCardCollectionViewCell.swift */; };
 		B9A24C4D1D8D132C0007F3DD /* TitleCardView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9A24C4B1D8D132C0007F3DD /* TitleCardView.xib */; };
+		B9A24C501D8D2C2B0007F3DD /* JsonConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A24C4F1D8D2C2B0007F3DD /* JsonConverter.swift */; };
 		B9A87AB31D6C9C6D00145B93 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A87AB21D6C9C6D00145B93 /* AppDelegate.swift */; };
 		B9A87AB51D6C9C6D00145B93 /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A87AB41D6C9C6D00145B93 /* DashboardViewController.swift */; };
 		B9A87AB81D6C9C6D00145B93 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B9A87AB61D6C9C6D00145B93 /* Main.storyboard */; };
@@ -95,6 +96,7 @@
 		B9A24C431D8CE10C0007F3DD /* ContentListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentListViewController.swift; sourceTree = "<group>"; };
 		B9A24C4A1D8D132C0007F3DD /* TitleCardCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitleCardCollectionViewCell.swift; sourceTree = "<group>"; };
 		B9A24C4B1D8D132C0007F3DD /* TitleCardView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TitleCardView.xib; sourceTree = "<group>"; };
+		B9A24C4F1D8D2C2B0007F3DD /* JsonConverter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JsonConverter.swift; sourceTree = "<group>"; };
 		B9A87AAF1D6C9C6C00145B93 /* Isaacs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Isaacs.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B9A87AB21D6C9C6D00145B93 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B9A87AB41D6C9C6D00145B93 /* DashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
@@ -303,6 +305,7 @@
 			isa = PBXGroup;
 			children = (
 				37FCEE431D7FA55500A74FDC /* TagsRecomendator.swift */,
+				B9A24C4F1D8D2C2B0007F3DD /* JsonConverter.swift */,
 			);
 			name = "Add-ins";
 			sourceTree = "<group>";
@@ -471,6 +474,7 @@
 				B9AD04491D7F715800466000 /* DataPersistence.swift in Sources */,
 				B9A24C441D8CE10C0007F3DD /* ContentListViewController.swift in Sources */,
 				B9646F681D8A4DF3000516D9 /* Content.swift in Sources */,
+				B9A24C501D8D2C2B0007F3DD /* JsonConverter.swift in Sources */,
 				B9AD03CD1D7F02F400466000 /* StoryPersistence.swift in Sources */,
 				37895A781D8859FE0094E286 /* ConfigurationViewController.swift in Sources */,
 				B9A24C4C1D8D132C0007F3DD /* TitleCardCollectionViewCell.swift in Sources */,
