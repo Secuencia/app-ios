@@ -345,6 +345,8 @@ class InputViewController: UIViewController, UINavigationControllerDelegate, UII
         presentViewController(picker, animated: true, completion: nil)
     }
     
+
+
     
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
         
@@ -359,6 +361,16 @@ class InputViewController: UIViewController, UINavigationControllerDelegate, UII
                 images.append(image)
                 
                 print(image)
+                
+                print("GENERATING ROUTE")
+                let imageData = NSData(data:UIImagePNGRepresentation(image)!)
+                let paths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)
+                var url = NSURL(fileURLWithPath: paths[0])
+                //var docs = paths[0] as! NSURL
+                let fullPath = url.URLByAppendingPathComponent("image.png")//stringByAppendingPathComponent("name.png")
+                let result = imageData.writeToFile(fullPath!.absoluteString!,atomically: true)
+                print(result)
+                print("END OF PERSISTENCE")
 
             }else{
                 print("Something went wrong")
