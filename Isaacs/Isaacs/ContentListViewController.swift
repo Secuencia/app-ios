@@ -27,12 +27,12 @@ class ContentListViewController: UIViewController, UICollectionViewDelegate,UICo
         super.viewDidLoad()
         collectionView.delegate = self
         collectionView.dataSource = self
+        
         sizes[Content.types.Audio.rawValue] = (factors.Full.rawValue, factors.Half.rawValue)
         sizes[Content.types.Contact.rawValue] = (factors.Half.rawValue, factors.Double.rawValue)
-        
         sizes[Content.types.Picture.rawValue] = (factors.Half.rawValue, factors.Double.rawValue)
-        
         sizes[Content.types.Text.rawValue] = (factors.Full.rawValue, factors.Double.rawValue)
+        
         self.collectionView!.registerNib(UINib(nibName: "PictureCardView", bundle: nil), forCellWithReuseIdentifier: "picture_card")
         self.collectionView!.registerNib(UINib(nibName: "TextCardView", bundle: nil), forCellWithReuseIdentifier: "text_card")
         self.collectionView!.registerNib(UINib(nibName: "AudioCardView", bundle: nil), forCellWithReuseIdentifier: "audio_card")
@@ -76,10 +76,16 @@ class ContentListViewController: UIViewController, UICollectionViewDelegate,UICo
         case Content.types.Contact.rawValue:
             cell = collectionView.dequeueReusableCellWithReuseIdentifier("contact_card", forIndexPath: indexPath) as! ContactCardCollectionViewCell
         default:
-            cell = collectionView.dequeueReusableCellWithReuseIdentifier("text_card", forIndexPath: indexPath) as! TextCardCollectionViewCell
+            cell = createTextCell(indexPath)
         }
         
         return cell
+    }
+    
+    func createTextCell(indexPath: NSIndexPath) -> TextCardCollectionViewCell {
+        let textCell = collectionView.dequeueReusableCellWithReuseIdentifier("text_card", forIndexPath: indexPath) as! TextCardCollectionViewCell
+        textCell.textLabel.text = contents[indexPath.row].data
+        return textCell
     }
     
     //Tamaño de celdas

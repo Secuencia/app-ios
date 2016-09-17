@@ -37,6 +37,8 @@ class InputViewController: UIViewController, UINavigationControllerDelegate, UII
     
     var editedContentIndex: Int?
     
+    let persistenceContext = ContentPersistence()
+    
     
     // MARK: Properties - Logic
     
@@ -303,10 +305,11 @@ class InputViewController: UIViewController, UINavigationControllerDelegate, UII
     
     func manageAction(action: Int) {
         
+        saveCurrentlyEditingContent()
+        
         editing = false
         editedContentIndex = nil
         
-        saveCurrentlyEditingContent()
         
         //moduleStates = moduleStates.map {bool in return false}
         
@@ -323,10 +326,11 @@ class InputViewController: UIViewController, UINavigationControllerDelegate, UII
     
     func insertText() {
         
-        editing = true
-        editedContentIndex = tableView.numberOfSections - 1
         let newContent = ContentPersistence().createEntity(); newContent.type = Content.types.Text.rawValue
         contents.append(newContent)
+        editing = true
+        editedContentIndex = contents.count - 1
+        print("New content index: ", editedContentIndex)
         
         modulesTypes.append(Modules.Text.rawValue)
         //moduleStates.append(true)
@@ -386,7 +390,6 @@ class InputViewController: UIViewController, UINavigationControllerDelegate, UII
     }
     
     func insertContact() {
-        print("ENTRE A INSERT CONTACT")
         modulesTypes.append(Modules.Contact.rawValue)
         moduleStates.append(true)
         modules.append(["","",""])
@@ -402,15 +405,16 @@ class InputViewController: UIViewController, UINavigationControllerDelegate, UII
         
         if let index = editedContentIndex {
             var json: String?
-            switch contents[index] {
+            switch contents[index].type! {
                 case Content.types.Text.rawValue: json = "{'title':'titulo','body' : '"+((tableView.cellForRowAtIndexPath(NSIndexPath(forRow: 0, inSection: editedContentIndex!)) as? TextTableViewCell)?.myText.text)!+"','otra propiedad' : 'nueva propiedad'}"
                 case Content.types.Picture.rawValue: json = ""
                 case Content.types.Audio.rawValue: json = ""
                 case Content.types.Contact.rawValue: json = ""
                 default: json = nil
             }
+            print("ESTE ES EL JSON: ",json)
             contents[index].data = json
-            ContentPersistence().save()
+            persistenceContext.save()
         }
         
         /*for (index, value) in moduleStates.enumerate() {
@@ -429,7 +433,7 @@ class InputViewController: UIViewController, UINavigationControllerDelegate, UII
     @IBAction func saveSession(sender: UIBarButtonItem) {
         print("This is the data of the session")
         print(modulesTypes)
-        print(modules)
+        print(contents)
         
         self.dismissViewControllerAnimated(true, completion: nil)
     }

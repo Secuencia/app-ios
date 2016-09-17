@@ -15,7 +15,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="268" height="98"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Prueba de Texto" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vxw-bi-Voa">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Prueba de Texto" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vxw-bi-Voa">
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
@@ -24,10 +24,15 @@
             </view>
             <color key="backgroundColor" red="1" green="0.96796890540000002" blue="0.30751505530000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="vxw-bi-Voa" firstAttribute="centerY" secondItem="hK0-G0-Xuk" secondAttribute="centerY" id="Q2Y-Rc-aAD"/>
-                <constraint firstItem="vxw-bi-Voa" firstAttribute="centerX" secondItem="hK0-G0-Xuk" secondAttribute="centerX" id="aM6-iP-v65"/>
+                <constraint firstItem="vxw-bi-Voa" firstAttribute="top" secondItem="hK0-G0-Xuk" secondAttribute="top" constant="10" id="a62-67-eLB"/>
+                <constraint firstAttribute="bottom" secondItem="vxw-bi-Voa" secondAttribute="bottom" constant="10" id="ace-PJ-aKa"/>
+                <constraint firstItem="vxw-bi-Voa" firstAttribute="leading" secondItem="hK0-G0-Xuk" secondAttribute="leading" constant="10" id="icU-gv-Waz"/>
+                <constraint firstAttribute="trailing" secondItem="vxw-bi-Voa" secondAttribute="trailing" constant="10" id="xgP-D7-Bft"/>
             </constraints>
             <size key="customSize" width="268" height="98"/>
+            <connections>
+                <outlet property="textLabel" destination="vxw-bi-Voa" id="5cs-zW-Ihr"/>
+            </connections>
             <point key="canvasLocation" x="357" y="505"/>
         </collectionViewCell>
     </objects>
