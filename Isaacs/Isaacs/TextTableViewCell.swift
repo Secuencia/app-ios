@@ -12,6 +12,7 @@ class TextTableViewCell: UITableViewCell {
 
     @IBOutlet weak var myText: UITextView!
     @IBOutlet weak var containerView: UIView!
+    @IBOutlet weak var stories: UITextField!
     
     
     var beingEdited = true{

@@ -37,6 +37,8 @@ class InputViewController: UIViewController, UINavigationControllerDelegate, UII
     
     var editedContentIndex: Int?
     
+    var lastlyEditedContent: Int?
+    
     let persistenceContext = ContentPersistence()
     
     
@@ -59,11 +61,6 @@ class InputViewController: UIViewController, UINavigationControllerDelegate, UII
     }
     
     var modulesTypes = [Int]()
-    
-    var modules = [AnyObject]()
-    
-    
-    var moduleStates = [Bool]()
     
     var contents = [Content]()
     
@@ -129,9 +126,9 @@ class InputViewController: UIViewController, UINavigationControllerDelegate, UII
     
     func tableView(tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         switch modulesTypes[indexPath.section] {
-        case Modules.Text.rawValue: return 80.0
+        case Modules.Text.rawValue: return 120.0
         case Modules.Photo.rawValue: return 160.0
-        case Modules.Audio.rawValue: return 80.0
+        case Modules.Audio.rawValue: return 120.0
         case Modules.Contact.rawValue: return 160.0
         default: return 80.0
         }
@@ -139,9 +136,9 @@ class InputViewController: UIViewController, UINavigationControllerDelegate, UII
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         switch modulesTypes[indexPath.section] {
-        case Modules.Text.rawValue: return 80.0
+        case Modules.Text.rawValue: return 120.0
         case Modules.Photo.rawValue: return 160.0
-        case Modules.Audio.rawValue: return 80.0
+        case Modules.Audio.rawValue: return 120.0
         case Modules.Contact.rawValue: return 160.0
         default: return 80.0
         }
@@ -175,7 +172,7 @@ class InputViewController: UIViewController, UINavigationControllerDelegate, UII
         
         if indexPath.section == editedContentIndex && editing {
             textCell.myText.becomeFirstResponder()
-        }else{
+        }else if lastlyEditedContent == indexPath.section{
             textCell.beingEdited = false
             textCell.userInteractionEnabled = false
             if textCell.myText.isFirstResponder() {textCell.myText.resignFirstResponder()}
@@ -183,6 +180,7 @@ class InputViewController: UIViewController, UINavigationControllerDelegate, UII
         
         return textCell
     }
+    
     
     func createPhotoCell(indexPath: NSIndexPath) -> PhotoTableViewCell {
         
@@ -195,7 +193,7 @@ class InputViewController: UIViewController, UINavigationControllerDelegate, UII
         photoCell.backgroundColor = UIColor.clearColor()
         // Style
         
-        photoCell.imageView?.image = images[0]
+        photoCell.photoView.image = images[0]
         
         if indexPath.section == editedContentIndex && editing {
             photoCell.notesTextView.becomeFirstResponder()
@@ -209,20 +207,10 @@ class InputViewController: UIViewController, UINavigationControllerDelegate, UII
         
     }
     
+    
     func createContactCell(indexPath: NSIndexPath) -> ContactTableViewCell {
         
-        print("ENTRE A CREATE CONTACT CELL")
-        
         let contactCell = tableView.dequeueReusableCellWithIdentifier("contact_cell", forIndexPath: indexPath) as! ContactTableViewCell
-        
-        contactCell.nameTextField.text = (modules[indexPath.section] as! [AnyObject])[0] as? String
-        if let pPicture = (modules[indexPath.section] as! [AnyObject])[1] as? UIImage {
-            contactCell.profilePicture.image = pPicture
-        }
-        contactCell.additionalInfoText.text = (modules[indexPath.section] as! [AnyObject])[2] as? String
-        
-        contactCell.pictureButton.tag = indexPath.section
-        contactCell.pictureButton.addTarget(self, action: #selector(addContactImage), forControlEvents: .TouchUpInside)
         
         // Style
         contactCell.containerView.layer.borderWidth = 2.0
@@ -232,19 +220,28 @@ class InputViewController: UIViewController, UINavigationControllerDelegate, UII
         contactCell.additionalInfoText.layer.borderColor = UIColor.lightGrayColor().CGColor
         // Style
         
+        contactCell.pictureButton.tag = indexPath.section
+        contactCell.pictureButton.addTarget(self, action: #selector(addContactImage), forControlEvents: .TouchUpInside)
         
-        if !moduleStates[indexPath.section] {contactCell.beingEdited = false}
+        if indexPath.section == editedContentIndex && editing {
+            contactCell.nameTextField.becomeFirstResponder()
+        }else if lastlyEditedContent == indexPath.section {
+            contactCell.beingEdited = false
+            contactCell.userInteractionEnabled = false
+            if contactCell.nameTextField.isFirstResponder() {contactCell.nameTextField.resignFirstResponder()}
+        }
         
         return contactCell
         
     }
+    
     
     func createAudioCell(indexPath: NSIndexPath) -> AudioTableViewCell {
         let audioCell = tableView.dequeueReusableCellWithIdentifier("audio_cell", forIndexPath: indexPath) as! AudioTableViewCell
         
         // Style
         audioCell.containerView.layer.borderWidth = 2.0
-        audioCell.containerView.layer.borderColor = UIColor.darkGrayColor().CGColor
+        audioCell.containerView.layer.borderColor = UIColor.orangeColor().CGColor
         audioCell.containerView.layer.cornerRadius = 10.0
         audioCell.backgroundColor = UIColor.clearColor()
         // Style
@@ -282,8 +279,6 @@ class InputViewController: UIViewController, UINavigationControllerDelegate, UII
         
     }
     
-    
-    
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return availableModules.count
     }
@@ -301,19 +296,13 @@ class InputViewController: UIViewController, UINavigationControllerDelegate, UII
         
         saveCurrentlyEditingContent()
         
-        editing = false
-        editedContentIndex = nil
-        
-        
-        //moduleStates = moduleStates.map {bool in return false}
-        
         switch action {
         case SelectedBarButtonTag.Text.rawValue: insertText()
         case SelectedBarButtonTag.Camera.rawValue: insertPicture("camera")
         case SelectedBarButtonTag.Gallery.rawValue: insertPicture("gallery")
         case SelectedBarButtonTag.Audio.rawValue: insertAudio()
         case SelectedBarButtonTag.Contact.rawValue: insertContact()
-        default: print("No button")
+        default: saveCurrentlyEditingContent()
         }
         
     }
@@ -327,8 +316,6 @@ class InputViewController: UIViewController, UINavigationControllerDelegate, UII
         print("New content index: ", editedContentIndex)
         
         modulesTypes.append(Modules.Text.rawValue)
-        //moduleStates.append(true)
-        //modules.append("")
         tableView.reloadData()
     }
     
@@ -353,7 +340,6 @@ class InputViewController: UIViewController, UINavigationControllerDelegate, UII
         
         globalImageStatus = "photo"
         
-        //tableView.reloadData()
         
         presentViewController(picker, animated: true, completion: nil)
     }
@@ -371,29 +357,14 @@ class InputViewController: UIViewController, UINavigationControllerDelegate, UII
                 
                 images.append(image)
                 
-                /*let dict = [
-                "title":"Titulo por defecto",
-                "imagen":image,
-                "notes":""
-                ]
-                
-                //contents[editedContentIndex!].data = JsonConverter.dictToJson(dict)*/
-                
                 print(image)
-                
-                //moduleStates.append(false)
-                //modules.append(["Random image 1",image,"Descripcion"])
+
             }else{
                 print("Something went wrong")
             }
             globalImageStatus = nil
         } else {
-            /*if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
-             //(modules[contactIndexPath!.row] as! [AnyObject])[1] = image
-             print("Could not save the image")
-             }else{
-             print("Something went wrong")
-             }*/
+
             globalImageStatus = nil
             contactIndexPath = nil
         }
@@ -410,9 +381,14 @@ class InputViewController: UIViewController, UINavigationControllerDelegate, UII
     }
     
     func insertContact() {
+        
+        let newContent = ContentPersistence().createEntity(); newContent.type = Content.types.Contact.rawValue
+        contents.append(newContent)
+        editing = true
+        editedContentIndex = contents.count - 1
+        print("New content index: ", editedContentIndex)
+        
         modulesTypes.append(Modules.Contact.rawValue)
-        moduleStates.append(true)
-        modules.append(["","",""])
         tableView.reloadData()
         
     }
@@ -427,14 +403,18 @@ class InputViewController: UIViewController, UINavigationControllerDelegate, UII
             var json: String?
             switch contents[index].type! {
                 case Content.types.Text.rawValue: json = createDict(((tableView.cellForRowAtIndexPath(NSIndexPath(forRow: 0, inSection: editedContentIndex!)) as? TextTableViewCell)?.myText.text)!)
-                case Content.types.Picture.rawValue: json = ""
+                case Content.types.Picture.rawValue: json = createDict(((tableView.cellForRowAtIndexPath(NSIndexPath(forRow: 0, inSection: editedContentIndex!)) as? PhotoTableViewCell)!.notesTextView.text)!)
                 case Content.types.Audio.rawValue: json = ""
-                case Content.types.Contact.rawValue: json = ""
+                case Content.types.Contact.rawValue: json = createDict(((tableView.cellForRowAtIndexPath(NSIndexPath(forRow: 0, inSection: editedContentIndex!)) as? ContactTableViewCell)?.nameTextField.text)!)
                 default: json = nil
             }
             print("ESTE ES EL JSON: ",json)
             contents[index].data = json
             persistenceContext.save()
+            
+            editing = false
+            lastlyEditedContent = editedContentIndex
+            editedContentIndex = nil
         }
         
     }
@@ -472,11 +452,9 @@ class InputViewController: UIViewController, UINavigationControllerDelegate, UII
         self.view.addGestureRecognizer(tap)
     }
     
-    
     func hideKeyboard() {
         self.view.endEditing(true)
     }
-    
     
     func keyboardWillShow(notification: NSNotification) {
         
@@ -489,7 +467,6 @@ class InputViewController: UIViewController, UINavigationControllerDelegate, UII
         }
         
     }
-    
     
     func keyboardWillHide(notification: NSNotification) {
         

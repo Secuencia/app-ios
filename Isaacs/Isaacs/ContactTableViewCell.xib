@@ -13,7 +13,7 @@
             <rect key="frame" x="0.0" y="0.0" width="490" height="206"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <frame key="frameInset" width="490" height="206"/>
+                <frame key="frameInset" width="490" height="205"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Es0-R0-eAg">
@@ -72,6 +72,13 @@
                     <constraint firstItem="Es0-R0-eAg" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="4" id="rFi-js-pkS"/>
                 </constraints>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="additionalInfoText" destination="aj7-tv-OiO" id="N0b-mw-G1T"/>
+                <outlet property="containerView" destination="Es0-R0-eAg" id="i1I-Aj-ne9"/>
+                <outlet property="nameTextField" destination="LZ7-7y-Xt8" id="r6e-lU-Mjd"/>
+                <outlet property="pictureButton" destination="uPq-aw-jZg" id="2Sm-LH-KjR"/>
+                <outlet property="profilePicture" destination="3Cg-Lg-biG" id="20J-mH-hOz"/>
+            </connections>
             <point key="canvasLocation" x="119" y="43"/>
         </tableViewCell>
     </objects>

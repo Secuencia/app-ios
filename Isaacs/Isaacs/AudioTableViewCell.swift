@@ -15,6 +15,9 @@ class AudioTableViewCell: UITableViewCell, AVAudioRecorderDelegate , AVAudioPlay
     @IBOutlet weak var containerView: UIView!
     
     @IBOutlet weak var btnRecord: UIButton!
+    @IBOutlet weak var stories: UITextField!
+    
+    
     var audioRecorder:AVAudioRecorder!
     var audioPlayer : AVAudioPlayer!
     let isRecorderAudioFile = false
@@ -44,7 +47,7 @@ class AudioTableViewCell: UITableViewCell, AVAudioRecorderDelegate , AVAudioPlay
             } catch {
             }
             do {
-                self.btnRecord.setTitle("Stop", forState: UIControlState.Normal)
+                self.btnRecord.setImage(UIImage(named: "StopRecording"), forState: UIControlState.Normal)
                 self.btnPlay.enabled = false
                 try audioSession.setActive(true)
                 audioRecorder.record()
@@ -54,7 +57,7 @@ class AudioTableViewCell: UITableViewCell, AVAudioRecorderDelegate , AVAudioPlay
             audioRecorder.stop()
             let audioSession = AVAudioSession.sharedInstance()
             do {
-                self.btnRecord.setTitle("Record", forState: UIControlState.Normal)
+                self.btnRecord.setImage(UIImage(named: "BeginRecording"), forState: UIControlState.Normal)
                 self.btnPlay.enabled = true
                 try audioSession.setActive(false)
             } catch {

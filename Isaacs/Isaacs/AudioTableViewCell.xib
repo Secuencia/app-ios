@@ -4,6 +4,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -13,21 +14,31 @@
             <rect key="frame" x="0.0" y="0.0" width="444" height="210"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <frame key="frameInset" width="444" height="209.5"/>
+                <frame key="frameInset" width="444" height="209"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jDf-Q1-Pqp">
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bjP-Bz-Qb3">
-                                <frame key="frameInset" minX="40" minY="75" width="49" height="35"/>
-                                <state key="normal" title="Record"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bjP-Bz-Qb3">
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Record" image="BeginRecording"/>
                                 <connections>
                                     <action selector="record:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="gEl-ka-EOS"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uro-ed-nM2">
-                                <frame key="frameInset" minX="140" minY="78" width="30" height="30"/>
-                                <state key="normal" title="Play"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QLF-6N-87y">
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="26"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Historia 1, historia 2, ..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DKg-Us-bLo">
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uro-ed-nM2">
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Play" image="PlayAudio"/>
                                 <connections>
                                     <action selector="play:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="n72-ag-msa"/>
                                 </connections>
@@ -35,26 +46,45 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="uro-ed-nM2" firstAttribute="centerY" secondItem="jDf-Q1-Pqp" secondAttribute="centerY" id="HMD-bW-NvC"/>
-                            <constraint firstItem="bjP-Bz-Qb3" firstAttribute="centerY" secondItem="jDf-Q1-Pqp" secondAttribute="centerY" id="Rca-9U-XFv"/>
-                            <constraint firstItem="uro-ed-nM2" firstAttribute="leading" secondItem="bjP-Bz-Qb3" secondAttribute="trailing" constant="15" id="lga-vE-dg4"/>
-                            <constraint firstItem="bjP-Bz-Qb3" firstAttribute="leading" secondItem="jDf-Q1-Pqp" secondAttribute="leading" constant="15" id="pvl-bM-PKb"/>
+                            <constraint firstItem="uro-ed-nM2" firstAttribute="centerY" secondItem="bjP-Bz-Qb3" secondAttribute="centerY" id="5Ab-gz-WAY"/>
+                            <constraint firstItem="uro-ed-nM2" firstAttribute="width" secondItem="jDf-Q1-Pqp" secondAttribute="width" multiplier="0.2" id="8Ms-9E-uwc"/>
+                            <constraint firstItem="DKg-Us-bLo" firstAttribute="leading" secondItem="jDf-Q1-Pqp" secondAttribute="leading" constant="8" id="9f8-f5-Ku7"/>
+                            <constraint firstItem="uro-ed-nM2" firstAttribute="leading" secondItem="bjP-Bz-Qb3" secondAttribute="trailing" constant="20" id="Btc-Mp-iau"/>
+                            <constraint firstAttribute="bottom" secondItem="DKg-Us-bLo" secondAttribute="bottom" constant="8" id="CVF-ox-VYY"/>
+                            <constraint firstItem="DKg-Us-bLo" firstAttribute="top" secondItem="QLF-6N-87y" secondAttribute="bottom" constant="8" id="KCX-hq-h7k"/>
+                            <constraint firstItem="DKg-Us-bLo" firstAttribute="height" secondItem="jDf-Q1-Pqp" secondAttribute="height" multiplier="0.3" id="MpY-eH-Tnm"/>
+                            <constraint firstAttribute="trailing" secondItem="QLF-6N-87y" secondAttribute="trailing" constant="8" id="NdP-LV-PQO"/>
+                            <constraint firstItem="QLF-6N-87y" firstAttribute="width" secondItem="jDf-Q1-Pqp" secondAttribute="width" multiplier="0.55" id="S43-RI-4my"/>
+                            <constraint firstItem="bjP-Bz-Qb3" firstAttribute="height" secondItem="jDf-Q1-Pqp" secondAttribute="height" multiplier="0.3" id="YMh-Dd-CQU"/>
+                            <constraint firstAttribute="trailing" secondItem="DKg-Us-bLo" secondAttribute="trailing" constant="8" id="ZKa-8h-r13"/>
+                            <constraint firstItem="QLF-6N-87y" firstAttribute="top" secondItem="jDf-Q1-Pqp" secondAttribute="top" constant="8" id="bmv-4l-in2"/>
+                            <constraint firstItem="uro-ed-nM2" firstAttribute="height" secondItem="jDf-Q1-Pqp" secondAttribute="height" multiplier="0.4" id="ig7-ne-nOa"/>
+                            <constraint firstItem="DKg-Us-bLo" firstAttribute="top" secondItem="uro-ed-nM2" secondAttribute="bottom" constant="21" id="kYl-iX-SPf"/>
+                            <constraint firstItem="DKg-Us-bLo" firstAttribute="top" secondItem="bjP-Bz-Qb3" secondAttribute="bottom" constant="30" id="sX5-w2-Bs1"/>
+                            <constraint firstItem="bjP-Bz-Qb3" firstAttribute="width" secondItem="jDf-Q1-Pqp" secondAttribute="width" multiplier="0.1" id="stE-cg-fVH"/>
+                            <constraint firstItem="bjP-Bz-Qb3" firstAttribute="leading" secondItem="jDf-Q1-Pqp" secondAttribute="leading" constant="16" id="uwT-O0-mDs"/>
+                            <constraint firstItem="bjP-Bz-Qb3" firstAttribute="top" secondItem="jDf-Q1-Pqp" secondAttribute="top" constant="30" id="w5I-aF-K0G"/>
                         </constraints>
                     </view>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="jDf-Q1-Pqp" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="4" id="4cQ-J4-OEw"/>
-                    <constraint firstAttribute="bottomMargin" secondItem="jDf-Q1-Pqp" secondAttribute="bottom" constant="4" id="ZcD-I2-X9L"/>
-                    <constraint firstItem="jDf-Q1-Pqp" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="4" id="nLy-ce-viX"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="jDf-Q1-Pqp" secondAttribute="trailing" constant="4" id="tNw-F5-ONv"/>
+                    <constraint firstItem="jDf-Q1-Pqp" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="1" id="4cQ-J4-OEw"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="jDf-Q1-Pqp" secondAttribute="bottom" constant="1" id="ZcD-I2-X9L"/>
+                    <constraint firstItem="jDf-Q1-Pqp" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="1" id="nLy-ce-viX"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="jDf-Q1-Pqp" secondAttribute="trailing" constant="1" id="tNw-F5-ONv"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
                 <outlet property="btnPlay" destination="uro-ed-nM2" id="IK2-iC-NZD"/>
                 <outlet property="btnRecord" destination="bjP-Bz-Qb3" id="Khe-fT-2zQ"/>
                 <outlet property="containerView" destination="jDf-Q1-Pqp" id="zoT-yK-n8U"/>
+                <outlet property="stories" destination="DKg-Us-bLo" id="FAO-iN-3Ch"/>
             </connections>
             <point key="canvasLocation" x="51" y="-22"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="BeginRecording" width="48" height="48"/>
+        <image name="PlayAudio" width="50" height="50"/>
+    </resources>
 </document>
