@@ -357,20 +357,17 @@ class InputViewController: UIViewController, UINavigationControllerDelegate, UII
                 
                 print("NUMBER OF SECTIONS", tableView.numberOfSections)
                 print("New content index: ", editedContentIndex)
-                
-                images.append(image)
-                
-                print(image)
+            
                 
                 print("GENERATING ROUTE")
-                let imageData = NSData(data:UIImagePNGRepresentation(image)!)
-                let paths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)
-                var url = NSURL(fileURLWithPath: paths[0])
-                //var docs = paths[0] as! NSURL
-                let fullPath = url.URLByAppendingPathComponent("image.png")//stringByAppendingPathComponent("name.png")
-                let result = imageData.writeToFile(fullPath!.absoluteString!,atomically: true)
-                print(result)
+                
+                let imageName = saveImageToDirectory(image, imageName: "image.png")
+                print(imageName)
+                let loadedImage = getImage(imageName)!
+                
                 print("END OF PERSISTENCE")
+                
+                images.append(loadedImage)
 
             }else{
                 print("Something went wrong")
@@ -386,6 +383,30 @@ class InputViewController: UIViewController, UINavigationControllerDelegate, UII
         
         picker.dismissViewControllerAnimated(true, completion: nil)
         
+    }
+    
+    func saveImageToDirectory(image:UIImage, imageName: String) -> String {
+        let fileManager = NSFileManager.defaultManager()
+        let imageData = NSData(data:UIImagePNGRepresentation(image)!)
+        let paths = (NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as NSString).stringByAppendingPathComponent(imageName)
+        fileManager.createFileAtPath(paths as String, contents: imageData, attributes: nil)
+        return imageName
+    }
+    
+    func getImage(imageName: String) -> UIImage?{
+        let fileManager = NSFileManager.defaultManager()
+        let imagePath = (self.getDirectoryPath() as NSString).stringByAppendingPathComponent(imageName)
+        if fileManager.fileExistsAtPath(imagePath) {
+            return UIImage(contentsOfFile: imagePath)
+        }else{
+            return nil
+        }
+    }
+    
+    func getDirectoryPath() -> String{
+        let paths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)
+        let documentsDir = paths[0]
+        return documentsDir
     }
     
     func insertAudio() {
