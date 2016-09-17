@@ -2,7 +2,7 @@
 //  ContactTableViewCell.swift
 //  Isaacs
 //
-//  Created by Nicolas Chaves on 9/16/16.
+//  Created by Nicolas Chaves on 9/17/16.
 //  Copyright © 2016 Inspect. All rights reserved.
 //
 
@@ -21,5 +21,4 @@ class ContactTableViewCell: UITableViewCell {
             //nameTextField. = beingEdited
         }
     }
-
 }

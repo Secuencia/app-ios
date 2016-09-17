@@ -86,6 +86,11 @@ class InputViewController: UIViewController, UINavigationControllerDelegate, UII
         navigationBar.barStyle = UIBarStyle.Black
         navigationBar.tintColor = UIColor.whiteColor()
         
+        tableView.registerNib(UINib(nibName: "PhotoTableViewCell", bundle: nil), forCellReuseIdentifier: "photo_cell")
+        tableView.registerNib(UINib(nibName: "TextTableViewCell", bundle: nil), forCellReuseIdentifier: "text_cell")
+        tableView.registerNib(UINib(nibName: "ContactTableViewCell", bundle: nil), forCellReuseIdentifier: "contact_cell")
+        tableView.registerNib(UINib(nibName: "AudioTableViewCell", bundle: nil), forCellReuseIdentifier: "audio_cell")
+        
         self.toolbarBottomConstraintInitialValue = toolbarBottomConstraint.constant
         enableKeyboardHideOnTap()
         
@@ -157,7 +162,7 @@ class InputViewController: UIViewController, UINavigationControllerDelegate, UII
     
     func createTextCell(indexPath: NSIndexPath) -> TextTableViewCell {
         
-        let textCell = tableView.dequeueReusableCellWithIdentifier("textCell", forIndexPath: indexPath) as! TextTableViewCell
+        let textCell = tableView.dequeueReusableCellWithIdentifier("text_cell", forIndexPath: indexPath) as! TextTableViewCell
         
         
         //textCell.myText.text = modules[indexPath.section] as! String
@@ -190,7 +195,7 @@ class InputViewController: UIViewController, UINavigationControllerDelegate, UII
     
     func createPhotoCell(indexPath: NSIndexPath) -> PhotoTableViewCell {
         
-        let photoCell = tableView.dequeueReusableCellWithIdentifier("photoCell", forIndexPath: indexPath) as! PhotoTableViewCell
+        let photoCell = tableView.dequeueReusableCellWithIdentifier("photo_cell", forIndexPath: indexPath) as! PhotoTableViewCell
         photoCell.photoView.image = (modules[indexPath.section] as! [AnyObject])[1] as? UIImage
         photoCell.titleLabel.text = (modules[indexPath.section] as! [AnyObject])[0] as? String
         photoCell.notesTextView.text = (modules[indexPath.section] as! [AnyObject])[2] as? String
@@ -212,7 +217,7 @@ class InputViewController: UIViewController, UINavigationControllerDelegate, UII
         
         print("ENTRE A CREATE CONTACT CELL")
         
-        let contactCell = tableView.dequeueReusableCellWithIdentifier("contactCell", forIndexPath: indexPath) as! ContactTableViewCell
+        let contactCell = tableView.dequeueReusableCellWithIdentifier("contact_cell", forIndexPath: indexPath) as! ContactTableViewCell
         
         contactCell.nameTextField.text = (modules[indexPath.section] as! [AnyObject])[0] as? String
         if let pPicture = (modules[indexPath.section] as! [AnyObject])[1] as? UIImage {

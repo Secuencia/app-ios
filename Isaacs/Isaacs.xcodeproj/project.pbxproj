@@ -7,13 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		374565F01D8CABDC00E725D7 /* PhotoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374565EF1D8CABDC00E725D7 /* PhotoTableViewCell.swift */; };
-		374565F21D8CABF100E725D7 /* TextTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374565F11D8CABF100E725D7 /* TextTableViewCell.swift */; };
-		374565F41D8CAC3300E725D7 /* ContactTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374565F31D8CAC3300E725D7 /* ContactTableViewCell.swift */; };
-		374565F61D8CAC4B00E725D7 /* RecordTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374565F51D8CAC4B00E725D7 /* RecordTableViewCell.swift */; };
 		374565FC1D8CAD7E00E725D7 /* ModuleCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374565FB1D8CAD7E00E725D7 /* ModuleCollectionViewCell.swift */; };
 		37895A781D8859FE0094E286 /* ConfigurationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37895A771D8859FE0094E286 /* ConfigurationViewController.swift */; };
 		378E158B1D882CE400F94008 /* InputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 378E158A1D882CE400F94008 /* InputViewController.swift */; };
+		37C4A1A41D8D0A2400C9AECF /* PhotoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37C4A1A21D8D0A2400C9AECF /* PhotoTableViewCell.swift */; };
+		37C4A1A51D8D0A2400C9AECF /* PhotoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37C4A1A31D8D0A2400C9AECF /* PhotoTableViewCell.xib */; };
+		37C4A1A81D8D0CDA00C9AECF /* TextTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37C4A1A61D8D0CDA00C9AECF /* TextTableViewCell.swift */; };
+		37C4A1A91D8D0CDA00C9AECF /* TextTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37C4A1A71D8D0CDA00C9AECF /* TextTableViewCell.xib */; };
+		37C4A1AC1D8D0F6500C9AECF /* ContactTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37C4A1AA1D8D0F6500C9AECF /* ContactTableViewCell.swift */; };
+		37C4A1AD1D8D0F6500C9AECF /* ContactTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37C4A1AB1D8D0F6500C9AECF /* ContactTableViewCell.xib */; };
+		37C4A1B01D8D104800C9AECF /* AudioTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37C4A1AE1D8D104800C9AECF /* AudioTableViewCell.swift */; };
+		37C4A1B11D8D104800C9AECF /* AudioTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37C4A1AF1D8D104800C9AECF /* AudioTableViewCell.xib */; };
 		37FCEE441D7FA55500A74FDC /* TagsRecomendator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37FCEE431D7FA55500A74FDC /* TagsRecomendator.swift */; };
 		B9646F681D8A4DF3000516D9 /* Content.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9646F641D8A4DF3000516D9 /* Content.swift */; };
 		B9646F6A1D8A4DF3000516D9 /* Story.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9646F661D8A4DF3000516D9 /* Story.swift */; };
@@ -56,13 +60,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		374565EF1D8CABDC00E725D7 /* PhotoTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoTableViewCell.swift; sourceTree = "<group>"; };
-		374565F11D8CABF100E725D7 /* TextTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextTableViewCell.swift; sourceTree = "<group>"; };
-		374565F31D8CAC3300E725D7 /* ContactTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactTableViewCell.swift; sourceTree = "<group>"; };
-		374565F51D8CAC4B00E725D7 /* RecordTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordTableViewCell.swift; sourceTree = "<group>"; };
 		374565FB1D8CAD7E00E725D7 /* ModuleCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModuleCollectionViewCell.swift; sourceTree = "<group>"; };
 		37895A771D8859FE0094E286 /* ConfigurationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigurationViewController.swift; sourceTree = "<group>"; };
 		378E158A1D882CE400F94008 /* InputViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputViewController.swift; sourceTree = "<group>"; };
+		37C4A1A21D8D0A2400C9AECF /* PhotoTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoTableViewCell.swift; sourceTree = "<group>"; };
+		37C4A1A31D8D0A2400C9AECF /* PhotoTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PhotoTableViewCell.xib; sourceTree = "<group>"; };
+		37C4A1A61D8D0CDA00C9AECF /* TextTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextTableViewCell.swift; sourceTree = "<group>"; };
+		37C4A1A71D8D0CDA00C9AECF /* TextTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TextTableViewCell.xib; sourceTree = "<group>"; };
+		37C4A1AA1D8D0F6500C9AECF /* ContactTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactTableViewCell.swift; sourceTree = "<group>"; };
+		37C4A1AB1D8D0F6500C9AECF /* ContactTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ContactTableViewCell.xib; sourceTree = "<group>"; };
+		37C4A1AE1D8D104800C9AECF /* AudioTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioTableViewCell.swift; sourceTree = "<group>"; };
+		37C4A1AF1D8D104800C9AECF /* AudioTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AudioTableViewCell.xib; sourceTree = "<group>"; };
 		37FCEE431D7FA55500A74FDC /* TagsRecomendator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagsRecomendator.swift; sourceTree = "<group>"; };
 		B9646F4B1D8A4D66000516D9 /* Isaacs-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Isaacs-Bridging-Header.h"; sourceTree = "<group>"; };
 		B9646F641D8A4DF3000516D9 /* Content.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Content.swift; path = ../Content.swift; sourceTree = "<group>"; };
@@ -132,13 +140,49 @@
 		374565FA1D8CACFD00E725D7 /* Data Entry */ = {
 			isa = PBXGroup;
 			children = (
-				374565EF1D8CABDC00E725D7 /* PhotoTableViewCell.swift */,
-				374565F11D8CABF100E725D7 /* TextTableViewCell.swift */,
-				374565F31D8CAC3300E725D7 /* ContactTableViewCell.swift */,
-				374565F51D8CAC4B00E725D7 /* RecordTableViewCell.swift */,
+				37C4A1B21D8D110A00C9AECF /* TextInputCell */,
 				374565FB1D8CAD7E00E725D7 /* ModuleCollectionViewCell.swift */,
+				37C4A1B31D8D112300C9AECF /* PhotoInputCell */,
+				37C4A1B41D8D112E00C9AECF /* ContactInputCell */,
+				37C4A1B51D8D113800C9AECF /* AudioInputCell */,
 			);
 			name = "Data Entry";
+			sourceTree = "<group>";
+		};
+		37C4A1B21D8D110A00C9AECF /* TextInputCell */ = {
+			isa = PBXGroup;
+			children = (
+				37C4A1A61D8D0CDA00C9AECF /* TextTableViewCell.swift */,
+				37C4A1A71D8D0CDA00C9AECF /* TextTableViewCell.xib */,
+			);
+			name = TextInputCell;
+			sourceTree = "<group>";
+		};
+		37C4A1B31D8D112300C9AECF /* PhotoInputCell */ = {
+			isa = PBXGroup;
+			children = (
+				37C4A1A21D8D0A2400C9AECF /* PhotoTableViewCell.swift */,
+				37C4A1A31D8D0A2400C9AECF /* PhotoTableViewCell.xib */,
+			);
+			name = PhotoInputCell;
+			sourceTree = "<group>";
+		};
+		37C4A1B41D8D112E00C9AECF /* ContactInputCell */ = {
+			isa = PBXGroup;
+			children = (
+				37C4A1AA1D8D0F6500C9AECF /* ContactTableViewCell.swift */,
+				37C4A1AB1D8D0F6500C9AECF /* ContactTableViewCell.xib */,
+			);
+			name = ContactInputCell;
+			sourceTree = "<group>";
+		};
+		37C4A1B51D8D113800C9AECF /* AudioInputCell */ = {
+			isa = PBXGroup;
+			children = (
+				37C4A1AE1D8D104800C9AECF /* AudioTableViewCell.swift */,
+				37C4A1AF1D8D104800C9AECF /* AudioTableViewCell.xib */,
+			);
+			name = AudioInputCell;
 			sourceTree = "<group>";
 		};
 		B9646F321D8A4D04000516D9 /* Models */ = {
@@ -370,12 +414,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				B964D9DC1D7D03A700033B13 /* TextCardView.xib in Resources */,
+				37C4A1B11D8D104800C9AECF /* AudioTableViewCell.xib in Resources */,
 				B964D9DE1D7D03B400033B13 /* ContactCardView.xib in Resources */,
 				B9A87ABD1D6C9C6D00145B93 /* LaunchScreen.storyboard in Resources */,
 				B964D9E01D7D03BE00033B13 /* AudioCardView.xib in Resources */,
+				37C4A1A51D8D0A2400C9AECF /* PhotoTableViewCell.xib in Resources */,
 				B964D9DA1D7D039300033B13 /* PictureCardView.xib in Resources */,
 				B9A87ABA1D6C9C6D00145B93 /* Assets.xcassets in Resources */,
 				B9A87AB81D6C9C6D00145B93 /* Main.storyboard in Resources */,
+				37C4A1AD1D8D0F6500C9AECF /* ContactTableViewCell.xib in Resources */,
+				37C4A1A91D8D0CDA00C9AECF /* TextTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -393,28 +441,28 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				37C4A1A41D8D0A2400C9AECF /* PhotoTableViewCell.swift in Sources */,
 				B964D9D21D7D033E00033B13 /* PictureCardCollectionViewCell.swift in Sources */,
 				B964D9D81D7D037500033B13 /* AudioCardCollectionViewCell.swift in Sources */,
 				378E158B1D882CE400F94008 /* InputViewController.swift in Sources */,
+				37C4A1AC1D8D0F6500C9AECF /* ContactTableViewCell.swift in Sources */,
 				B964D9CA1D7D01C100033B13 /* ContactCaptureViewController.swift in Sources */,
 				B9A87AB51D6C9C6D00145B93 /* DashboardViewController.swift in Sources */,
 				B964D9C61D7D018900033B13 /* PictureCaptureViewController.swift in Sources */,
+				37C4A1B01D8D104800C9AECF /* AudioTableViewCell.swift in Sources */,
 				B96E24611D8787F800182DA3 /* ContentPersistence.swift in Sources */,
 				B964D9C81D7D01A700033B13 /* TextCaptureViewController.swift in Sources */,
 				374565FC1D8CAD7E00E725D7 /* ModuleCollectionViewCell.swift in Sources */,
 				B9AD04491D7F715800466000 /* DataPersistence.swift in Sources */,
-				374565F21D8CABF100E725D7 /* TextTableViewCell.swift in Sources */,
 				B9A24C441D8CE10C0007F3DD /* ContentListViewController.swift in Sources */,
 				B9646F681D8A4DF3000516D9 /* Content.swift in Sources */,
-				374565F01D8CABDC00E725D7 /* PhotoTableViewCell.swift in Sources */,
-				374565F41D8CAC3300E725D7 /* ContactTableViewCell.swift in Sources */,
-				374565F61D8CAC4B00E725D7 /* RecordTableViewCell.swift in Sources */,
 				B9AD03CD1D7F02F400466000 /* StoryPersistence.swift in Sources */,
 				37895A781D8859FE0094E286 /* ConfigurationViewController.swift in Sources */,
 				B964D9D61D7D035D00033B13 /* ContactCardCollectionViewCell.swift in Sources */,
 				B964D9CC1D7D02C900033B13 /* AudioCaptureViewController.swift in Sources */,
 				B9646F6A1D8A4DF3000516D9 /* Story.swift in Sources */,
 				B964D9D41D7D035000033B13 /* TextCardCollectionViewCell.swift in Sources */,
+				37C4A1A81D8D0CDA00C9AECF /* TextTableViewCell.swift in Sources */,
 				37FCEE441D7FA55500A74FDC /* TagsRecomendator.swift in Sources */,
 				B964D9D01D7D030800033B13 /* StoryDetailViewController.swift in Sources */,
 				B964D9CE1D7D02ED00033B13 /* StoryListViewController.swift in Sources */,
