@@ -9,4 +9,7 @@
 import UIKit
 
 class TextCardCollectionViewCell: UICollectionViewCell{
+    
+    @IBOutlet weak var textLabel: UILabel!
+    
 }

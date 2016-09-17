@@ -37,6 +37,8 @@ class InputViewController: UIViewController, UINavigationControllerDelegate, UII
     
     var editedContentIndex: Int?
     
+    let persistenceContext = ContentPersistence()
+    
     
     // MARK: Properties - Logic
     
@@ -294,10 +296,11 @@ class InputViewController: UIViewController, UINavigationControllerDelegate, UII
     
     func manageAction(action: Int) {
         
+        saveCurrentlyEditingContent()
+        
         editing = false
         editedContentIndex = nil
         
-        saveCurrentlyEditingContent()
         
         //moduleStates = moduleStates.map {bool in return false}
         
@@ -314,10 +317,11 @@ class InputViewController: UIViewController, UINavigationControllerDelegate, UII
     
     func insertText() {
         
-        editing = true
-        editedContentIndex = tableView.numberOfSections - 1
         let newContent = ContentPersistence().createEntity(); newContent.type = Content.types.Text.rawValue
         contents.append(newContent)
+        editing = true
+        editedContentIndex = contents.count - 1
+        print("New content index: ", editedContentIndex)
         
         modulesTypes.append(Modules.Text.rawValue)
         //moduleStates.append(true)
@@ -389,7 +393,9 @@ class InputViewController: UIViewController, UINavigationControllerDelegate, UII
     
     func saveCurrentlyEditingContent() {
         
+        print("ENTRE AL SAVE")
         if let index = editedContentIndex {
+        print("ENTRE AL SAVE MAS ADENTRO")
             var json: String?
             switch contents[index] {
                 case Content.types.Text.rawValue: json = "{'title':'titulo','body' : '"+((tableView.cellForRowAtIndexPath(NSIndexPath(forRow: 0, inSection: editedContentIndex!)) as? TextTableViewCell)?.myText.text)!+"','otra propiedad' : 'nueva propiedad'}"
@@ -399,7 +405,7 @@ class InputViewController: UIViewController, UINavigationControllerDelegate, UII
                 default: json = nil
             }
             contents[index].data = json
-            ContentPersistence().save()
+            persistenceContext.save()
         }
         
         /*for (index, value) in moduleStates.enumerate() {
