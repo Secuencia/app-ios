@@ -193,6 +193,7 @@ class InputViewController: UIViewController, UINavigationControllerDelegate, UII
         photoCell.backgroundColor = UIColor.clearColor()
         // Style
         
+        
         photoCell.photoView.image = images[0]
         
         if indexPath.section == editedContentIndex && editing {

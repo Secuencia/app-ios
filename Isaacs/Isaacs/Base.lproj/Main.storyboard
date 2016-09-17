@@ -85,7 +85,7 @@
         <scene sceneID="7E5-OA-7UU">
             <objects>
                 <collectionViewController title="Historia Detail" id="YGD-nU-BRR" customClass="StoryDetailViewController" customModule="Isaacs" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" id="W3H-pf-rwf">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="W3H-pf-rwf">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -161,7 +161,7 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9L6-Xa-6Ff">
                                         <connections>
-                                            <segue destination="FHc-ue-KY4" kind="presentation" id="vGN-Yh-Ybt"/>
+                                            <segue destination="FHc-ue-KY4" kind="presentation" identifier="contactSegue" id="vGN-Yh-Ybt"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -179,7 +179,7 @@
                                     <color key="titleColor" red="0.66666666669999997" green="0.66666666669999997" blue="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="FHc-ue-KY4" kind="presentation" id="lHi-8O-soY"/>
+                                    <segue destination="FHc-ue-KY4" kind="presentation" identifier="textSegue" id="lHi-8O-soY"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9zR-27-Vh8">
@@ -452,6 +452,6 @@
         <image name="settingsIcon" width="256" height="256"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="2ka-Vc-2GQ"/>
+        <segue reference="vGN-Yh-Ybt"/>
     </inferredMetricsTieBreakers>
 </document>

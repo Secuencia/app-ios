@@ -3,7 +3,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -19,24 +18,28 @@
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jDf-Q1-Pqp">
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bjP-Bz-Qb3">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bjP-Bz-Qb3">
+                                <frame key="frameInset" minX="16" minY="30" width="106" height="48"/>
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Record" image="BeginRecording"/>
                                 <connections>
                                     <action selector="record:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="gEl-ka-EOS"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QLF-6N-87y">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QLF-6N-87y">
+                                <frame key="frameInset" minX="467.5" minY="8" width="580.5" height="92"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="26"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Historia 1, historia 2, ..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DKg-Us-bLo">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Historia 1, historia 2, ..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DKg-Us-bLo">
+                                <frame key="frameInset" minX="8" minY="108" width="1040" height="49"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uro-ed-nM2">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uro-ed-nM2">
+                                <frame key="frameInset" minX="142" minY="21" width="211" height="66"/>
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Play" image="PlayAudio"/>
                                 <connections>
@@ -68,10 +71,10 @@
                     </view>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="jDf-Q1-Pqp" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="1" id="4cQ-J4-OEw"/>
-                    <constraint firstAttribute="bottomMargin" secondItem="jDf-Q1-Pqp" secondAttribute="bottom" constant="1" id="ZcD-I2-X9L"/>
-                    <constraint firstItem="jDf-Q1-Pqp" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="1" id="nLy-ce-viX"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="jDf-Q1-Pqp" secondAttribute="trailing" constant="1" id="tNw-F5-ONv"/>
+                    <constraint firstItem="jDf-Q1-Pqp" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="1" id="2ef-Kn-XPD"/>
+                    <constraint firstAttribute="trailing" secondItem="jDf-Q1-Pqp" secondAttribute="trailing" constant="1" id="50N-zW-ZGo"/>
+                    <constraint firstAttribute="bottom" secondItem="jDf-Q1-Pqp" secondAttribute="bottom" constant="1" id="Ba7-10-QJp"/>
+                    <constraint firstItem="jDf-Q1-Pqp" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="1" id="Ejc-K4-VvT"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>

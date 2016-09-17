@@ -17,6 +17,16 @@ class DashboardViewController: UIViewController {
     @IBOutlet weak var contactContentButton: UIButton!
     
     
+    enum SelectedBarButtonTag: Int {
+        case Text
+        case Camera
+        case Gallery
+        case Audio
+        case Contact
+        case Completed
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -83,22 +93,22 @@ class DashboardViewController: UIViewController {
         
         if (segue.identifier == "textSegue") {
             let inputController: InputViewController = segue.destinationViewController as! InputViewController
-            inputController.entryModule = 0
+            inputController.entryModule = SelectedBarButtonTag.Text.rawValue
         }
         
         if (segue.identifier == "photoSegue") {
             let inputController: InputViewController = segue.destinationViewController as! InputViewController
-            inputController.entryModule = 1
+            inputController.entryModule = SelectedBarButtonTag.Gallery.rawValue
         }
         
         if (segue.identifier == "audioSegue") {
             let inputController: InputViewController = segue.destinationViewController as! InputViewController
-            inputController.entryModule = 2
+            inputController.entryModule = SelectedBarButtonTag.Audio.rawValue
         }
         
         if (segue.identifier == "contactSegue") {
             let inputController: InputViewController = segue.destinationViewController as! InputViewController
-            inputController.entryModule = 3
+            inputController.entryModule = SelectedBarButtonTag.Contact.rawValue
         }
     }
 
