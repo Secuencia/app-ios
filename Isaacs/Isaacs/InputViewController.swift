@@ -371,6 +371,7 @@ class InputViewController: UIViewController, UINavigationControllerDelegate, UII
         }
         
         tableView.reloadData()
+        
         picker.dismissViewControllerAnimated(true, completion: nil)
         
     }
