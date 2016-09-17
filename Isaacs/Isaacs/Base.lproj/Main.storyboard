@@ -138,120 +138,6 @@
             </objects>
             <point key="canvasLocation" x="2756" y="-621.13943028485767"/>
         </scene>
-        <!--Picture-->
-        <scene sceneID="tnA-8N-eVY">
-            <objects>
-                <viewController title="Picture" id="bzX-9m-Vnd" customClass="PictureCaptureViewController" customModule="Isaacs" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="v0l-0N-LWR"/>
-                        <viewControllerLayoutGuide type="bottom" id="imP-Qr-Wej"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="w2V-Sr-44G">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uyB-DK-5GV">
-                                <frame key="frameInset" minX="20" minY="355" width="243" height="30"/>
-                                <state key="normal" title="Library"/>
-                                <connections>
-                                    <action selector="PhotoLibraryAction:" destination="bzX-9m-Vnd" eventType="touchUpInside" id="ZBJ-Id-LTD"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XEW-DS-MSH">
-                                <frame key="frameInset" minX="345" minY="355" width="235" height="30"/>
-                                <state key="normal" title="Camera"/>
-                                <connections>
-                                    <action selector="CameraAction:" destination="bzX-9m-Vnd" eventType="touchUpInside" id="2MX-m7-DIJ"/>
-                                </connections>
-                            </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HVe-Zq-Tym">
-                                <frame key="frameInset" minX="20" minY="123" width="560" height="224"/>
-                            </imageView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jkH-Vq-gBt">
-                                <frame key="frameInset" minX="20" minY="72" width="560" height="30"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                        </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstItem="jkH-Vq-gBt" firstAttribute="top" secondItem="v0l-0N-LWR" secondAttribute="bottom" constant="8" id="1PB-G1-JUM"/>
-                            <constraint firstAttribute="leadingMargin" secondItem="jkH-Vq-gBt" secondAttribute="leading" id="3h5-l5-1bh"/>
-                            <constraint firstItem="imP-Qr-Wej" firstAttribute="top" secondItem="XEW-DS-MSH" secondAttribute="bottom" constant="171" id="7AW-x7-B9i"/>
-                            <constraint firstItem="HVe-Zq-Tym" firstAttribute="top" secondItem="jkH-Vq-gBt" secondAttribute="bottom" constant="21" id="Fvg-Ti-3qk"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="XEW-DS-MSH" secondAttribute="trailing" id="TdM-GB-Q60"/>
-                            <constraint firstItem="XEW-DS-MSH" firstAttribute="top" secondItem="HVe-Zq-Tym" secondAttribute="bottom" constant="8" id="YY7-Zz-InB"/>
-                            <constraint firstAttribute="leadingMargin" secondItem="uyB-DK-5GV" secondAttribute="leading" id="bad-5a-ojW"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="HVe-Zq-Tym" secondAttribute="trailing" id="dJL-bZ-AXE"/>
-                            <constraint firstItem="uyB-DK-5GV" firstAttribute="top" secondItem="HVe-Zq-Tym" secondAttribute="bottom" constant="8" id="eTK-OK-5AO"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="jkH-Vq-gBt" secondAttribute="trailing" id="im5-qS-Wp9"/>
-                            <constraint firstItem="imP-Qr-Wej" firstAttribute="top" secondItem="uyB-DK-5GV" secondAttribute="bottom" constant="171" id="jFg-38-TeP"/>
-                            <constraint firstAttribute="leadingMargin" secondItem="HVe-Zq-Tym" secondAttribute="leading" id="tTc-V1-lGx"/>
-                        </constraints>
-                    </view>
-                    <connections>
-                        <outlet property="imagePreview" destination="HVe-Zq-Tym" id="epd-kL-A7C"/>
-                        <outlet property="titleLabel" destination="jkH-Vq-gBt" id="Oae-ZH-JiZ"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="qrP-Ta-6Dd" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-815" y="664"/>
-        </scene>
-        <!--Text-->
-        <scene sceneID="OMZ-XY-NKF">
-            <objects>
-                <viewController title="Text" id="FpD-TO-knM" customClass="TextCaptureViewController" customModule="Isaacs" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="bSD-26-NcO"/>
-                        <viewControllerLayoutGuide type="bottom" id="xR3-NV-CFj"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="V9s-dv-3vN">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ZVz-Ya-ag9" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-161" y="670"/>
-        </scene>
-        <!--Contact-->
-        <scene sceneID="CKR-n9-UPc">
-            <objects>
-                <viewController title="Contact" id="dhe-oS-1dt" customClass="ContactCaptureViewController" customModule="Isaacs" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="NpD-74-9ec"/>
-                        <viewControllerLayoutGuide type="bottom" id="zum-zN-ihA"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="eIW-o5-fMl">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="UN8-0A-97K" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="511" y="664"/>
-        </scene>
-        <!--Audio-->
-        <scene sceneID="UfK-aK-Ewv">
-            <objects>
-                <viewController title="Audio" id="2M4-ck-kYK" customClass="AudioCaptureViewController" customModule="Isaacs" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="2lD-CI-OOs"/>
-                        <viewControllerLayoutGuide type="bottom" id="0fm-Wz-Hd8"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="7nZ-WG-w1q">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="6eP-aR-Vom" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1175" y="666"/>
-        </scene>
         <!--Dashboard-->
         <scene sceneID="QqU-4k-aEG">
             <objects>
@@ -275,6 +161,9 @@
                                     <constraint firstAttribute="width" constant="30" id="hOu-TB-uKf"/>
                                 </constraints>
                                 <state key="normal" backgroundImage="contentsIcon"/>
+                                <connections>
+                                    <segue destination="cLQ-6J-R3p" kind="presentation" id="woI-nW-ib6"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qc6-UC-o1Y">
                                 <constraints>
@@ -620,6 +509,54 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gmS-u7-GJZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="127" y="-241"/>
+        </scene>
+        <!--Content List View Controller-->
+        <scene sceneID="hNH-at-SJp">
+            <objects>
+                <viewController id="cLQ-6J-R3p" customClass="ContentListViewController" customModule="Isaacs" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="fP8-qN-I6S"/>
+                        <viewControllerLayoutGuide type="bottom" id="8EP-Af-CUc"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="o11-C5-M25">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="VHl-dr-j8X">
+                                <frame key="frameInset" minY="64" width="375" height="603"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="ZgF-Xh-1U8">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                            </collectionView>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7qZ-5w-oa8">
+                                <frame key="frameInset" minY="20" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <items>
+                                    <navigationItem title="Title" id="xdW-1B-hky">
+                                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="fDN-oI-Gud">
+                                            <connections>
+                                                <action selector="dismiss:" destination="cLQ-6J-R3p" id="qdn-bj-e6J"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="collectionView" destination="VHl-dr-j8X" id="kBi-VO-eMH"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="L5X-0P-gef" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="970.39999999999998" y="146.17691154422789"/>
         </scene>
     </scenes>
     <resources>

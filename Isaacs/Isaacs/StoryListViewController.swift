@@ -68,9 +68,17 @@ class StoryListViewController: UITableViewController {
             let newContent2 : Content = self.contentPersistence.createEntity()
             newContent2.data = "string de json bien chimbita"
             newContent2.type = Content.types.Picture.rawValue
+            let newContent3 : Content = self.contentPersistence.createEntity()
+            newContent3.data = "string de json bien chimbita"
+            newContent3.type = Content.types.Audio.rawValue
+            let newContent4 : Content = self.contentPersistence.createEntity()
+            newContent4.data = "string de json bien chimbita"
+            newContent4.type = Content.types.Contact.rawValue
             newStory.title = alert.textFields!.first?.text!
-            newStory.mutableSetValueForKey("contents").addObject(newContent)
-            newStory.mutableSetValueForKey("contents").addObject(newContent2)
+            newStory.addContent(newContent)
+            newStory.addContent(newContent2)
+            newStory.addContent(newContent3)
+            newStory.addContent(newContent4)
             self.storyPersistence.save()
             self.reloadData()
             }

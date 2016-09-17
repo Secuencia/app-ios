@@ -21,7 +21,7 @@ public class Content: NSManagedObject {
     @NSManaged public var data: String?
     @NSManaged public var date_created: NSDate?
     @NSManaged public var type: String?
-    @NSManaged public var index: NSNumber?
     @NSManaged public var stories: NSSet?
+
     
 }

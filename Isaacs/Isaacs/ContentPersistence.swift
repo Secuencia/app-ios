@@ -25,13 +25,14 @@ class ContentPersistence{
     func getAll() -> [Content]{
         let moc = self.globalPersistence.managedObjectContext
         let Fetch = NSFetchRequest(entityName: "Content")
-        
-        do {
+        do{
             return try moc.executeFetchRequest(Fetch) as! [Content]
-            
-        } catch {
-            fatalError("Failed to fetch person: \(error)")
         }
+        catch{
+            fatalError("Failure to fetch content: \(error)")
+        }
+        
+    
     }
     
     func createEntity() -> Content {
