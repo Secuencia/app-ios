@@ -37,6 +37,8 @@
 		B964D9E01D7D03BE00033B13 /* AudioCardView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B964D9DF1D7D03BE00033B13 /* AudioCardView.xib */; };
 		B96E24611D8787F800182DA3 /* ContentPersistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96E24601D8787F800182DA3 /* ContentPersistence.swift */; };
 		B9A24C441D8CE10C0007F3DD /* ContentListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A24C431D8CE10C0007F3DD /* ContentListViewController.swift */; };
+		B9A24C4C1D8D132C0007F3DD /* TitleCardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A24C4A1D8D132C0007F3DD /* TitleCardCollectionViewCell.swift */; };
+		B9A24C4D1D8D132C0007F3DD /* TitleCardView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9A24C4B1D8D132C0007F3DD /* TitleCardView.xib */; };
 		B9A87AB31D6C9C6D00145B93 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A87AB21D6C9C6D00145B93 /* AppDelegate.swift */; };
 		B9A87AB51D6C9C6D00145B93 /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A87AB41D6C9C6D00145B93 /* DashboardViewController.swift */; };
 		B9A87AB81D6C9C6D00145B93 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B9A87AB61D6C9C6D00145B93 /* Main.storyboard */; };
@@ -91,6 +93,8 @@
 		B964D9DF1D7D03BE00033B13 /* AudioCardView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AudioCardView.xib; sourceTree = "<group>"; };
 		B96E24601D8787F800182DA3 /* ContentPersistence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentPersistence.swift; sourceTree = "<group>"; };
 		B9A24C431D8CE10C0007F3DD /* ContentListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentListViewController.swift; sourceTree = "<group>"; };
+		B9A24C4A1D8D132C0007F3DD /* TitleCardCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitleCardCollectionViewCell.swift; sourceTree = "<group>"; };
+		B9A24C4B1D8D132C0007F3DD /* TitleCardView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TitleCardView.xib; sourceTree = "<group>"; };
 		B9A87AAF1D6C9C6C00145B93 /* Isaacs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Isaacs.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B9A87AB21D6C9C6D00145B93 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B9A87AB41D6C9C6D00145B93 /* DashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
@@ -129,6 +133,7 @@
 		374565F81D8CACD800E725D7 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				B9A24C4E1D8D13440007F3DD /* TitleCard */,
 				B9AD03D21D7F105600466000 /* AudioCard */,
 				B9AD03D11D7F104F00466000 /* ContactCard */,
 				B9AD03D01D7F104900466000 /* TextCard */,
@@ -218,6 +223,15 @@
 				374565F81D8CACD800E725D7 /* Presentation */,
 			);
 			name = Cards;
+			sourceTree = "<group>";
+		};
+		B9A24C4E1D8D13440007F3DD /* TitleCard */ = {
+			isa = PBXGroup;
+			children = (
+				B9A24C4A1D8D132C0007F3DD /* TitleCardCollectionViewCell.swift */,
+				B9A24C4B1D8D132C0007F3DD /* TitleCardView.xib */,
+			);
+			name = TitleCard;
 			sourceTree = "<group>";
 		};
 		B9A87AA61D6C9C6C00145B93 = {
@@ -416,6 +430,7 @@
 				B964D9DC1D7D03A700033B13 /* TextCardView.xib in Resources */,
 				37C4A1B11D8D104800C9AECF /* AudioTableViewCell.xib in Resources */,
 				B964D9DE1D7D03B400033B13 /* ContactCardView.xib in Resources */,
+				B9A24C4D1D8D132C0007F3DD /* TitleCardView.xib in Resources */,
 				B9A87ABD1D6C9C6D00145B93 /* LaunchScreen.storyboard in Resources */,
 				B964D9E01D7D03BE00033B13 /* AudioCardView.xib in Resources */,
 				37C4A1A51D8D0A2400C9AECF /* PhotoTableViewCell.xib in Resources */,
@@ -458,6 +473,7 @@
 				B9646F681D8A4DF3000516D9 /* Content.swift in Sources */,
 				B9AD03CD1D7F02F400466000 /* StoryPersistence.swift in Sources */,
 				37895A781D8859FE0094E286 /* ConfigurationViewController.swift in Sources */,
+				B9A24C4C1D8D132C0007F3DD /* TitleCardCollectionViewCell.swift in Sources */,
 				B964D9D61D7D035D00033B13 /* ContactCardCollectionViewCell.swift in Sources */,
 				B964D9CC1D7D02C900033B13 /* AudioCaptureViewController.swift in Sources */,
 				B9646F6A1D8A4DF3000516D9 /* Story.swift in Sources */,

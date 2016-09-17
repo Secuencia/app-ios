@@ -32,6 +32,7 @@ class StoryDetailViewController: UICollectionViewController, UICollectionViewDel
         self.collectionView!.registerNib(UINib(nibName: "TextCardView", bundle: nil), forCellWithReuseIdentifier: "text_card")
         self.collectionView!.registerNib(UINib(nibName: "AudioCardView", bundle: nil), forCellWithReuseIdentifier: "audio_card")
         self.collectionView!.registerNib(UINib(nibName: "ContactCardView", bundle: nil), forCellWithReuseIdentifier: "contact_card")
+        self.collectionView!.registerNib(UINib(nibName: "TitleCardView", bundle: nil), forCellWithReuseIdentifier: "title_card")
         
         longPressGesture = UILongPressGestureRecognizer(target: self, action: #selector(StoryDetailViewController.handleLongGesture(_:)))
         self.collectionView!.addGestureRecognizer(longPressGesture)
@@ -78,7 +79,7 @@ class StoryDetailViewController: UICollectionViewController, UICollectionViewDel
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         var cell : UICollectionViewCell;
         if(indexPath.section == 0){
-            cell = collectionView.dequeueReusableCellWithReuseIdentifier("title_cell", forIndexPath: indexPath)
+            cell = collectionView.dequeueReusableCellWithReuseIdentifier("title_card", forIndexPath: indexPath)
         }
         else {
             let type : String = (story.contents?.objectAtIndex(indexPath.row).type)!
