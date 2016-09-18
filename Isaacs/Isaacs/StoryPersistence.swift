@@ -34,6 +34,11 @@ class StoryPersistence{
         }
     }
     
+    func deleteEntity(content:Story){
+        let moc = self.globalPersistence.managedObjectContext
+        moc.deleteObject(content)
+    }
+    
     func createEntity() -> Story {
         let moc = self.globalPersistence.managedObjectContext
         

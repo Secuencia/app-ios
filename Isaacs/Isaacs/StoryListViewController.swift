@@ -12,13 +12,13 @@ import CoreData
 class StoryListViewController: UITableViewController {
 
     var stories : [Story] = []
-    let storyPersistence : StoryPersistence = StoryPersistence()
+    let persistence : StoryPersistence = StoryPersistence()
     let contentPersistence : ContentPersistence = ContentPersistence()
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        stories = self.storyPersistence.getAll();
+        stories = self.persistence.getAll();
     }
 
     override func didReceiveMemoryWarning() {
@@ -45,6 +45,18 @@ class StoryListViewController: UITableViewController {
         return cell!
     }
     
+    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool
+    {
+        return true
+    }
+    
+    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        if (editingStyle == UITableViewCellEditingStyle.Delete) {
+            persistence.deleteEntity(stories[indexPath.row])
+            self.reloadData()
+        }
+    }
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if(segue.identifier == "story_detail"){
             let destination : StoryDetailViewController = segue.destinationViewController as! StoryDetailViewController
@@ -61,7 +73,7 @@ class StoryListViewController: UITableViewController {
         let saveAction = UIAlertAction(title: "Crear", style: .Default, handler: {
                                         (action:UIAlertAction) -> Void in
             
-            let newStory : Story = self.storyPersistence.createEntity()
+            let newStory : Story = self.persistence.createEntity()
             let newContent : Content = self.contentPersistence.createEntity()
             newContent.data = "string de json bien chimbita"
             newContent.type = Content.types.Text.rawValue
@@ -79,7 +91,7 @@ class StoryListViewController: UITableViewController {
             newStory.addContent(newContent2)
             newStory.addContent(newContent3)
             newStory.addContent(newContent4)
-            self.storyPersistence.save()
+            self.persistence.save()
             self.reloadData()
             }
         )
@@ -102,7 +114,7 @@ class StoryListViewController: UITableViewController {
     }
     
     func reloadData(){
-        self.stories = self.storyPersistence.getAll()
+        self.stories = self.persistence.getAll()
         self.tableView.reloadData()
     }
 
