@@ -20,11 +20,17 @@
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O2I-pP-efA">
+                        <frame key="frameInset" minX="208" width="55" height="30"/>
+                        <state key="normal" title="Eliminar"/>
+                    </button>
                 </subviews>
             </view>
             <color key="backgroundColor" red="0.74086516186312257" green="1" blue="0.75029232769355847" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstItem="O2I-pP-efA" firstAttribute="top" secondItem="2g2-aK-672" secondAttribute="top" constant="5" id="OHH-ND-yBx"/>
                 <constraint firstItem="4yU-sJ-w2T" firstAttribute="centerX" secondItem="2g2-aK-672" secondAttribute="centerX" id="VcA-Vd-DVX"/>
+                <constraint firstAttribute="trailing" secondItem="O2I-pP-efA" secondAttribute="trailing" constant="5" id="iRh-yh-qd9"/>
                 <constraint firstItem="4yU-sJ-w2T" firstAttribute="centerY" secondItem="2g2-aK-672" secondAttribute="centerY" id="t4A-FK-ZaJ"/>
             </constraints>
             <size key="customSize" width="266" height="88"/>

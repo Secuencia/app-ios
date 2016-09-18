@@ -153,8 +153,8 @@
 		374565FA1D8CACFD00E725D7 /* Data Entry */ = {
 			isa = PBXGroup;
 			children = (
-				37C4A1B21D8D110A00C9AECF /* TextInputCell */,
 				374565FB1D8CAD7E00E725D7 /* ModuleCollectionViewCell.swift */,
+				37C4A1B21D8D110A00C9AECF /* TextInputCell */,
 				37C4A1B31D8D112300C9AECF /* PhotoInputCell */,
 				37C4A1B41D8D112E00C9AECF /* ContactInputCell */,
 				37C4A1B51D8D113800C9AECF /* AudioInputCell */,
