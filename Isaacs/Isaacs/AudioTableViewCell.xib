@@ -13,13 +13,12 @@
             <rect key="frame" x="0.0" y="0.0" width="444" height="210"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <frame key="frameInset" width="444" height="209"/>
+                <frame key="frameInset" width="444" height="210"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jDf-Q1-Pqp">
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bjP-Bz-Qb3">
-                                <frame key="frameInset" minX="16" minY="30" width="106" height="48"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bjP-Bz-Qb3">
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Record">
                                     <color key="titleColor" red="0.35568632890000002" green="0.52464953709999995" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -28,20 +27,12 @@
                                     <action selector="record:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="gEl-ka-EOS"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QLF-6N-87y">
-                                <frame key="frameInset" minX="467.5" minY="8" width="580.5" height="92"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QLF-6N-87y">
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="26"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Historia 1, historia 2, ..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DKg-Us-bLo">
-                                <frame key="frameInset" minX="8" minY="108" width="1040" height="49"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uro-ed-nM2">
-                                <frame key="frameInset" minX="142" minY="21" width="211" height="66"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uro-ed-nM2">
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Play" image="PlayAudio"/>
                                 <connections>
@@ -53,22 +44,17 @@
                         <constraints>
                             <constraint firstItem="uro-ed-nM2" firstAttribute="centerY" secondItem="bjP-Bz-Qb3" secondAttribute="centerY" id="5Ab-gz-WAY"/>
                             <constraint firstItem="uro-ed-nM2" firstAttribute="width" secondItem="jDf-Q1-Pqp" secondAttribute="width" multiplier="0.2" id="8Ms-9E-uwc"/>
-                            <constraint firstItem="DKg-Us-bLo" firstAttribute="leading" secondItem="jDf-Q1-Pqp" secondAttribute="leading" constant="8" id="9f8-f5-Ku7"/>
+                            <constraint firstItem="QLF-6N-87y" firstAttribute="centerY" secondItem="jDf-Q1-Pqp" secondAttribute="centerY" id="9MR-xR-VgX"/>
                             <constraint firstItem="uro-ed-nM2" firstAttribute="leading" secondItem="bjP-Bz-Qb3" secondAttribute="trailing" constant="20" id="Btc-Mp-iau"/>
-                            <constraint firstAttribute="bottom" secondItem="DKg-Us-bLo" secondAttribute="bottom" constant="8" id="CVF-ox-VYY"/>
-                            <constraint firstItem="DKg-Us-bLo" firstAttribute="top" secondItem="QLF-6N-87y" secondAttribute="bottom" constant="8" id="KCX-hq-h7k"/>
-                            <constraint firstItem="DKg-Us-bLo" firstAttribute="height" secondItem="jDf-Q1-Pqp" secondAttribute="height" multiplier="0.3" id="MpY-eH-Tnm"/>
                             <constraint firstAttribute="trailing" secondItem="QLF-6N-87y" secondAttribute="trailing" constant="8" id="NdP-LV-PQO"/>
                             <constraint firstItem="QLF-6N-87y" firstAttribute="width" secondItem="jDf-Q1-Pqp" secondAttribute="width" multiplier="0.55" id="S43-RI-4my"/>
                             <constraint firstItem="bjP-Bz-Qb3" firstAttribute="height" secondItem="jDf-Q1-Pqp" secondAttribute="height" multiplier="0.3" id="YMh-Dd-CQU"/>
-                            <constraint firstAttribute="trailing" secondItem="DKg-Us-bLo" secondAttribute="trailing" constant="8" id="ZKa-8h-r13"/>
                             <constraint firstItem="QLF-6N-87y" firstAttribute="top" secondItem="jDf-Q1-Pqp" secondAttribute="top" constant="8" id="bmv-4l-in2"/>
                             <constraint firstItem="uro-ed-nM2" firstAttribute="height" secondItem="jDf-Q1-Pqp" secondAttribute="height" multiplier="0.4" id="ig7-ne-nOa"/>
-                            <constraint firstItem="DKg-Us-bLo" firstAttribute="top" secondItem="uro-ed-nM2" secondAttribute="bottom" constant="21" id="kYl-iX-SPf"/>
-                            <constraint firstItem="DKg-Us-bLo" firstAttribute="top" secondItem="bjP-Bz-Qb3" secondAttribute="bottom" constant="30" id="sX5-w2-Bs1"/>
                             <constraint firstItem="bjP-Bz-Qb3" firstAttribute="width" secondItem="jDf-Q1-Pqp" secondAttribute="width" multiplier="0.1" id="stE-cg-fVH"/>
                             <constraint firstItem="bjP-Bz-Qb3" firstAttribute="leading" secondItem="jDf-Q1-Pqp" secondAttribute="leading" constant="16" id="uwT-O0-mDs"/>
                             <constraint firstItem="bjP-Bz-Qb3" firstAttribute="top" secondItem="jDf-Q1-Pqp" secondAttribute="top" constant="30" id="w5I-aF-K0G"/>
+                            <constraint firstItem="uro-ed-nM2" firstAttribute="centerY" secondItem="jDf-Q1-Pqp" secondAttribute="centerY" id="zNG-3m-Zwz"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -83,7 +69,7 @@
                 <outlet property="btnPlay" destination="uro-ed-nM2" id="IK2-iC-NZD"/>
                 <outlet property="btnRecord" destination="bjP-Bz-Qb3" id="Khe-fT-2zQ"/>
                 <outlet property="containerView" destination="jDf-Q1-Pqp" id="zoT-yK-n8U"/>
-                <outlet property="stories" destination="DKg-Us-bLo" id="FAO-iN-3Ch"/>
+                <outlet property="titleLabel" destination="QLF-6N-87y" id="IoZ-5X-Acf"/>
             </connections>
             <point key="canvasLocation" x="51" y="-22"/>
         </tableViewCell>

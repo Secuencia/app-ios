@@ -22,20 +22,12 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Historia 1, historia 2, ..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FzK-Y9-BYQ">
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="GwU-lU-cyE" firstAttribute="leading" secondItem="oKY-Te-Qll" secondAttribute="leading" constant="1" id="77f-aw-3vu"/>
-                            <constraint firstAttribute="trailing" secondItem="FzK-Y9-BYQ" secondAttribute="trailing" constant="4" id="990-gr-0a5"/>
                             <constraint firstAttribute="trailing" secondItem="GwU-lU-cyE" secondAttribute="trailing" constant="1" id="D6u-J9-OJt"/>
-                            <constraint firstItem="FzK-Y9-BYQ" firstAttribute="leading" secondItem="oKY-Te-Qll" secondAttribute="leading" constant="4" id="Ve7-Z7-o4Y"/>
-                            <constraint firstAttribute="bottom" secondItem="FzK-Y9-BYQ" secondAttribute="bottom" constant="4" id="csi-Uw-z2P"/>
-                            <constraint firstItem="FzK-Y9-BYQ" firstAttribute="top" secondItem="GwU-lU-cyE" secondAttribute="bottom" constant="1" id="kU7-OW-NtJ"/>
+                            <constraint firstAttribute="bottom" secondItem="GwU-lU-cyE" secondAttribute="bottom" constant="1" id="mFh-4H-r0k"/>
                             <constraint firstItem="GwU-lU-cyE" firstAttribute="top" secondItem="oKY-Te-Qll" secondAttribute="top" constant="1" id="tzZ-uu-Cdo"/>
                         </constraints>
                     </view>
@@ -50,7 +42,6 @@
             <connections>
                 <outlet property="containerView" destination="oKY-Te-Qll" id="5Hn-1u-OFh"/>
                 <outlet property="myText" destination="GwU-lU-cyE" id="2VE-Xp-NEH"/>
-                <outlet property="stories" destination="FzK-Y9-BYQ" id="yYS-gL-ohT"/>
             </connections>
             <point key="canvasLocation" x="-8.5" y="121"/>
         </tableViewCell>

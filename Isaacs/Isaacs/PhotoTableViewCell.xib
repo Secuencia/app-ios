@@ -13,7 +13,7 @@
             <rect key="frame" x="0.0" y="0.0" width="672" height="265"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <frame key="frameInset" width="672" height="265"/>
+                <frame key="frameInset" width="672" height="264"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6Xg-BE-wdS">
@@ -24,12 +24,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Historia 1, historia 2, ..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YFX-5u-6Z1">
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Kg-vU-4lw">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Kg-vU-4lw">
                                 <constraints>
                                     <constraint firstAttribute="height" constant="33" id="UG8-br-36w"/>
                                 </constraints>
@@ -40,21 +35,17 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="YFX-5u-6Z1" firstAttribute="leading" secondItem="6Xg-BE-wdS" secondAttribute="leading" constant="8" id="2kp-uQ-LUu"/>
                             <constraint firstItem="Y0Q-au-7Ix" firstAttribute="top" secondItem="0Kg-vU-4lw" secondAttribute="bottom" constant="-1" id="3v4-Cn-NE4"/>
-                            <constraint firstAttribute="bottom" secondItem="YFX-5u-6Z1" secondAttribute="bottom" constant="8" id="7L6-oX-xYe"/>
-                            <constraint firstItem="YFX-5u-6Z1" firstAttribute="top" secondItem="Y0Q-au-7Ix" secondAttribute="bottom" constant="8" id="CWE-Ll-OMb"/>
                             <constraint firstAttribute="trailing" secondItem="0Kg-vU-4lw" secondAttribute="trailing" constant="8" id="FlX-dl-Elw"/>
+                            <constraint firstAttribute="bottom" secondItem="pKq-bQ-lMB" secondAttribute="bottom" constant="8" id="Gx9-K1-eYc"/>
                             <constraint firstItem="0Kg-vU-4lw" firstAttribute="leading" secondItem="pKq-bQ-lMB" secondAttribute="trailing" constant="8" id="IGG-gZ-LH1"/>
                             <constraint firstItem="pKq-bQ-lMB" firstAttribute="leading" secondItem="6Xg-BE-wdS" secondAttribute="leading" constant="8" id="Kv3-pB-FWV"/>
                             <constraint firstItem="pKq-bQ-lMB" firstAttribute="top" secondItem="6Xg-BE-wdS" secondAttribute="top" constant="8" id="MqV-Lh-2nh"/>
-                            <constraint firstAttribute="trailing" secondItem="YFX-5u-6Z1" secondAttribute="trailing" constant="8" id="Nvv-8p-7rV"/>
                             <constraint firstItem="pKq-bQ-lMB" firstAttribute="width" secondItem="6Xg-BE-wdS" secondAttribute="height" multiplier="177:202" constant="1.2450495049504866" id="OSx-py-2ln"/>
                             <constraint firstItem="0Kg-vU-4lw" firstAttribute="top" secondItem="6Xg-BE-wdS" secondAttribute="top" constant="8" id="Yct-g7-hn4"/>
                             <constraint firstAttribute="trailing" secondItem="Y0Q-au-7Ix" secondAttribute="trailing" constant="8" id="ZLQ-uK-ccy"/>
                             <constraint firstItem="Y0Q-au-7Ix" firstAttribute="leading" secondItem="pKq-bQ-lMB" secondAttribute="trailing" constant="8" id="bmJ-TT-N8l"/>
-                            <constraint firstAttribute="bottom" secondItem="pKq-bQ-lMB" secondAttribute="bottom" constant="55.5" id="pes-hv-hBW"/>
-                            <constraint firstAttribute="bottom" secondItem="Y0Q-au-7Ix" secondAttribute="bottom" constant="55.5" id="r7r-rB-Hov"/>
+                            <constraint firstAttribute="bottom" secondItem="Y0Q-au-7Ix" secondAttribute="bottom" constant="1" id="nTR-Ls-E4P"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -69,7 +60,6 @@
                 <outlet property="containerView" destination="6Xg-BE-wdS" id="0gI-DT-TAb"/>
                 <outlet property="notesTextView" destination="Y0Q-au-7Ix" id="dGf-Mr-oOH"/>
                 <outlet property="photoView" destination="pKq-bQ-lMB" id="TTs-aY-7KV"/>
-                <outlet property="stories" destination="YFX-5u-6Z1" id="ztT-bg-AOm"/>
                 <outlet property="titleLabel" destination="0Kg-vU-4lw" id="WsX-T6-Uw4"/>
             </connections>
             <point key="canvasLocation" x="1" y="41.5"/>

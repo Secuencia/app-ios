@@ -14,7 +14,6 @@ class PhotoTableViewCell: UITableViewCell {
     @IBOutlet weak var photoView: UIImageView!
     @IBOutlet weak var notesTextView: UITextView!
     @IBOutlet weak var containerView: UIView!
-    @IBOutlet weak var stories: UITextField!
     
     var beingEdited = true
     

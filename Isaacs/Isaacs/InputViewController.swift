@@ -66,6 +66,8 @@ class InputViewController: UIViewController, UINavigationControllerDelegate, UII
     
     var images = [UIImage]()
     
+    var imagesTuples = [(Int, UIImage, String)]()
+    
     var historias = ["Pepita", "Sutana", "Menguana"]
     
     
@@ -194,7 +196,24 @@ class InputViewController: UIViewController, UINavigationControllerDelegate, UII
         // Style
         
         
-        photoCell.photoView.image = images[0]
+    
+        
+        /*if let data = contents[indexPath.section].data {
+            let photoDict = JsonConverter.jsonToDict(data)
+            let image = getImage(photoDict!["image_file_name"]!)
+        }*/
+        
+        
+        for (_, value) in imagesTuples.enumerate() {
+            
+            if value.0 == indexPath.section {
+                let tuple = value
+                photoCell.photoView.image = tuple.1
+                photoCell.titleLabel.text = tuple.2
+                break
+            }
+        
+        }
         
         if indexPath.section == editedContentIndex && editing {
             photoCell.notesTextView.becomeFirstResponder()
@@ -239,8 +258,9 @@ class InputViewController: UIViewController, UINavigationControllerDelegate, UII
     func createAudioCell(indexPath: NSIndexPath) -> AudioTableViewCell {
         let audioCell = tableView.dequeueReusableCellWithIdentifier("audio_cell", forIndexPath: indexPath) as! AudioTableViewCell
         
-        let audioName : String = Utils.randomStringWithLength(10) as String
+        let audioName = NSDate().iso8601
         audioCell.file_name = audioName
+        audioCell.titleLabel.text = audioName
         
         // Style
         audioCell.containerView.layer.borderWidth = 2.0
@@ -363,13 +383,20 @@ class InputViewController: UIViewController, UINavigationControllerDelegate, UII
                 
                 print("GENERATING ROUTE")
                 
-                let imageName = saveImageToDirectory(image, imageName: "image.png")
+                let name = NSDate().iso8601 + ".png"
+                
+                let imageName = saveImageToDirectory(image, imageName: name)
                 print(imageName)
                 let loadedImage = getImage(imageName)!
+                print(loadedImage)
                 
                 print("END OF PERSISTENCE")
                 
-                images.append(loadedImage)
+                imagesTuples.append((editedContentIndex!, loadedImage, name))
+
+                
+                //images.append(loadedImage)
+                
 
             }else{
                 print("Something went wrong")
@@ -386,33 +413,15 @@ class InputViewController: UIViewController, UINavigationControllerDelegate, UII
         picker.dismissViewControllerAnimated(true, completion: nil)
         
     }
-    
-    func saveImageToDirectory(image:UIImage, imageName: String) -> String {
-        let fileManager = NSFileManager.defaultManager()
-        let imageData = NSData(data:UIImagePNGRepresentation(image)!)
-        let paths = (NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as NSString).stringByAppendingPathComponent(imageName)
-        fileManager.createFileAtPath(paths as String, contents: imageData, attributes: nil)
-        return imageName
-    }
-    
-    func getImage(imageName: String) -> UIImage?{
-        let fileManager = NSFileManager.defaultManager()
-        let imagePath = (self.getDirectoryPath() as NSString).stringByAppendingPathComponent(imageName)
-        if fileManager.fileExistsAtPath(imagePath) {
-            return UIImage(contentsOfFile: imagePath)
-        }else{
-            return nil
-        }
-    }
-    
-    func getDirectoryPath() -> String{
-        let paths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)
-        let documentsDir = paths[0]
-        return documentsDir
-    }
+ 
     
     func insertAudio() {
-        print("Audio: To Be implemented")
+        let newContent = ContentPersistence().createEntity(); newContent.type = Content.types.Audio.rawValue
+        contents.append(newContent)
+        editing = true
+        editedContentIndex = contents.count - 1
+        print("New content index: ", editedContentIndex)
+        
         modulesTypes.append(Modules.Audio.rawValue)
         tableView.reloadData()
     }
@@ -439,10 +448,10 @@ class InputViewController: UIViewController, UINavigationControllerDelegate, UII
         if let index = editedContentIndex {
             var json: String?
             switch contents[index].type! {
-                case Content.types.Text.rawValue: json = createDict(((tableView.cellForRowAtIndexPath(NSIndexPath(forRow: 0, inSection: editedContentIndex!)) as? TextTableViewCell)?.myText.text)!)
-                case Content.types.Picture.rawValue: json = createDict(((tableView.cellForRowAtIndexPath(NSIndexPath(forRow: 0, inSection: editedContentIndex!)) as? PhotoTableViewCell)!.notesTextView.text)!)
-                case Content.types.Audio.rawValue: json = ""
-                case Content.types.Contact.rawValue: json = createDict(((tableView.cellForRowAtIndexPath(NSIndexPath(forRow: 0, inSection: editedContentIndex!)) as? ContactTableViewCell)?.nameTextField.text)!)
+                case Content.types.Text.rawValue: json = createDictForText()
+                case Content.types.Picture.rawValue: json = createDictForPhoto()
+                case Content.types.Audio.rawValue: json = createDictForAudio()
+                case Content.types.Contact.rawValue: json = createDictForContact()
                 default: json = nil
             }
             print("ESTE ES EL JSON: ",json)
@@ -456,16 +465,41 @@ class InputViewController: UIViewController, UINavigationControllerDelegate, UII
         
     }
     
-    func createDict(bodyText: String) -> String {
+    func createDictForText() -> String {
+        let bodyText = ((tableView.cellForRowAtIndexPath(NSIndexPath(forRow: 0, inSection: editedContentIndex!)) as? TextTableViewCell)?.myText.text)!
         let dict: [String: String] = ["title":"titulo por defecto", "body":bodyText,"otra propiedad":"nueva propiedad"]
         let json: String = JsonConverter.dictToJson(dict)
         return json
     }
     
+    func createDictForPhoto() -> String {
+        let cell = (tableView.cellForRowAtIndexPath(NSIndexPath(forRow: 0, inSection: editedContentIndex!)) as? PhotoTableViewCell)!
+        let dict: [String: String] = ["title":"titulo por defecto", "notes":cell.notesTextView.text,"image_file_name":cell.titleLabel.text!]
+        let json: String = JsonConverter.dictToJson(dict)
+        return json
+    }
+    
+    func createDictForAudio() -> String {
+        let cell = (tableView.cellForRowAtIndexPath(NSIndexPath(forRow: 0, inSection: editedContentIndex!)) as? AudioTableViewCell)!
+        let dict: [String: String] = ["title":"titulo por defecto", "audio_file_name":cell.titleLabel.text!]
+        let json: String = JsonConverter.dictToJson(dict)
+        return json
+    }
+    
+    func createDictForContact() -> String {
+        let cell = (tableView.cellForRowAtIndexPath(NSIndexPath(forRow: 0, inSection: editedContentIndex!)) as? ContactTableViewCell)!
+        let dict: [String: String] = ["name":cell.nameTextField.text!, "aditional_info":cell.additionalInfoText.text]
+        let json: String = JsonConverter.dictToJson(dict)
+        return json
+    }
+    
+    
     // MARK: End of session actions
     
     
     @IBAction func saveSession(sender: UIBarButtonItem) {
+        saveCurrentlyEditingContent()
+        
         print("This is the data of the session")
         print(modulesTypes)
         print(contents)
@@ -516,6 +550,54 @@ class InputViewController: UIViewController, UINavigationControllerDelegate, UII
         
     }
     
+    // MARK: Utility actions
     
+    
+    func saveImageToDirectory(image:UIImage, imageName: String) -> String {
+        let fileManager = NSFileManager.defaultManager()
+        let imageData = NSData(data:UIImagePNGRepresentation(image)!)
+        let paths = (NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as NSString).stringByAppendingPathComponent(imageName)
+        fileManager.createFileAtPath(paths as String, contents: imageData, attributes: nil)
+        return imageName
+    }
+    
+    func getImage(imageName: String) -> UIImage?{
+        let fileManager = NSFileManager.defaultManager()
+        let imagePath = (self.getDirectoryPath() as NSString).stringByAppendingPathComponent(imageName)
+        if fileManager.fileExistsAtPath(imagePath) {
+            return UIImage(contentsOfFile: imagePath)
+        }else{
+            return nil
+        }
+    }
+    
+    func getDirectoryPath() -> String{
+        let paths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)
+        let documentsDir = paths[0]
+        return documentsDir
+    }
+    
+ 
+    
+    
+}
 
+extension NSDate {
+    struct Formatter {
+        static let iso8601: NSDateFormatter = {
+            let formatter = NSDateFormatter()
+            formatter.calendar = NSCalendar(calendarIdentifier: NSCalendarIdentifierISO8601)
+            formatter.locale = NSLocale(localeIdentifier: "en_US_POSIX")
+            formatter.timeZone = NSTimeZone(forSecondsFromGMT: 0)
+            formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSXXX"
+            return formatter
+        }()
+    }
+    var iso8601: String { return Formatter.iso8601.stringFromDate(self) }
+}
+
+extension String {
+    var dateFromISO8601: NSDate? {
+        return NSDate.Formatter.iso8601.dateFromString(self)
+    }
 }

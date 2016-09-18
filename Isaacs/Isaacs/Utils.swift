@@ -7,6 +7,8 @@
 //
 
 import Foundation
+import UIKit
+
 public class Utils{
     
     static func randomStringWithLength (len : Int) -> NSString {
@@ -22,5 +24,29 @@ public class Utils{
         }
         
         return randomString
+    }
+    
+    static func saveImageToDirectory(image:UIImage, imageName: String) -> String {
+        let fileManager = NSFileManager.defaultManager()
+        let imageData = NSData(data:UIImagePNGRepresentation(image)!)
+        let paths = (NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as NSString).stringByAppendingPathComponent(imageName)
+        fileManager.createFileAtPath(paths as String, contents: imageData, attributes: nil)
+        return imageName
+    }
+    
+    static func getImage(imageName: String) -> UIImage?{
+        let fileManager = NSFileManager.defaultManager()
+        let imagePath = (self.getDirectoryPath() as NSString).stringByAppendingPathComponent(imageName)
+        if fileManager.fileExistsAtPath(imagePath) {
+            return UIImage(contentsOfFile: imagePath)
+        }else{
+            return nil
+        }
+    }
+    
+    static func getDirectoryPath() -> String{
+        let paths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)
+        let documentsDir = paths[0]
+        return documentsDir
     }
 }

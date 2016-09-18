@@ -11,4 +11,5 @@ import UIKit
 class PictureCardCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var delete: UIButton!
+    @IBOutlet weak var image: UIImageView!
 }

@@ -70,10 +70,7 @@ class ContentListViewController: UIViewController, UICollectionViewDelegate,UICo
         var cell : UICollectionViewCell;
         let type : String = (contents[indexPath.row].type)!
         switch type {
-        case Content.types.Picture.rawValue:
-            cell = collectionView.dequeueReusableCellWithReuseIdentifier("picture_card", forIndexPath: indexPath) as! PictureCardCollectionViewCell
-            (cell as! PictureCardCollectionViewCell).delete.tag = indexPath.row
-            (cell as! PictureCardCollectionViewCell).delete.addTarget(self, action: #selector(deleteCard), forControlEvents: .TouchUpInside)
+        case Content.types.Picture.rawValue: cell = createPhotoCell(indexPath)
         case Content.types.Audio.rawValue:
             cell = collectionView.dequeueReusableCellWithReuseIdentifier("audio_card", forIndexPath: indexPath) as! AudioCardCollectionViewCell
             (cell as! AudioCardCollectionViewCell).delete.tag = indexPath.row
@@ -104,6 +101,19 @@ class ContentListViewController: UIViewController, UICollectionViewDelegate,UICo
         textCell.textLabel.text = JsonConverter.jsonToDict(jsonData)!["body"]
         
         return textCell
+    }
+    
+    // Create Photo cell
+    func createPhotoCell(indexPath: NSIndexPath) -> PictureCardCollectionViewCell {
+        let photoCell = collectionView.dequeueReusableCellWithReuseIdentifier("picture_card", forIndexPath: indexPath) as! PictureCardCollectionViewCell
+        photoCell.delete.tag = indexPath.row
+        photoCell.delete.addTarget(self, action: #selector(deleteCard), forControlEvents: .TouchUpInside)
+        let jsonData = contents[indexPath.row].data ?? "No data"
+        let imageName = JsonConverter.jsonToDict(jsonData)!["image_file_name"]!
+        let image = Utils.getImage(imageName)
+        photoCell.image.image = image
+        
+        return photoCell
     }
     
     //Tamaño de celdas

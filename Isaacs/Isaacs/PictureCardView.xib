@@ -15,32 +15,26 @@
                 <rect key="frame" x="0.0" y="0.0" width="640" height="320"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Prueba de Imagen" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rap-4S-u9f">
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <nil key="highlightedColor"/>
-                    </label>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bjb-aY-bmz">
-                        <state key="normal" title="Button"/>
-                    </button>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Emk-9T-AV5">
                         <state key="normal" title="Eliminar"/>
                     </button>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="yGV-Rx-O0B"/>
                 </subviews>
             </view>
             <color key="backgroundColor" red="1" green="0.20649369479999999" blue="0.25690855480000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <color key="tintColor" red="1" green="0.96796890540000002" blue="0.30751505530000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="Rap-4S-u9f" firstAttribute="centerY" secondItem="u8k-Jr-oNk" secondAttribute="centerY" id="8HH-GD-z1E"/>
-                <constraint firstItem="Bjb-aY-bmz" firstAttribute="centerX" secondItem="u8k-Jr-oNk" secondAttribute="centerX" id="NOW-bf-fyo"/>
-                <constraint firstAttribute="bottom" secondItem="Bjb-aY-bmz" secondAttribute="bottom" constant="8" id="ZgZ-tr-eGr"/>
+                <constraint firstItem="Emk-9T-AV5" firstAttribute="leading" secondItem="yGV-Rx-O0B" secondAttribute="trailing" constant="1" id="Amc-Bq-5xa"/>
+                <constraint firstAttribute="bottom" secondItem="yGV-Rx-O0B" secondAttribute="bottom" constant="1" id="cN5-Q8-eZO"/>
                 <constraint firstAttribute="trailing" secondItem="Emk-9T-AV5" secondAttribute="trailing" constant="5" id="deg-0z-4Ll"/>
                 <constraint firstItem="Emk-9T-AV5" firstAttribute="top" secondItem="u8k-Jr-oNk" secondAttribute="top" constant="5" id="em9-iH-BlQ"/>
-                <constraint firstItem="Rap-4S-u9f" firstAttribute="centerX" secondItem="u8k-Jr-oNk" secondAttribute="centerX" id="igr-9j-NaI"/>
+                <constraint firstItem="yGV-Rx-O0B" firstAttribute="leading" secondItem="u8k-Jr-oNk" secondAttribute="leading" constant="1" id="mJD-iy-277"/>
+                <constraint firstItem="yGV-Rx-O0B" firstAttribute="top" secondItem="u8k-Jr-oNk" secondAttribute="top" constant="1" id="s4R-ho-JV0"/>
             </constraints>
             <size key="customSize" width="387" height="298"/>
             <connections>
                 <outlet property="delete" destination="Emk-9T-AV5" id="961-fk-Meh"/>
+                <outlet property="image" destination="yGV-Rx-O0B" id="qWH-Lm-5Z9"/>
             </connections>
             <point key="canvasLocation" x="330" y="482"/>
         </collectionViewCell>

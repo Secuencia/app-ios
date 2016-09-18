@@ -16,6 +16,7 @@ class AudioTableViewCell: UITableViewCell{
     
     @IBOutlet weak var btnRecord: UIButton!
     @IBOutlet weak var stories: UITextField!
+    @IBOutlet weak var titleLabel: UILabel!
     
     var file_name : String?
     
