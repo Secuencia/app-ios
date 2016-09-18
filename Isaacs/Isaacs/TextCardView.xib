@@ -3,7 +3,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
-        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -19,23 +18,26 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zYx-qj-09V">
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A4Q-Sx-jST">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="3Ch-oR-b8g"/>
+                                    <constraint firstAttribute="width" constant="30" id="HWz-lL-dpH"/>
+                                </constraints>
                                 <state key="normal" title="X"/>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Prueba de Texto" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vxw-bi-Voa">
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Yy3-Xp-mJX">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="A4Q-Sx-jST" firstAttribute="leading" secondItem="Yy3-Xp-mJX" secondAttribute="trailing" id="2Sf-kh-EzP"/>
+                            <constraint firstItem="Yy3-Xp-mJX" firstAttribute="top" secondItem="zYx-qj-09V" secondAttribute="top" id="H1W-tf-gmA"/>
                             <constraint firstItem="A4Q-Sx-jST" firstAttribute="top" secondItem="zYx-qj-09V" secondAttribute="top" id="Mpm-Pi-YJt"/>
-                            <constraint firstItem="vxw-bi-Voa" firstAttribute="top" secondItem="zYx-qj-09V" secondAttribute="top" constant="2" id="OP5-TZ-cFi"/>
-                            <constraint firstAttribute="bottom" secondItem="vxw-bi-Voa" secondAttribute="bottom" constant="2" id="UlJ-Y9-8Aa"/>
                             <constraint firstAttribute="trailing" secondItem="A4Q-Sx-jST" secondAttribute="trailing" id="bvx-2S-gp0"/>
-                            <constraint firstItem="A4Q-Sx-jST" firstAttribute="width" secondItem="zYx-qj-09V" secondAttribute="width" multiplier="0.2" id="fzf-c3-6EW"/>
-                            <constraint firstItem="A4Q-Sx-jST" firstAttribute="leading" secondItem="vxw-bi-Voa" secondAttribute="trailing" constant="3" id="uOe-QK-jC7"/>
-                            <constraint firstItem="vxw-bi-Voa" firstAttribute="leading" secondItem="zYx-qj-09V" secondAttribute="leading" constant="2" id="wdj-P8-cYP"/>
+                            <constraint firstItem="Yy3-Xp-mJX" firstAttribute="leading" secondItem="zYx-qj-09V" secondAttribute="leading" id="tAs-Qa-S1N"/>
+                            <constraint firstAttribute="bottom" secondItem="Yy3-Xp-mJX" secondAttribute="bottom" id="wDV-sk-HvG"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -49,7 +51,7 @@
             <size key="customSize" width="268" height="98"/>
             <connections>
                 <outlet property="delete" destination="A4Q-Sx-jST" id="s1o-fG-lkX"/>
-                <outlet property="textLabel" destination="vxw-bi-Voa" id="5cs-zW-Ihr"/>
+                <outlet property="textView" destination="Yy3-Xp-mJX" id="XEm-L7-aC4"/>
             </connections>
             <point key="canvasLocation" x="198" y="493"/>
         </collectionViewCell>

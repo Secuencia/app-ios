@@ -34,6 +34,8 @@ class ContentListViewController: UIViewController, UICollectionViewDelegate,UICo
         sizes[Content.types.Picture.rawValue] = (factors.Half.rawValue, factors.Double.rawValue)
         sizes[Content.types.Text.rawValue] = (factors.Full.rawValue, factors.Double.rawValue)
         
+        
+        
         self.collectionView!.registerNib(UINib(nibName: "PictureCardView", bundle: nil), forCellWithReuseIdentifier: "picture_card")
         self.collectionView!.registerNib(UINib(nibName: "TextCardView", bundle: nil), forCellWithReuseIdentifier: "text_card")
         self.collectionView!.registerNib(UINib(nibName: "AudioCardView", bundle: nil), forCellWithReuseIdentifier: "audio_card")
@@ -98,7 +100,7 @@ class ContentListViewController: UIViewController, UICollectionViewDelegate,UICo
         textCell.layer.borderWidth = 2
         
         let jsonData = contents[indexPath.row].data ?? "No data"
-        textCell.textLabel.text = JsonConverter.jsonToDict(jsonData)!["body"]
+        textCell.textView.text = JsonConverter.jsonToDict(jsonData)!["body"]
         
         return textCell
     }
@@ -125,7 +127,7 @@ class ContentListViewController: UIViewController, UICollectionViewDelegate,UICo
         contactCell.delete.tag = indexPath.row
         contactCell.delete.addTarget(self, action: #selector(deleteCard), forControlEvents: .TouchUpInside)
         
-        contactCell.layer.borderColor = UIColor.cyanColor().CGColor
+        contactCell.layer.borderColor = UIColor.magentaColor().CGColor
         contactCell.layer.borderWidth = 2
         
         let jsonData = contents[indexPath.row].data ?? "No data"

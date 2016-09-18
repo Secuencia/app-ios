@@ -17,11 +17,6 @@
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cVy-iI-9Gl">
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Prueba de Audio" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4yU-sJ-w2T">
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O2I-pP-efA">
                                 <constraints>
                                     <constraint firstAttribute="width" constant="30" id="540-7c-yd1"/>
@@ -29,11 +24,21 @@
                                 </constraints>
                                 <state key="normal" title="X"/>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pdT-8t-bHJ">
+                                <state key="normal" title="Play"/>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Prueba de Audio" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4yU-sJ-w2T">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="pdT-8t-bHJ" firstAttribute="leading" secondItem="cVy-iI-9Gl" secondAttribute="leading" constant="8" id="2QA-j8-fbB"/>
+                            <constraint firstItem="4yU-sJ-w2T" firstAttribute="leading" secondItem="pdT-8t-bHJ" secondAttribute="trailing" constant="20" id="99G-RE-FaG"/>
+                            <constraint firstItem="pdT-8t-bHJ" firstAttribute="centerY" secondItem="cVy-iI-9Gl" secondAttribute="centerY" id="CaL-0a-zM6"/>
                             <constraint firstItem="O2I-pP-efA" firstAttribute="top" secondItem="cVy-iI-9Gl" secondAttribute="top" constant="8" id="DLl-Xo-Ban"/>
-                            <constraint firstItem="4yU-sJ-w2T" firstAttribute="leading" secondItem="cVy-iI-9Gl" secondAttribute="leading" constant="8" id="XLb-X4-qfB"/>
                             <constraint firstItem="4yU-sJ-w2T" firstAttribute="centerY" secondItem="cVy-iI-9Gl" secondAttribute="centerY" id="k43-5a-xLN"/>
                             <constraint firstAttribute="trailing" secondItem="O2I-pP-efA" secondAttribute="trailing" constant="8" id="zoQ-e0-BnL"/>
                         </constraints>

@@ -10,7 +10,8 @@ import UIKit
 
 class TextCardCollectionViewCell: UICollectionViewCell{
     
-    @IBOutlet weak var textLabel: UILabel!
+    @IBOutlet weak var textView: UITextView!
     @IBOutlet weak var delete: UIButton!
+    
     
 }
