@@ -114,7 +114,6 @@ class StoryDetailViewController: UICollectionViewController,UICollectionViewDele
             let titleCell = collectionView.dequeueReusableCellWithReuseIdentifier("title_card", forIndexPath: indexPath) as! TitleCardCollectionViewCell
             titleCell.storyTitle.text = story.title!
             titleCell.storyBrief.text = story.brief ?? "There is no brief"
-            titleCell.containerView.backgroundColor = UIColor(netHex: 0xdddddd)
             cell = titleCell
         }
         else {
@@ -135,9 +134,6 @@ class StoryDetailViewController: UICollectionViewController,UICollectionViewDele
         textCell.delete.tag = indexPath.row
         textCell.delete.addTarget(self, action: #selector(deleteCard), forControlEvents: .TouchUpInside)
         
-        textCell.containerView.layer.borderColor = UIColor.darkGrayColor().CGColor
-        textCell.containerView.layer.borderWidth = 2
-        
         let jsonData = story.contents?[indexPath.row].data ?? "No data"
         textCell.textView.text = JsonConverter.jsonToDict((jsonData as! String))!["body"]
         
@@ -149,9 +145,6 @@ class StoryDetailViewController: UICollectionViewController,UICollectionViewDele
         let photoCell = self.collectionView!.dequeueReusableCellWithReuseIdentifier("picture_card", forIndexPath: indexPath) as! PictureCardCollectionViewCell
         photoCell.delete.tag = indexPath.row
         photoCell.delete.addTarget(self, action: #selector(deleteCard), forControlEvents: .TouchUpInside)
-        
-        photoCell.containerView.layer.borderColor = UIColor.cyanColor().CGColor
-        photoCell.containerView.layer.borderWidth = 2
         
         let jsonData = story.contents![indexPath.row].data ?? "No data"
         let imageName = JsonConverter.jsonToDict((jsonData as! String))!["image_file_name"]!
@@ -166,10 +159,7 @@ class StoryDetailViewController: UICollectionViewController,UICollectionViewDele
         let contactCell = self.collectionView!.dequeueReusableCellWithReuseIdentifier("contact_card", forIndexPath: indexPath) as! ContactCardCollectionViewCell
         contactCell.delete.tag = indexPath.row
         contactCell.delete.addTarget(self, action: #selector(deleteCard), forControlEvents: .TouchUpInside)
-        
-        contactCell.containerView.layer.borderColor = UIColor.magentaColor().CGColor
-        contactCell.containerView.layer.borderWidth = 2
-        
+
         let jsonData = story.contents![indexPath.row].data ?? "No data"
         let dict = JsonConverter.jsonToDict((jsonData as! String))!
         
@@ -184,10 +174,7 @@ class StoryDetailViewController: UICollectionViewController,UICollectionViewDele
         let audioCell = self.collectionView!.dequeueReusableCellWithReuseIdentifier("audio_card", forIndexPath: indexPath) as! AudioCardCollectionViewCell
         audioCell.delete.tag = indexPath.row
         audioCell.delete.addTarget(self, action: #selector(deleteCard), forControlEvents: .TouchUpInside)
-        
-        audioCell.containerView.layer.borderColor = UIColor.orangeColor().CGColor
-        audioCell.containerView.layer.borderWidth = 2
-        
+
         let jsonData = story.contents![indexPath.row].data ?? "No data"
         let dict = JsonConverter.jsonToDict((jsonData as! String))!
         

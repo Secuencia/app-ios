@@ -93,9 +93,6 @@ class ContentListViewController: UIViewController, UICollectionViewDelegate,UICo
         textCell.delete.tag = indexPath.row
         textCell.delete.addTarget(self, action: #selector(deleteCard), forControlEvents: .TouchUpInside)
         
-        textCell.containerView.layer.borderColor = UIColor.darkGrayColor().CGColor
-        textCell.containerView.layer.borderWidth = 2
-        
         let jsonData = contents[indexPath.row].data ?? "No data"
         textCell.textView.text = JsonConverter.jsonToDict(jsonData)!["body"]
         
@@ -107,9 +104,6 @@ class ContentListViewController: UIViewController, UICollectionViewDelegate,UICo
         let photoCell = collectionView.dequeueReusableCellWithReuseIdentifier("picture_card", forIndexPath: indexPath) as! PictureCardCollectionViewCell
         photoCell.delete.tag = indexPath.row
         photoCell.delete.addTarget(self, action: #selector(deleteCard), forControlEvents: .TouchUpInside)
-        
-        photoCell.containerView.layer.borderColor = UIColor.cyanColor().CGColor
-        photoCell.containerView.layer.borderWidth = 2
         
         let jsonData = contents[indexPath.row].data ?? "No data"
         let imageName = JsonConverter.jsonToDict(jsonData)!["image_file_name"]!
@@ -125,9 +119,6 @@ class ContentListViewController: UIViewController, UICollectionViewDelegate,UICo
         contactCell.delete.tag = indexPath.row
         contactCell.delete.addTarget(self, action: #selector(deleteCard), forControlEvents: .TouchUpInside)
         
-        contactCell.containerView.layer.borderColor = UIColor.magentaColor().CGColor
-        contactCell.containerView.layer.borderWidth = 2
-        
         let jsonData = contents[indexPath.row].data ?? "No data"
         let dict = JsonConverter.jsonToDict(jsonData)!
         
@@ -142,9 +133,6 @@ class ContentListViewController: UIViewController, UICollectionViewDelegate,UICo
         let audioCell = collectionView.dequeueReusableCellWithReuseIdentifier("audio_card", forIndexPath: indexPath) as! AudioCardCollectionViewCell
         audioCell.delete.tag = indexPath.row
         audioCell.delete.addTarget(self, action: #selector(deleteCard), forControlEvents: .TouchUpInside)
-        
-        audioCell.containerView.layer.borderColor = UIColor.orangeColor().CGColor
-        audioCell.containerView.layer.borderWidth = 2
         
         let jsonData = contents[indexPath.row].data ?? "No data"
         let dict = JsonConverter.jsonToDict(jsonData)!

@@ -14,4 +14,10 @@ class ContactCardCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var notesLabel: UILabel!
     @IBOutlet weak var containerView: UIView!
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        containerView.layer.borderColor = UIColor.magentaColor().CGColor
+        containerView.layer.borderWidth = 2
+    }
 }

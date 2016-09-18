@@ -23,4 +23,10 @@ class AudioCardCollectionViewCell: UICollectionViewCell {
         audioManager.play(file_name!)
     }
     
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        containerView.layer.borderColor = UIColor.orangeColor().CGColor
+        containerView.layer.borderWidth = 2
+    }
+    
 }

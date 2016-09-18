@@ -41,6 +41,7 @@ class StoryListViewController: UITableViewController {
         let story : Story = stories[indexPath.row]
         
         cell!.textLabel!.text = story.title
+        //cell!.detailTextLabel!.text = (story.date_created as! String) ?? "07/09/16"
         
         return cell!
     }
