@@ -75,10 +75,7 @@ class ContentListViewController: UIViewController, UICollectionViewDelegate,UICo
             cell = collectionView.dequeueReusableCellWithReuseIdentifier("audio_card", forIndexPath: indexPath) as! AudioCardCollectionViewCell
             (cell as! AudioCardCollectionViewCell).delete.tag = indexPath.row
             (cell as! AudioCardCollectionViewCell).delete.addTarget(self, action: #selector(deleteCard), forControlEvents: .TouchUpInside)
-        case Content.types.Contact.rawValue:
-            cell = collectionView.dequeueReusableCellWithReuseIdentifier("contact_card", forIndexPath: indexPath) as! ContactCardCollectionViewCell
-            (cell as! ContactCardCollectionViewCell).delete.tag = indexPath.row
-            (cell as! ContactCardCollectionViewCell).delete.addTarget(self, action: #selector(deleteCard), forControlEvents: .TouchUpInside)
+        case Content.types.Contact.rawValue: cell = createContactCell(indexPath)
         default:
             cell = createTextCell(indexPath)
         }
@@ -96,8 +93,11 @@ class ContentListViewController: UIViewController, UICollectionViewDelegate,UICo
         let textCell:TextCardCollectionViewCell = collectionView.dequeueReusableCellWithReuseIdentifier("text_card", forIndexPath: indexPath) as! TextCardCollectionViewCell
         textCell.delete.tag = indexPath.row
         textCell.delete.addTarget(self, action: #selector(deleteCard), forControlEvents: .TouchUpInside)
-        let jsonData = contents[indexPath.row].data ?? "No data"
         
+        textCell.layer.borderColor = UIColor.darkGrayColor().CGColor
+        textCell.layer.borderWidth = 2
+        
+        let jsonData = contents[indexPath.row].data ?? "No data"
         textCell.textLabel.text = JsonConverter.jsonToDict(jsonData)!["body"]
         
         return textCell
@@ -108,12 +108,50 @@ class ContentListViewController: UIViewController, UICollectionViewDelegate,UICo
         let photoCell = collectionView.dequeueReusableCellWithReuseIdentifier("picture_card", forIndexPath: indexPath) as! PictureCardCollectionViewCell
         photoCell.delete.tag = indexPath.row
         photoCell.delete.addTarget(self, action: #selector(deleteCard), forControlEvents: .TouchUpInside)
+        
+        photoCell.layer.borderColor = UIColor.cyanColor().CGColor
+        photoCell.layer.borderWidth = 2
+        
         let jsonData = contents[indexPath.row].data ?? "No data"
         let imageName = JsonConverter.jsonToDict(jsonData)!["image_file_name"]!
         let image = Utils.getImage(imageName)
         photoCell.image.image = image
         
         return photoCell
+    }
+    
+    func createContactCell(indexPath: NSIndexPath) -> ContactCardCollectionViewCell {
+        let contactCell = collectionView.dequeueReusableCellWithReuseIdentifier("contact_card", forIndexPath: indexPath) as! ContactCardCollectionViewCell
+        contactCell.delete.tag = indexPath.row
+        contactCell.delete.addTarget(self, action: #selector(deleteCard), forControlEvents: .TouchUpInside)
+        
+        contactCell.layer.borderColor = UIColor.cyanColor().CGColor
+        contactCell.layer.borderWidth = 2
+        
+        let jsonData = contents[indexPath.row].data ?? "No data"
+        let dict = JsonConverter.jsonToDict(jsonData)!
+        
+        contactCell.nameLabel.text = dict["name"]
+        contactCell.notesLabel.text = dict["aditional_info"]
+        
+        return contactCell
+    }
+    
+    func createAudioCell(indexPath: NSIndexPath) -> ContactCardCollectionViewCell {
+        let audioCell = collectionView.dequeueReusableCellWithReuseIdentifier("contact_card", forIndexPath: indexPath) as! ContactCardCollectionViewCell
+        audioCell.delete.tag = indexPath.row
+        audioCell.delete.addTarget(self, action: #selector(deleteCard), forControlEvents: .TouchUpInside)
+        
+        audioCell.layer.borderColor = UIColor.orangeColor().CGColor
+        audioCell.layer.borderWidth = 2
+        
+        let jsonData = contents[indexPath.row].data ?? "No data"
+        let dict = JsonConverter.jsonToDict(jsonData)!
+        
+        audioCell.nameLabel.text = dict["title"]
+        
+        
+        return audioCell
     }
     
     //Tamaño de celdas

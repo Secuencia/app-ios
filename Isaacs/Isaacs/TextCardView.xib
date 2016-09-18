@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -15,24 +16,35 @@
                 <rect key="frame" x="0.0" y="0.0" width="268" height="98"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Prueba de Texto" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vxw-bi-Voa">
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <nil key="highlightedColor"/>
-                    </label>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A4Q-Sx-jST">
-                        <state key="normal" title="Eliminar"/>
-                    </button>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zYx-qj-09V">
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A4Q-Sx-jST">
+                                <state key="normal" title="X"/>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Prueba de Texto" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vxw-bi-Voa">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="A4Q-Sx-jST" firstAttribute="top" secondItem="zYx-qj-09V" secondAttribute="top" id="Mpm-Pi-YJt"/>
+                            <constraint firstItem="vxw-bi-Voa" firstAttribute="top" secondItem="zYx-qj-09V" secondAttribute="top" constant="2" id="OP5-TZ-cFi"/>
+                            <constraint firstAttribute="bottom" secondItem="vxw-bi-Voa" secondAttribute="bottom" constant="2" id="UlJ-Y9-8Aa"/>
+                            <constraint firstAttribute="trailing" secondItem="A4Q-Sx-jST" secondAttribute="trailing" id="bvx-2S-gp0"/>
+                            <constraint firstItem="A4Q-Sx-jST" firstAttribute="width" secondItem="zYx-qj-09V" secondAttribute="width" multiplier="0.2" id="fzf-c3-6EW"/>
+                            <constraint firstItem="A4Q-Sx-jST" firstAttribute="leading" secondItem="vxw-bi-Voa" secondAttribute="trailing" constant="3" id="uOe-QK-jC7"/>
+                            <constraint firstItem="vxw-bi-Voa" firstAttribute="leading" secondItem="zYx-qj-09V" secondAttribute="leading" constant="2" id="wdj-P8-cYP"/>
+                        </constraints>
+                    </view>
                 </subviews>
             </view>
-            <color key="backgroundColor" red="1" green="0.96796890540000002" blue="0.30751505530000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="vxw-bi-Voa" firstAttribute="top" secondItem="hK0-G0-Xuk" secondAttribute="top" constant="10" id="a62-67-eLB"/>
-                <constraint firstAttribute="bottom" secondItem="vxw-bi-Voa" secondAttribute="bottom" constant="10" id="ace-PJ-aKa"/>
-                <constraint firstAttribute="trailing" secondItem="A4Q-Sx-jST" secondAttribute="trailing" constant="5" id="h0X-UT-iwu"/>
-                <constraint firstItem="vxw-bi-Voa" firstAttribute="leading" secondItem="hK0-G0-Xuk" secondAttribute="leading" constant="10" id="icU-gv-Waz"/>
-                <constraint firstItem="A4Q-Sx-jST" firstAttribute="top" secondItem="hK0-G0-Xuk" secondAttribute="top" constant="5" id="uMr-vV-TpH"/>
-                <constraint firstAttribute="trailing" secondItem="vxw-bi-Voa" secondAttribute="trailing" constant="10" id="xgP-D7-Bft"/>
+                <constraint firstItem="zYx-qj-09V" firstAttribute="top" secondItem="hK0-G0-Xuk" secondAttribute="top" constant="1" id="IKL-hz-tr0"/>
+                <constraint firstItem="zYx-qj-09V" firstAttribute="leading" secondItem="hK0-G0-Xuk" secondAttribute="leading" constant="1" id="bre-lB-Lcq"/>
+                <constraint firstAttribute="bottom" secondItem="zYx-qj-09V" secondAttribute="bottom" constant="1" id="bzv-Nh-OIs"/>
+                <constraint firstAttribute="trailing" secondItem="zYx-qj-09V" secondAttribute="trailing" constant="1" id="ytD-8X-EoI"/>
             </constraints>
             <size key="customSize" width="268" height="98"/>
             <connections>

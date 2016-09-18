@@ -3,40 +3,70 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="contact_card" id="B4J-fR-2J6" customClass="ContactCardCollectionViewCell" customModule="Isaacs" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="300" height="112"/>
+            <rect key="frame" x="0.0" y="0.0" width="300" height="142"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                <rect key="frame" x="0.0" y="0.0" width="300" height="112"/>
+                <rect key="frame" x="0.0" y="0.0" width="300" height="142"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Prueba de Contacto" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q90-V1-rb5">
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <nil key="highlightedColor"/>
-                    </label>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dfZ-Zk-ESu">
-                        <state key="normal" title="Eliminar"/>
-                    </button>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="utJ-AP-aAH">
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Prueba de Contacto" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q90-V1-rb5">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="wEl-fl-rDm"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dfZ-Zk-ESu">
+                                <state key="normal" title="X"/>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Gr-E9-QUX">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Q90-V1-rb5" firstAttribute="top" secondItem="utJ-AP-aAH" secondAttribute="top" constant="8" id="4xa-l6-Ie9"/>
+                            <constraint firstItem="dfZ-Zk-ESu" firstAttribute="width" secondItem="utJ-AP-aAH" secondAttribute="width" multiplier="0.1" id="5Qe-j2-ra2"/>
+                            <constraint firstItem="dfZ-Zk-ESu" firstAttribute="top" secondItem="utJ-AP-aAH" secondAttribute="top" id="A5k-yi-GVI"/>
+                            <constraint firstItem="Q90-V1-rb5" firstAttribute="width" secondItem="utJ-AP-aAH" secondAttribute="width" multiplier="0.8" id="CHz-Uz-c8L"/>
+                            <constraint firstItem="4Gr-E9-QUX" firstAttribute="top" secondItem="Q90-V1-rb5" secondAttribute="bottom" constant="8" id="Hob-2s-g81"/>
+                            <constraint firstAttribute="bottom" secondItem="4Gr-E9-QUX" secondAttribute="bottom" constant="8" id="Kc7-gE-OyI"/>
+                            <constraint firstItem="4Gr-E9-QUX" firstAttribute="top" secondItem="Q90-V1-rb5" secondAttribute="bottom" constant="8" id="Qg6-As-tpy"/>
+                            <constraint firstAttribute="bottom" secondItem="dfZ-Zk-ESu" secondAttribute="bottom" id="QnU-Vb-mef"/>
+                            <constraint firstItem="4Gr-E9-QUX" firstAttribute="width" secondItem="utJ-AP-aAH" secondAttribute="width" multiplier="0.8" id="Sms-gE-IF0"/>
+                            <constraint firstItem="Q90-V1-rb5" firstAttribute="leading" secondItem="utJ-AP-aAH" secondAttribute="leading" constant="8" id="Tfi-mH-eQu"/>
+                            <constraint firstItem="4Gr-E9-QUX" firstAttribute="leading" secondItem="utJ-AP-aAH" secondAttribute="leading" constant="8" id="bro-o9-ZVG"/>
+                            <constraint firstAttribute="trailing" secondItem="dfZ-Zk-ESu" secondAttribute="trailing" id="dZd-Vn-yLb"/>
+                        </constraints>
+                    </view>
                 </subviews>
             </view>
             <color key="backgroundColor" red="0.35568632890000002" green="0.52464953709999995" blue="1" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
-                <constraint firstItem="Q90-V1-rb5" firstAttribute="centerX" secondItem="B4J-fR-2J6" secondAttribute="centerX" id="A4t-bP-BVe"/>
-                <constraint firstAttribute="trailing" secondItem="dfZ-Zk-ESu" secondAttribute="trailing" constant="5" id="OlW-mZ-bWU"/>
-                <constraint firstItem="Q90-V1-rb5" firstAttribute="centerY" secondItem="B4J-fR-2J6" secondAttribute="centerY" id="jdF-ge-jGE"/>
-                <constraint firstItem="dfZ-Zk-ESu" firstAttribute="top" secondItem="B4J-fR-2J6" secondAttribute="top" constant="5" id="vO0-Tf-gjo"/>
+                <constraint firstItem="utJ-AP-aAH" firstAttribute="top" secondItem="B4J-fR-2J6" secondAttribute="top" constant="1" id="8ca-2e-Cd9"/>
+                <constraint firstItem="utJ-AP-aAH" firstAttribute="leading" secondItem="B4J-fR-2J6" secondAttribute="leading" constant="1" id="C8C-hl-ZnZ"/>
+                <constraint firstAttribute="bottom" secondItem="utJ-AP-aAH" secondAttribute="bottom" constant="1" id="akt-7f-a9g"/>
+                <constraint firstAttribute="trailing" secondItem="utJ-AP-aAH" secondAttribute="trailing" constant="1" id="bWz-X7-gwd"/>
             </constraints>
-            <size key="customSize" width="300" height="112"/>
+            <size key="customSize" width="300" height="142"/>
             <connections>
                 <outlet property="delete" destination="dfZ-Zk-ESu" id="Yn0-kn-Zgh"/>
+                <outlet property="nameLabel" destination="Q90-V1-rb5" id="w1K-As-QtL"/>
+                <outlet property="notesLabel" destination="4Gr-E9-QUX" id="30i-Hq-1CS"/>
             </connections>
-            <point key="canvasLocation" x="383" y="325"/>
+            <point key="canvasLocation" x="383" y="340"/>
         </collectionViewCell>
     </objects>
 </document>
