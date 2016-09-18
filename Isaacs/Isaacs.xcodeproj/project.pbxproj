@@ -41,6 +41,8 @@
 		B9A24C4D1D8D132C0007F3DD /* TitleCardView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9A24C4B1D8D132C0007F3DD /* TitleCardView.xib */; };
 		B9A24C501D8D2C2B0007F3DD /* JsonConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A24C4F1D8D2C2B0007F3DD /* JsonConverter.swift */; };
 		B9A24C521D8E050B0007F3DD /* StorySelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A24C511D8E050B0007F3DD /* StorySelectViewController.swift */; };
+		B9A24C541D8E2B5D0007F3DD /* AudioManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A24C531D8E2B5D0007F3DD /* AudioManager.swift */; };
+		B9A24C561D8E32310007F3DD /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A24C551D8E32310007F3DD /* Utils.swift */; };
 		B9A87AB31D6C9C6D00145B93 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A87AB21D6C9C6D00145B93 /* AppDelegate.swift */; };
 		B9A87AB51D6C9C6D00145B93 /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A87AB41D6C9C6D00145B93 /* DashboardViewController.swift */; };
 		B9A87AB81D6C9C6D00145B93 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B9A87AB61D6C9C6D00145B93 /* Main.storyboard */; };
@@ -99,6 +101,8 @@
 		B9A24C4B1D8D132C0007F3DD /* TitleCardView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TitleCardView.xib; sourceTree = "<group>"; };
 		B9A24C4F1D8D2C2B0007F3DD /* JsonConverter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JsonConverter.swift; sourceTree = "<group>"; };
 		B9A24C511D8E050B0007F3DD /* StorySelectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StorySelectViewController.swift; sourceTree = "<group>"; };
+		B9A24C531D8E2B5D0007F3DD /* AudioManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioManager.swift; sourceTree = "<group>"; };
+		B9A24C551D8E32310007F3DD /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		B9A87AAF1D6C9C6C00145B93 /* Isaacs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Isaacs.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B9A87AB21D6C9C6D00145B93 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B9A87AB41D6C9C6D00145B93 /* DashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
@@ -309,6 +313,8 @@
 			children = (
 				37FCEE431D7FA55500A74FDC /* TagsRecomendator.swift */,
 				B9A24C4F1D8D2C2B0007F3DD /* JsonConverter.swift */,
+				B9A24C531D8E2B5D0007F3DD /* AudioManager.swift */,
+				B9A24C551D8E32310007F3DD /* Utils.swift */,
 			);
 			name = "Add-ins";
 			sourceTree = "<group>";
@@ -399,7 +405,7 @@
 				TargetAttributes = {
 					B9A87AAE1D6C9C6C00145B93 = {
 						CreatedOnToolsVersion = 7.3.1;
-						DevelopmentTeam = MMJNJF4C3A;
+						DevelopmentTeam = 26S848YXBM;
 						LastSwiftMigration = 0800;
 					};
 					B9A87AC21D6C9C6D00145B93 = {
@@ -485,8 +491,10 @@
 				B964D9D61D7D035D00033B13 /* ContactCardCollectionViewCell.swift in Sources */,
 				B964D9CC1D7D02C900033B13 /* AudioCaptureViewController.swift in Sources */,
 				B9646F6A1D8A4DF3000516D9 /* Story.swift in Sources */,
+				B9A24C561D8E32310007F3DD /* Utils.swift in Sources */,
 				B964D9D41D7D035000033B13 /* TextCardCollectionViewCell.swift in Sources */,
 				37C4A1A81D8D0CDA00C9AECF /* TextTableViewCell.swift in Sources */,
+				B9A24C541D8E2B5D0007F3DD /* AudioManager.swift in Sources */,
 				37FCEE441D7FA55500A74FDC /* TagsRecomendator.swift in Sources */,
 				B964D9D01D7D030800033B13 /* StoryDetailViewController.swift in Sources */,
 				B964D9CE1D7D02ED00033B13 /* StoryListViewController.swift in Sources */,
@@ -623,10 +631,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				DEVELOPMENT_TEAM = MMJNJF4C3A;
+				DEVELOPMENT_TEAM = 26S848YXBM;
 				INFOPLIST_FILE = Isaacs/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.inspect.Isaacs;
+				PRODUCT_BUNDLE_IDENTIFIER = com.inspect.Isaacs.Moviles;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Isaacs-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -639,10 +647,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				DEVELOPMENT_TEAM = MMJNJF4C3A;
+				DEVELOPMENT_TEAM = 26S848YXBM;
 				INFOPLIST_FILE = Isaacs/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.inspect.Isaacs;
+				PRODUCT_BUNDLE_IDENTIFIER = com.inspect.Isaacs.Moviles;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Isaacs-Bridging-Header.h";
 				SWIFT_VERSION = 2.3;

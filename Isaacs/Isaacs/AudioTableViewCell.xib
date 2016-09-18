@@ -21,7 +21,9 @@
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bjP-Bz-Qb3">
                                 <frame key="frameInset" minX="16" minY="30" width="106" height="48"/>
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" title="Record" image="BeginRecording"/>
+                                <state key="normal" title="Record">
+                                    <color key="titleColor" red="0.35568632890000002" green="0.52464953709999995" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="record:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="gEl-ka-EOS"/>
                                 </connections>
@@ -87,7 +89,6 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="BeginRecording" width="48" height="48"/>
         <image name="PlayAudio" width="50" height="50"/>
     </resources>
 </document>

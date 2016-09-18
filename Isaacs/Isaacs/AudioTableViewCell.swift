@@ -9,7 +9,7 @@
 import UIKit
 import AVFoundation
 
-class AudioTableViewCell: UITableViewCell, AVAudioRecorderDelegate , AVAudioPlayerDelegate{
+class AudioTableViewCell: UITableViewCell{
 
     @IBOutlet weak var btnPlay: UIButton!
     @IBOutlet weak var containerView: UIView!
@@ -17,76 +17,24 @@ class AudioTableViewCell: UITableViewCell, AVAudioRecorderDelegate , AVAudioPlay
     @IBOutlet weak var btnRecord: UIButton!
     @IBOutlet weak var stories: UITextField!
     
+    var file_name : String?
     
-    var audioRecorder:AVAudioRecorder!
-    var audioPlayer : AVAudioPlayer!
-    let isRecorderAudioFile = false
-    let recordSettings = [AVSampleRateKey : NSNumber(float: Float(44100.0)),
-                          AVFormatIDKey : NSNumber(int: Int32(kAudioFormatMPEG4AAC)),
-                          AVNumberOfChannelsKey : NSNumber(int: 1),
-                          AVEncoderAudioQualityKey : NSNumber(int: Int32(AVAudioQuality.Medium.rawValue))]
-    
-
-    func directoryURL() -> NSURL? {
-        let fileManager = NSFileManager.defaultManager()
-        let urls = fileManager.URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask)
-        let documentDirectory = urls[0] as NSURL
-        let soundURL = documentDirectory.URLByAppendingPathComponent("sound.m4a")
-        print(soundURL)
-        return soundURL
-    }
+    let audioManager : AudioManager = AudioManager.sharedInstance
     
     @IBAction func record(sender: AnyObject) {
         if sender.titleLabel!!.text == "Record" {
-            let audioSession = AVAudioSession.sharedInstance()
-            do {
-                try audioSession.setCategory(AVAudioSessionCategoryPlayAndRecord)
-                try audioRecorder = AVAudioRecorder(URL: self.directoryURL()!,
-                                                    settings: recordSettings)
-                audioRecorder.prepareToRecord()
-            } catch {
-            }
-            do {
-                self.btnRecord.setImage(UIImage(named: "StopRecording"), forState: UIControlState.Normal)
-                self.btnPlay.enabled = false
-                try audioSession.setActive(true)
-                audioRecorder.record()
-            } catch {
-            }
-        }else{
-            audioRecorder.stop()
-            let audioSession = AVAudioSession.sharedInstance()
-            do {
-                self.btnRecord.setImage(UIImage(named: "BeginRecording"), forState: UIControlState.Normal)
-                self.btnPlay.enabled = true
-                try audioSession.setActive(false)
-            } catch {
-            }
+            self.btnRecord.setTitle("Stop", forState: UIControlState.Normal)
+            self.btnPlay.enabled = false
+            audioManager.record(file_name!)
+        }
+        else{
+            self.btnRecord.setTitle("Record", forState: UIControlState.Normal)
+            self.btnPlay.enabled = true
+            audioManager.stop()
         }
     }
+    
     @IBAction func play(sender: AnyObject) {
-        if !audioRecorder.recording {
-            self.audioPlayer = try! AVAudioPlayer(contentsOfURL: audioRecorder.url)
-            self.audioPlayer.prepareToPlay()
-            self.audioPlayer.delegate = self
-            self.audioPlayer.play()
-        }
-    }
-    
-    //MARK:- AudioRecordDelegate
-    func audioRecorderDidFinishRecording(recorder: AVAudioRecorder, successfully flag: Bool) {
-        print(flag)
-    }
-    
-    
-    //MARK:- AVAudioPlayerDelegate
-    func audioPlayerDidFinishPlaying(player: AVAudioPlayer, successfully flag: Bool) {
-        print(flag)
-    }
-    func audioPlayerDecodeErrorDidOccur(player: AVAudioPlayer, error: NSError?){
-        print(error.debugDescription)
-    }
-    internal func audioPlayerBeginInterruption(player: AVAudioPlayer){
-        print(player.debugDescription)
+        audioManager.play(file_name!)
     }
 }

@@ -236,9 +236,11 @@ class InputViewController: UIViewController, UINavigationControllerDelegate, UII
         
     }
     
-    
     func createAudioCell(indexPath: NSIndexPath) -> AudioTableViewCell {
         let audioCell = tableView.dequeueReusableCellWithIdentifier("audio_cell", forIndexPath: indexPath) as! AudioTableViewCell
+        
+        let audioName : String = Utils.randomStringWithLength(10) as String
+        audioCell.file_name = audioName
         
         // Style
         audioCell.containerView.layer.borderWidth = 2.0
