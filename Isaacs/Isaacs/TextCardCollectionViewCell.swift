@@ -12,6 +12,7 @@ class TextCardCollectionViewCell: UICollectionViewCell{
     
     @IBOutlet weak var textView: UITextView!
     @IBOutlet weak var delete: UIButton!
+    @IBOutlet weak var containerView: UIView!
     
     
 }

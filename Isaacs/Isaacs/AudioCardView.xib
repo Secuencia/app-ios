@@ -48,7 +48,6 @@
                     </view>
                 </subviews>
             </view>
-            <color key="backgroundColor" red="0.74086516186312257" green="1" blue="0.75029232769355847" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="cVy-iI-9Gl" secondAttribute="bottom" constant="1" id="8zk-5m-jeI"/>
                 <constraint firstItem="cVy-iI-9Gl" firstAttribute="leading" secondItem="2g2-aK-672" secondAttribute="leading" constant="1" id="WBi-rW-T4h"/>
@@ -57,7 +56,7 @@
             </constraints>
             <size key="customSize" width="266" height="88"/>
             <connections>
-                <outlet property="containterView" destination="cVy-iI-9Gl" id="eGK-8B-8xm"/>
+                <outlet property="containerView" destination="cVy-iI-9Gl" id="4iS-x4-Rbm"/>
                 <outlet property="delete" destination="O2I-pP-efA" id="XR2-se-Uke"/>
                 <outlet property="titleLabel" destination="4yU-sJ-w2T" id="gm0-FY-XYc"/>
             </connections>

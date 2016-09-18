@@ -9,6 +9,9 @@
 import UIKit
 
 class TitleCardCollectionViewCell: UICollectionViewCell {
-
+    
+    @IBOutlet weak var storyTitle: UILabel!
+    @IBOutlet weak var storyBrief: UILabel!
+    @IBOutlet weak var containerView: UIView!
 
 }

@@ -17,6 +17,9 @@ class StoryDetailViewController: UICollectionViewController,UICollectionViewDele
         case Double = 2
     }
     
+    
+    
+    
     var sizes = [String: (CGFloat, CGFloat)]()
     
     var story : Story!
@@ -76,7 +79,7 @@ class StoryDetailViewController: UICollectionViewController,UICollectionViewDele
     }
     
     //Render de celdas
-    override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+    /*override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         var cell : UICollectionViewCell;
         if(indexPath.section == 0){
             cell = collectionView.dequeueReusableCellWithReuseIdentifier("title_card", forIndexPath: indexPath)
@@ -103,7 +106,98 @@ class StoryDetailViewController: UICollectionViewController,UICollectionViewDele
             }
         }
         return cell
+    }*/
+    
+    override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+        var cell : UICollectionViewCell;
+        if(indexPath.section == 0){
+            let titleCell = collectionView.dequeueReusableCellWithReuseIdentifier("title_card", forIndexPath: indexPath) as! TitleCardCollectionViewCell
+            titleCell.storyTitle.text = story.title!
+            titleCell.storyBrief.text = story.brief ?? "There is no brief"
+            titleCell.containerView.backgroundColor = UIColor(netHex: 0xdddddd)
+            cell = titleCell
+        }
+        else {
+            let type : String = (story.contents?.objectAtIndex(indexPath.row).type)!
+            switch type {
+            case Content.types.Picture.rawValue: cell = createPhotoCell(indexPath)
+            case Content.types.Audio.rawValue: cell = createAudioCell(indexPath)
+            case Content.types.Contact.rawValue:cell = createContactCell(indexPath)
+            default:
+                cell = createTextCell(indexPath)            }
+        }
+        return cell
     }
+    
+    // Create a text cell
+    func createTextCell(indexPath: NSIndexPath) -> TextCardCollectionViewCell {
+        let textCell:TextCardCollectionViewCell = self.collectionView!.dequeueReusableCellWithReuseIdentifier("text_card", forIndexPath: indexPath) as! TextCardCollectionViewCell
+        textCell.delete.tag = indexPath.row
+        textCell.delete.addTarget(self, action: #selector(deleteCard), forControlEvents: .TouchUpInside)
+        
+        textCell.containerView.layer.borderColor = UIColor.darkGrayColor().CGColor
+        textCell.containerView.layer.borderWidth = 2
+        
+        let jsonData = story.contents?[indexPath.row].data ?? "No data"
+        textCell.textView.text = JsonConverter.jsonToDict((jsonData as! String))!["body"]
+        
+        return textCell
+    }
+    
+    // Create Photo cell
+    func createPhotoCell(indexPath: NSIndexPath) -> PictureCardCollectionViewCell {
+        let photoCell = self.collectionView!.dequeueReusableCellWithReuseIdentifier("picture_card", forIndexPath: indexPath) as! PictureCardCollectionViewCell
+        photoCell.delete.tag = indexPath.row
+        photoCell.delete.addTarget(self, action: #selector(deleteCard), forControlEvents: .TouchUpInside)
+        
+        photoCell.containerView.layer.borderColor = UIColor.cyanColor().CGColor
+        photoCell.containerView.layer.borderWidth = 2
+        
+        let jsonData = story.contents![indexPath.row].data ?? "No data"
+        let imageName = JsonConverter.jsonToDict((jsonData as! String))!["image_file_name"]!
+        let image = Utils.getImage(imageName)
+        photoCell.image.image = image
+        
+        return photoCell
+    }
+    
+    // Create Contact Cell
+    func createContactCell(indexPath: NSIndexPath) -> ContactCardCollectionViewCell {
+        let contactCell = self.collectionView!.dequeueReusableCellWithReuseIdentifier("contact_card", forIndexPath: indexPath) as! ContactCardCollectionViewCell
+        contactCell.delete.tag = indexPath.row
+        contactCell.delete.addTarget(self, action: #selector(deleteCard), forControlEvents: .TouchUpInside)
+        
+        contactCell.containerView.layer.borderColor = UIColor.magentaColor().CGColor
+        contactCell.containerView.layer.borderWidth = 2
+        
+        let jsonData = story.contents![indexPath.row].data ?? "No data"
+        let dict = JsonConverter.jsonToDict((jsonData as! String))!
+        
+        contactCell.nameLabel.text = dict["name"]
+        contactCell.notesLabel.text = dict["aditional_info"]
+        
+        return contactCell
+    }
+    
+    // Create Audio Cell
+    func createAudioCell(indexPath: NSIndexPath) -> AudioCardCollectionViewCell {
+        let audioCell = self.collectionView!.dequeueReusableCellWithReuseIdentifier("audio_card", forIndexPath: indexPath) as! AudioCardCollectionViewCell
+        audioCell.delete.tag = indexPath.row
+        audioCell.delete.addTarget(self, action: #selector(deleteCard), forControlEvents: .TouchUpInside)
+        
+        audioCell.containerView.layer.borderColor = UIColor.orangeColor().CGColor
+        audioCell.containerView.layer.borderWidth = 2
+        
+        let jsonData = story.contents![indexPath.row].data ?? "No data"
+        let dict = JsonConverter.jsonToDict((jsonData as! String))!
+        
+        audioCell.titleLabel.text = dict["title"]
+        audioCell.file_name = dict["audio_file_name"]
+        
+        
+        return audioCell
+    }
+
     
     //Tamaño de celdas
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
@@ -159,4 +253,18 @@ class StoryDetailViewController: UICollectionViewController,UICollectionViewDele
     }
     */
 
+}
+
+extension UIColor {
+    convenience init(red: Int, green: Int, blue: Int) {
+        assert(red >= 0 && red <= 255, "Invalid red component")
+        assert(green >= 0 && green <= 255, "Invalid green component")
+        assert(blue >= 0 && blue <= 255, "Invalid blue component")
+        
+        self.init(red: CGFloat(red) / 255.0, green: CGFloat(green) / 255.0, blue: CGFloat(blue) / 255.0, alpha: 1.0)
+    }
+    
+    convenience init(netHex:Int) {
+        self.init(red:(netHex >> 16) & 0xff, green:(netHex >> 8) & 0xff, blue:netHex & 0xff)
+    }
 }

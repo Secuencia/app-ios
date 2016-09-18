@@ -12,4 +12,5 @@ class PictureCardCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var delete: UIButton!
     @IBOutlet weak var image: UIImageView!
+    @IBOutlet weak var containerView: UIView!
 }

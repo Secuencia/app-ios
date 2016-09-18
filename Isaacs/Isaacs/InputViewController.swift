@@ -598,13 +598,13 @@ class InputViewController: UIViewController, UINavigationControllerDelegate, UII
         if type == "image" {
             for (_, value) in imagesTuples.enumerate() {
                 if value.0 == index {
-                    return (imagesTuples[index].2).componentsSeparatedByString(".")[0]
+                    return "Imagen - " + (imagesTuples[index].2).componentsSeparatedByString(".")[0]
                 }
             }
         } else {
             for (_, value) in audioTuples.enumerate() {
                 if value.0 == index {
-                    return (audioTuples[index].1).componentsSeparatedByString(".")[0]
+                    return "Audio - " + (audioTuples[index].1).componentsSeparatedByString(".")[0]
                 }
             }
         }

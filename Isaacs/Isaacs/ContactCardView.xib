@@ -54,7 +54,6 @@
                     </view>
                 </subviews>
             </view>
-            <color key="backgroundColor" red="0.35568632890000002" green="0.52464953709999995" blue="1" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstItem="utJ-AP-aAH" firstAttribute="top" secondItem="B4J-fR-2J6" secondAttribute="top" constant="1" id="8ca-2e-Cd9"/>
                 <constraint firstItem="utJ-AP-aAH" firstAttribute="leading" secondItem="B4J-fR-2J6" secondAttribute="leading" constant="1" id="C8C-hl-ZnZ"/>
@@ -63,6 +62,7 @@
             </constraints>
             <size key="customSize" width="300" height="142"/>
             <connections>
+                <outlet property="containerView" destination="utJ-AP-aAH" id="lmL-pO-dm1"/>
                 <outlet property="delete" destination="dfZ-Zk-ESu" id="Yn0-kn-Zgh"/>
                 <outlet property="nameLabel" destination="Q90-V1-rb5" id="w1K-As-QtL"/>
                 <outlet property="notesLabel" destination="4Gr-E9-QUX" id="30i-Hq-1CS"/>

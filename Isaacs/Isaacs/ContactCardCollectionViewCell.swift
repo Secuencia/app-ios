@@ -13,4 +13,5 @@ class ContactCardCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var delete: UIButton!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var notesLabel: UILabel!
+    @IBOutlet weak var containerView: UIView!
 }

@@ -50,6 +50,7 @@
             </constraints>
             <size key="customSize" width="268" height="98"/>
             <connections>
+                <outlet property="containerView" destination="zYx-qj-09V" id="UO5-cX-xDV"/>
                 <outlet property="delete" destination="A4Q-Sx-jST" id="s1o-fG-lkX"/>
                 <outlet property="textView" destination="Yy3-Xp-mJX" id="XEm-L7-aC4"/>
             </connections>
