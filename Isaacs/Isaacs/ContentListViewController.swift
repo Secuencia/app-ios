@@ -73,10 +73,7 @@ class ContentListViewController: UIViewController, UICollectionViewDelegate,UICo
         let type : String = (contents[indexPath.row].type)!
         switch type {
         case Content.types.Picture.rawValue: cell = createPhotoCell(indexPath)
-        case Content.types.Audio.rawValue:
-            cell = collectionView.dequeueReusableCellWithReuseIdentifier("audio_card", forIndexPath: indexPath) as! AudioCardCollectionViewCell
-            (cell as! AudioCardCollectionViewCell).delete.tag = indexPath.row
-            (cell as! AudioCardCollectionViewCell).delete.addTarget(self, action: #selector(deleteCard), forControlEvents: .TouchUpInside)
+        case Content.types.Audio.rawValue: cell = createAudioCell(indexPath)
         case Content.types.Contact.rawValue: cell = createContactCell(indexPath)
         default:
             cell = createTextCell(indexPath)
@@ -122,6 +119,7 @@ class ContentListViewController: UIViewController, UICollectionViewDelegate,UICo
         return photoCell
     }
     
+    // Create Contact Cell
     func createContactCell(indexPath: NSIndexPath) -> ContactCardCollectionViewCell {
         let contactCell = collectionView.dequeueReusableCellWithReuseIdentifier("contact_card", forIndexPath: indexPath) as! ContactCardCollectionViewCell
         contactCell.delete.tag = indexPath.row
@@ -139,8 +137,9 @@ class ContentListViewController: UIViewController, UICollectionViewDelegate,UICo
         return contactCell
     }
     
-    func createAudioCell(indexPath: NSIndexPath) -> ContactCardCollectionViewCell {
-        let audioCell = collectionView.dequeueReusableCellWithReuseIdentifier("contact_card", forIndexPath: indexPath) as! ContactCardCollectionViewCell
+    // Create Audio Cell
+    func createAudioCell(indexPath: NSIndexPath) -> AudioCardCollectionViewCell {
+        let audioCell = collectionView.dequeueReusableCellWithReuseIdentifier("audio_card", forIndexPath: indexPath) as! AudioCardCollectionViewCell
         audioCell.delete.tag = indexPath.row
         audioCell.delete.addTarget(self, action: #selector(deleteCard), forControlEvents: .TouchUpInside)
         
@@ -150,7 +149,8 @@ class ContentListViewController: UIViewController, UICollectionViewDelegate,UICo
         let jsonData = contents[indexPath.row].data ?? "No data"
         let dict = JsonConverter.jsonToDict(jsonData)!
         
-        audioCell.nameLabel.text = dict["title"]
+        audioCell.titleLabel.text = dict["title"]
+        audioCell.file_name = dict["audio_file_name"]
         
         
         return audioCell

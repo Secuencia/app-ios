@@ -68,6 +68,8 @@ class InputViewController: UIViewController, UINavigationControllerDelegate, UII
     
     var imagesTuples = [(Int, UIImage, String)]()
     
+    var audioTuples = [(Int, String, String)]()
+    
     var historias = ["Pepita", "Sutana", "Menguana"]
     
     
@@ -258,9 +260,19 @@ class InputViewController: UIViewController, UINavigationControllerDelegate, UII
     func createAudioCell(indexPath: NSIndexPath) -> AudioTableViewCell {
         let audioCell = tableView.dequeueReusableCellWithIdentifier("audio_cell", forIndexPath: indexPath) as! AudioTableViewCell
         
-        let audioName = NSDate().iso8601
-        audioCell.file_name = audioName
-        audioCell.titleLabel.text = audioName
+        for (_, value) in audioTuples.enumerate() {
+            
+            if value.0 == indexPath.section {
+                let tuple = value
+                audioCell.file_name = tuple.1
+                audioCell.titleLabel.text = tuple.1
+                break
+            }
+            
+        }
+        
+        
+        
         
         // Style
         audioCell.containerView.layer.borderWidth = 2.0
@@ -392,6 +404,8 @@ class InputViewController: UIViewController, UINavigationControllerDelegate, UII
                 
                 print("END OF PERSISTENCE")
                 
+                
+                
                 imagesTuples.append((editedContentIndex!, loadedImage, name))
 
                 
@@ -421,6 +435,9 @@ class InputViewController: UIViewController, UINavigationControllerDelegate, UII
         editing = true
         editedContentIndex = contents.count - 1
         print("New content index: ", editedContentIndex)
+        
+
+        audioTuples.append((editedContentIndex!, NSDate().iso8601, "hola"))
         
         modulesTypes.append(Modules.Audio.rawValue)
         tableView.reloadData()
@@ -474,14 +491,14 @@ class InputViewController: UIViewController, UINavigationControllerDelegate, UII
     
     func createDictForPhoto() -> String {
         let cell = (tableView.cellForRowAtIndexPath(NSIndexPath(forRow: 0, inSection: editedContentIndex!)) as? PhotoTableViewCell)!
-        let dict: [String: String] = ["title":"titulo por defecto", "notes":cell.notesTextView.text,"image_file_name":cell.titleLabel.text!]
+        let dict: [String: String] = ["title":"Default", "notes":cell.notesTextView.text,"image_file_name":cell.titleLabel.text!]
         let json: String = JsonConverter.dictToJson(dict)
         return json
     }
     
     func createDictForAudio() -> String {
-        let cell = (tableView.cellForRowAtIndexPath(NSIndexPath(forRow: 0, inSection: editedContentIndex!)) as? AudioTableViewCell)!
-        let dict: [String: String] = ["title":"titulo por defecto", "audio_file_name":cell.titleLabel.text!]
+        //let cell = (tableView.cellForRowAtIndexPath(NSIndexPath(forRow: 0, inSection: editedContentIndex!)) as? AudioTableViewCell)!
+        let dict: [String: String] = ["title":getContentNameFromIndex(editedContentIndex!, type: "audio"), "audio_file_name":getAudioFileName(editedContentIndex!)]
         let json: String = JsonConverter.dictToJson(dict)
         return json
     }
@@ -577,7 +594,31 @@ class InputViewController: UIViewController, UINavigationControllerDelegate, UII
         return documentsDir
     }
     
- 
+    func getContentNameFromIndex(index: Int, type: String) -> String {
+        if type == "image" {
+            for (_, value) in imagesTuples.enumerate() {
+                if value.0 == index {
+                    return (imagesTuples[index].2).componentsSeparatedByString(".")[0]
+                }
+            }
+        } else {
+            for (_, value) in audioTuples.enumerate() {
+                if value.0 == index {
+                    return (audioTuples[index].1).componentsSeparatedByString(".")[0]
+                }
+            }
+        }
+        return ""
+    }
+    
+    func getAudioFileName(index: Int) -> String {
+        for (_, value) in audioTuples.enumerate() {
+            if value.0 == index {
+                return audioTuples[index].1
+            }
+        }
+        return ""
+    }
     
     
 }

@@ -13,4 +13,14 @@ class AudioCardCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var delete: UIButton!
     @IBOutlet weak var containterView: UIView!
     @IBOutlet weak var titleLabel: UILabel!
+    
+    
+    var file_name : String?
+    
+    let audioManager : AudioManager = AudioManager.sharedInstance
+    
+    @IBAction func playWithSender(sender: UIButton) {
+        audioManager.play(file_name!)
+    }
+    
 }
