@@ -82,10 +82,16 @@ class ContentListViewController: UIViewController, UICollectionViewDelegate,UICo
         return cell
     }
     
+    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        let vc = UIStoryboard(name:"Main", bundle:nil).instantiateViewControllerWithIdentifier("story_list") as! StorySelectViewController
+        vc.content = contents[indexPath.row]
+        self.navigationController?.pushViewController(vc, animated:true)
+    }
+    
     // Create a text cell 
     func createTextCell(indexPath: NSIndexPath) -> TextCardCollectionViewCell {
         let textCell = collectionView.dequeueReusableCellWithReuseIdentifier("text_card", forIndexPath: indexPath) as! TextCardCollectionViewCell
-        var jsonData = contents[indexPath.row].data ?? "No data"
+        let jsonData = contents[indexPath.row].data ?? "No data"
         
         textCell.textLabel.text = JsonConverter.jsonToDict(jsonData)!["body"]
         

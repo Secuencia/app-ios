@@ -40,6 +40,7 @@
 		B9A24C4C1D8D132C0007F3DD /* TitleCardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A24C4A1D8D132C0007F3DD /* TitleCardCollectionViewCell.swift */; };
 		B9A24C4D1D8D132C0007F3DD /* TitleCardView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9A24C4B1D8D132C0007F3DD /* TitleCardView.xib */; };
 		B9A24C501D8D2C2B0007F3DD /* JsonConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A24C4F1D8D2C2B0007F3DD /* JsonConverter.swift */; };
+		B9A24C521D8E050B0007F3DD /* StorySelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A24C511D8E050B0007F3DD /* StorySelectViewController.swift */; };
 		B9A87AB31D6C9C6D00145B93 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A87AB21D6C9C6D00145B93 /* AppDelegate.swift */; };
 		B9A87AB51D6C9C6D00145B93 /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A87AB41D6C9C6D00145B93 /* DashboardViewController.swift */; };
 		B9A87AB81D6C9C6D00145B93 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B9A87AB61D6C9C6D00145B93 /* Main.storyboard */; };
@@ -97,6 +98,7 @@
 		B9A24C4A1D8D132C0007F3DD /* TitleCardCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitleCardCollectionViewCell.swift; sourceTree = "<group>"; };
 		B9A24C4B1D8D132C0007F3DD /* TitleCardView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TitleCardView.xib; sourceTree = "<group>"; };
 		B9A24C4F1D8D2C2B0007F3DD /* JsonConverter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JsonConverter.swift; sourceTree = "<group>"; };
+		B9A24C511D8E050B0007F3DD /* StorySelectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StorySelectViewController.swift; sourceTree = "<group>"; };
 		B9A87AAF1D6C9C6C00145B93 /* Isaacs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Isaacs.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B9A87AB21D6C9C6D00145B93 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B9A87AB41D6C9C6D00145B93 /* DashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
@@ -214,6 +216,7 @@
 				378E158A1D882CE400F94008 /* InputViewController.swift */,
 				37895A771D8859FE0094E286 /* ConfigurationViewController.swift */,
 				B9A24C431D8CE10C0007F3DD /* ContentListViewController.swift */,
+				B9A24C511D8E050B0007F3DD /* StorySelectViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -459,6 +462,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B9A24C521D8E050B0007F3DD /* StorySelectViewController.swift in Sources */,
 				37C4A1A41D8D0A2400C9AECF /* PhotoTableViewCell.swift in Sources */,
 				B964D9D21D7D033E00033B13 /* PictureCardCollectionViewCell.swift in Sources */,
 				B964D9D81D7D037500033B13 /* AudioCardCollectionViewCell.swift in Sources */,

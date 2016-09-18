@@ -8,7 +8,7 @@
 
 import UIKit
 
-class StoryDetailViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout{
+class StoryDetailViewController: UICollectionViewController,UICollectionViewDelegateFlowLayout{
     
     
     enum factors: CGFloat{
