@@ -76,23 +76,7 @@ class StoryListViewController: UITableViewController {
                                         (action:UIAlertAction) -> Void in
             
             let newStory : Story = self.persistence.createEntity()
-            let newContent : Content = self.contentPersistence.createEntity()
-            newContent.data = "string de json bien chimbita"
-            newContent.type = Content.types.Text.rawValue
-            let newContent2 : Content = self.contentPersistence.createEntity()
-            newContent2.data = "string de json bien chimbita"
-            newContent2.type = Content.types.Picture.rawValue
-            let newContent3 : Content = self.contentPersistence.createEntity()
-            newContent3.data = "string de json bien chimbita"
-            newContent3.type = Content.types.Audio.rawValue
-            let newContent4 : Content = self.contentPersistence.createEntity()
-            newContent4.data = "string de json bien chimbita"
-            newContent4.type = Content.types.Contact.rawValue
             newStory.title = alert.textFields!.first?.text!
-            newStory.addContent(newContent)
-            newStory.addContent(newContent2)
-            newStory.addContent(newContent3)
-            newStory.addContent(newContent4)
             self.persistence.save()
             self.stories = self.persistence.getAll()
             self.tableView.reloadData()
