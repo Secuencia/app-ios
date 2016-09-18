@@ -19,7 +19,8 @@ class ContentListViewController: UIViewController, UICollectionViewDelegate,UICo
     }
     
     var sizes = [String: (CGFloat, CGFloat)]()
-    let contents : [Content] = ContentPersistence().getAll()
+    let persistence:ContentPersistence = ContentPersistence()
+    var contents : [Content] = []
     
     private var longPressGesture: UILongPressGestureRecognizer!
     
@@ -27,7 +28,7 @@ class ContentListViewController: UIViewController, UICollectionViewDelegate,UICo
         super.viewDidLoad()
         collectionView.delegate = self
         collectionView.dataSource = self
-        
+        contents = persistence.getAll()
         sizes[Content.types.Audio.rawValue] = (factors.Full.rawValue, factors.Half.rawValue)
         sizes[Content.types.Contact.rawValue] = (factors.Half.rawValue, factors.Double.rawValue)
         sizes[Content.types.Picture.rawValue] = (factors.Half.rawValue, factors.Double.rawValue)
@@ -71,14 +72,19 @@ class ContentListViewController: UIViewController, UICollectionViewDelegate,UICo
         switch type {
         case Content.types.Picture.rawValue:
             cell = collectionView.dequeueReusableCellWithReuseIdentifier("picture_card", forIndexPath: indexPath) as! PictureCardCollectionViewCell
+            (cell as! PictureCardCollectionViewCell).delete.tag = indexPath.row
+            (cell as! PictureCardCollectionViewCell).delete.addTarget(self, action: #selector(deleteCard), forControlEvents: .TouchUpInside)
         case Content.types.Audio.rawValue:
             cell = collectionView.dequeueReusableCellWithReuseIdentifier("audio_card", forIndexPath: indexPath) as! AudioCardCollectionViewCell
+            (cell as! AudioCardCollectionViewCell).delete.tag = indexPath.row
+            (cell as! AudioCardCollectionViewCell).delete.addTarget(self, action: #selector(deleteCard), forControlEvents: .TouchUpInside)
         case Content.types.Contact.rawValue:
             cell = collectionView.dequeueReusableCellWithReuseIdentifier("contact_card", forIndexPath: indexPath) as! ContactCardCollectionViewCell
+            (cell as! ContactCardCollectionViewCell).delete.tag = indexPath.row
+            (cell as! ContactCardCollectionViewCell).delete.addTarget(self, action: #selector(deleteCard), forControlEvents: .TouchUpInside)
         default:
             cell = createTextCell(indexPath)
         }
-        
         return cell
     }
     
@@ -90,7 +96,9 @@ class ContentListViewController: UIViewController, UICollectionViewDelegate,UICo
     
     // Create a text cell 
     func createTextCell(indexPath: NSIndexPath) -> TextCardCollectionViewCell {
-        let textCell = collectionView.dequeueReusableCellWithReuseIdentifier("text_card", forIndexPath: indexPath) as! TextCardCollectionViewCell
+        let textCell:TextCardCollectionViewCell = collectionView.dequeueReusableCellWithReuseIdentifier("text_card", forIndexPath: indexPath) as! TextCardCollectionViewCell
+        textCell.delete.tag = indexPath.row
+        textCell.delete.addTarget(self, action: #selector(deleteCard), forControlEvents: .TouchUpInside)
         let jsonData = contents[indexPath.row].data ?? "No data"
         
         textCell.textLabel.text = JsonConverter.jsonToDict(jsonData)!["body"]
@@ -106,6 +114,13 @@ class ContentListViewController: UIViewController, UICollectionViewDelegate,UICo
     
     @IBAction func dismiss(sender: UIBarButtonItem) {
         self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    func deleteCard(sender: UIButton!){
+        persistence.deleteEntity(contents[sender.tag])
+        persistence.save()
+        contents = persistence.getAll()
+        collectionView?.reloadData()
     }
     
     

@@ -31,8 +31,11 @@ class ContentPersistence{
         catch{
             fatalError("Failure to fetch content: \(error)")
         }
-        
+    }
     
+    func deleteEntity(content:Content){
+        let moc = self.globalPersistence.managedObjectContext
+        moc.deleteObject(content)
     }
     
     func createEntity() -> Content {
