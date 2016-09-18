@@ -53,7 +53,9 @@ class StoryListViewController: UITableViewController {
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if (editingStyle == UITableViewCellEditingStyle.Delete) {
             persistence.deleteEntity(stories[indexPath.row])
-            self.reloadData()
+            persistence.save()
+            self.stories = self.persistence.getAll()
+            tableView.reloadData()
         }
     }
     
@@ -92,7 +94,8 @@ class StoryListViewController: UITableViewController {
             newStory.addContent(newContent3)
             newStory.addContent(newContent4)
             self.persistence.save()
-            self.reloadData()
+            self.stories = self.persistence.getAll()
+            self.tableView.reloadData()
             }
         )
         
