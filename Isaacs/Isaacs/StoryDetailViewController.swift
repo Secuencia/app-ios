@@ -86,12 +86,20 @@ class StoryDetailViewController: UICollectionViewController,UICollectionViewDele
             switch type {
             case Content.types.Picture.rawValue:
                 cell = collectionView.dequeueReusableCellWithReuseIdentifier("picture_card", forIndexPath: indexPath) as! PictureCardCollectionViewCell
+                (cell as! PictureCardCollectionViewCell).delete.tag = indexPath.row
+                (cell as! PictureCardCollectionViewCell).delete.addTarget(self, action: #selector(deleteCard), forControlEvents: .TouchUpInside)
             case Content.types.Audio.rawValue:
                 cell = collectionView.dequeueReusableCellWithReuseIdentifier("audio_card", forIndexPath: indexPath) as! AudioCardCollectionViewCell
+                (cell as! AudioCardCollectionViewCell).delete.tag = indexPath.row
+                (cell as! AudioCardCollectionViewCell).delete.addTarget(self, action: #selector(deleteCard), forControlEvents: .TouchUpInside)
             case Content.types.Contact.rawValue:
                 cell = collectionView.dequeueReusableCellWithReuseIdentifier("contact_card", forIndexPath: indexPath) as! ContactCardCollectionViewCell
+                (cell as! ContactCardCollectionViewCell).delete.tag = indexPath.row
+                (cell as! ContactCardCollectionViewCell).delete.addTarget(self, action: #selector(deleteCard), forControlEvents: .TouchUpInside)
             default:
                 cell = collectionView.dequeueReusableCellWithReuseIdentifier("text_card", forIndexPath: indexPath) as! TextCardCollectionViewCell
+                (cell as! TextCardCollectionViewCell).delete.tag = indexPath.row
+                (cell as! TextCardCollectionViewCell).delete.addTarget(self, action: #selector(deleteCard), forControlEvents: .TouchUpInside)
             }
         }
         return cell
@@ -133,6 +141,12 @@ class StoryDetailViewController: UICollectionViewController,UICollectionViewDele
         default:
             self.collectionView!.cancelInteractiveMovement()
         }
+    }
+    
+    func deleteCard(sender: UIButton!){
+        story.mutableOrderedSetValueForKey("contents").removeObjectAtIndex(sender.tag)
+        StoryPersistence().save()
+        collectionView?.reloadData()
     }
 
     /*

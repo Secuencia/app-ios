@@ -10,4 +10,5 @@ import UIKit
 
 class ContactCardCollectionViewCell: UICollectionViewCell {
     
+    @IBOutlet weak var delete: UIButton!
 }

@@ -20,14 +20,22 @@
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dfZ-Zk-ESu">
+                        <state key="normal" title="Eliminar"/>
+                    </button>
                 </subviews>
             </view>
             <color key="backgroundColor" red="0.35568632890000002" green="0.52464953709999995" blue="1" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstItem="Q90-V1-rb5" firstAttribute="centerX" secondItem="B4J-fR-2J6" secondAttribute="centerX" id="A4t-bP-BVe"/>
+                <constraint firstAttribute="trailing" secondItem="dfZ-Zk-ESu" secondAttribute="trailing" constant="5" id="OlW-mZ-bWU"/>
                 <constraint firstItem="Q90-V1-rb5" firstAttribute="centerY" secondItem="B4J-fR-2J6" secondAttribute="centerY" id="jdF-ge-jGE"/>
+                <constraint firstItem="dfZ-Zk-ESu" firstAttribute="top" secondItem="B4J-fR-2J6" secondAttribute="top" constant="5" id="vO0-Tf-gjo"/>
             </constraints>
             <size key="customSize" width="300" height="112"/>
+            <connections>
+                <outlet property="delete" destination="dfZ-Zk-ESu" id="Yn0-kn-Zgh"/>
+            </connections>
             <point key="canvasLocation" x="383" y="325"/>
         </collectionViewCell>
     </objects>

@@ -20,20 +20,26 @@
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A4Q-Sx-jST">
+                        <state key="normal" title="Eliminar"/>
+                    </button>
                 </subviews>
             </view>
             <color key="backgroundColor" red="1" green="0.96796890540000002" blue="0.30751505530000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="vxw-bi-Voa" firstAttribute="top" secondItem="hK0-G0-Xuk" secondAttribute="top" constant="10" id="a62-67-eLB"/>
                 <constraint firstAttribute="bottom" secondItem="vxw-bi-Voa" secondAttribute="bottom" constant="10" id="ace-PJ-aKa"/>
+                <constraint firstAttribute="trailing" secondItem="A4Q-Sx-jST" secondAttribute="trailing" constant="5" id="h0X-UT-iwu"/>
                 <constraint firstItem="vxw-bi-Voa" firstAttribute="leading" secondItem="hK0-G0-Xuk" secondAttribute="leading" constant="10" id="icU-gv-Waz"/>
+                <constraint firstItem="A4Q-Sx-jST" firstAttribute="top" secondItem="hK0-G0-Xuk" secondAttribute="top" constant="5" id="uMr-vV-TpH"/>
                 <constraint firstAttribute="trailing" secondItem="vxw-bi-Voa" secondAttribute="trailing" constant="10" id="xgP-D7-Bft"/>
             </constraints>
             <size key="customSize" width="268" height="98"/>
             <connections>
+                <outlet property="delete" destination="A4Q-Sx-jST" id="s1o-fG-lkX"/>
                 <outlet property="textLabel" destination="vxw-bi-Voa" id="5cs-zW-Ihr"/>
             </connections>
-            <point key="canvasLocation" x="357" y="505"/>
+            <point key="canvasLocation" x="198" y="493"/>
         </collectionViewCell>
     </objects>
 </document>

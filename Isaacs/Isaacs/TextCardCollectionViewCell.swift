@@ -11,5 +11,6 @@ import UIKit
 class TextCardCollectionViewCell: UICollectionViewCell{
     
     @IBOutlet weak var textLabel: UILabel!
+    @IBOutlet weak var delete: UIButton!
     
 }

@@ -20,8 +20,7 @@
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O2I-pP-efA">
-                        <frame key="frameInset" minX="208" width="55" height="30"/>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O2I-pP-efA">
                         <state key="normal" title="Eliminar"/>
                     </button>
                 </subviews>
@@ -34,6 +33,9 @@
                 <constraint firstItem="4yU-sJ-w2T" firstAttribute="centerY" secondItem="2g2-aK-672" secondAttribute="centerY" id="t4A-FK-ZaJ"/>
             </constraints>
             <size key="customSize" width="266" height="88"/>
+            <connections>
+                <outlet property="delete" destination="O2I-pP-efA" id="XR2-se-Uke"/>
+            </connections>
             <point key="canvasLocation" x="330" y="290"/>
         </collectionViewCell>
     </objects>

@@ -10,4 +10,5 @@ import UIKit
 
 class AudioCardCollectionViewCell: UICollectionViewCell {
     
+    @IBOutlet weak var delete: UIButton!
 }

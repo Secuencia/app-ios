@@ -23,6 +23,9 @@
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bjb-aY-bmz">
                         <state key="normal" title="Button"/>
                     </button>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Emk-9T-AV5">
+                        <state key="normal" title="Eliminar"/>
+                    </button>
                 </subviews>
             </view>
             <color key="backgroundColor" red="1" green="0.20649369479999999" blue="0.25690855480000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -31,9 +34,14 @@
                 <constraint firstItem="Rap-4S-u9f" firstAttribute="centerY" secondItem="u8k-Jr-oNk" secondAttribute="centerY" id="8HH-GD-z1E"/>
                 <constraint firstItem="Bjb-aY-bmz" firstAttribute="centerX" secondItem="u8k-Jr-oNk" secondAttribute="centerX" id="NOW-bf-fyo"/>
                 <constraint firstAttribute="bottom" secondItem="Bjb-aY-bmz" secondAttribute="bottom" constant="8" id="ZgZ-tr-eGr"/>
+                <constraint firstAttribute="trailing" secondItem="Emk-9T-AV5" secondAttribute="trailing" constant="5" id="deg-0z-4Ll"/>
+                <constraint firstItem="Emk-9T-AV5" firstAttribute="top" secondItem="u8k-Jr-oNk" secondAttribute="top" constant="5" id="em9-iH-BlQ"/>
                 <constraint firstItem="Rap-4S-u9f" firstAttribute="centerX" secondItem="u8k-Jr-oNk" secondAttribute="centerX" id="igr-9j-NaI"/>
             </constraints>
             <size key="customSize" width="387" height="298"/>
+            <connections>
+                <outlet property="delete" destination="Emk-9T-AV5" id="961-fk-Meh"/>
+            </connections>
             <point key="canvasLocation" x="330" y="482"/>
         </collectionViewCell>
     </objects>
