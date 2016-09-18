@@ -634,7 +634,7 @@
 				DEVELOPMENT_TEAM = MMJNJF4C3A;
 				INFOPLIST_FILE = Isaacs/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.inspect.Isaacs.Moviles;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Isaacs.Moviles;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Isaacs-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -650,7 +650,7 @@
 				DEVELOPMENT_TEAM = MMJNJF4C3A;
 				INFOPLIST_FILE = Isaacs/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.inspect.Isaacs.Moviles;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Isaacs.Moviles;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Isaacs-Bridging-Header.h";
 				SWIFT_VERSION = 2.3;

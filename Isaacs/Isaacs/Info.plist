@@ -2,8 +2,6 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>NSMicrophoneUsageDescription</key>
-	<string>Vamos a usar su microfono </string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleExecutable</key>
@@ -28,6 +26,8 @@
 	<string>Vamos a usar su galeria</string>
 	<key>NSCameraUsageDescription</key>
 	<string>Vamos a usar su camara</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>Vamos a usar su microfono </string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>Vamos a usar su galeria</string>
 	<key>UILaunchStoryboardName</key>

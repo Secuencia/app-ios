@@ -11,4 +11,6 @@ import UIKit
 class AudioCardCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var delete: UIButton!
+    @IBOutlet weak var containterView: UIView!
+    @IBOutlet weak var titleLabel: UILabel!
 }
