@@ -3,6 +3,8 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -17,15 +19,19 @@
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cVy-iI-9Gl">
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O2I-pP-efA">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O2I-pP-efA">
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="30" id="540-7c-yd1"/>
-                                    <constraint firstAttribute="height" constant="30" id="FIf-OH-Xwr"/>
+                                    <constraint firstAttribute="width" constant="20" id="540-7c-yd1"/>
+                                    <constraint firstAttribute="height" constant="20" id="FIf-OH-Xwr"/>
                                 </constraints>
-                                <state key="normal" title="X"/>
+                                <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" title="X" image="Delete"/>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pdT-8t-bHJ">
-                                <state key="normal" title="Play"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pdT-8t-bHJ">
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="pdT-8t-bHJ" secondAttribute="height" multiplier="1:1" id="5Yv-Vd-4xj"/>
+                                </constraints>
+                                <state key="normal" image="PlayAudio"/>
                                 <connections>
                                     <action selector="playWithSender:" destination="2g2-aK-672" eventType="touchUpInside" id="l6H-Dm-2D7"/>
                                 </connections>
@@ -38,12 +44,13 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="pdT-8t-bHJ" firstAttribute="leading" secondItem="cVy-iI-9Gl" secondAttribute="leading" constant="8" id="2QA-j8-fbB"/>
+                            <constraint firstItem="pdT-8t-bHJ" firstAttribute="leading" secondItem="cVy-iI-9Gl" secondAttribute="leading" constant="14" id="2QA-j8-fbB"/>
                             <constraint firstItem="4yU-sJ-w2T" firstAttribute="leading" secondItem="pdT-8t-bHJ" secondAttribute="trailing" constant="20" id="99G-RE-FaG"/>
                             <constraint firstItem="pdT-8t-bHJ" firstAttribute="centerY" secondItem="cVy-iI-9Gl" secondAttribute="centerY" id="CaL-0a-zM6"/>
-                            <constraint firstItem="O2I-pP-efA" firstAttribute="top" secondItem="cVy-iI-9Gl" secondAttribute="top" constant="8" id="DLl-Xo-Ban"/>
+                            <constraint firstItem="O2I-pP-efA" firstAttribute="centerY" secondItem="cVy-iI-9Gl" secondAttribute="centerY" id="Fky-qK-WFw"/>
+                            <constraint firstItem="pdT-8t-bHJ" firstAttribute="height" secondItem="cVy-iI-9Gl" secondAttribute="height" multiplier="0.5" id="Jwe-Im-q5K"/>
                             <constraint firstItem="4yU-sJ-w2T" firstAttribute="centerY" secondItem="cVy-iI-9Gl" secondAttribute="centerY" id="k43-5a-xLN"/>
-                            <constraint firstAttribute="trailing" secondItem="O2I-pP-efA" secondAttribute="trailing" constant="8" id="zoQ-e0-BnL"/>
+                            <constraint firstAttribute="trailing" secondItem="O2I-pP-efA" secondAttribute="trailing" constant="5" id="zoQ-e0-BnL"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -63,4 +70,8 @@
             <point key="canvasLocation" x="330" y="290"/>
         </collectionViewCell>
     </objects>
+    <resources>
+        <image name="Delete" width="52" height="52"/>
+        <image name="PlayAudio" width="50" height="50"/>
+    </resources>
 </document>

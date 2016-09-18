@@ -132,7 +132,7 @@ class InputViewController: UIViewController, UINavigationControllerDelegate, UII
         switch modulesTypes[indexPath.section] {
         case Modules.Text.rawValue: return 120.0
         case Modules.Photo.rawValue: return 160.0
-        case Modules.Audio.rawValue: return 120.0
+        case Modules.Audio.rawValue: return 80.0
         case Modules.Contact.rawValue: return 160.0
         default: return 80.0
         }
@@ -142,7 +142,7 @@ class InputViewController: UIViewController, UINavigationControllerDelegate, UII
         switch modulesTypes[indexPath.section] {
         case Modules.Text.rawValue: return 120.0
         case Modules.Photo.rawValue: return 160.0
-        case Modules.Audio.rawValue: return 120.0
+        case Modules.Audio.rawValue: return 80.0
         case Modules.Contact.rawValue: return 160.0
         default: return 80.0
         }
@@ -525,6 +525,11 @@ class InputViewController: UIViewController, UINavigationControllerDelegate, UII
     }
     
     @IBAction func cancelSession(sender: UIBarButtonItem) {
+        
+        for (_, value) in contents.enumerate() {
+            persistenceContext.deleteEntity(value)
+        }
+        
         self.dismissViewControllerAnimated(true, completion: nil)
     }
     
@@ -604,7 +609,7 @@ class InputViewController: UIViewController, UINavigationControllerDelegate, UII
         } else {
             for (_, value) in audioTuples.enumerate() {
                 if value.0 == index {
-                    return "Audio - " + (audioTuples[index].1).componentsSeparatedByString(".")[0]
+                    return "Audio - " + (value.1).componentsSeparatedByString(".")[0]
                 }
             }
         }
@@ -614,7 +619,7 @@ class InputViewController: UIViewController, UINavigationControllerDelegate, UII
     func getAudioFileName(index: Int) -> String {
         for (_, value) in audioTuples.enumerate() {
             if value.0 == index {
-                return audioTuples[index].1
+                return value.1
             }
         }
         return ""

@@ -17,12 +17,12 @@
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zYx-qj-09V">
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A4Q-Sx-jST">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A4Q-Sx-jST">
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="3Ch-oR-b8g"/>
-                                    <constraint firstAttribute="width" constant="30" id="HWz-lL-dpH"/>
+                                    <constraint firstAttribute="height" constant="20" id="3Ch-oR-b8g"/>
+                                    <constraint firstAttribute="width" constant="20" id="HWz-lL-dpH"/>
                                 </constraints>
-                                <state key="normal" title="X"/>
+                                <state key="normal" title="X" image="Delete"/>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yy3-Xp-mJX">
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -34,8 +34,8 @@
                         <constraints>
                             <constraint firstItem="A4Q-Sx-jST" firstAttribute="leading" secondItem="Yy3-Xp-mJX" secondAttribute="trailing" id="2Sf-kh-EzP"/>
                             <constraint firstItem="Yy3-Xp-mJX" firstAttribute="top" secondItem="zYx-qj-09V" secondAttribute="top" id="H1W-tf-gmA"/>
-                            <constraint firstItem="A4Q-Sx-jST" firstAttribute="top" secondItem="zYx-qj-09V" secondAttribute="top" id="Mpm-Pi-YJt"/>
-                            <constraint firstAttribute="trailing" secondItem="A4Q-Sx-jST" secondAttribute="trailing" id="bvx-2S-gp0"/>
+                            <constraint firstItem="A4Q-Sx-jST" firstAttribute="top" secondItem="zYx-qj-09V" secondAttribute="top" constant="5" id="Mpm-Pi-YJt"/>
+                            <constraint firstAttribute="trailing" secondItem="A4Q-Sx-jST" secondAttribute="trailing" constant="5" id="bvx-2S-gp0"/>
                             <constraint firstItem="Yy3-Xp-mJX" firstAttribute="leading" secondItem="zYx-qj-09V" secondAttribute="leading" id="tAs-Qa-S1N"/>
                             <constraint firstAttribute="bottom" secondItem="Yy3-Xp-mJX" secondAttribute="bottom" id="wDV-sk-HvG"/>
                         </constraints>
@@ -57,4 +57,7 @@
             <point key="canvasLocation" x="198" y="493"/>
         </collectionViewCell>
     </objects>
+    <resources>
+        <image name="Delete" width="52" height="52"/>
+    </resources>
 </document>

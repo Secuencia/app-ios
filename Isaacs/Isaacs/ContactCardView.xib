@@ -26,11 +26,12 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dfZ-Zk-ESu">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dfZ-Zk-ESu">
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="ruR-dx-1y1"/>
+                                    <constraint firstAttribute="width" constant="20" id="18U-Ms-kOQ"/>
+                                    <constraint firstAttribute="height" constant="20" id="ruR-dx-1y1"/>
                                 </constraints>
-                                <state key="normal" title="X"/>
+                                <state key="normal" title="X" image="Delete"/>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Gr-E9-QUX">
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -41,11 +42,11 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="Q90-V1-rb5" firstAttribute="top" secondItem="utJ-AP-aAH" secondAttribute="top" constant="8" id="4xa-l6-Ie9"/>
-                            <constraint firstAttribute="trailing" secondItem="dfZ-Zk-ESu" secondAttribute="trailing" id="AOv-6s-3ZK"/>
+                            <constraint firstAttribute="trailing" secondItem="dfZ-Zk-ESu" secondAttribute="trailing" constant="5" id="AOv-6s-3ZK"/>
                             <constraint firstItem="Q90-V1-rb5" firstAttribute="width" secondItem="utJ-AP-aAH" secondAttribute="width" multiplier="0.8" id="CHz-Uz-c8L"/>
                             <constraint firstItem="4Gr-E9-QUX" firstAttribute="top" secondItem="Q90-V1-rb5" secondAttribute="bottom" constant="8" id="Hob-2s-g81"/>
                             <constraint firstAttribute="bottom" secondItem="4Gr-E9-QUX" secondAttribute="bottom" constant="8" id="Kc7-gE-OyI"/>
-                            <constraint firstItem="dfZ-Zk-ESu" firstAttribute="top" secondItem="utJ-AP-aAH" secondAttribute="top" id="MS0-xf-hRa"/>
+                            <constraint firstItem="dfZ-Zk-ESu" firstAttribute="top" secondItem="utJ-AP-aAH" secondAttribute="top" constant="5" id="MS0-xf-hRa"/>
                             <constraint firstItem="4Gr-E9-QUX" firstAttribute="top" secondItem="Q90-V1-rb5" secondAttribute="bottom" constant="8" id="Qg6-As-tpy"/>
                             <constraint firstItem="4Gr-E9-QUX" firstAttribute="width" secondItem="utJ-AP-aAH" secondAttribute="width" multiplier="0.8" id="Sms-gE-IF0"/>
                             <constraint firstItem="Q90-V1-rb5" firstAttribute="leading" secondItem="utJ-AP-aAH" secondAttribute="leading" constant="8" id="Tfi-mH-eQu"/>
@@ -70,4 +71,7 @@
             <point key="canvasLocation" x="383" y="340"/>
         </collectionViewCell>
     </objects>
+    <resources>
+        <image name="Delete" width="52" height="52"/>
+    </resources>
 </document>

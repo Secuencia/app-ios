@@ -18,13 +18,12 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zWI-ue-Y8M">
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="yGV-Rx-O0B"/>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Emk-9T-AV5">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Emk-9T-AV5">
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="HPJ-J1-SZj"/>
-                                    <constraint firstAttribute="width" constant="30" id="MJw-Jw-PDe"/>
+                                    <constraint firstAttribute="height" constant="20" id="HPJ-J1-SZj"/>
+                                    <constraint firstAttribute="width" constant="20" id="MJw-Jw-PDe"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="15"/>
-                                <state key="normal" title="X">
+                                <state key="normal" title="X" image="Delete">
                                     <color key="titleColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
                                 </state>
                             </button>
@@ -56,4 +55,7 @@
             <point key="canvasLocation" x="330" y="482"/>
         </collectionViewCell>
     </objects>
+    <resources>
+        <image name="Delete" width="52" height="52"/>
+    </resources>
 </document>

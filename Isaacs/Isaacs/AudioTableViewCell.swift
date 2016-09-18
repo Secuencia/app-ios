@@ -19,22 +19,31 @@ class AudioTableViewCell: UITableViewCell{
     
     var file_name : String?
     
+    var recording: Bool = false
+    
     let audioManager : AudioManager = AudioManager.sharedInstance
     
-    @IBAction func record(sender: AnyObject) {
-        if sender.titleLabel!!.text == "Record" {
-            self.btnRecord.setTitle("Stop", forState: UIControlState.Normal)
+    
+    @IBAction func recordWithSender(sender: UIButton) {
+        if !recording {
+            print("Entro tag 0")
+            self.btnRecord.setImage(UIImage(named: "StopRecording"), forState: UIControlState.Normal)
             self.btnPlay.enabled = false
+            recording = true
             audioManager.record(file_name!)
         }
         else{
-            self.btnRecord.setTitle("Record", forState: UIControlState.Normal)
+            print("Entro tag 1")
+            self.btnRecord.setImage(UIImage(named: "Record"), forState: UIControlState.Normal)
             self.btnPlay.enabled = true
             audioManager.stop()
+            recording = false
+            
         }
     }
     
-    @IBAction func play(sender: AnyObject) {
+    @IBAction func playWithSender(sender: UIButton) {
         audioManager.play(file_name!)
     }
+
 }

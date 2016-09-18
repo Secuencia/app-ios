@@ -27,6 +27,7 @@ class AudioCardCollectionViewCell: UICollectionViewCell {
         super.layoutSubviews()
         containerView.layer.borderColor = UIColor.orangeColor().CGColor
         containerView.layer.borderWidth = 2
+        delete.tintColor = UIColor.darkGrayColor()
     }
     
 }
