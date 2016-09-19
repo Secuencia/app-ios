@@ -19,7 +19,7 @@ class StorySelectViewController: UIViewController, UITableViewDataSource, UITabl
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
-        stories = self.persistence.getAll()
+        stories = self.persistence.getAll("title")
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {

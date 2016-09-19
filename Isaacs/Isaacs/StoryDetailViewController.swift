@@ -79,41 +79,12 @@ class StoryDetailViewController: UICollectionViewController,UICollectionViewDele
     }
     
     //Render de celdas
-    /*override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        var cell : UICollectionViewCell;
-        if(indexPath.section == 0){
-            cell = collectionView.dequeueReusableCellWithReuseIdentifier("title_card", forIndexPath: indexPath)
-        }
-        else {
-            let type : String = (story.contents?.objectAtIndex(indexPath.row).type)!
-            switch type {
-            case Content.types.Picture.rawValue:
-                cell = collectionView.dequeueReusableCellWithReuseIdentifier("picture_card", forIndexPath: indexPath) as! PictureCardCollectionViewCell
-                (cell as! PictureCardCollectionViewCell).delete.tag = indexPath.row
-                (cell as! PictureCardCollectionViewCell).delete.addTarget(self, action: #selector(deleteCard), forControlEvents: .TouchUpInside)
-            case Content.types.Audio.rawValue:
-                cell = collectionView.dequeueReusableCellWithReuseIdentifier("audio_card", forIndexPath: indexPath) as! AudioCardCollectionViewCell
-                (cell as! AudioCardCollectionViewCell).delete.tag = indexPath.row
-                (cell as! AudioCardCollectionViewCell).delete.addTarget(self, action: #selector(deleteCard), forControlEvents: .TouchUpInside)
-            case Content.types.Contact.rawValue:
-                cell = collectionView.dequeueReusableCellWithReuseIdentifier("contact_card", forIndexPath: indexPath) as! ContactCardCollectionViewCell
-                (cell as! ContactCardCollectionViewCell).delete.tag = indexPath.row
-                (cell as! ContactCardCollectionViewCell).delete.addTarget(self, action: #selector(deleteCard), forControlEvents: .TouchUpInside)
-            default:
-                cell = collectionView.dequeueReusableCellWithReuseIdentifier("text_card", forIndexPath: indexPath) as! TextCardCollectionViewCell
-                (cell as! TextCardCollectionViewCell).delete.tag = indexPath.row
-                (cell as! TextCardCollectionViewCell).delete.addTarget(self, action: #selector(deleteCard), forControlEvents: .TouchUpInside)
-            }
-        }
-        return cell
-    }*/
-    
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         var cell : UICollectionViewCell;
         if(indexPath.section == 0){
             let titleCell = collectionView.dequeueReusableCellWithReuseIdentifier("title_card", forIndexPath: indexPath) as! TitleCardCollectionViewCell
             titleCell.storyTitle.text = story.title!
-            titleCell.storyBrief.text = story.brief ?? "There is no brief"
+            titleCell.storyBrief.text = story.brief ?? ""
             cell = titleCell
         }
         else {

@@ -303,29 +303,55 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="ZgF-Xh-1U8">
                                     <size key="itemSize" width="50" height="50"/>
-                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="headerReferenceSize" width="50" height="50"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells/>
+                                <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="type_header" id="0L8-kh-JU2" customClass="HeaderReusableView" customModule="Isaacs" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fhw-bN-Cbr">
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" red="0.35568632890000002" green="0.52464953709999995" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <constraints>
+                                        <constraint firstItem="fhw-bN-Cbr" firstAttribute="leading" secondItem="0L8-kh-JU2" secondAttribute="leadingMargin" constant="10" id="EQi-tf-bJm"/>
+                                        <constraint firstItem="fhw-bN-Cbr" firstAttribute="centerY" secondItem="0L8-kh-JU2" secondAttribute="centerY" id="xCP-Ui-UJH"/>
+                                    </constraints>
+                                    <connections>
+                                        <outlet property="title" destination="fhw-bN-Cbr" id="Pdg-In-CZW"/>
+                                    </connections>
+                                </collectionReusableView>
                             </collectionView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <toolbarItems/>
                     <navigationItem key="navigationItem" title="Contenidos" id="Pgy-O1-n9G">
-                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="fDN-oI-Gud">
+                        <barButtonItem key="leftBarButtonItem" systemItem="done" id="fDN-oI-Gud">
                             <connections>
                                 <action selector="dismiss:" destination="cLQ-6J-R3p" id="qdn-bj-e6J"/>
                             </connections>
                         </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Filtrar por tipo" id="kJV-jS-vEc">
+                            <connections>
+                                <action selector="filter:" destination="cLQ-6J-R3p" id="2IL-9e-d8S"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="collectionView" destination="VHl-dr-j8X" id="kBi-VO-eMH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="L5X-0P-gef" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1878" y="197"/>
+            <point key="canvasLocation" x="1877.5999999999999" y="196.55172413793105"/>
         </scene>
         <!--Story Select View Controller-->
         <scene sceneID="u3X-LD-ewb">

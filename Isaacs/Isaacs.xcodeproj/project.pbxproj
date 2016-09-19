@@ -18,7 +18,6 @@
 		37C4A1AD1D8D0F6500C9AECF /* ContactTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37C4A1AB1D8D0F6500C9AECF /* ContactTableViewCell.xib */; };
 		37C4A1B01D8D104800C9AECF /* AudioTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37C4A1AE1D8D104800C9AECF /* AudioTableViewCell.swift */; };
 		37C4A1B11D8D104800C9AECF /* AudioTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37C4A1AF1D8D104800C9AECF /* AudioTableViewCell.xib */; };
-		37FCEE441D7FA55500A74FDC /* TagsRecomendator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37FCEE431D7FA55500A74FDC /* TagsRecomendator.swift */; };
 		B9646F681D8A4DF3000516D9 /* Content.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9646F641D8A4DF3000516D9 /* Content.swift */; };
 		B9646F6A1D8A4DF3000516D9 /* Story.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9646F661D8A4DF3000516D9 /* Story.swift */; };
 		B964D9C61D7D018900033B13 /* PictureCaptureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B964D9C51D7D018900033B13 /* PictureCaptureViewController.swift */; };
@@ -53,6 +52,7 @@
 		B9AD03941D7EF9F700466000 /* Stories.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B9AD03921D7EF9F700466000 /* Stories.xcdatamodeld */; };
 		B9AD03CD1D7F02F400466000 /* StoryPersistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9AD03CC1D7F02F400466000 /* StoryPersistence.swift */; };
 		B9AD04491D7F715800466000 /* DataPersistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9AD04481D7F715800466000 /* DataPersistence.swift */; };
+		B9D7C7621D8F680F00F4DA8D /* HeaderReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9D7C7611D8F680F00F4DA8D /* HeaderReusableView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,7 +77,6 @@
 		37C4A1AB1D8D0F6500C9AECF /* ContactTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ContactTableViewCell.xib; sourceTree = "<group>"; };
 		37C4A1AE1D8D104800C9AECF /* AudioTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioTableViewCell.swift; sourceTree = "<group>"; };
 		37C4A1AF1D8D104800C9AECF /* AudioTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AudioTableViewCell.xib; sourceTree = "<group>"; };
-		37FCEE431D7FA55500A74FDC /* TagsRecomendator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagsRecomendator.swift; sourceTree = "<group>"; };
 		B9646F4B1D8A4D66000516D9 /* Isaacs-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Isaacs-Bridging-Header.h"; sourceTree = "<group>"; };
 		B9646F641D8A4DF3000516D9 /* Content.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Content.swift; path = ../Content.swift; sourceTree = "<group>"; };
 		B9646F661D8A4DF3000516D9 /* Story.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Story.swift; path = ../Story.swift; sourceTree = "<group>"; };
@@ -117,6 +116,7 @@
 		B9AD03931D7EF9F700466000 /* Stories.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Stories.xcdatamodel; sourceTree = "<group>"; };
 		B9AD03CC1D7F02F400466000 /* StoryPersistence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryPersistence.swift; sourceTree = "<group>"; };
 		B9AD04481D7F715800466000 /* DataPersistence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataPersistence.swift; sourceTree = "<group>"; };
+		B9D7C7611D8F680F00F4DA8D /* HeaderReusableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderReusableView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,6 +141,7 @@
 		374565F81D8CACD800E725D7 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				B9D7C7611D8F680F00F4DA8D /* HeaderReusableView.swift */,
 				B9A24C4E1D8D13440007F3DD /* TitleCard */,
 				B9AD03D21D7F105600466000 /* AudioCard */,
 				B9AD03D11D7F104F00466000 /* ContactCard */,
@@ -311,7 +312,6 @@
 		B9AD03CE1D7F0F9D00466000 /* Add-ins */ = {
 			isa = PBXGroup;
 			children = (
-				37FCEE431D7FA55500A74FDC /* TagsRecomendator.swift */,
 				B9A24C4F1D8D2C2B0007F3DD /* JsonConverter.swift */,
 				B9A24C531D8E2B5D0007F3DD /* AudioManager.swift */,
 				B9A24C551D8E32310007F3DD /* Utils.swift */,
@@ -478,6 +478,7 @@
 				B9A87AB51D6C9C6D00145B93 /* DashboardViewController.swift in Sources */,
 				B964D9C61D7D018900033B13 /* PictureCaptureViewController.swift in Sources */,
 				37C4A1B01D8D104800C9AECF /* AudioTableViewCell.swift in Sources */,
+				B9D7C7621D8F680F00F4DA8D /* HeaderReusableView.swift in Sources */,
 				B96E24611D8787F800182DA3 /* ContentPersistence.swift in Sources */,
 				B964D9C81D7D01A700033B13 /* TextCaptureViewController.swift in Sources */,
 				374565FC1D8CAD7E00E725D7 /* ModuleCollectionViewCell.swift in Sources */,
@@ -495,7 +496,6 @@
 				B964D9D41D7D035000033B13 /* TextCardCollectionViewCell.swift in Sources */,
 				37C4A1A81D8D0CDA00C9AECF /* TextTableViewCell.swift in Sources */,
 				B9A24C541D8E2B5D0007F3DD /* AudioManager.swift in Sources */,
-				37FCEE441D7FA55500A74FDC /* TagsRecomendator.swift in Sources */,
 				B964D9D01D7D030800033B13 /* StoryDetailViewController.swift in Sources */,
 				B964D9CE1D7D02ED00033B13 /* StoryListViewController.swift in Sources */,
 				B9A87AB31D6C9C6D00145B93 /* AppDelegate.swift in Sources */,

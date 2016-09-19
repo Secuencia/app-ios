@@ -18,9 +18,12 @@ class ContentListViewController: UIViewController, UICollectionViewDelegate,UICo
         case Double = 2
     }
     
+    let types : [Int : String] = [0 : Content.types.Audio.rawValue, 1 : Content.types.Contact.rawValue, 2 : Content.types.Picture.rawValue, 3 : Content.types.Text.rawValue]
+    
     var sizes = [String: (CGFloat, CGFloat)]()
     let persistence:ContentPersistence = ContentPersistence()
     var contents : [Content] = []
+    var filtered : Bool = false
     
     private var longPressGesture: UILongPressGestureRecognizer!
     
@@ -28,13 +31,11 @@ class ContentListViewController: UIViewController, UICollectionViewDelegate,UICo
         super.viewDidLoad()
         collectionView.delegate = self
         collectionView.dataSource = self
-        contents = persistence.getAll()
+        contents = persistence.getAll(nil)
         sizes[Content.types.Audio.rawValue] = (factors.Full.rawValue, factors.Half.rawValue)
         sizes[Content.types.Contact.rawValue] = (factors.Half.rawValue, factors.Double.rawValue)
         sizes[Content.types.Picture.rawValue] = (factors.Half.rawValue, factors.Double.rawValue)
         sizes[Content.types.Text.rawValue] = (factors.Full.rawValue, factors.Double.rawValue)
-        
-        
         
         self.collectionView!.registerNib(UINib(nibName: "PictureCardView", bundle: nil), forCellWithReuseIdentifier: "picture_card")
         self.collectionView!.registerNib(UINib(nibName: "TextCardView", bundle: nil), forCellWithReuseIdentifier: "text_card")
@@ -52,6 +53,8 @@ class ContentListViewController: UIViewController, UICollectionViewDelegate,UICo
         return CGFloat(5)
     }
     
+    
+    
     //Espacio entre celdas de coleccion
     func collectionView(collectionView: UICollectionView,layout collectionViewLayout: UICollectionViewLayout,minimumInteritemSpacingForSectionAtIndex section: Int) -> CGFloat{
         return CGFloat(2.5)
@@ -59,38 +62,73 @@ class ContentListViewController: UIViewController, UICollectionViewDelegate,UICo
     
     //Numero de secciones en Coleccion
     func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
+        if(filtered){
+            return types.count
+        }
         return 1
     }
     
     //Numero de celdas en coleccion
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        if(filtered){
+            return persistence.getAll(types[section]).count
+        }
         return contents.count
     }
     
     //Render de celdas
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+        let finalContents : [Content]
+        switch filtered{
+            case true : finalContents = persistence.getAll(types[indexPath.section])
+            default: finalContents = contents
+        }
         var cell : UICollectionViewCell;
-        let type : String = (contents[indexPath.row].type)!
+        let type : String = (finalContents[indexPath.row].type)!
         switch type {
-        case Content.types.Picture.rawValue: cell = createPhotoCell(indexPath)
-        case Content.types.Audio.rawValue: cell = createAudioCell(indexPath)
-        case Content.types.Contact.rawValue: cell = createContactCell(indexPath)
-        default:
-            cell = createTextCell(indexPath)
+            case Content.types.Picture.rawValue: cell = createPhotoCell(indexPath)
+            case Content.types.Audio.rawValue: cell = createAudioCell(indexPath)
+            case Content.types.Contact.rawValue: cell = createContactCell(indexPath)
+            default: cell = createTextCell(indexPath)
         }
         return cell
     }
     
+    //Item seleccionado
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        let finalContents : [Content]
+        switch filtered{
+            case true : finalContents = persistence.getAll(types[indexPath.section])
+            default: finalContents = contents
+        }
         let vc = UIStoryboard(name:"Main", bundle:nil).instantiateViewControllerWithIdentifier("story_list") as! StorySelectViewController
-        vc.content = contents[indexPath.row]
+        vc.content = finalContents[indexPath.row]
         self.navigationController?.pushViewController(vc, animated:true)
+    }
+    
+    //Header
+    func collectionView(collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, atIndexPath indexPath: NSIndexPath) -> UICollectionReusableView {
+        if(kind == UICollectionElementKindSectionHeader){
+            let header = collectionView.dequeueReusableSupplementaryViewOfKind(kind, withReuseIdentifier: "type_header", forIndexPath: indexPath) as! HeaderReusableView
+            header.title.text = types[indexPath.section]!
+            return header
+        }
+        else{
+            return UICollectionReusableView()
+        }
     }
     
     // Create a text cell 
     func createTextCell(indexPath: NSIndexPath) -> TextCardCollectionViewCell {
+        let finalContents : [Content]
+        switch filtered{
+            case true : finalContents = persistence.getAll(types[indexPath.section])
+            default: finalContents = contents
+        }
         let textCell:TextCardCollectionViewCell = collectionView.dequeueReusableCellWithReuseIdentifier("text_card", forIndexPath: indexPath) as! TextCardCollectionViewCell
-        textCell.delete.tag = indexPath.row
+        let content : Content = finalContents[indexPath.row]
+        let index : Int = contents.indexOf(content)!
+        textCell.delete.tag = index
         textCell.delete.addTarget(self, action: #selector(deleteCard), forControlEvents: .TouchUpInside)
         
         let jsonData = contents[indexPath.row].data ?? "No data"
@@ -101,11 +139,17 @@ class ContentListViewController: UIViewController, UICollectionViewDelegate,UICo
     
     // Create Photo cell
     func createPhotoCell(indexPath: NSIndexPath) -> PictureCardCollectionViewCell {
+        let finalContents : [Content]
+        switch filtered{
+            case true : finalContents = persistence.getAll(types[indexPath.section])
+            default: finalContents = contents
+        }
         let photoCell = collectionView.dequeueReusableCellWithReuseIdentifier("picture_card", forIndexPath: indexPath) as! PictureCardCollectionViewCell
-        photoCell.delete.tag = indexPath.row
+        let content : Content = finalContents[indexPath.row]
+        photoCell.delete.tag = contents.indexOf(content)!
         photoCell.delete.addTarget(self, action: #selector(deleteCard), forControlEvents: .TouchUpInside)
         
-        let jsonData = contents[indexPath.row].data ?? "No data"
+        let jsonData = finalContents[indexPath.row].data ?? "No data"
         let imageName = JsonConverter.jsonToDict(jsonData)!["image_file_name"]!
         let image = Utils.getImage(imageName)
         photoCell.image.image = image
@@ -115,11 +159,17 @@ class ContentListViewController: UIViewController, UICollectionViewDelegate,UICo
     
     // Create Contact Cell
     func createContactCell(indexPath: NSIndexPath) -> ContactCardCollectionViewCell {
+        let finalContents : [Content]
+        switch filtered{
+            case true : finalContents = persistence.getAll(types[indexPath.section])
+            default: finalContents = contents
+        }
         let contactCell = collectionView.dequeueReusableCellWithReuseIdentifier("contact_card", forIndexPath: indexPath) as! ContactCardCollectionViewCell
-        contactCell.delete.tag = indexPath.row
+        let content : Content = finalContents[indexPath.row]
+        contactCell.delete.tag = contents.indexOf(content)!
         contactCell.delete.addTarget(self, action: #selector(deleteCard), forControlEvents: .TouchUpInside)
         
-        let jsonData = contents[indexPath.row].data ?? "No data"
+        let jsonData = finalContents[indexPath.row].data ?? "No data"
         let dict = JsonConverter.jsonToDict(jsonData)!
         
         contactCell.nameLabel.text = dict["name"]
@@ -130,11 +180,17 @@ class ContentListViewController: UIViewController, UICollectionViewDelegate,UICo
     
     // Create Audio Cell
     func createAudioCell(indexPath: NSIndexPath) -> AudioCardCollectionViewCell {
+        let finalContents : [Content]
+        switch filtered{
+            case true : finalContents = persistence.getAll(types[indexPath.section])
+            default: finalContents = contents
+        }
         let audioCell = collectionView.dequeueReusableCellWithReuseIdentifier("audio_card", forIndexPath: indexPath) as! AudioCardCollectionViewCell
-        audioCell.delete.tag = indexPath.row
+        let content : Content = finalContents[indexPath.row]
+        audioCell.delete.tag = contents.indexOf(content)!
         audioCell.delete.addTarget(self, action: #selector(deleteCard), forControlEvents: .TouchUpInside)
         
-        let jsonData = contents[indexPath.row].data ?? "No data"
+        let jsonData = finalContents[indexPath.row].data ?? "No data"
         let dict = JsonConverter.jsonToDict(jsonData)!
         
         audioCell.titleLabel.text = dict["title"]
@@ -146,18 +202,43 @@ class ContentListViewController: UIViewController, UICollectionViewDelegate,UICo
     
     //Tamaño de celdas
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
-        let type : String = (contents[indexPath.row].type)!
+        let finalContents : [Content]
+        switch filtered{
+            case true : finalContents = persistence.getAll(types[indexPath.section])
+            default: finalContents = contents
+        }
+        let type : String = (finalContents[indexPath.row].type)!
         return CGSizeMake(collectionView.bounds.width * self.sizes[type]!.0, 100 * self.sizes[type]!.1)
+    }
+    
+    //Tamaño de seccion
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+        var size : CGSize = CGSizeMake(0,0)
+        if(filtered){
+            let count : Int = persistence.getAll(types[section]).count
+            if(count > 0){
+                size = CGSizeMake(0,40)
+            }
+        }
+        return size
     }
     
     @IBAction func dismiss(sender: UIBarButtonItem) {
         self.dismissViewControllerAnimated(true, completion: nil)
     }
+    @IBAction func filter(sender: UIBarButtonItem) {
+        filtered = !filtered
+        switch filtered{
+            case true: sender.title = "Ver todos"
+            default: sender.title = "Filtrar por tipo"
+        }
+        collectionView.reloadData()
+    }
     
     func deleteCard(sender: UIButton!){
         persistence.deleteEntity(contents[sender.tag])
         persistence.save()
-        contents = persistence.getAll()
+        contents = persistence.getAll(nil)
         collectionView?.reloadData()
     }
     

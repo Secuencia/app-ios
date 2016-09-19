@@ -14,11 +14,12 @@ class StoryListViewController: UITableViewController {
     var stories : [Story] = []
     let persistence : StoryPersistence = StoryPersistence()
     let contentPersistence : ContentPersistence = ContentPersistence()
+    weak var actionToEnable : UIAlertAction?
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        stories = self.persistence.getAll();
+        stories = self.persistence.getAll("title");
     }
 
     override func didReceiveMemoryWarning() {
@@ -63,7 +64,7 @@ class StoryListViewController: UITableViewController {
         if (editingStyle == UITableViewCellEditingStyle.Delete) {
             persistence.deleteEntity(stories[indexPath.row])
             persistence.save()
-            self.stories = self.persistence.getAll()
+            self.stories = self.persistence.getAll("title")
             tableView.reloadData()
         }
     }
@@ -81,14 +82,25 @@ class StoryListViewController: UITableViewController {
                                       message: "",
                                       preferredStyle: .Alert)
         
+        alert.addTextFieldWithConfigurationHandler({(textField: UITextField) in
+            textField.placeholder = "Título"
+            textField.addTarget(self, action: #selector(self.textChanged(_:)), forControlEvents: .EditingChanged)
+        })
+        
+        alert.addTextFieldWithConfigurationHandler({(textField: UITextField) in
+            textField.placeholder = "Descripción"
+        })
+        
+        
         let saveAction = UIAlertAction(title: "Crear", style: .Default, handler: {
                                         (action:UIAlertAction) -> Void in
             
             let newStory : Story = self.persistence.createEntity()
             newStory.title = alert.textFields!.first?.text!
+            newStory.brief = alert.textFields![1].text!
+            newStory.date_created = NSDate()
             self.persistence.save()
-            self.stories = self.persistence.getAll()
-            self.tableView.reloadData()
+            self.reloadData()
             }
         )
         
@@ -97,20 +109,22 @@ class StoryListViewController: UITableViewController {
                                             print("Cancelado")
         }
         
-        alert.addTextFieldWithConfigurationHandler {
-            (textField: UITextField) -> Void in
-        }
-        
         alert.addAction(saveAction)
         alert.addAction(cancelAction)
+        self.actionToEnable = saveAction
+        saveAction.enabled = false
         
         presentViewController(alert,
                               animated: true,
                               completion: nil)
     }
     
+    func textChanged(sender:UITextField) {
+        self.actionToEnable?.enabled = (sender.text!.characters.count > 0)
+    }
+    
     func reloadData(){
-        self.stories = self.persistence.getAll()
+        self.stories = self.persistence.getAll("title")
         self.tableView.reloadData()
     }
 

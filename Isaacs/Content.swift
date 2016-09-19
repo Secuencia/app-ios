@@ -14,9 +14,9 @@ public class Content: NSManagedObject {
     
     enum types:String{
         case Audio = "Audio"
-        case Contact = "Contact"
-        case Text = "Text"
-        case Picture = "Picture"
+        case Contact = "Contacto"
+        case Text = "Texto"
+        case Picture = "Imágen"
     }
     
     @NSManaged public var data: String?

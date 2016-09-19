@@ -22,10 +22,14 @@ class StoryPersistence{
         }
     }
     
-    func getAll() -> [Story]{
+    func getAll(sortBy : String?) -> [Story]{
         let moc = self.globalPersistence.managedObjectContext
         let Fetch = NSFetchRequest(entityName: "Story")
-        
+        if(sortBy != nil){
+            let sectionSortDescriptor = NSSortDescriptor(key: sortBy, ascending: true)
+            let sortDescriptors = [sectionSortDescriptor]
+            Fetch.sortDescriptors = sortDescriptors
+        }
         do {
             return try moc.executeFetchRequest(Fetch) as! [Story]
             

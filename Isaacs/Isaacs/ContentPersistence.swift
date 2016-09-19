@@ -22,9 +22,12 @@ class ContentPersistence{
         }
     }
     
-    func getAll() -> [Content]{
+    func getAll(type : String?) -> [Content]{
         let moc = self.globalPersistence.managedObjectContext
         let Fetch = NSFetchRequest(entityName: "Content")
+        if(type != nil){
+            Fetch.predicate = NSPredicate(format: "type == %@", type!)
+        }
         do{
             return try moc.executeFetchRequest(Fetch) as! [Content]
         }
@@ -46,4 +49,5 @@ class ContentPersistence{
         
         return entity
     }
+    
 }
