@@ -19,7 +19,7 @@ class StoryListViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        stories = self.persistence.getAll("title");
+        stories = self.persistence.getAll("title", ascending: true);
     }
 
     override func didReceiveMemoryWarning() {
@@ -64,7 +64,7 @@ class StoryListViewController: UITableViewController {
         if (editingStyle == UITableViewCellEditingStyle.Delete) {
             persistence.deleteEntity(stories[indexPath.row])
             persistence.save()
-            self.stories = self.persistence.getAll("title")
+            self.stories = self.persistence.getAll("title", ascending: true)
             tableView.reloadData()
         }
     }
@@ -124,7 +124,7 @@ class StoryListViewController: UITableViewController {
     }
     
     func reloadData(){
-        self.stories = self.persistence.getAll("title")
+        self.stories = self.persistence.getAll("title", ascending: true)
         self.tableView.reloadData()
     }
 
