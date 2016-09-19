@@ -166,13 +166,7 @@ class InputViewController: UIViewController, UINavigationControllerDelegate, UII
     func createTextCell(indexPath: NSIndexPath) -> TextTableViewCell {
         
         let textCell = tableView.dequeueReusableCellWithIdentifier("text_cell", forIndexPath: indexPath) as! TextTableViewCell
-        
-        // Style
-        textCell.containerView.layer.borderWidth = 2.0
-        textCell.containerView.layer.borderColor = UIColor.darkGrayColor().CGColor
-        textCell.containerView.layer.cornerRadius = 10.0
-        textCell.backgroundColor = UIColor.clearColor()
-        // Style
+    
         
         if indexPath.section == editedContentIndex && editing {
             textCell.myText.becomeFirstResponder()
@@ -189,22 +183,6 @@ class InputViewController: UIViewController, UINavigationControllerDelegate, UII
     func createPhotoCell(indexPath: NSIndexPath) -> PhotoTableViewCell {
         
         let photoCell = tableView.dequeueReusableCellWithIdentifier("photo_cell", forIndexPath: indexPath) as! PhotoTableViewCell
-        
-        // Style
-        photoCell.containerView.layer.borderWidth = 2.0
-        photoCell.containerView.layer.borderColor = UIColor.cyanColor().CGColor
-        photoCell.containerView.layer.cornerRadius = 10.0
-        photoCell.backgroundColor = UIColor.clearColor()
-        // Style
-        
-        
-    
-        
-        /*if let data = contents[indexPath.section].data {
-            let photoDict = JsonConverter.jsonToDict(data)
-            let image = getImage(photoDict!["image_file_name"]!)
-        }*/
-        
         
         for (_, value) in imagesTuples.enumerate() {
             
@@ -233,14 +211,6 @@ class InputViewController: UIViewController, UINavigationControllerDelegate, UII
     func createContactCell(indexPath: NSIndexPath) -> ContactTableViewCell {
         
         let contactCell = tableView.dequeueReusableCellWithIdentifier("contact_cell", forIndexPath: indexPath) as! ContactTableViewCell
-        
-        // Style
-        contactCell.containerView.layer.borderWidth = 2.0
-        contactCell.containerView.layer.borderColor = UIColor.magentaColor().CGColor
-        contactCell.containerView.layer.cornerRadius = 10.0
-        contactCell.backgroundColor = UIColor.clearColor()
-        contactCell.additionalInfoText.layer.borderColor = UIColor.lightGrayColor().CGColor
-        // Style
         
         contactCell.pictureButton.tag = indexPath.section
         contactCell.pictureButton.addTarget(self, action: #selector(addContactImage), forControlEvents: .TouchUpInside)
@@ -271,15 +241,6 @@ class InputViewController: UIViewController, UINavigationControllerDelegate, UII
             
         }
         
-        
-        
-        
-        // Style
-        audioCell.containerView.layer.borderWidth = 2.0
-        audioCell.containerView.layer.borderColor = UIColor.orangeColor().CGColor
-        audioCell.containerView.layer.cornerRadius = 10.0
-        audioCell.backgroundColor = UIColor.clearColor()
-        // Style
 
         return audioCell
     }
@@ -410,6 +371,8 @@ class InputViewController: UIViewController, UINavigationControllerDelegate, UII
 
                 
                 //images.append(loadedImage)
+                
+                globalImageStatus = nil
                 
 
             }else{

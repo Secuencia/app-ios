@@ -45,5 +45,15 @@ class AudioTableViewCell: UITableViewCell{
     @IBAction func playWithSender(sender: UIButton) {
         audioManager.play(file_name!)
     }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        // Style
+        containerView.layer.borderWidth = 2.0
+        containerView.layer.borderColor = UIColor.orangeColor().CGColor
+        containerView.layer.cornerRadius = 10.0
+        backgroundColor = UIColor.clearColor()
+        // Style
+    }
 
 }

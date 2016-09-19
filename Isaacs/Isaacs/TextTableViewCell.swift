@@ -19,5 +19,15 @@ class TextTableViewCell: UITableViewCell {
             myText.editable = beingEdited
         }
     }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        // Style
+        containerView.layer.borderWidth = 2.0
+        containerView.layer.borderColor = UIColor.darkGrayColor().CGColor
+        containerView.layer.cornerRadius = 10.0
+        backgroundColor = UIColor.clearColor()
+        // Style
+    }
 
 }
