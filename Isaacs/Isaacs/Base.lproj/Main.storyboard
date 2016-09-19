@@ -313,14 +313,14 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fhw-bN-Cbr">
-                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
                                             <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
-                                        <constraint firstItem="fhw-bN-Cbr" firstAttribute="leading" secondItem="0L8-kh-JU2" secondAttribute="leadingMargin" constant="10" id="EQi-tf-bJm"/>
+                                        <constraint firstItem="fhw-bN-Cbr" firstAttribute="leading" secondItem="0L8-kh-JU2" secondAttribute="leadingMargin" constant="5" id="EQi-tf-bJm"/>
                                         <constraint firstItem="fhw-bN-Cbr" firstAttribute="centerY" secondItem="0L8-kh-JU2" secondAttribute="centerY" id="xCP-Ui-UJH"/>
                                     </constraints>
                                     <connections>
