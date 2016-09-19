@@ -3,7 +3,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
-        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -18,39 +17,31 @@
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="utJ-AP-aAH">
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dta-JU-cnW"/>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Prueba de Contacto" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q90-V1-rb5">
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="21" id="wEl-fl-rDm"/>
-                                </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dfZ-Zk-ESu">
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="20" id="18U-Ms-kOQ"/>
-                                    <constraint firstAttribute="height" constant="20" id="ruR-dx-1y1"/>
+                                    <constraint firstAttribute="height" constant="20" id="QZ2-oi-6Fm"/>
+                                    <constraint firstAttribute="width" constant="20" id="qZV-s0-rep"/>
                                 </constraints>
                                 <state key="normal" title="X" image="Delete"/>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Gr-E9-QUX">
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="Q90-V1-rb5" firstAttribute="top" secondItem="utJ-AP-aAH" secondAttribute="top" constant="8" id="4xa-l6-Ie9"/>
-                            <constraint firstAttribute="trailing" secondItem="dfZ-Zk-ESu" secondAttribute="trailing" constant="5" id="AOv-6s-3ZK"/>
-                            <constraint firstItem="Q90-V1-rb5" firstAttribute="width" secondItem="utJ-AP-aAH" secondAttribute="width" multiplier="0.8" id="CHz-Uz-c8L"/>
-                            <constraint firstItem="4Gr-E9-QUX" firstAttribute="top" secondItem="Q90-V1-rb5" secondAttribute="bottom" constant="8" id="Hob-2s-g81"/>
-                            <constraint firstAttribute="bottom" secondItem="4Gr-E9-QUX" secondAttribute="bottom" constant="8" id="Kc7-gE-OyI"/>
-                            <constraint firstItem="dfZ-Zk-ESu" firstAttribute="top" secondItem="utJ-AP-aAH" secondAttribute="top" constant="5" id="MS0-xf-hRa"/>
-                            <constraint firstItem="4Gr-E9-QUX" firstAttribute="top" secondItem="Q90-V1-rb5" secondAttribute="bottom" constant="8" id="Qg6-As-tpy"/>
-                            <constraint firstItem="4Gr-E9-QUX" firstAttribute="width" secondItem="utJ-AP-aAH" secondAttribute="width" multiplier="0.8" id="Sms-gE-IF0"/>
-                            <constraint firstItem="Q90-V1-rb5" firstAttribute="leading" secondItem="utJ-AP-aAH" secondAttribute="leading" constant="8" id="Tfi-mH-eQu"/>
-                            <constraint firstItem="4Gr-E9-QUX" firstAttribute="leading" secondItem="utJ-AP-aAH" secondAttribute="leading" constant="8" id="bro-o9-ZVG"/>
+                            <constraint firstItem="dta-JU-cnW" firstAttribute="leading" secondItem="utJ-AP-aAH" secondAttribute="leading" id="792-Xa-i8E"/>
+                            <constraint firstAttribute="trailing" secondItem="dta-JU-cnW" secondAttribute="trailing" id="ItA-9q-Cw4"/>
+                            <constraint firstItem="dta-JU-cnW" firstAttribute="top" secondItem="utJ-AP-aAH" secondAttribute="top" id="ODU-3T-Zd5"/>
+                            <constraint firstItem="dfZ-Zk-ESu" firstAttribute="top" secondItem="utJ-AP-aAH" secondAttribute="top" constant="5" id="Vb7-AT-LSW"/>
+                            <constraint firstItem="Q90-V1-rb5" firstAttribute="leading" secondItem="utJ-AP-aAH" secondAttribute="leading" constant="5" id="cSa-ul-JEf"/>
+                            <constraint firstAttribute="trailing" secondItem="dfZ-Zk-ESu" secondAttribute="trailing" constant="5" id="imA-A4-s5j"/>
+                            <constraint firstAttribute="trailing" secondItem="Q90-V1-rb5" secondAttribute="trailing" constant="5" id="qII-jf-yxQ"/>
+                            <constraint firstAttribute="bottom" secondItem="dta-JU-cnW" secondAttribute="bottom" id="qbN-fa-ydm"/>
+                            <constraint firstAttribute="bottom" secondItem="Q90-V1-rb5" secondAttribute="bottom" constant="5" id="wt3-5e-6Ja"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -66,7 +57,7 @@
                 <outlet property="containerView" destination="utJ-AP-aAH" id="lmL-pO-dm1"/>
                 <outlet property="delete" destination="dfZ-Zk-ESu" id="Yn0-kn-Zgh"/>
                 <outlet property="nameLabel" destination="Q90-V1-rb5" id="w1K-As-QtL"/>
-                <outlet property="notesLabel" destination="4Gr-E9-QUX" id="30i-Hq-1CS"/>
+                <outlet property="profilePicture" destination="dta-JU-cnW" id="p3L-I7-TNK"/>
             </connections>
             <point key="canvasLocation" x="383" y="340"/>
         </collectionViewCell>

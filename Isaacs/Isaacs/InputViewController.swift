@@ -247,7 +247,16 @@ class InputViewController: UIViewController, UINavigationControllerDelegate, UII
     
     func addContactImage(sender: UIButton!) {
         globalImageStatus = "contact"
-        contactIndexPath = NSIndexPath(forRow: sender.tag, inSection: 0)
+        contactIndexPath = NSIndexPath(forRow: 0, inSection: sender.tag)
+        print("Entre a foto de contacto")
+        
+        picker = UIImagePickerController()
+        picker.delegate = self
+        
+        picker.sourceType = .PhotoLibrary
+    
+        
+        presentViewController(picker, animated: true, completion: nil)
     }
     
     
@@ -365,8 +374,6 @@ class InputViewController: UIViewController, UINavigationControllerDelegate, UII
                 
                 print("END OF PERSISTENCE")
                 
-                
-                
                 imagesTuples.append((editedContentIndex!, loadedImage, name))
 
                 
@@ -380,7 +387,30 @@ class InputViewController: UIViewController, UINavigationControllerDelegate, UII
             }
             globalImageStatus = nil
         } else {
+            
+            if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
+                
+                //let name = NSDate().iso8601 + "-contact.png"
+                
+                //let imageName = saveImageToDirectory(image, imageName: name)
+                //let loadedImage = getImage(imageName)!
+                
+                
+                //imagesTuples.append((editedContentIndex!, loadedImage, name))
+                
+                let cell = tableView.cellForRowAtIndexPath(contactIndexPath!) as! ContactTableViewCell
+                
+                cell.profilePicture.image = image
+                
+                globalImageStatus = nil
+                
+                contactIndexPath = nil
+                
+            }else{
+                print("Something went wrong")
+            }
 
+            
             globalImageStatus = nil
             contactIndexPath = nil
         }
@@ -468,7 +498,9 @@ class InputViewController: UIViewController, UINavigationControllerDelegate, UII
     
     func createDictForContact() -> String {
         let cell = (tableView.cellForRowAtIndexPath(NSIndexPath(forRow: 0, inSection: editedContentIndex!)) as? ContactTableViewCell)!
-        let dict: [String: String] = ["name":cell.nameTextField.text!, "aditional_info":cell.additionalInfoText.text]
+        let name = NSDate().iso8601+"-contact.png"
+        saveImageToDirectory(cell.profilePicture.image!, imageName: name)
+        let dict: [String: String] = ["name":cell.nameTextField.text!, "aditional_info":cell.additionalInfoText.text, "profile_picture": name]
         let json: String = JsonConverter.dictToJson(dict)
         return json
     }

@@ -135,7 +135,7 @@ class StoryDetailViewController: UICollectionViewController,UICollectionViewDele
         let dict = JsonConverter.jsonToDict((jsonData as! String))!
         
         contactCell.nameLabel.text = dict["name"]
-        contactCell.notesLabel.text = dict["aditional_info"]
+        contactCell.profilePicture.image = Utils.getImage(dict["profile_picture"]!)
         
         return contactCell
     }
