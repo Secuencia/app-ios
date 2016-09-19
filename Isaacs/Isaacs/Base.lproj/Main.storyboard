@@ -369,7 +369,7 @@
                                 <frame key="frameInset" minY="28" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <items>
-                                    <navigationItem title="Historias asociadas" id="fYm-56-PJp">
+                                    <navigationItem id="fYm-56-PJp">
                                         <barButtonItem key="rightBarButtonItem" systemItem="done" id="RSB-Vp-aGz">
                                             <connections>
                                                 <action selector="dismiss:" destination="il3-7d-YOl" id="xoY-7N-GpQ"/>
