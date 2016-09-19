@@ -18,7 +18,6 @@
 		37C4A1AD1D8D0F6500C9AECF /* ContactTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37C4A1AB1D8D0F6500C9AECF /* ContactTableViewCell.xib */; };
 		37C4A1B01D8D104800C9AECF /* AudioTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37C4A1AE1D8D104800C9AECF /* AudioTableViewCell.swift */; };
 		37C4A1B11D8D104800C9AECF /* AudioTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37C4A1AF1D8D104800C9AECF /* AudioTableViewCell.xib */; };
-		37EC36731D8F8E7D001E073C /* HeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37EC36721D8F8E7D001E073C /* HeaderTableViewCell.swift */; };
 		B9646F681D8A4DF3000516D9 /* Content.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9646F641D8A4DF3000516D9 /* Content.swift */; };
 		B9646F6A1D8A4DF3000516D9 /* Story.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9646F661D8A4DF3000516D9 /* Story.swift */; };
 		B964D9C61D7D018900033B13 /* PictureCaptureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B964D9C51D7D018900033B13 /* PictureCaptureViewController.swift */; };
@@ -36,6 +35,7 @@
 		B964D9DE1D7D03B400033B13 /* ContactCardView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B964D9DD1D7D03B400033B13 /* ContactCardView.xib */; };
 		B964D9E01D7D03BE00033B13 /* AudioCardView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B964D9DF1D7D03BE00033B13 /* AudioCardView.xib */; };
 		B96E24611D8787F800182DA3 /* ContentPersistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96E24601D8787F800182DA3 /* ContentPersistence.swift */; };
+		B991C4641D8F9ADD00621CEA /* HeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B991C4631D8F9ADD00621CEA /* HeaderTableViewCell.swift */; };
 		B9A24C441D8CE10C0007F3DD /* ContentListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A24C431D8CE10C0007F3DD /* ContentListViewController.swift */; };
 		B9A24C4C1D8D132C0007F3DD /* TitleCardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A24C4A1D8D132C0007F3DD /* TitleCardCollectionViewCell.swift */; };
 		B9A24C4D1D8D132C0007F3DD /* TitleCardView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9A24C4B1D8D132C0007F3DD /* TitleCardView.xib */; };
@@ -78,7 +78,6 @@
 		37C4A1AB1D8D0F6500C9AECF /* ContactTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ContactTableViewCell.xib; sourceTree = "<group>"; };
 		37C4A1AE1D8D104800C9AECF /* AudioTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioTableViewCell.swift; sourceTree = "<group>"; };
 		37C4A1AF1D8D104800C9AECF /* AudioTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AudioTableViewCell.xib; sourceTree = "<group>"; };
-		37EC36721D8F8E7D001E073C /* HeaderTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HeaderTableViewCell.swift; path = ../../../../../../../var/folders/c8/r5bcdfrs3v73d35g9r6mwybw0000gn/T/com.apple.iChat/Messages/Transfers/HeaderTableViewCell.swift; sourceTree = "<group>"; };
 		B9646F4B1D8A4D66000516D9 /* Isaacs-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Isaacs-Bridging-Header.h"; sourceTree = "<group>"; };
 		B9646F641D8A4DF3000516D9 /* Content.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Content.swift; path = ../Content.swift; sourceTree = "<group>"; };
 		B9646F661D8A4DF3000516D9 /* Story.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Story.swift; path = ../Story.swift; sourceTree = "<group>"; };
@@ -97,6 +96,7 @@
 		B964D9DD1D7D03B400033B13 /* ContactCardView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ContactCardView.xib; sourceTree = "<group>"; };
 		B964D9DF1D7D03BE00033B13 /* AudioCardView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AudioCardView.xib; sourceTree = "<group>"; };
 		B96E24601D8787F800182DA3 /* ContentPersistence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentPersistence.swift; sourceTree = "<group>"; };
+		B991C4631D8F9ADD00621CEA /* HeaderTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderTableViewCell.swift; sourceTree = "<group>"; };
 		B9A24C431D8CE10C0007F3DD /* ContentListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentListViewController.swift; sourceTree = "<group>"; };
 		B9A24C4A1D8D132C0007F3DD /* TitleCardCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitleCardCollectionViewCell.swift; sourceTree = "<group>"; };
 		B9A24C4B1D8D132C0007F3DD /* TitleCardView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TitleCardView.xib; sourceTree = "<group>"; };
@@ -143,7 +143,7 @@
 		374565F81D8CACD800E725D7 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
-				37EC36721D8F8E7D001E073C /* HeaderTableViewCell.swift */,
+				B991C4631D8F9ADD00621CEA /* HeaderTableViewCell.swift */,
 				B9D7C7611D8F680F00F4DA8D /* HeaderReusableView.swift */,
 				B9A24C4E1D8D13440007F3DD /* TitleCard */,
 				B9AD03D21D7F105600466000 /* AudioCard */,
@@ -487,7 +487,7 @@
 				374565FC1D8CAD7E00E725D7 /* ModuleCollectionViewCell.swift in Sources */,
 				B9AD04491D7F715800466000 /* DataPersistence.swift in Sources */,
 				B9A24C441D8CE10C0007F3DD /* ContentListViewController.swift in Sources */,
-				37EC36731D8F8E7D001E073C /* HeaderTableViewCell.swift in Sources */,
+				B991C4641D8F9ADD00621CEA /* HeaderTableViewCell.swift in Sources */,
 				B9646F681D8A4DF3000516D9 /* Content.swift in Sources */,
 				B9A24C501D8D2C2B0007F3DD /* JsonConverter.swift in Sources */,
 				B9AD03CD1D7F02F400466000 /* StoryPersistence.swift in Sources */,

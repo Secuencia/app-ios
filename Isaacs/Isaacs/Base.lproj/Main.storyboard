@@ -401,7 +401,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="title" destination="soN-uz-Ndk" id="9pn-Ch-Kwf"/>
+                                            <outlet property="title" destination="soN-uz-Ndk" id="dge-mV-S9p"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
