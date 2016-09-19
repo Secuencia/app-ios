@@ -18,7 +18,7 @@
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Lk9-H2-aAF">
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Titulo de tarjeta" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FDu-Um-d79">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Titulo de tarjeta" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FDu-Um-d79">
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="34"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -32,9 +32,12 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="FDu-Um-d79" firstAttribute="leading" secondItem="Lk9-H2-aAF" secondAttribute="leading" constant="10" id="0o7-rx-QWd"/>
+                            <constraint firstAttribute="trailing" secondItem="FDu-Um-d79" secondAttribute="trailing" constant="10" id="3N3-9C-rvc"/>
                             <constraint firstItem="MRu-CV-cGT" firstAttribute="top" secondItem="FDu-Um-d79" secondAttribute="bottom" constant="50" id="Fo4-si-HtM"/>
                             <constraint firstItem="FDu-Um-d79" firstAttribute="centerX" secondItem="Lk9-H2-aAF" secondAttribute="centerX" id="P9b-av-pBk"/>
                             <constraint firstAttribute="bottom" secondItem="MRu-CV-cGT" secondAttribute="bottom" constant="80" id="PKf-5y-tzu"/>
+                            <constraint firstItem="FDu-Um-d79" firstAttribute="centerX" secondItem="Lk9-H2-aAF" secondAttribute="centerX" id="POk-oC-vZh"/>
                             <constraint firstItem="MRu-CV-cGT" firstAttribute="centerX" secondItem="Lk9-H2-aAF" secondAttribute="centerX" id="aBf-OE-grV"/>
                             <constraint firstItem="MRu-CV-cGT" firstAttribute="width" secondItem="Lk9-H2-aAF" secondAttribute="width" multiplier="0.6" id="gtC-0h-13f"/>
                         </constraints>
