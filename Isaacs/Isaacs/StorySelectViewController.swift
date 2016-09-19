@@ -20,6 +20,7 @@ class StorySelectViewController: UIViewController, UITableViewDataSource, UITabl
         tableView.delegate = self
         tableView.dataSource = self
         stories = self.persistence.getAll("title")
+        self.navigationItem.title = "Historias asociadas"
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
