@@ -23,6 +23,8 @@ public class Content: NSManagedObject {
     @NSManaged public var date_created: NSDate?
     @NSManaged public var type: String?
     @NSManaged public var stories: NSSet?
+    @NSManaged public var longitude: NSNumber?
+    @NSManaged public var latitude: NSNumber?
 
     
 }

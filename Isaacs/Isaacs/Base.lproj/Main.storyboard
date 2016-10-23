@@ -21,7 +21,7 @@
                                 <rect key="frame" x="0.0" y="92" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="hGA-8A-RZT" id="32Z-wM-saC">
-                                    <frame key="frameInset" width="375" height="43"/>
+                                    <frame key="frameInset" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HTF-n5-x35">
@@ -83,7 +83,7 @@
         <scene sceneID="7E5-OA-7UU">
             <objects>
                 <collectionViewController title="Historia Detail" id="YGD-nU-BRR" customClass="StoryDetailViewController" customModule="Isaacs" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="W3H-pf-rwf">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" id="W3H-pf-rwf">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -141,7 +141,7 @@
                                 </constraints>
                                 <state key="normal" backgroundImage="settingsIcon"/>
                                 <connections>
-                                    <segue destination="rjK-zM-NqH" kind="presentation" modalTransitionStyle="crossDissolve" id="2Ae-jq-M41"/>
+                                    <segue destination="F2e-fi-k8L" kind="show" id="NIs-ie-etN"/>
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="RA0-ya-eUh">
@@ -229,7 +229,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="JNC-oV-pyB" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="zB8-2Z-94S">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="zB8-2Z-94S">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -242,38 +242,69 @@
             </objects>
             <point key="canvasLocation" x="175" y="-957"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="cpf-9q-GsV">
+        <!--List Radar-->
+        <scene sceneID="1Dw-dJ-juj">
             <objects>
-                <viewController id="rjK-zM-NqH" sceneMemberID="viewController">
+                <viewController id="Nfb-df-PkB" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="kBv-BP-R61"/>
-                        <viewControllerLayoutGuide type="bottom" id="TBH-88-a2M"/>
+                        <viewControllerLayoutGuide type="top" id="zSA-xM-npa"/>
+                        <viewControllerLayoutGuide type="bottom" id="m9f-Kt-V1m"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="HG1-aU-4Wc">
+                    <view key="view" contentMode="scaleToFill" id="dz9-gZ-ZHq">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="TEST" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YSA-4e-vn0">
-                                <frame key="frameInset" minX="16" minY="20" width="166" height="52"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="List Radar" id="6Gy-5H-fXN"/>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Nvi-0h-dCF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RAy-zS-oDO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="970.39999999999998" y="-1374.9625187406298"/>
+            <point key="canvasLocation" x="2684" y="-1467"/>
+        </scene>
+        <!--MapRadar-->
+        <scene sceneID="UpN-0h-C8P">
+            <objects>
+                <viewController id="A0g-LQ-W1M" userLabel="MapRadar" customClass="RadarMapViewController" customModule="Isaacs" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="P3k-rf-rOI"/>
+                        <viewControllerLayoutGuide type="bottom" id="33e-Fs-yGO"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="VBc-ah-n2x">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Map Radar" selectedImage="button_compass.png" id="oKr-QV-uuo"/>
+                    <toolbarItems/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eLa-K9-UZX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2684" y="-2123.3883058470765"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="sI1-64-pTb">
+            <objects>
+                <tabBarController id="F2e-fi-k8L" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="Iqh-yF-XQa">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="A0g-LQ-W1M" kind="relationship" relationship="viewControllers" id="uTw-2W-TCu"/>
+                        <segue destination="Nfb-df-PkB" kind="relationship" relationship="viewControllers" id="uGA-Gk-ESM"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NB8-Eo-3z0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="980" y="-1682"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="OE0-jY-Gjz">
             <objects>
                 <navigationController id="eVP-Qw-YIO" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="UB4-9d-eA0">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="UB4-9d-eA0">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -378,7 +409,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Yhu-xZ-LMX" id="I13-vP-TaA">
-                                            <frame key="frameInset" width="375" height="43"/>
+                                            <frame key="frameInset" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -386,7 +417,7 @@
                                         <rect key="frame" x="0.0" y="72" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="gzH-1U-nd5" id="4O1-TQ-HUh">
-                                            <frame key="frameInset" width="375" height="43"/>
+                                            <frame key="frameInset" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="soN-uz-Ndk">
@@ -548,6 +579,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="button_compass.png" width="40" height="40"/>
         <image name="contentsIcon" width="52" height="52"/>
         <image name="historiesIcon" width="52" height="52"/>
         <image name="settingsIcon" width="256" height="256"/>

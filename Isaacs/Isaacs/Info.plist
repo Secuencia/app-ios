@@ -30,6 +30,10 @@
 	<string>Vamos a usar su microfono </string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>Vamos a usar su galeria</string>
+	<key>NSLocationUsageDescription</key>
+	<string>Vamos a usar su ubicacion</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Vamos a usar su ubicacion</string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
