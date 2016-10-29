@@ -7,33 +7,39 @@
 //
 
 import UIKit
+import CoreLocation
 
-class InputViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate, UITableViewDelegate, UITableViewDataSource, UICollectionViewDelegate, UICollectionViewDataSource, UITextViewDelegate {
+class InputViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate, UITableViewDelegate, UITableViewDataSource, UICollectionViewDelegate, UICollectionViewDataSource, UITextViewDelegate, CLLocationManagerDelegate {
 
     
     // MARK: Properties - Interface
     
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var collectionView: UICollectionView!
-    @IBOutlet weak var navigationBar: UINavigationBar!
     
-    var picker: UIImagePickerController!
+    @IBOutlet weak var collectionView: UICollectionView!
+    
+    @IBOutlet weak var navigationBar: UINavigationBar!
     
     @IBOutlet weak var toolbarBottomConstraint: NSLayoutConstraint!
     var toolbarBottomConstraintInitialValue: CGFloat?
     
-    var availableModules = ["Text", "Camera", "Gallery", "Record", "Contact", "Completed"]
+    
+    // MARK: Properties - Interface Utils
+    
+    var picker: UIImagePickerController!
+    
+    var availableModules = ["Text", "Camera", "Gallery", "Record"] // Names of the images that go in the toolbar
+    
+    var modulesTypes = [Int]() // Aid in cell creation
+    
+    var imagesTuples = [(Int, UIImage, String)]() // Index, UIImage object, image name (String)
+    
+    var audioTuples = [(Int, String)]() // Editing stream index, name (is the date) 
+    
     
     // MARK: Properties - State vars
     
-    
-    var globalImageStatus: String?
-    
-    var contactIndexPath: NSIndexPath?
-    
     var entryModule: Int?
-    
-    var isInEditingMode = false
     
     var editedContentIndex: Int?
     
@@ -43,40 +49,33 @@ class InputViewController: UIViewController, UINavigationControllerDelegate, UII
     
     
     // MARK: Properties - Logic
-    
-    enum SelectedBarButtonTag: Int {
+
+    enum Modules: Int {
         case Text
         case Camera
         case Gallery
         case Audio
-        case Contact
-        case Completed
     }
-    
-    enum Modules: Int {
-        case Text
-        case Photo
-        case Audio
-        case Contact
-    }
-    
-    var modulesTypes = [Int]()
     
     var contents = [Content]()
     
-    var images = [UIImage]()
-    
-    var imagesTuples = [(Int, UIImage, String)]()
-    
-    var audioTuples = [(Int, String, String)]()
-    
-    var historias = ["Pepita", "Sutana", "Menguana"]
     
     
     // MARK: Program entry point
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Location manager
+        locationManager.requestAlwaysAuthorization()
+        locationManager.requestWhenInUseAuthorization()
+        
+        if CLLocationManager.locationServicesEnabled() {
+            locationManager.delegate = self
+            locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+            locationManager.startUpdatingLocation()
+        }
+        // Location manager
         
         tableView.delegate = self
         tableView.dataSource = self
@@ -91,19 +90,30 @@ class InputViewController: UIViewController, UINavigationControllerDelegate, UII
         
         tableView.registerNib(UINib(nibName: "PhotoTableViewCell", bundle: nil), forCellReuseIdentifier: "photo_cell")
         tableView.registerNib(UINib(nibName: "TextTableViewCell", bundle: nil), forCellReuseIdentifier: "text_cell")
-        tableView.registerNib(UINib(nibName: "ContactTableViewCell", bundle: nil), forCellReuseIdentifier: "contact_cell")
         tableView.registerNib(UINib(nibName: "AudioTableViewCell", bundle: nil), forCellReuseIdentifier: "audio_cell")
+        
         
         self.toolbarBottomConstraintInitialValue = toolbarBottomConstraint.constant
         enableKeyboardHideOnTap()
         
-        if let entryAction = entryModule{
-            print("LLEGA HASTA ACA")
+        if let entryAction = entryModule {
             manageAction(entryAction)
         }
         
         
     }
+    
+    // MARK: Location
+    
+    let locationManager = CLLocationManager()
+    
+    var lastLocationRetrieved: CLLocationCoordinate2D? = nil
+    
+    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        let locValue:CLLocationCoordinate2D = manager.location!.coordinate
+        lastLocationRetrieved = locValue
+    }
+    
     
     
     // MARK: Table View Actions
@@ -112,9 +122,9 @@ class InputViewController: UIViewController, UINavigationControllerDelegate, UII
         
         switch modulesTypes[indexPath.section] {
         case Modules.Text.rawValue: return createTextCell(indexPath)
-        case Modules.Photo.rawValue: return createPhotoCell(indexPath)
+        case Modules.Gallery.rawValue: return createPhotoCell(indexPath)
+        case Modules.Camera.rawValue: return createPhotoCell(indexPath)
         case Modules.Audio.rawValue: return createAudioCell(indexPath)
-        case Modules.Contact.rawValue: return createContactCell(indexPath)
         default: return createTextCell(indexPath)
         }
         
@@ -131,9 +141,9 @@ class InputViewController: UIViewController, UINavigationControllerDelegate, UII
     func tableView(tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         switch modulesTypes[indexPath.section] {
         case Modules.Text.rawValue: return 120.0
-        case Modules.Photo.rawValue: return 160.0
+        case Modules.Gallery.rawValue: return 160.0
+        case Modules.Camera.rawValue: return 160.0
         case Modules.Audio.rawValue: return 80.0
-        case Modules.Contact.rawValue: return 160.0
         default: return 80.0
         }
     }
@@ -141,24 +151,12 @@ class InputViewController: UIViewController, UINavigationControllerDelegate, UII
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         switch modulesTypes[indexPath.section] {
         case Modules.Text.rawValue: return 120.0
-        case Modules.Photo.rawValue: return 160.0
+        case Modules.Gallery.rawValue: return 160.0
+        case Modules.Camera.rawValue: return 160.0
         case Modules.Audio.rawValue: return 80.0
-        case Modules.Contact.rawValue: return 160.0
         default: return 80.0
         }
     }
-    
-    func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let view: UIView = UIView()
-        view.backgroundColor = UIColor.clearColor()
-        return view
-    }
-    
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        print("Cell selected: ")
-        print(indexPath.section)
-    }
-    
     
     
     // MARK: Cell creation
@@ -169,11 +167,16 @@ class InputViewController: UIViewController, UINavigationControllerDelegate, UII
     
         
         if indexPath.section == editedContentIndex && editing {
+            
             textCell.myText.becomeFirstResponder()
-        }else if lastlyEditedContent == indexPath.section{
+            
+        }else if lastlyEditedContent == indexPath.section {
+            
             textCell.beingEdited = false
             textCell.userInteractionEnabled = false
+            
             if textCell.myText.isFirstResponder() {textCell.myText.resignFirstResponder()}
+            
         }
         
         return textCell
@@ -187,20 +190,27 @@ class InputViewController: UIViewController, UINavigationControllerDelegate, UII
         for (_, value) in imagesTuples.enumerate() {
             
             if value.0 == indexPath.section {
+                
                 let tuple = value
                 photoCell.photoView.image = tuple.1
                 photoCell.titleLabel.text = tuple.2
                 break
+                
             }
         
         }
         
         if indexPath.section == editedContentIndex && editing {
+            
             photoCell.notesTextView.becomeFirstResponder()
+            
         }else{
+            
             photoCell.beingEdited = false
             photoCell.userInteractionEnabled = false
+            
             if photoCell.notesTextView.isFirstResponder() {photoCell.notesTextView.resignFirstResponder()}
+            
         }
         
         return photoCell
@@ -208,62 +218,33 @@ class InputViewController: UIViewController, UINavigationControllerDelegate, UII
     }
     
     
-    func createContactCell(indexPath: NSIndexPath) -> ContactTableViewCell {
-        
-        let contactCell = tableView.dequeueReusableCellWithIdentifier("contact_cell", forIndexPath: indexPath) as! ContactTableViewCell
-        
-        contactCell.pictureButton.tag = indexPath.section
-        contactCell.pictureButton.addTarget(self, action: #selector(addContactImage), forControlEvents: .TouchUpInside)
-        
-        if indexPath.section == editedContentIndex && editing {
-            contactCell.nameTextField.becomeFirstResponder()
-        }else if lastlyEditedContent == indexPath.section {
-            contactCell.beingEdited = false
-            contactCell.userInteractionEnabled = false
-            if contactCell.nameTextField.isFirstResponder() {contactCell.nameTextField.resignFirstResponder()}
-        }
-        
-        return contactCell
-        
-    }
-    
     func createAudioCell(indexPath: NSIndexPath) -> AudioTableViewCell {
+        
         let audioCell = tableView.dequeueReusableCellWithIdentifier("audio_cell", forIndexPath: indexPath) as! AudioTableViewCell
         
         for (_, value) in audioTuples.enumerate() {
             
             if value.0 == indexPath.section {
+                
                 let tuple = value
                 audioCell.file_name = tuple.1
                 audioCell.titleLabel.text = tuple.1
                 break
+                
             }
             
         }
         
-
         return audioCell
     }
     
-    func addContactImage(sender: UIButton!) {
-        globalImageStatus = "contact"
-        contactIndexPath = NSIndexPath(forRow: 0, inSection: sender.tag)
-        print("Entre a foto de contacto")
-        
-        picker = UIImagePickerController()
-        picker.delegate = self
-        
-        picker.sourceType = .PhotoLibrary
-    
-        
-        presentViewController(picker, animated: true, completion: nil)
-    }
     
     
     
-    // MARK: Collection View Action
+    // MARK: Collection View
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+        
         let collectionItem = collectionView.dequeueReusableCellWithReuseIdentifier("item", forIndexPath: indexPath) as! ModuleCollectionViewCell
         
         collectionItem.moduleName.tag = indexPath.row
@@ -302,11 +283,10 @@ class InputViewController: UIViewController, UINavigationControllerDelegate, UII
         saveCurrentlyEditingContent()
         
         switch action {
-        case SelectedBarButtonTag.Text.rawValue: insertText()
-        case SelectedBarButtonTag.Camera.rawValue: insertPicture("camera")
-        case SelectedBarButtonTag.Gallery.rawValue: insertPicture("gallery")
-        case SelectedBarButtonTag.Audio.rawValue: insertAudio()
-        case SelectedBarButtonTag.Contact.rawValue: insertContact()
+        case Modules.Text.rawValue: insertText()
+        case Modules.Camera.rawValue: insertPicture("camera")
+        case Modules.Gallery.rawValue: insertPicture("gallery")
+        case Modules.Audio.rawValue: insertAudio()
         default: saveCurrentlyEditingContent()
         }
         
@@ -315,6 +295,18 @@ class InputViewController: UIViewController, UINavigationControllerDelegate, UII
     func insertText() {
         
         let newContent = ContentPersistence().createEntity(); newContent.type = Content.types.Text.rawValue
+        
+        newContent.date_created = NSDate()
+        
+        if let location = lastLocationRetrieved {
+            newContent.longitude = location.longitude
+            newContent.latitude = location.latitude
+            
+            print("LA UBICACION DEL TEXTO: ")
+            print("Latitude: ",newContent.latitude)
+            print("Latitude: ",newContent.longitude)
+        }
+        
         contents.append(newContent)
         editing = true
         editedContentIndex = contents.count - 1
@@ -324,96 +316,68 @@ class InputViewController: UIViewController, UINavigationControllerDelegate, UII
         tableView.reloadData()
     }
     
+    
     func insertPicture(media: String) {
         
         let newContent = ContentPersistence().createEntity(); newContent.type = Content.types.Picture.rawValue
         
+        print("ANTES DE FECHA")
+        
+        newContent.date_created = NSDate()
+        
+        print("DESPUES DE FECHA")
+        
+        if let location = lastLocationRetrieved {
+            newContent.longitude = location.longitude
+            newContent.latitude = location.latitude
+            
+            print("LA UBICACION DE LA IMAGEN: ")
+            print("Latitude: ",newContent.latitude)
+            print("Latitude: ",newContent.longitude)
+        }
+        
+        print("DESPUES DE LOCALIZACION")
+        
         contents.append(newContent)
         editing = true
         editedContentIndex = contents.count - 1
-        modulesTypes.append(Modules.Photo.rawValue)
-
         
         picker = UIImagePickerController()
         picker.delegate = self
         
+        
         if media == "camera" {
             picker.sourceType = .Camera
+            modulesTypes.append(Modules.Camera.rawValue)
         } else {
             picker.sourceType = .PhotoLibrary
+            modulesTypes.append(Modules.Gallery.rawValue)
         }
-        
-        globalImageStatus = "photo"
-        
         
         presentViewController(picker, animated: true, completion: nil)
     }
     
-
-
     
+    // MARK: Check
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
         
-        print(info)
         
-        if globalImageStatus == "photo" {
-            if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
-                
-                print("NUMBER OF SECTIONS", tableView.numberOfSections)
-                print("New content index: ", editedContentIndex)
+        if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
             
-                
-                print("GENERATING ROUTE")
-                
-                let name = NSDate().iso8601 + ".png"
-                
-                let imageName = saveImageToDirectory(image, imageName: name)
-                print(imageName)
-                let loadedImage = getImage(imageName)!
-                print(loadedImage)
-                
-                print("END OF PERSISTENCE")
-                
-                imagesTuples.append((editedContentIndex!, loadedImage, name))
-
-                
-                //images.append(loadedImage)
-                
-                globalImageStatus = nil
-                
-
-            }else{
-                print("Something went wrong")
-            }
-            globalImageStatus = nil
-        } else {
             
-            if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
-                
-                //let name = NSDate().iso8601 + "-contact.png"
-                
-                //let imageName = saveImageToDirectory(image, imageName: name)
-                //let loadedImage = getImage(imageName)!
-                
-                
-                //imagesTuples.append((editedContentIndex!, loadedImage, name))
-                
-                let cell = tableView.cellForRowAtIndexPath(contactIndexPath!) as! ContactTableViewCell
-                
-                cell.profilePicture.image = image
-                
-                globalImageStatus = nil
-                
-                contactIndexPath = nil
-                
-            }else{
-                print("Something went wrong")
-            }
-
+            let name = NSDate().iso8601 + ".png"
             
-            globalImageStatus = nil
-            contactIndexPath = nil
-        }
+            let imageName = saveImageToDirectory(image, imageName: name)
+            print(imageName)
+            
+            let loadedImage = getImage(imageName)!
+            
+            print(loadedImage)
+            
+            imagesTuples.append((editedContentIndex!, loadedImage, name))
+            
+            
+        } else { print("Something went wrong") }
         
         tableView.reloadData()
         
@@ -423,30 +387,34 @@ class InputViewController: UIViewController, UINavigationControllerDelegate, UII
  
     
     func insertAudio() {
+        
         let newContent = ContentPersistence().createEntity(); newContent.type = Content.types.Audio.rawValue
+        
+        
+        newContent.date_created = NSDate()
+        
+        if let location = lastLocationRetrieved {
+            newContent.longitude = location.longitude
+            newContent.latitude = location.latitude
+            
+            print("LA UBICACION DEL AUDIO: ")
+            print("Latitude: ",newContent.latitude)
+            print("Latitude: ",newContent.longitude)
+        }
+        
         contents.append(newContent)
+        
         editing = true
         editedContentIndex = contents.count - 1
+        
         print("New content index: ", editedContentIndex)
         
 
-        audioTuples.append((editedContentIndex!, NSDate().iso8601, "hola"))
+        audioTuples.append((editedContentIndex!, NSDate().iso8601))
         
         modulesTypes.append(Modules.Audio.rawValue)
+        
         tableView.reloadData()
-    }
-    
-    func insertContact() {
-        
-        let newContent = ContentPersistence().createEntity(); newContent.type = Content.types.Contact.rawValue
-        contents.append(newContent)
-        editing = true
-        editedContentIndex = contents.count - 1
-        print("New content index: ", editedContentIndex)
-        
-        modulesTypes.append(Modules.Contact.rawValue)
-        tableView.reloadData()
-        
     }
     
     
@@ -461,10 +429,8 @@ class InputViewController: UIViewController, UINavigationControllerDelegate, UII
                 case Content.types.Text.rawValue: json = createDictForText()
                 case Content.types.Picture.rawValue: json = createDictForPhoto()
                 case Content.types.Audio.rawValue: json = createDictForAudio()
-                case Content.types.Contact.rawValue: json = createDictForContact()
                 default: json = nil
             }
-            print("ESTE ES EL JSON: ",json)
             contents[index].data = json
             persistenceContext.save()
             
@@ -477,30 +443,20 @@ class InputViewController: UIViewController, UINavigationControllerDelegate, UII
     
     func createDictForText() -> String {
         let bodyText = ((tableView.cellForRowAtIndexPath(NSIndexPath(forRow: 0, inSection: editedContentIndex!)) as? TextTableViewCell)?.myText.text)!
-        let dict: [String: String] = ["title":"titulo por defecto", "body":bodyText,"otra propiedad":"nueva propiedad"]
+        let dict: [String: String] = ["text":bodyText]
         let json: String = JsonConverter.dictToJson(dict)
         return json
     }
     
     func createDictForPhoto() -> String {
         let cell = (tableView.cellForRowAtIndexPath(NSIndexPath(forRow: 0, inSection: editedContentIndex!)) as? PhotoTableViewCell)!
-        let dict: [String: String] = ["title":"Default", "notes":cell.notesTextView.text,"image_file_name":cell.titleLabel.text!]
+        let dict: [String: String] = ["notes":cell.notesTextView.text,"image_file_name":cell.titleLabel.text!]
         let json: String = JsonConverter.dictToJson(dict)
         return json
     }
     
     func createDictForAudio() -> String {
-        //let cell = (tableView.cellForRowAtIndexPath(NSIndexPath(forRow: 0, inSection: editedContentIndex!)) as? AudioTableViewCell)!
         let dict: [String: String] = ["title":getContentNameFromIndex(editedContentIndex!, type: "audio"), "audio_file_name":getAudioFileName(editedContentIndex!)]
-        let json: String = JsonConverter.dictToJson(dict)
-        return json
-    }
-    
-    func createDictForContact() -> String {
-        let cell = (tableView.cellForRowAtIndexPath(NSIndexPath(forRow: 0, inSection: editedContentIndex!)) as? ContactTableViewCell)!
-        let name = NSDate().iso8601+"-contact.png"
-        saveImageToDirectory(cell.profilePicture.image!, imageName: name)
-        let dict: [String: String] = ["name":cell.nameTextField.text!, "aditional_info":cell.additionalInfoText.text, "profile_picture": name]
         let json: String = JsonConverter.dictToJson(dict)
         return json
     }
@@ -511,6 +467,7 @@ class InputViewController: UIViewController, UINavigationControllerDelegate, UII
     
     @IBAction func saveSession(sender: UIBarButtonItem) {
         saveCurrentlyEditingContent()
+        checkLocations()
         
         print("This is the data of the session")
         print(modulesTypes)
@@ -518,6 +475,19 @@ class InputViewController: UIViewController, UINavigationControllerDelegate, UII
         
         self.dismissViewControllerAnimated(true, completion: nil)
     }
+    
+    
+    func checkLocations() {
+        for content in contents {
+            if content.longitude == 0 && content.latitude == 0 {
+                if let location = lastLocationRetrieved {
+                    content.longitude = location.longitude
+                    content.latitude = location.latitude
+                }
+            }
+        }
+    }
+    
     
     @IBAction func cancelSession(sender: UIBarButtonItem) {
         

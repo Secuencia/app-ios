@@ -10,8 +10,10 @@
 		374565FC1D8CAD7E00E725D7 /* ModuleCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374565FB1D8CAD7E00E725D7 /* ModuleCollectionViewCell.swift */; };
 		374B1F4A1DBD26BC00965D02 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 374B1F491DBD26BC00965D02 /* Podfile */; };
 		374B1F4C1DBD28AA00965D02 /* RadarMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374B1F4B1DBD28AA00965D02 /* RadarMapViewController.swift */; };
+		375F190F1DC3C2EF00BAF39B /* RadarListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 375F190E1DC3C2EF00BAF39B /* RadarListViewController.swift */; };
 		37895A781D8859FE0094E286 /* ConfigurationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37895A771D8859FE0094E286 /* ConfigurationViewController.swift */; };
 		378E158B1D882CE400F94008 /* InputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 378E158A1D882CE400F94008 /* InputViewController.swift */; };
+		379F91041DC4FE4100B0493D /* RadarFiltersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 379F91031DC4FE4100B0493D /* RadarFiltersViewController.swift */; };
 		37C4A1A41D8D0A2400C9AECF /* PhotoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37C4A1A21D8D0A2400C9AECF /* PhotoTableViewCell.swift */; };
 		37C4A1A51D8D0A2400C9AECF /* PhotoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37C4A1A31D8D0A2400C9AECF /* PhotoTableViewCell.xib */; };
 		37C4A1A81D8D0CDA00C9AECF /* TextTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37C4A1A61D8D0CDA00C9AECF /* TextTableViewCell.swift */; };
@@ -73,8 +75,10 @@
 		374565FB1D8CAD7E00E725D7 /* ModuleCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModuleCollectionViewCell.swift; sourceTree = "<group>"; };
 		374B1F491DBD26BC00965D02 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
 		374B1F4B1DBD28AA00965D02 /* RadarMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RadarMapViewController.swift; sourceTree = "<group>"; };
+		375F190E1DC3C2EF00BAF39B /* RadarListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RadarListViewController.swift; sourceTree = "<group>"; };
 		37895A771D8859FE0094E286 /* ConfigurationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigurationViewController.swift; sourceTree = "<group>"; };
 		378E158A1D882CE400F94008 /* InputViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputViewController.swift; sourceTree = "<group>"; };
+		379F91031DC4FE4100B0493D /* RadarFiltersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RadarFiltersViewController.swift; sourceTree = "<group>"; };
 		37C4A1A21D8D0A2400C9AECF /* PhotoTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoTableViewCell.swift; sourceTree = "<group>"; };
 		37C4A1A31D8D0A2400C9AECF /* PhotoTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PhotoTableViewCell.xib; sourceTree = "<group>"; };
 		37C4A1A61D8D0CDA00C9AECF /* TextTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextTableViewCell.swift; sourceTree = "<group>"; };
@@ -243,6 +247,8 @@
 				B9A24C431D8CE10C0007F3DD /* ContentListViewController.swift */,
 				B9A24C511D8E050B0007F3DD /* StorySelectViewController.swift */,
 				374B1F4B1DBD28AA00965D02 /* RadarMapViewController.swift */,
+				375F190E1DC3C2EF00BAF39B /* RadarListViewController.swift */,
+				379F91031DC4FE4100B0493D /* RadarFiltersViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -564,6 +570,7 @@
 				B9A87AB51D6C9C6D00145B93 /* DashboardViewController.swift in Sources */,
 				B964D9C61D7D018900033B13 /* PictureCaptureViewController.swift in Sources */,
 				37C4A1B01D8D104800C9AECF /* AudioTableViewCell.swift in Sources */,
+				375F190F1DC3C2EF00BAF39B /* RadarListViewController.swift in Sources */,
 				B9D7C7621D8F680F00F4DA8D /* HeaderReusableView.swift in Sources */,
 				B96E24611D8787F800182DA3 /* ContentPersistence.swift in Sources */,
 				B964D9C81D7D01A700033B13 /* TextCaptureViewController.swift in Sources */,
@@ -578,6 +585,7 @@
 				B9A24C4C1D8D132C0007F3DD /* TitleCardCollectionViewCell.swift in Sources */,
 				B964D9D61D7D035D00033B13 /* ContactCardCollectionViewCell.swift in Sources */,
 				B964D9CC1D7D02C900033B13 /* AudioCaptureViewController.swift in Sources */,
+				379F91041DC4FE4100B0493D /* RadarFiltersViewController.swift in Sources */,
 				B9646F6A1D8A4DF3000516D9 /* Story.swift in Sources */,
 				B9A24C561D8E32310007F3DD /* Utils.swift in Sources */,
 				B964D9D41D7D035000033B13 /* TextCardCollectionViewCell.swift in Sources */,

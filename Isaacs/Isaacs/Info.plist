@@ -32,6 +32,8 @@
 	<string>Vamos a usar su galeria</string>
 	<key>NSLocationUsageDescription</key>
 	<string>Vamos a usar su ubicacion</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>Vamos a usar su ubicacion</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Vamos a usar su ubicacion</string>
 	<key>UILaunchStoryboardName</key>

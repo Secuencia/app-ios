@@ -11,19 +11,21 @@ import UIKit
 class DashboardViewController: UIViewController {
 
    
+    // MARK: Properties - Interface
+    
     @IBOutlet weak var textContentButton: UIButton!
     @IBOutlet weak var visualMediaContentButton: UIButton!
+    @IBOutlet weak var galleryContentButton: UIButton!
     @IBOutlet weak var audioContentButton: UIButton!
-    @IBOutlet weak var contactContentButton: UIButton!
     
+    
+    // MARK: Properties - Interface Utils
     
     enum SelectedBarButtonTag: Int {
         case Text
         case Camera
         case Gallery
         case Audio
-        case Contact
-        case Completed
     }
     
     
@@ -51,6 +53,15 @@ class DashboardViewController: UIViewController {
         visualMediaContentButton.tintColor = UIColor.whiteColor()
         visualMediaContentButton.imageEdgeInsets = UIEdgeInsets(top: 7, left: 7, bottom: 7, right: 7)
         
+        // Gallery Media button styling
+        galleryContentButton.backgroundColor = UIColor.magentaColor()
+        galleryContentButton.layer.cornerRadius = 20
+        galleryContentButton.layer.borderWidth = 0
+        galleryContentButton.layer.borderColor = UIColor.clearColor().CGColor
+        galleryContentButton.setImage(UIImage(named: "Gallery"), forState: .Normal)
+        galleryContentButton.tintColor = UIColor.whiteColor()
+        galleryContentButton.imageEdgeInsets = UIEdgeInsets(top: 7, left: 7, bottom: 7, right: 7)
+        
         
         // Audio button styling
         audioContentButton.backgroundColor = UIColor.orangeColor()
@@ -60,19 +71,13 @@ class DashboardViewController: UIViewController {
         audioContentButton.setImage(UIImage(named: "Record"), forState: .Normal)
         audioContentButton.tintColor = UIColor.whiteColor()
         audioContentButton.imageEdgeInsets = UIEdgeInsets(top: 7, left: 7, bottom: 7, right: 7)
-        
-        // Contact button styling
-        contactContentButton.backgroundColor = UIColor.magentaColor()
-        contactContentButton.layer.cornerRadius = 20
-        contactContentButton.layer.borderWidth = 0
-        contactContentButton.layer.borderColor = UIColor.clearColor().CGColor
-        contactContentButton.setImage(UIImage(named: "Contact"), forState: .Normal)
-        contactContentButton.tintColor = UIColor.whiteColor()
-        contactContentButton.imageEdgeInsets = UIEdgeInsets(top: 7, left: 7, bottom: 7, right: 7)
+    
         
         
         // Do any additional setup after loading the view, typically from a nib.
     }
+    
+    // MARK: Navigation bar setup
     
     override func viewWillAppear(animated: Bool) {
         self.navigationController?.navigationBarHidden = true
@@ -82,21 +87,7 @@ class DashboardViewController: UIViewController {
         self.navigationController?.navigationBarHidden = false
     }
     
-    /*override func viewDidLayoutSubviews() {
-     super.viewDidLayoutSubviews()
-     
-     button.layer.cornerRadius = button.frame.height / 2
-     
-     buttonCamera.layer.cornerRadius = button.frame.height / 2
-     
-     buttonContact.layer.cornerRadius = buttonContact.frame.height / 2
-     }*/
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
+
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
         if (segue.identifier == "textSegue") {
@@ -106,6 +97,11 @@ class DashboardViewController: UIViewController {
         
         if (segue.identifier == "photoSegue") {
             let inputController: InputViewController = segue.destinationViewController as! InputViewController
+            inputController.entryModule = SelectedBarButtonTag.Camera.rawValue
+        }
+        
+        if (segue.identifier == "gallerySegue") {
+            let inputController: InputViewController = segue.destinationViewController as! InputViewController
             inputController.entryModule = SelectedBarButtonTag.Gallery.rawValue
         }
         
@@ -114,10 +110,7 @@ class DashboardViewController: UIViewController {
             inputController.entryModule = SelectedBarButtonTag.Audio.rawValue
         }
         
-        if (segue.identifier == "contactSegue") {
-            let inputController: InputViewController = segue.destinationViewController as! InputViewController
-            inputController.entryModule = SelectedBarButtonTag.Contact.rawValue
-        }
+
     }
 
     

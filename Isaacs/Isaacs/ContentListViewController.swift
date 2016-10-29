@@ -132,7 +132,7 @@ class ContentListViewController: UIViewController, UICollectionViewDelegate,UICo
         textCell.delete.addTarget(self, action: #selector(deleteCard), forControlEvents: .TouchUpInside)
         
         let jsonData = contents[indexPath.row].data ?? "No data"
-        textCell.textView.text = JsonConverter.jsonToDict(jsonData)!["body"]
+        textCell.textView.text = JsonConverter.jsonToDict(jsonData)!["text"]
         
         return textCell
     }

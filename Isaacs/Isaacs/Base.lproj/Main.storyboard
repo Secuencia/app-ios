@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16A320" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="JNC-oV-pyB">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="JNC-oV-pyB">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -21,7 +22,7 @@
                                 <rect key="frame" x="0.0" y="92" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="hGA-8A-RZT" id="32Z-wM-saC">
-                                    <frame key="frameInset" width="375" height="43.5"/>
+                                    <frame key="frameInset" width="375" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HTF-n5-x35">
@@ -141,7 +142,7 @@
                                 </constraints>
                                 <state key="normal" backgroundImage="settingsIcon"/>
                                 <connections>
-                                    <segue destination="F2e-fi-k8L" kind="show" id="NIs-ie-etN"/>
+                                    <segue destination="YP7-dd-C6S" kind="show" id="2uZ-bP-9PI"/>
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="RA0-ya-eUh">
@@ -155,22 +156,24 @@
                                             <segue destination="FHc-ue-KY4" kind="presentation" identifier="photoSegue" id="2ka-Vc-2GQ"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cmE-az-7ri">
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="DF4-Uy-rzD"/>
+                                            <constraint firstAttribute="width" constant="40" id="J32-hQ-blG"/>
+                                        </constraints>
+                                        <connections>
+                                            <segue destination="FHc-ue-KY4" kind="presentation" identifier="gallerySegue" id="fqB-0G-bcE"/>
+                                        </connections>
+                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1hu-cY-Ihm">
                                         <connections>
                                             <segue destination="FHc-ue-KY4" kind="presentation" identifier="audioSegue" id="JXm-w9-ETK"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9L6-Xa-6Ff">
-                                        <connections>
-                                            <segue destination="FHc-ue-KY4" kind="presentation" identifier="contactSegue" id="vGN-Yh-Ybt"/>
-                                        </connections>
-                                    </button>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="9L6-Xa-6Ff" firstAttribute="width" secondItem="IcU-vF-gIw" secondAttribute="width" id="Jyn-lC-Ydd"/>
                                     <constraint firstItem="1hu-cY-Ihm" firstAttribute="width" secondItem="IcU-vF-gIw" secondAttribute="width" id="OLk-MF-8xi"/>
                                     <constraint firstItem="1hu-cY-Ihm" firstAttribute="height" secondItem="IcU-vF-gIw" secondAttribute="height" id="cVv-Rb-l4Q"/>
-                                    <constraint firstItem="9L6-Xa-6Ff" firstAttribute="height" secondItem="IcU-vF-gIw" secondAttribute="height" id="yhL-cU-xjH"/>
                                 </constraints>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TRC-cG-Tij">
@@ -215,7 +218,7 @@
                     <navigationItem key="navigationItem" title="Title" id="K7O-B4-Nxp"/>
                     <connections>
                         <outlet property="audioContentButton" destination="1hu-cY-Ihm" id="bdh-ph-fYU"/>
-                        <outlet property="contactContentButton" destination="9L6-Xa-6Ff" id="X7v-Ma-GOp"/>
+                        <outlet property="galleryContentButton" destination="cmE-az-7ri" id="a58-8X-OwU"/>
                         <outlet property="textContentButton" destination="TRC-cG-Tij" id="0pj-wW-H7R"/>
                         <outlet property="visualMediaContentButton" destination="IcU-vF-gIw" id="Wch-Na-lot"/>
                     </connections>
@@ -242,63 +245,106 @@
             </objects>
             <point key="canvasLocation" x="175" y="-957"/>
         </scene>
-        <!--List Radar-->
-        <scene sceneID="1Dw-dJ-juj">
+        <!--Map-->
+        <scene sceneID="Brg-Tn-lHo">
             <objects>
-                <viewController id="Nfb-df-PkB" sceneMemberID="viewController">
+                <viewController id="YP7-dd-C6S" customClass="RadarMapViewController" customModule="Isaacs" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="zSA-xM-npa"/>
-                        <viewControllerLayoutGuide type="bottom" id="m9f-Kt-V1m"/>
+                        <viewControllerLayoutGuide type="top" id="TOW-dA-6Iw"/>
+                        <viewControllerLayoutGuide type="bottom" id="iwA-4I-llF"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="dz9-gZ-ZHq">
+                    <view key="view" contentMode="scaleToFill" id="mTX-Qp-M5Z">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="olg-Dv-GN0">
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y7G-as-vxz">
+                                        <state key="normal" backgroundImage="Filters"/>
+                                        <connections>
+                                            <segue destination="MSL-XC-JAo" kind="show" id="k8q-qr-qgR"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eMa-0s-wKt">
+                                        <state key="normal" backgroundImage="ListView"/>
+                                        <connections>
+                                            <segue destination="8q5-bc-ELj" kind="show" id="fYw-t1-fnY"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="9VC-7N-SXM"/>
+                                    <constraint firstAttribute="width" secondItem="olg-Dv-GN0" secondAttribute="height" multiplier="31:13" id="jfS-NE-Uad"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="olg-Dv-GN0" firstAttribute="trailing" secondItem="mTX-Qp-M5Z" secondAttribute="trailingMargin" constant="-10" id="SEE-1h-zbr"/>
+                            <constraint firstItem="iwA-4I-llF" firstAttribute="top" secondItem="olg-Dv-GN0" secondAttribute="bottom" constant="20" id="uvX-1r-6k1"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Map" id="Ktp-9e-zne"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lJ5-UC-Qqe" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="639" y="-1719"/>
+        </scene>
+        <!--Radar List View Controller-->
+        <scene sceneID="dl6-Wi-rBv">
+            <objects>
+                <viewController id="8q5-bc-ELj" customClass="RadarListViewController" customModule="Isaacs" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="KRv-SE-axF"/>
+                        <viewControllerLayoutGuide type="bottom" id="fmL-JN-0GV"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="17M-9q-PeG">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="List Radar" id="6Gy-5H-fXN"/>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="RAy-zS-oDO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="EAa-5z-HVy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2684" y="-1467"/>
+            <point key="canvasLocation" x="1463" y="-1415"/>
         </scene>
-        <!--MapRadar-->
-        <scene sceneID="UpN-0h-C8P">
+        <!--Radar Filters View Controller-->
+        <scene sceneID="SEK-jK-2aE">
             <objects>
-                <viewController id="A0g-LQ-W1M" userLabel="MapRadar" customClass="RadarMapViewController" customModule="Isaacs" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="MSL-XC-JAo" customClass="RadarFiltersViewController" customModule="Isaacs" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="P3k-rf-rOI"/>
-                        <viewControllerLayoutGuide type="bottom" id="33e-Fs-yGO"/>
+                        <viewControllerLayoutGuide type="top" id="S0C-tK-B5I"/>
+                        <viewControllerLayoutGuide type="bottom" id="rwJ-QR-ayQ"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="VBc-ah-n2x">
+                    <view key="view" contentMode="scaleToFill" id="aKq-Oi-mrl">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="gbg-tu-y3r">
+                                <frame key="frameInset" width="375" height="676"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="srm-Go-oCV">
+                                        <rect key="frame" x="0.0" y="92" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="srm-Go-oCV" id="Muo-2t-IaN">
+                                            <frame key="frameInset" width="375" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Map Radar" selectedImage="button_compass.png" id="oKr-QV-uuo"/>
-                    <toolbarItems/>
-                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="eLa-K9-UZX" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2684" y="-2123.3883058470765"/>
-        </scene>
-        <!--Tab Bar Controller-->
-        <scene sceneID="sI1-64-pTb">
-            <objects>
-                <tabBarController id="F2e-fi-k8L" sceneMemberID="viewController">
-                    <tabBar key="tabBar" contentMode="scaleToFill" id="Iqh-yF-XQa">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                    </tabBar>
                     <connections>
-                        <segue destination="A0g-LQ-W1M" kind="relationship" relationship="viewControllers" id="uTw-2W-TCu"/>
-                        <segue destination="Nfb-df-PkB" kind="relationship" relationship="viewControllers" id="uGA-Gk-ESM"/>
+                        <outlet property="filtersTable" destination="gbg-tu-y3r" id="KPJ-Fl-ugo"/>
                     </connections>
-                </tabBarController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="NB8-Eo-3z0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LgV-py-xoQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="980" y="-1682"/>
+            <point key="canvasLocation" x="1470" y="-2079"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="OE0-jY-Gjz">
@@ -409,7 +455,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Yhu-xZ-LMX" id="I13-vP-TaA">
-                                            <frame key="frameInset" width="375" height="43.5"/>
+                                            <frame key="frameInset" width="375" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -417,7 +463,7 @@
                                         <rect key="frame" x="0.0" y="72" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="gzH-1U-nd5" id="4O1-TQ-HUh">
-                                            <frame key="frameInset" width="375" height="43.5"/>
+                                            <frame key="frameInset" width="375" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="soN-uz-Ndk">
@@ -469,32 +515,7 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="YZS-cp-AgG" id="Adg-0u-Yjl">
                                             <frame key="frameInset" width="375" height="85"/>
                                             <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SCB-4h-NfZ">
-                                                    <frame key="frameInset" minX="67" minY="8" width="42" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="HFV-fc-0Kw">
-                                                    <frame key="frameInset" minX="67" minY="37" width="286" height="39"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                                </textView>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5cv-Zh-MHI">
-                                                    <frame key="frameInset" minX="21" minY="27" width="30" height="30"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <state key="normal" title="P"/>
-                                                </button>
-                                            </subviews>
                                         </tableViewCellContentView>
-                                        <connections>
-                                            <outlet property="captureControlButton" destination="5cv-Zh-MHI" id="hFT-1g-sI0"/>
-                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -579,12 +600,13 @@
         </scene>
     </scenes>
     <resources>
-        <image name="button_compass.png" width="40" height="40"/>
+        <image name="Filters" width="52" height="52"/>
+        <image name="ListView" width="50" height="50"/>
         <image name="contentsIcon" width="52" height="52"/>
         <image name="historiesIcon" width="52" height="52"/>
         <image name="settingsIcon" width="256" height="256"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="vGN-Yh-Ybt"/>
+        <segue reference="fqB-0G-bcE"/>
     </inferredMetricsTieBreakers>
 </document>
