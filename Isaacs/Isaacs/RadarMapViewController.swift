@@ -12,23 +12,31 @@ import CoreLocation
 
 class RadarMapViewController: UIViewController, CLLocationManagerDelegate {
     
+    //var filters = {"stories": }
+    
+    var filterElements = [String: AnyObject]()
     
     var mapView: GMSMapView?
     
-    let persistence:ContentPersistence = ContentPersistence()
+    let contentPersistence:ContentPersistence = ContentPersistence()
+    
+    let storyPersistence:StoryPersistence = StoryPersistence()
     
     let locationManager = CLLocationManager()
     
     let range = 30.0
     
-    var lastLocationRetrieved: CLLocationCoordinate2D? = nil
+    var lastLocationRetrieved: CLLocation? = nil
     
+    var criteria = ["general":["all_stories"], /* o podria decir todas las historias */ "stories" : [], /* historias por las que quiera filtrar, debe eliminar contenidos redundantes (recorrer por contenido) */ "modules" : ["twitter"] /* O nada, si hay mas servicios se añaden aca*/]
     
-    
+    //let exampleCriteria: [String:[String]] = ["general":[], /* o podria decir todas las historias */ "stories" : ["historia 1", "historia 2"], /* historias por las que quiera filtrar, debe eliminar contenidos redundantes (recorrer por contenido) */ "modules" : ["twitter"] /* O nada, si hay mas servicios se añaden aca*/]
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        navigationItem.title = "Radar"
         
         // Location manager
         locationManager.requestAlwaysAuthorization()
@@ -44,116 +52,173 @@ class RadarMapViewController: UIViewController, CLLocationManagerDelegate {
 
         GMSServices.provideAPIKey("AIzaSyAGcvu0TRmu2CbCgpDbBesmF80NE0ZQ67o")
         
-        lastLocationRetrieved = getCurrentLocation()!.coordinate
+        let initialLocation = CLLocation(latitude: 4.607692, longitude: -73.800312)
         
-        let camera = GMSCameraPosition.cameraWithLatitude(lastLocationRetrieved!.latitude, longitude: lastLocationRetrieved!.longitude, zoom: 15)
+        let camera = GMSCameraPosition.cameraWithLatitude(initialLocation.coordinate.latitude, longitude: initialLocation.coordinate.longitude, zoom: 1)
         
         mapView = GMSMapView.mapWithFrame(self.view.bounds, camera: camera)
         
         mapView!.myLocationEnabled = true
         
-        //view = mapView
-        
         view.insertSubview(mapView!, atIndex: 0)
         
-        setUpMarkers()
-        
+        updateFilter()
 
     }
     
     
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         
-        let locValue:CLLocationCoordinate2D = manager.location!.coordinate
-        lastLocationRetrieved = locValue
+        let locValue = manager.location!
         
-        let threshold = 20
-        
-        if (true) { // Threshold computation
+        if let lastLocation = lastLocationRetrieved {
+            
+            if (lastLocation.distanceFromLocation(locValue) > 50) {
+                
+                print("UPDATE")
+                
+                lastLocationRetrieved = locValue
+                
+                mapView?.clear()
+                
+                setUpMarkers()
+                
+                updateCamera()
+                
+                setUpBuffer()
+                
+            }
+            
+        } else { // First time location is retrieved
+            
+            print("FIRST TIME")
+            
             lastLocationRetrieved = locValue
+            
             setUpMarkers()
+            
+            updateCamera()
+            
+            setUpBuffer()
+        
+            
         }
+    
+        
+    }
+    
+    func setUpBuffer(){
+        
+        let circle = GMSCircle(position: lastLocationRetrieved!.coordinate, radius: 1000.0)
+        circle.fillColor = UIColor.redColor().colorWithAlphaComponent(0.1)
+        circle.strokeColor = UIColor.redColor().colorWithAlphaComponent(0.7)
+        circle.map = mapView
         
     }
     
     
     func setUpMarkers() {
         
-        let contents = persistence.getAll(Content.types.Text.rawValue)
+        //let contents = contentPersistence.getAll(Content.types.Text.rawValue)
         
-        print("INICIO")
-        for content in contents {
+        var markers = [GMSMarker]()
+        
+        let contents = filterElements["contents"] as! [Content]
+        
+        for content in  contents{
             
-            if content.latitude! != 0 && content.longitude! != 0 {
-                let marker = GMSMarker()
-                marker.position = CLLocationCoordinate2D(latitude: content.latitude! as Double, longitude: content.longitude! as Double)
-                marker.title = String(content.date_created!)
-                marker.snippet = content.type!
-                marker.map = mapView
-                print(content.longitude)
+            let marker = GMSMarker()
+            
+            marker.position = CLLocationCoordinate2D(latitude: content.latitude! as Double, longitude: content.longitude! as Double)
+            
+            marker.title = content.type! + " of " + String(content.date_created!.iso8601)
+            
+            if let stories = content.stories {
+                
+                if stories.count != 0 {
+                    
+                    var storiesText = [String]()
+                    
+                    for story in stories {
+                        storiesText.append(story.title!)
+                    }
+                    
+                    marker.snippet = storiesText.joinWithSeparator(" ")
+                    
+                } else {
+                
+                    marker.snippet = "No associated stories"
+                
+                }
+            
+                
+            } else {
+                marker.snippet = "No associated stories"
             }
             
-        }
-        print("FIN")
-    }
-    
-    
-    func getCurrentLocation() -> CLLocation? {
-        
-        let locManager = CLLocationManager()
-        locManager.requestWhenInUseAuthorization()
-        
-        var currentLocation : CLLocation? = nil
-        
-        if (CLLocationManager.authorizationStatus() == CLAuthorizationStatus.AuthorizedWhenInUse ||
-            CLLocationManager.authorizationStatus() == CLAuthorizationStatus.AuthorizedAlways){
+            marker.map = mapView
             
-            currentLocation = locManager.location
+            markers.append(marker)
             
         }
         
-        return currentLocation
-    }
-
-    
-    @IBAction func openListView(sender: UIBarButtonItem) {
-        print("SHOULD OPEN THE LIST VIEW")
+        print("\n NUMBER OF MARKERS: ", markers.count)
     }
     
-
-    /*@IBAction func getLocationWithSender(sender: UIBarButtonItem) {
-     
-     mapView?.clear()
-     
-     /*let locManager = CLLocationManager()
-     locManager.requestWhenInUseAuthorization()
-     
-     var currentLocation : CLLocation? = nil
-     
-     if (CLLocationManager.authorizationStatus() == CLAuthorizationStatus.AuthorizedWhenInUse ||
-     CLLocationManager.authorizationStatus() == CLAuthorizationStatus.AuthorizedAlways){
-     
-     currentLocation = locManager.location
-     
-     }
-     
-     print("CURRENT LOCATION")
-     print(currentLocation)
-     navigationItem.title = String(currentLocation)
-     
-     let marker = GMSMarker()
-     marker.position = CLLocationCoordinate2D(latitude:currentLocation!.coordinate.latitude, longitude: currentLocation!.coordinate.longitude)
-     marker.title = "My first marker"
-     marker.snippet = "Yeah"
-     marker.map = mapView
-     
-     let camera = GMSCameraPosition.cameraWithLatitude(currentLocation!.coordinate.latitude, longitude: currentLocation!.coordinate.longitude, zoom: 6)
-     
-     mapView?.animateToCameraPosition(camera)*/
-     
-     
-     }*/
     
+    func updateCamera() {
+        
+        let newCamera = GMSCameraPosition.cameraWithLatitude(lastLocationRetrieved!.coordinate.latitude, longitude: lastLocationRetrieved!.coordinate.longitude, zoom: 15)
+        
+        let update = GMSCameraUpdate.setCamera(newCamera)
+        
+        mapView!.animateWithCameraUpdate(update)
+
+    }
+    
+    
+    
+    func updateFilter() {
+        // Update filter elements with a criteria
+        
+        if criteria["general"]!.contains("all_contents") {
+            
+            let contentsToAppend = contentPersistence.getAll(nil)
+            filterElements["contents"] = contentsToAppend
+
+        
+        } else if criteria["general"]!.contains("all_stories"){
+            
+            var contentsToAppend = [Content]()
+            
+            for content in contentPersistence.getAll(nil) {
+                if content.stories?.count != 0 {
+                    contentsToAppend.append(content)
+                }
+            }
+            
+            filterElements["contents"] = contentsToAppend
+        
+        } else {
+            
+            print("SOME STORIES")
+            
+            let storiesToLoad = criteria["stories"]
+            
+            print(storiesToLoad)
+        
+            
+        }
+        
+        if  criteria["modules"]!.contains("twitter") {
+        
+            print("DO TWITTER STUFF")
+        
+        }
+        
+        
+    }
+
     
   
     

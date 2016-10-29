@@ -106,7 +106,7 @@ class StoryDetailViewController: UICollectionViewController,UICollectionViewDele
         textCell.delete.addTarget(self, action: #selector(deleteCard), forControlEvents: .TouchUpInside)
         
         let jsonData = story.contents?[indexPath.row].data ?? "No data"
-        textCell.textView.text = JsonConverter.jsonToDict((jsonData as! String))!["body"]
+        textCell.textView.text = JsonConverter.jsonToDict((jsonData as! String))!["text"]
         
         return textCell
     }
