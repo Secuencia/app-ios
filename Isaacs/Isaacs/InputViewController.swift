@@ -299,18 +299,16 @@ class InputViewController: UIViewController, UINavigationControllerDelegate, UII
         newContent.date_created = NSDate()
         
         if let location = lastLocationRetrieved {
+            
             newContent.longitude = location.longitude
             newContent.latitude = location.latitude
             
-            print("LA UBICACION DEL TEXTO: ")
-            print("Latitude: ",newContent.latitude)
-            print("Latitude: ",newContent.longitude)
         }
+        
         
         contents.append(newContent)
         editing = true
         editedContentIndex = contents.count - 1
-        print("New content index: ", editedContentIndex)
         
         modulesTypes.append(Modules.Text.rawValue)
         tableView.reloadData()
@@ -321,22 +319,17 @@ class InputViewController: UIViewController, UINavigationControllerDelegate, UII
         
         let newContent = ContentPersistence().createEntity(); newContent.type = Content.types.Picture.rawValue
         
-        print("ANTES DE FECHA")
         
         newContent.date_created = NSDate()
         
-        print("DESPUES DE FECHA")
         
         if let location = lastLocationRetrieved {
             newContent.longitude = location.longitude
             newContent.latitude = location.latitude
-            
-            print("LA UBICACION DE LA IMAGEN: ")
-            print("Latitude: ",newContent.latitude)
-            print("Latitude: ",newContent.longitude)
+
         }
         
-        print("DESPUES DE LOCALIZACION")
+        
         
         contents.append(newContent)
         editing = true
@@ -368,11 +361,9 @@ class InputViewController: UIViewController, UINavigationControllerDelegate, UII
             let name = NSDate().iso8601 + ".png"
             
             let imageName = saveImageToDirectory(image, imageName: name)
-            print(imageName)
             
             let loadedImage = getImage(imageName)!
             
-            print(loadedImage)
             
             imagesTuples.append((editedContentIndex!, loadedImage, name))
             
@@ -393,21 +384,19 @@ class InputViewController: UIViewController, UINavigationControllerDelegate, UII
         
         newContent.date_created = NSDate()
         
+        
         if let location = lastLocationRetrieved {
+            
             newContent.longitude = location.longitude
             newContent.latitude = location.latitude
             
-            print("LA UBICACION DEL AUDIO: ")
-            print("Latitude: ",newContent.latitude)
-            print("Latitude: ",newContent.longitude)
         }
+    
         
         contents.append(newContent)
         
         editing = true
         editedContentIndex = contents.count - 1
-        
-        print("New content index: ", editedContentIndex)
         
 
         audioTuples.append((editedContentIndex!, NSDate().iso8601))
@@ -466,8 +455,10 @@ class InputViewController: UIViewController, UINavigationControllerDelegate, UII
     
     
     @IBAction func saveSession(sender: UIBarButtonItem) {
-        saveCurrentlyEditingContent()
+        
         checkLocations()
+        
+        saveCurrentlyEditingContent()
         
         print("This is the data of the session")
         print(modulesTypes)

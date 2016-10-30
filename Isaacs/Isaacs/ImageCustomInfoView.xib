@@ -4,6 +4,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -13,19 +14,19 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="lGS-VS-Dpj">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="CNT-ox-ufQ">
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="CNT-ox-ufQ" secondAttribute="height" multiplier="16:9" id="Qjp-gr-lIO"/>
+                    </constraints>
+                </imageView>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Vze-NN-Llf">
                     <subviews>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="CNT-ox-ufQ">
-                            <constraints>
-                                <constraint firstAttribute="width" secondItem="CNT-ox-ufQ" secondAttribute="height" multiplier="1:1" id="HQV-V1-6oZ"/>
-                            </constraints>
-                        </imageView>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fmq-Kx-3tD">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fmq-Kx-3tD">
                             <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2dk-Vu-4d8">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2dk-Vu-4d8">
                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                             <color key="textColor" red="0.54772506476683935" green="0.54772506476683935" blue="0.54772506476683935" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
@@ -35,10 +36,13 @@
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstAttribute="bottom" secondItem="lGS-VS-Dpj" secondAttribute="bottom" constant="10" id="Ks0-76-P95"/>
-                <constraint firstItem="lGS-VS-Dpj" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="avs-RO-z3K"/>
-                <constraint firstAttribute="trailing" secondItem="lGS-VS-Dpj" secondAttribute="trailing" constant="10" id="m5i-n2-var"/>
-                <constraint firstItem="lGS-VS-Dpj" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="10" id="ue5-BR-q0w"/>
+                <constraint firstItem="CNT-ox-ufQ" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="10" id="PHx-xD-t1I"/>
+                <constraint firstItem="Vze-NN-Llf" firstAttribute="height" secondItem="CNT-ox-ufQ" secondAttribute="height" multiplier="1.8" id="Yg4-4e-1In"/>
+                <constraint firstAttribute="bottom" secondItem="Vze-NN-Llf" secondAttribute="bottom" constant="10" id="dce-bD-A8C"/>
+                <constraint firstItem="Vze-NN-Llf" firstAttribute="top" secondItem="CNT-ox-ufQ" secondAttribute="bottom" constant="10" id="fDL-tu-cVi"/>
+                <constraint firstItem="Vze-NN-Llf" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="ksm-R7-N9h"/>
+                <constraint firstItem="CNT-ox-ufQ" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="lAN-Am-yti"/>
+                <constraint firstAttribute="trailing" secondItem="Vze-NN-Llf" secondAttribute="trailing" constant="10" id="nL2-iq-ehP"/>
             </constraints>
             <connections>
                 <outlet property="image" destination="CNT-ox-ufQ" id="oD8-9R-n0g"/>

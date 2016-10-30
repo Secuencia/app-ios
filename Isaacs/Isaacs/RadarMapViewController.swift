@@ -26,7 +26,7 @@ class RadarMapViewController: UIViewController, CLLocationManagerDelegate, GMSMa
     
     let locationManager = CLLocationManager()
     
-    let range = 30.0
+    let radius = 1000.0
     
     var lastLocationRetrieved: CLLocation? = nil
     
@@ -114,7 +114,7 @@ class RadarMapViewController: UIViewController, CLLocationManagerDelegate, GMSMa
     
     func setUpBuffer(){
         
-        let circle = GMSCircle(position: lastLocationRetrieved!.coordinate, radius: 1000.0)
+        let circle = GMSCircle(position: lastLocationRetrieved!.coordinate, radius: radius)
         circle.fillColor = UIColor.magentaColor().colorWithAlphaComponent(0.1)
         circle.strokeColor = UIColor.magentaColor().colorWithAlphaComponent(0.7)
         circle.map = mapView
@@ -132,70 +132,87 @@ class RadarMapViewController: UIViewController, CLLocationManagerDelegate, GMSMa
         
         for content in  contents{
             
-            let marker = GMSMarker()
+            let locationContent = CLLocation(latitude: content.latitude as! Double, longitude: content.longitude as! Double)
             
-            marker.position = CLLocationCoordinate2D(latitude: content.latitude! as Double, longitude: content.longitude! as Double)
+            let distance = locationContent.distanceFromLocation(lastLocationRetrieved!)
+
             
-            marker.title = content.type! + " of " + String(content.date_created!.iso8601)
-            
-            // Icon
-            
-            let markerView = UIImageView(frame: CGRect(x: 0, y: 0, width: 30, height: 30))
-            
-            if content.type! == Content.types.Text.rawValue {
-            
-                let icon = UIImage(named: "Text")!.imageWithRenderingMode(.AlwaysTemplate)
+            if  distance < radius { // Not working (is the other way around
                 
-                markerView.image = icon
-            
-            } else if content.type! == Content.types.Picture.rawValue {
+                let marker = GMSMarker()
                 
-                let icon = UIImage(named: "Gallery")!.imageWithRenderingMode(.AlwaysTemplate)
+                marker.position = CLLocationCoordinate2D(latitude: content.latitude! as Double, longitude: content.longitude! as Double)
                 
-                markerView.image = icon
+                //marker.title = content.type! + " of " + String(content.date_created!.iso8601)
                 
-            } else if content.type! == Content.types.Audio.rawValue {
+                // Icon
                 
-                let icon = UIImage(named: "Record")!.imageWithRenderingMode(.AlwaysTemplate)
+                let markerView = UIImageView(frame: CGRect(x: 0, y: 0, width: 30, height: 30))
                 
-                markerView.image = icon
+                let type = content.type!
                 
-            }
-            
-            markerView.tintColor = UIColor.blackColor()
-            marker.iconView = markerView
-        
-            // Icon
-            
-            if let stories = content.stories {
-                
-                if stories.count != 0 {
+                if type == Content.types.Text.rawValue {
                     
-                    var storiesText = [String]()
+                    let icon = UIImage(named: "Text")!.imageWithRenderingMode(.AlwaysTemplate)
                     
-                    for story in stories {
-                        storiesText.append(story.title!)
+                    markerView.image = icon
+                    
+                } else if type == Content.types.Picture.rawValue {
+                    
+                    let icon = UIImage(named: "Gallery")!.imageWithRenderingMode(.AlwaysTemplate)
+                    
+                    markerView.image = icon
+                    
+                } else if type == Content.types.Audio.rawValue {
+                    
+                    let icon = UIImage(named: "Record")!.imageWithRenderingMode(.AlwaysTemplate)
+                    
+                    markerView.image = icon
+                    
+                }
+                
+                markerView.tintColor = UIColor.blackColor()
+                marker.iconView = markerView
+                
+                // Icon
+                
+                if let stories = content.stories {
+                    
+                    if stories.count != 0 {
+                        
+                        var storiesText = [String]()
+                        
+                        for story in stories {
+                            storiesText.append(story.title!)
+                        }
+                        
+                        marker.snippet = storiesText.joinWithSeparator(" ")
+                        
+                    } else {
+                        
+                        marker.snippet = "No associated stories"
+                        
                     }
                     
-                    marker.snippet = storiesText.joinWithSeparator(" ")
                     
                 } else {
-                
                     marker.snippet = "No associated stories"
-                
                 }
-            
                 
-            } else {
-                marker.snippet = "No associated stories"
+                marker.map = mapView
+                
+                marker.userData = content
+                
+                markers.append(marker)
+                
+                
             }
             
-            marker.map = mapView
             
-            marker.userData = content
-            
-            markers.append(marker)
-            
+        }
+        
+        for marker in markers {
+            print(marker.position)
         }
         
         print("\n NUMBER OF MARKERS: ", markers.count)
@@ -216,7 +233,7 @@ class RadarMapViewController: UIViewController, CLLocationManagerDelegate, GMSMa
             
             return customView
         
-        }else{
+        }else if content.type! == Content.types.Picture.rawValue {
             
             let customView = NSBundle.mainBundle().loadNibNamed("ImageCustomInfoView", owner: self, options: nil)!.first as! ImageCustomInfoView
         
@@ -225,6 +242,17 @@ class RadarMapViewController: UIViewController, CLLocationManagerDelegate, GMSMa
             customView.frame = CGRectMake(0, 0, 150, 150)
             
             return customView
+            
+        } else {
+            
+            let customView = NSBundle.mainBundle().loadNibNamed("AudioCustomInfoView", owner: self, options: nil)!.first as! AudioCustomInfoView
+            
+            customView.setUpContent(content)
+            
+            customView.frame = CGRectMake(0, 0, 300, 80)
+            
+            return customView
+        
         }
         
     }
