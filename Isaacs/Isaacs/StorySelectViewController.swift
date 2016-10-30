@@ -18,6 +18,7 @@ class StorySelectViewController: UIViewController, UITableViewDataSource, UITabl
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         tableView.delegate = self
         tableView.dataSource = self
         stories = self.persistence.getAll("title", ascending: true)
@@ -47,11 +48,13 @@ class StorySelectViewController: UIViewController, UITableViewDataSource, UITabl
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
         let finalStories : [Story]
         let selectedStory : Story
         let oppositeIndex : Int?
         let oppositeCell : UITableViewCell
         let oppositeIndexPath : NSIndexPath
+        
         if(indexPath.section == 0){
             finalStories = recommended
         }

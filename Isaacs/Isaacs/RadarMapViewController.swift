@@ -10,11 +10,13 @@ import UIKit
 import GoogleMaps
 import CoreLocation
 
-class RadarMapViewController: UIViewController, CLLocationManagerDelegate {
+class RadarMapViewController: UIViewController, CLLocationManagerDelegate, GMSMapViewDelegate {
     
     //var filters = {"stories": }
     
     var filterElements = [String: AnyObject]()
+    
+    var filterContents = [Content]()
     
     var mapView: GMSMapView?
     
@@ -28,7 +30,7 @@ class RadarMapViewController: UIViewController, CLLocationManagerDelegate {
     
     var lastLocationRetrieved: CLLocation? = nil
     
-    var criteria = ["general":["all_stories"], /* o podria decir todas las historias */ "stories" : [], /* historias por las que quiera filtrar, debe eliminar contenidos redundantes (recorrer por contenido) */ "modules" : ["twitter"] /* O nada, si hay mas servicios se añaden aca*/]
+    var criteria = ["general":["all_contents"], /* o podria decir todas las historias */ "stories" : [], /* historias por las que quiera filtrar, debe eliminar contenidos redundantes (recorrer por contenido) */ "modules" : ["twitter"] /* O nada, si hay mas servicios se añaden aca*/]
     
     //let exampleCriteria: [String:[String]] = ["general":[], /* o podria decir todas las historias */ "stories" : ["historia 1", "historia 2"], /* historias por las que quiera filtrar, debe eliminar contenidos redundantes (recorrer por contenido) */ "modules" : ["twitter"] /* O nada, si hay mas servicios se añaden aca*/]
     
@@ -59,6 +61,7 @@ class RadarMapViewController: UIViewController, CLLocationManagerDelegate {
         mapView = GMSMapView.mapWithFrame(self.view.bounds, camera: camera)
         
         mapView!.myLocationEnabled = true
+        mapView!.delegate = self
         
         view.insertSubview(mapView!, atIndex: 0)
         
@@ -103,6 +106,8 @@ class RadarMapViewController: UIViewController, CLLocationManagerDelegate {
         
             
         }
+        
+        updateFilter()
     
         
     }
@@ -110,8 +115,8 @@ class RadarMapViewController: UIViewController, CLLocationManagerDelegate {
     func setUpBuffer(){
         
         let circle = GMSCircle(position: lastLocationRetrieved!.coordinate, radius: 1000.0)
-        circle.fillColor = UIColor.redColor().colorWithAlphaComponent(0.1)
-        circle.strokeColor = UIColor.redColor().colorWithAlphaComponent(0.7)
+        circle.fillColor = UIColor.magentaColor().colorWithAlphaComponent(0.1)
+        circle.strokeColor = UIColor.magentaColor().colorWithAlphaComponent(0.7)
         circle.map = mapView
         
     }
@@ -123,7 +128,7 @@ class RadarMapViewController: UIViewController, CLLocationManagerDelegate {
         
         var markers = [GMSMarker]()
         
-        let contents = filterElements["contents"] as! [Content]
+        let contents = filterContents// filterElements["contents"] as! [Content]
         
         for content in  contents{
             
@@ -132,6 +137,35 @@ class RadarMapViewController: UIViewController, CLLocationManagerDelegate {
             marker.position = CLLocationCoordinate2D(latitude: content.latitude! as Double, longitude: content.longitude! as Double)
             
             marker.title = content.type! + " of " + String(content.date_created!.iso8601)
+            
+            // Icon
+            
+            let markerView = UIImageView(frame: CGRect(x: 0, y: 0, width: 30, height: 30))
+            
+            if content.type! == Content.types.Text.rawValue {
+            
+                let icon = UIImage(named: "Text")!.imageWithRenderingMode(.AlwaysTemplate)
+                
+                markerView.image = icon
+            
+            } else if content.type! == Content.types.Picture.rawValue {
+                
+                let icon = UIImage(named: "Gallery")!.imageWithRenderingMode(.AlwaysTemplate)
+                
+                markerView.image = icon
+                
+            } else if content.type! == Content.types.Audio.rawValue {
+                
+                let icon = UIImage(named: "Record")!.imageWithRenderingMode(.AlwaysTemplate)
+                
+                markerView.image = icon
+                
+            }
+            
+            markerView.tintColor = UIColor.blackColor()
+            marker.iconView = markerView
+        
+            // Icon
             
             if let stories = content.stories {
                 
@@ -158,12 +192,43 @@ class RadarMapViewController: UIViewController, CLLocationManagerDelegate {
             
             marker.map = mapView
             
+            marker.userData = content
+            
             markers.append(marker)
             
         }
         
         print("\n NUMBER OF MARKERS: ", markers.count)
     }
+    
+    
+    func mapView(mapView: GMSMapView, markerInfoWindow marker: GMSMarker) -> UIView? {
+        
+        let content = marker.userData as! Content
+        
+        if content.type! == Content.types.Text.rawValue {
+            
+            let customView = NSBundle.mainBundle().loadNibNamed("CustomInfoView", owner: self, options: nil)!.first as! CustomInfoView
+            
+            customView.setUpContent(content)
+            
+            customView.frame = CGRectMake(0, 0, 300, 80)
+            
+            return customView
+        
+        }else{
+            
+            let customView = NSBundle.mainBundle().loadNibNamed("ImageCustomInfoView", owner: self, options: nil)!.first as! ImageCustomInfoView
+        
+            customView.setUpContent(content)
+            
+            customView.frame = CGRectMake(0, 0, 150, 150)
+            
+            return customView
+        }
+        
+    }
+    
     
     
     func updateCamera() {
@@ -185,6 +250,7 @@ class RadarMapViewController: UIViewController, CLLocationManagerDelegate {
             
             let contentsToAppend = contentPersistence.getAll(nil)
             filterElements["contents"] = contentsToAppend
+            filterContents = contentsToAppend
 
         
         } else if criteria["general"]!.contains("all_stories"){

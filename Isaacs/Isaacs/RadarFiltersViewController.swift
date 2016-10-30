@@ -19,6 +19,10 @@ class RadarFiltersViewController: UIViewController, UITableViewDelegate, UITable
     
     let storyPersistence = StoryPersistence()
     
+    var parentController : RadarMapViewController?
+    
+    var criteria = ["general":["all_stories"], /* o podria decir todas las historias */ "stories" : [], /* historias por las que quiera filtrar, debe eliminar contenidos redundantes (recorrer por contenido) */ "modules" : ["weather"] /* O nada, si hay mas servicios se añaden aca*/]
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,13 +32,13 @@ class RadarFiltersViewController: UIViewController, UITableViewDelegate, UITable
         filtersTable.delegate = self
         filtersTable.dataSource = self
         
-        filters["general"] = ["all_contents"]
+        filters["general"] = ["all_contents", "all_stories"]
         
         if let stories = getNamesArray(storyPersistence.getAll("title", ascending: true)) {
             filters["stories"] = stories
         }
         
-        filters["services"] = ["twitter"]
+        filters["services"] = ["weather"]
         
 
         // Do any additional setup after loading the view.
@@ -43,11 +47,11 @@ class RadarFiltersViewController: UIViewController, UITableViewDelegate, UITable
     
     func getNamesArray(stories: [Story]) -> [String]? {
         
-        var storiesString : [String]?
+        var storiesString = [String]()
         
         for story in stories {
             
-            storiesString!.append(story.title ?? "No title")
+            storiesString.append(story.title ?? "No title")
             
         }
         
@@ -80,10 +84,55 @@ class RadarFiltersViewController: UIViewController, UITableViewDelegate, UITable
         let item = filters[index].1[indexPath.row]
         
         cell.textLabel!.text = item
+
+        
+        if (criteria[index].1).contains(filters[index].1[indexPath.row]) {
+            cell.accessoryType = UITableViewCellAccessoryType.Checkmark
+        } else {
+            cell.accessoryType = UITableViewCellAccessoryType.None
+        }
         
         return cell
     }
     
+    func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 40
+    }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+        let cell = tableView.cellForRowAtIndexPath(indexPath)
+        
+        if cell?.accessoryType == UITableViewCellAccessoryType.Checkmark {
+        
+            let index = filters.startIndex.advancedBy(indexPath.section)
+            
+            let filter = filters[index]
+            
+            if criteria[index].1.contains(filter.1[indexPath.row]) {
+                
+                var newCriteria = criteria
+                
+                //newCriteria[index].1.removeAtIndex(criteria[index].1.indexOf(filter.1[indexPath.row])])
+                
+                //print(newCriteria.indexOf(filter[index]))
+                
+            }
+            
+            cell?.accessoryType = UITableViewCellAccessoryType.None
+            
+        } else {
+            
+            
+            
+            cell?.accessoryType = UITableViewCellAccessoryType.Checkmark
+            
+        }
+        
+        
+        tableView.reloadData()
+        
+    }
 
     /*
     // MARK: - Navigation

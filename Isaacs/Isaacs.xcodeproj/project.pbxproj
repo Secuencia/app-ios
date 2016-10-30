@@ -14,6 +14,10 @@
 		37895A781D8859FE0094E286 /* ConfigurationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37895A771D8859FE0094E286 /* ConfigurationViewController.swift */; };
 		378E158B1D882CE400F94008 /* InputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 378E158A1D882CE400F94008 /* InputViewController.swift */; };
 		379F91041DC4FE4100B0493D /* RadarFiltersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 379F91031DC4FE4100B0493D /* RadarFiltersViewController.swift */; };
+		379F910E1DC58DE500B0493D /* CustomInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 379F910D1DC58DE500B0493D /* CustomInfoView.swift */; };
+		379F91101DC58E0500B0493D /* CustomInfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 379F910F1DC58E0500B0493D /* CustomInfoView.xib */; };
+		379F91131DC5AB2F00B0493D /* ImageCustomInfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 379F91121DC5AB2F00B0493D /* ImageCustomInfoView.xib */; };
+		379F91151DC5AB4600B0493D /* ImageCustomInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 379F91141DC5AB4600B0493D /* ImageCustomInfoView.swift */; };
 		37C4A1A41D8D0A2400C9AECF /* PhotoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37C4A1A21D8D0A2400C9AECF /* PhotoTableViewCell.swift */; };
 		37C4A1A51D8D0A2400C9AECF /* PhotoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37C4A1A31D8D0A2400C9AECF /* PhotoTableViewCell.xib */; };
 		37C4A1A81D8D0CDA00C9AECF /* TextTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37C4A1A61D8D0CDA00C9AECF /* TextTableViewCell.swift */; };
@@ -79,6 +83,10 @@
 		37895A771D8859FE0094E286 /* ConfigurationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigurationViewController.swift; sourceTree = "<group>"; };
 		378E158A1D882CE400F94008 /* InputViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputViewController.swift; sourceTree = "<group>"; };
 		379F91031DC4FE4100B0493D /* RadarFiltersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RadarFiltersViewController.swift; sourceTree = "<group>"; };
+		379F910D1DC58DE500B0493D /* CustomInfoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomInfoView.swift; sourceTree = "<group>"; };
+		379F910F1DC58E0500B0493D /* CustomInfoView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomInfoView.xib; sourceTree = "<group>"; };
+		379F91121DC5AB2F00B0493D /* ImageCustomInfoView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ImageCustomInfoView.xib; sourceTree = "<group>"; };
+		379F91141DC5AB4600B0493D /* ImageCustomInfoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCustomInfoView.swift; sourceTree = "<group>"; };
 		37C4A1A21D8D0A2400C9AECF /* PhotoTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoTableViewCell.swift; sourceTree = "<group>"; };
 		37C4A1A31D8D0A2400C9AECF /* PhotoTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PhotoTableViewCell.xib; sourceTree = "<group>"; };
 		37C4A1A61D8D0CDA00C9AECF /* TextTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextTableViewCell.swift; sourceTree = "<group>"; };
@@ -185,6 +193,17 @@
 				37C4A1B51D8D113800C9AECF /* AudioInputCell */,
 			);
 			name = "Data Entry";
+			sourceTree = "<group>";
+		};
+		379F91111DC5AAD800B0493D /* MarkerInfoWindows */ = {
+			isa = PBXGroup;
+			children = (
+				379F910D1DC58DE500B0493D /* CustomInfoView.swift */,
+				379F910F1DC58E0500B0493D /* CustomInfoView.xib */,
+				379F91121DC5AB2F00B0493D /* ImageCustomInfoView.xib */,
+				379F91141DC5AB4600B0493D /* ImageCustomInfoView.swift */,
+			);
+			name = MarkerInfoWindows;
 			sourceTree = "<group>";
 		};
 		37C4A1B21D8D110A00C9AECF /* TextInputCell */ = {
@@ -297,6 +316,7 @@
 		B9A87AB11D6C9C6C00145B93 /* Isaacs */ = {
 			isa = PBXGroup;
 			children = (
+				379F91111DC5AAD800B0493D /* MarkerInfoWindows */,
 				B9AD03921D7EF9F700466000 /* Stories.xcdatamodeld */,
 				B964D9C41D7D005F00033B13 /* Cards */,
 				B9AD038F1D7E60C800466000 /* Logic */,
@@ -492,8 +512,10 @@
 				B9A87ABA1D6C9C6D00145B93 /* Assets.xcassets in Resources */,
 				374B1F4A1DBD26BC00965D02 /* Podfile in Resources */,
 				B9A87AB81D6C9C6D00145B93 /* Main.storyboard in Resources */,
+				379F91101DC58E0500B0493D /* CustomInfoView.xib in Resources */,
 				37C4A1AD1D8D0F6500C9AECF /* ContactTableViewCell.xib in Resources */,
 				37C4A1A91D8D0CDA00C9AECF /* TextTableViewCell.xib in Resources */,
+				379F91131DC5AB2F00B0493D /* ImageCustomInfoView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -566,6 +588,7 @@
 				B964D9D81D7D037500033B13 /* AudioCardCollectionViewCell.swift in Sources */,
 				378E158B1D882CE400F94008 /* InputViewController.swift in Sources */,
 				37C4A1AC1D8D0F6500C9AECF /* ContactTableViewCell.swift in Sources */,
+				379F91151DC5AB4600B0493D /* ImageCustomInfoView.swift in Sources */,
 				B964D9CA1D7D01C100033B13 /* ContactCaptureViewController.swift in Sources */,
 				B9A87AB51D6C9C6D00145B93 /* DashboardViewController.swift in Sources */,
 				B964D9C61D7D018900033B13 /* PictureCaptureViewController.swift in Sources */,
@@ -579,6 +602,7 @@
 				B9A24C441D8CE10C0007F3DD /* ContentListViewController.swift in Sources */,
 				B991C4641D8F9ADD00621CEA /* HeaderTableViewCell.swift in Sources */,
 				B9646F681D8A4DF3000516D9 /* Content.swift in Sources */,
+				379F910E1DC58DE500B0493D /* CustomInfoView.swift in Sources */,
 				B9A24C501D8D2C2B0007F3DD /* JsonConverter.swift in Sources */,
 				B9AD03CD1D7F02F400466000 /* StoryPersistence.swift in Sources */,
 				37895A781D8859FE0094E286 /* ConfigurationViewController.swift in Sources */,
