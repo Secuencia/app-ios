@@ -146,6 +146,8 @@ class RadarFiltersViewController: UIViewController, UITableViewDelegate, UITable
         
         parentController?.criteria = criteria
         
+        parentController?.updateFilter() 
+        
         tableView.reloadData()
         
     }

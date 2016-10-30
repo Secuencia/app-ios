@@ -65,7 +65,7 @@ class RadarMapViewController: UIViewController, CLLocationManagerDelegate, GMSMa
         
         view.insertSubview(mapView!, atIndex: 0)
         
-        //updateFilter() // Check - This was removed as a test
+        //updateFilter()
 
     }
     
@@ -90,6 +90,8 @@ class RadarMapViewController: UIViewController, CLLocationManagerDelegate, GMSMa
                 
                 setUpBuffer()
                 
+                updateFilter()
+                
             }
             
         } else { // First time location is retrieved
@@ -104,12 +106,9 @@ class RadarMapViewController: UIViewController, CLLocationManagerDelegate, GMSMa
             
             setUpBuffer()
         
+            updateFilter()
             
         }
-        
-        setUpBuffer() // Check - This was added as a test
-        
-        updateFilter()
     
         
     }
@@ -127,9 +126,7 @@ class RadarMapViewController: UIViewController, CLLocationManagerDelegate, GMSMa
     func setUpMarkers() {
         
         //let contents = contentPersistence.getAll(Content.types.Text.rawValue)
-        
-        mapView?.clear()
-        
+                        
         var markers = [GMSMarker]()
         
         let contents = filterContents// filterElements["contents"] as! [Content]
