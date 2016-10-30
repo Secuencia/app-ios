@@ -28,7 +28,7 @@
 		37C4A1AD1D8D0F6500C9AECF /* ContactTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37C4A1AB1D8D0F6500C9AECF /* ContactTableViewCell.xib */; };
 		37C4A1B01D8D104800C9AECF /* AudioTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37C4A1AE1D8D104800C9AECF /* AudioTableViewCell.swift */; };
 		37C4A1B11D8D104800C9AECF /* AudioTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37C4A1AF1D8D104800C9AECF /* AudioTableViewCell.xib */; };
-		4694A4CDEF3C5B9FD5BCEE12 /* libPods-Isaacs.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 61907E0957787715763E73C6 /* libPods-Isaacs.a */; };
+		50065981EF1239BEF07F85C0 /* Pods_Isaacs.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15C5384E050CB1A50A2C6A65 /* Pods_Isaacs.framework */; };
 		B9646F681D8A4DF3000516D9 /* Content.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9646F641D8A4DF3000516D9 /* Content.swift */; };
 		B9646F6A1D8A4DF3000516D9 /* Story.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9646F661D8A4DF3000516D9 /* Story.swift */; };
 		B964D9C61D7D018900033B13 /* PictureCaptureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B964D9C51D7D018900033B13 /* PictureCaptureViewController.swift */; };
@@ -78,8 +78,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		15C5384E050CB1A50A2C6A65 /* Pods_Isaacs.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Isaacs.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		374565FB1D8CAD7E00E725D7 /* ModuleCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModuleCollectionViewCell.swift; sourceTree = "<group>"; };
-		374B1F491DBD26BC00965D02 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
+		374B1F491DBD26BC00965D02 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		374B1F4B1DBD28AA00965D02 /* RadarMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RadarMapViewController.swift; sourceTree = "<group>"; };
 		375F190E1DC3C2EF00BAF39B /* RadarListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RadarListViewController.swift; sourceTree = "<group>"; };
 		37895A771D8859FE0094E286 /* ConfigurationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigurationViewController.swift; sourceTree = "<group>"; };
@@ -99,7 +100,6 @@
 		37C4A1AB1D8D0F6500C9AECF /* ContactTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ContactTableViewCell.xib; sourceTree = "<group>"; };
 		37C4A1AE1D8D104800C9AECF /* AudioTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioTableViewCell.swift; sourceTree = "<group>"; };
 		37C4A1AF1D8D104800C9AECF /* AudioTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AudioTableViewCell.xib; sourceTree = "<group>"; };
-		61907E0957787715763E73C6 /* libPods-Isaacs.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Isaacs.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B9646F4B1D8A4D66000516D9 /* Isaacs-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Isaacs-Bridging-Header.h"; sourceTree = "<group>"; };
 		B9646F641D8A4DF3000516D9 /* Content.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Content.swift; path = ../Content.swift; sourceTree = "<group>"; };
 		B9646F661D8A4DF3000516D9 /* Story.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Story.swift; path = ../Story.swift; sourceTree = "<group>"; };
@@ -151,7 +151,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B9AD03911D7EF9B400466000 /* CoreData.framework in Frameworks */,
-				4694A4CDEF3C5B9FD5BCEE12 /* libPods-Isaacs.a in Frameworks */,
+				50065981EF1239BEF07F85C0 /* Pods_Isaacs.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -168,7 +168,7 @@
 		133D4DDB6B77B7554CC66661 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				61907E0957787715763E73C6 /* libPods-Isaacs.a */,
+				15C5384E050CB1A50A2C6A65 /* Pods_Isaacs.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";

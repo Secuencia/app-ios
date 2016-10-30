@@ -65,7 +65,7 @@ class RadarMapViewController: UIViewController, CLLocationManagerDelegate, GMSMa
         
         view.insertSubview(mapView!, atIndex: 0)
         
-        updateFilter()
+        //updateFilter() // Check - This was removed as a test
 
     }
     
@@ -107,6 +107,8 @@ class RadarMapViewController: UIViewController, CLLocationManagerDelegate, GMSMa
             
         }
         
+        setUpBuffer() // Check - This was added as a test
+        
         updateFilter()
     
         
@@ -125,6 +127,8 @@ class RadarMapViewController: UIViewController, CLLocationManagerDelegate, GMSMa
     func setUpMarkers() {
         
         //let contents = contentPersistence.getAll(Content.types.Text.rawValue)
+        
+        mapView?.clear()
         
         var markers = [GMSMarker]()
         
@@ -280,6 +284,7 @@ class RadarMapViewController: UIViewController, CLLocationManagerDelegate, GMSMa
             filterElements["contents"] = contentsToAppend
             filterContents = contentsToAppend
 
+            setUpMarkers()
         
         } else if criteria["general"]!.contains("all_stories"){
             
@@ -292,6 +297,9 @@ class RadarMapViewController: UIViewController, CLLocationManagerDelegate, GMSMa
             }
             
             filterElements["contents"] = contentsToAppend
+            filterContents = contentsToAppend
+            
+            setUpMarkers()
         
         } else {
             
@@ -306,14 +314,22 @@ class RadarMapViewController: UIViewController, CLLocationManagerDelegate, GMSMa
         
         if  criteria["modules"]!.contains("twitter") {
         
-            print("DO TWITTER STUFF")
+            //print("DO TWITTER STUFF")
+            
+            print(criteria)
         
         }
         
         
     }
 
-    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "filters" {
+            let viewController = segue.destinationViewController as! RadarFiltersViewController
+            viewController.criteria = criteria
+            viewController.parentController = self
+        }
+    }
   
     
     /*override func viewWillAppear(animated: Bool) {

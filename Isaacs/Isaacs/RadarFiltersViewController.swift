@@ -95,40 +95,56 @@ class RadarFiltersViewController: UIViewController, UITableViewDelegate, UITable
         return cell
     }
     
+    
     func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 40
     }
+    
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
         let cell = tableView.cellForRowAtIndexPath(indexPath)
         
-        if cell?.accessoryType == UITableViewCellAccessoryType.Checkmark {
+        let index = criteria.startIndex.advancedBy(indexPath.section)
         
-            let index = filters.startIndex.advancedBy(indexPath.section)
+        if filters[index].0 == "general" {
             
-            let filter = filters[index]
-            
-            if criteria[index].1.contains(filter.1[indexPath.row]) {
-                
-                var newCriteria = criteria
-                
-                //newCriteria[index].1.removeAtIndex(criteria[index].1.indexOf(filter.1[indexPath.row])])
-                
-                //print(newCriteria.indexOf(filter[index]))
-                
+            if (cell?.textLabel?.text == "all_contents") {
+                criteria[criteria[index].0] = ["all_contents"]
             }
             
-            cell?.accessoryType = UITableViewCellAccessoryType.None
+            if (cell?.textLabel?.text == "all_stories") {
+                criteria[criteria[index].0] = ["all_stories"]
+            }
+        
+        
+        } else if filters[index].0 == "stories" {
+            
+            if criteria[index].1.contains(filters[index].1[indexPath.row]) {
+                var newArray = criteria[index].1
+                newArray.removeAtIndex(indexPath.row)
+                criteria[criteria[index].0] = newArray
+            } else {
+                var newArray = criteria[index].1
+                newArray.append(filters[index].1[indexPath.row])
+                criteria[criteria[index].0] = newArray
+            }
             
         } else {
             
-            
-            
-            cell?.accessoryType = UITableViewCellAccessoryType.Checkmark
-            
+            if criteria[index].1.contains(filters[index].1[indexPath.row]) {
+                var newArray = criteria[index].1
+                newArray.removeAtIndex(indexPath.row)
+                criteria[criteria[index].0] = newArray
+            } else {
+                var newArray = criteria[index].1
+                newArray.append(filters[index].1[indexPath.row])
+                criteria[criteria[index].0] = newArray
+            }
+        
         }
         
+        parentController?.criteria = criteria
         
         tableView.reloadData()
         
