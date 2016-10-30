@@ -20,6 +20,10 @@
 		379F91151DC5AB4600B0493D /* ImageCustomInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 379F91141DC5AB4600B0493D /* ImageCustomInfoView.swift */; };
 		379F91171DC5AF5800B0493D /* AudioCustomInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 379F91161DC5AF5800B0493D /* AudioCustomInfoView.swift */; };
 		379F91191DC5AF6700B0493D /* AudioCustomInfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 379F91181DC5AF6700B0493D /* AudioCustomInfoView.xib */; };
+		37C0E4AA1DC67A0D00960E18 /* ForecastTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37C0E4A91DC67A0D00960E18 /* ForecastTableViewCell.xib */; };
+		37C0E4AC1DC67B2E00960E18 /* ForecastTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37C0E4AB1DC67B2E00960E18 /* ForecastTableViewCell.swift */; };
+		37C0E4AF1DC6904D00960E18 /* PlacesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37C0E4AD1DC6904D00960E18 /* PlacesTableViewCell.swift */; };
+		37C0E4B01DC6904E00960E18 /* PlacesTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37C0E4AE1DC6904D00960E18 /* PlacesTableViewCell.xib */; };
 		37C4A1A41D8D0A2400C9AECF /* PhotoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37C4A1A21D8D0A2400C9AECF /* PhotoTableViewCell.swift */; };
 		37C4A1A51D8D0A2400C9AECF /* PhotoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37C4A1A31D8D0A2400C9AECF /* PhotoTableViewCell.xib */; };
 		37C4A1A81D8D0CDA00C9AECF /* TextTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37C4A1A61D8D0CDA00C9AECF /* TextTableViewCell.swift */; };
@@ -92,6 +96,10 @@
 		379F91141DC5AB4600B0493D /* ImageCustomInfoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCustomInfoView.swift; sourceTree = "<group>"; };
 		379F91161DC5AF5800B0493D /* AudioCustomInfoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioCustomInfoView.swift; sourceTree = "<group>"; };
 		379F91181DC5AF6700B0493D /* AudioCustomInfoView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AudioCustomInfoView.xib; sourceTree = "<group>"; };
+		37C0E4A91DC67A0D00960E18 /* ForecastTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ForecastTableViewCell.xib; sourceTree = "<group>"; };
+		37C0E4AB1DC67B2E00960E18 /* ForecastTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForecastTableViewCell.swift; sourceTree = "<group>"; };
+		37C0E4AD1DC6904D00960E18 /* PlacesTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlacesTableViewCell.swift; sourceTree = "<group>"; };
+		37C0E4AE1DC6904D00960E18 /* PlacesTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlacesTableViewCell.xib; sourceTree = "<group>"; };
 		37C4A1A21D8D0A2400C9AECF /* PhotoTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoTableViewCell.swift; sourceTree = "<group>"; };
 		37C4A1A31D8D0A2400C9AECF /* PhotoTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PhotoTableViewCell.xib; sourceTree = "<group>"; };
 		37C4A1A61D8D0CDA00C9AECF /* TextTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextTableViewCell.swift; sourceTree = "<group>"; };
@@ -212,6 +220,17 @@
 			name = MarkerInfoWindows;
 			sourceTree = "<group>";
 		};
+		37C0E4A81DC679D500960E18 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				37C0E4A91DC67A0D00960E18 /* ForecastTableViewCell.xib */,
+				37C0E4AB1DC67B2E00960E18 /* ForecastTableViewCell.swift */,
+				37C0E4AD1DC6904D00960E18 /* PlacesTableViewCell.swift */,
+				37C0E4AE1DC6904D00960E18 /* PlacesTableViewCell.xib */,
+			);
+			name = Services;
+			sourceTree = "<group>";
+		};
 		37C4A1B21D8D110A00C9AECF /* TextInputCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -281,6 +300,7 @@
 		B964D9C41D7D005F00033B13 /* Cards */ = {
 			isa = PBXGroup;
 			children = (
+				37C0E4A81DC679D500960E18 /* Services */,
 				374565FA1D8CACFD00E725D7 /* Data Entry */,
 				374565F81D8CACD800E725D7 /* Presentation */,
 			);
@@ -508,6 +528,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B964D9DC1D7D03A700033B13 /* TextCardView.xib in Resources */,
+				37C0E4B01DC6904E00960E18 /* PlacesTableViewCell.xib in Resources */,
 				37C4A1B11D8D104800C9AECF /* AudioTableViewCell.xib in Resources */,
 				B964D9DE1D7D03B400033B13 /* ContactCardView.xib in Resources */,
 				B9A24C4D1D8D132C0007F3DD /* TitleCardView.xib in Resources */,
@@ -520,6 +541,7 @@
 				B9A87AB81D6C9C6D00145B93 /* Main.storyboard in Resources */,
 				379F91101DC58E0500B0493D /* CustomInfoView.xib in Resources */,
 				379F91191DC5AF6700B0493D /* AudioCustomInfoView.xib in Resources */,
+				37C0E4AA1DC67A0D00960E18 /* ForecastTableViewCell.xib in Resources */,
 				37C4A1AD1D8D0F6500C9AECF /* ContactTableViewCell.xib in Resources */,
 				37C4A1A91D8D0CDA00C9AECF /* TextTableViewCell.xib in Resources */,
 				379F91131DC5AB2F00B0493D /* ImageCustomInfoView.xib in Resources */,
@@ -588,6 +610,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				37C0E4AF1DC6904D00960E18 /* PlacesTableViewCell.swift in Sources */,
 				374B1F4C1DBD28AA00965D02 /* RadarMapViewController.swift in Sources */,
 				B9A24C521D8E050B0007F3DD /* StorySelectViewController.swift in Sources */,
 				37C4A1A41D8D0A2400C9AECF /* PhotoTableViewCell.swift in Sources */,
@@ -604,6 +627,7 @@
 				375F190F1DC3C2EF00BAF39B /* RadarListViewController.swift in Sources */,
 				B9D7C7621D8F680F00F4DA8D /* HeaderReusableView.swift in Sources */,
 				B96E24611D8787F800182DA3 /* ContentPersistence.swift in Sources */,
+				37C0E4AC1DC67B2E00960E18 /* ForecastTableViewCell.swift in Sources */,
 				B964D9C81D7D01A700033B13 /* TextCaptureViewController.swift in Sources */,
 				374565FC1D8CAD7E00E725D7 /* ModuleCollectionViewCell.swift in Sources */,
 				B9AD04491D7F715800466000 /* DataPersistence.swift in Sources */,

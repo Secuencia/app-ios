@@ -82,13 +82,13 @@ class RadarMapViewController: UIViewController, CLLocationManagerDelegate, GMSMa
                 
                 lastLocationRetrieved = locValue
                 
-                mapView?.clear()
+                //mapView?.clear()
                 
-                setUpMarkers()
+                //setUpMarkers()
                 
                 updateCamera()
                 
-                setUpBuffer()
+                //setUpBuffer()
                 
                 updateFilter()
                 
@@ -100,11 +100,11 @@ class RadarMapViewController: UIViewController, CLLocationManagerDelegate, GMSMa
             
             lastLocationRetrieved = locValue
             
-            setUpMarkers()
+            //setUpMarkers()
             
             updateCamera()
             
-            setUpBuffer()
+            //setUpBuffer()
         
             updateFilter()
             
@@ -275,6 +275,10 @@ class RadarMapViewController: UIViewController, CLLocationManagerDelegate, GMSMa
     func updateFilter() {
         // Update filter elements with a criteria
         
+        mapView?.clear()
+        
+        setUpBuffer()
+        
         if criteria["general"]!.contains("all_contents") {
             
             let contentsToAppend = contentPersistence.getAll(nil)
@@ -325,6 +329,15 @@ class RadarMapViewController: UIViewController, CLLocationManagerDelegate, GMSMa
             let viewController = segue.destinationViewController as! RadarFiltersViewController
             viewController.criteria = criteria
             viewController.parentController = self
+        }
+        
+        if segue.identifier == "services" {
+            let radarListController = segue.destinationViewController as! RadarListViewController
+            
+            if let location = lastLocationRetrieved {
+                radarListController.location = location
+            }
+            
         }
     }
   
