@@ -60,17 +60,21 @@ class RadarFiltersViewController: UIViewController, UITableViewDelegate, UITable
     
 
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let index = filters.startIndex.advancedBy(section)
+        /*let index = filters.startIndex.advancedBy(section)
+        let filter = filters[index]
+        return filter.1.count*/
+        let index = filters.startIndex.advancedBy(2)
         let filter = filters[index]
         return filter.1.count
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return filters.count
+        return 1
+        //return filters.count
     }
     
     func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        let index = filters.startIndex.advancedBy(section)
+        let index = filters.startIndex.advancedBy(2)//section)
         let title = filters[index].0
         return title
     }
@@ -79,7 +83,7 @@ class RadarFiltersViewController: UIViewController, UITableViewDelegate, UITable
         
         let cell = filtersTable.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) 
         
-        let index = filters.startIndex.advancedBy(indexPath.section)
+        let index = filters.startIndex.advancedBy(2)//indexPath.section)
         
         let item = filters[index].1[indexPath.row]
         
@@ -105,7 +109,7 @@ class RadarFiltersViewController: UIViewController, UITableViewDelegate, UITable
         
         let cell = tableView.cellForRowAtIndexPath(indexPath)
         
-        let index = criteria.startIndex.advancedBy(indexPath.section)
+        let index = criteria.startIndex.advancedBy(2)//indexPath.section)
         
         if filters[index].0 == "general" {
             
