@@ -32,6 +32,7 @@ class DashboardViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        navigationItem.title = "Home"
         
         
         // Default Text button styling

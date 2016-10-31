@@ -137,8 +137,8 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qc6-UC-o1Y">
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="DfK-gS-AZM"/>
-                                    <constraint firstAttribute="width" constant="30" id="qNo-cD-xDw"/>
+                                    <constraint firstAttribute="height" constant="40" id="DfK-gS-AZM"/>
+                                    <constraint firstAttribute="width" constant="40" id="qNo-cD-xDw"/>
                                 </constraints>
                                 <state key="normal" backgroundImage="radar"/>
                                 <connections>
@@ -260,6 +260,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="olg-Dv-GN0">
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y7G-as-vxz">
+                                        <color key="tintColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <state key="normal" backgroundImage="Filters"/>
                                         <connections>
                                             <segue destination="MSL-XC-JAo" kind="show" identifier="filters" id="k8q-qr-qgR"/>
@@ -273,7 +274,7 @@
                                     </button>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="25" id="9VC-7N-SXM"/>
+                                    <constraint firstAttribute="height" constant="30" id="9VC-7N-SXM"/>
                                     <constraint firstAttribute="width" secondItem="olg-Dv-GN0" secondAttribute="height" multiplier="31:13" id="jfS-NE-Uad"/>
                                 </constraints>
                             </stackView>

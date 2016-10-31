@@ -146,7 +146,7 @@ class RadarListViewController: UIViewController, UITableViewDelegate, UITableVie
             
             let place = places[indexPath.row]
             
-            cell.ranking.text = String(indexPath.row)//String(format: "%.2f", place.place.r)
+            cell.ranking.text = String(indexPath.row + 1)//String(format: "%.2f", place.place.r)
             
             cell.placeName.text = place.place.name
             

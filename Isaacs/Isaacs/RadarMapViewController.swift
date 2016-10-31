@@ -26,7 +26,7 @@ class RadarMapViewController: UIViewController, CLLocationManagerDelegate, GMSMa
     
     let locationManager = CLLocationManager()
     
-    let radius = 1000.0
+    let radius = 850.0
     
     var lastLocationRetrieved: CLLocation? = nil
     
@@ -302,14 +302,31 @@ class RadarMapViewController: UIViewController, CLLocationManagerDelegate, GMSMa
             
             setUpMarkers()
         
-        } else {
+        }
+        
+        if criteria["stories"]!.count != 0 {
             
             print("SOME STORIES")
             
             let storiesToLoad = criteria["stories"]
             
             print(storiesToLoad)
+            
+            var contentsToAppend = [Content]()
+            
+            for content in contentPersistence.getAll(nil) {
+                if content.stories?.count != 0 {
+                    for story in content.stories! {
+                        if storiesToLoad!.contains(story.title!) {
+                            contentsToAppend.append(content)
+                            break
+                        }
+                    }
+                }
+            }
         
+            filterElements["contents"] = contentsToAppend
+            filterContents = contentsToAppend
             
         }
         
