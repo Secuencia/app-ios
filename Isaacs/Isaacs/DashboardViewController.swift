@@ -18,6 +18,17 @@ class DashboardViewController: UIViewController {
     @IBOutlet weak var galleryContentButton: UIButton!
     @IBOutlet weak var audioContentButton: UIButton!
     
+    // ---------
+    
+    
+    @IBOutlet weak var titleLabel: UILabel!
+    
+    @IBOutlet weak var settingsButton: UIButton!
+    @IBOutlet weak var contentsButton: UIButton!
+    @IBOutlet weak var radarButton: UIButton!
+    @IBOutlet weak var storiesButton: UIButton!
+    
+    
     
     // MARK: Properties - Interface Utils
     
@@ -76,6 +87,24 @@ class DashboardViewController: UIViewController {
         
         
         // Do any additional setup after loading the view, typically from a nib.
+        
+        setUpViewMode()
+        
+    }
+    
+    func setUpViewMode(){
+        
+        let nightMode = true
+        
+        if nightMode {            
+            titleLabel.textColor = UIColor.lightGrayColor()
+            self.view.backgroundColor = UIColor.darkGrayColor()
+            contentsButton.backgroundColor = UIColor.lightGrayColor()
+            radarButton.backgroundColor = UIColor.lightGrayColor()
+            storiesButton.backgroundColor = UIColor.lightGrayColor()
+            settingsButton.backgroundColor = UIColor.lightGrayColor()
+        }
+        
     }
     
     // MARK: Navigation bar setup
