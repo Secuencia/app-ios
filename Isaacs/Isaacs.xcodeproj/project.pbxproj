@@ -11,6 +11,7 @@
 		374B1F4A1DBD26BC00965D02 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 374B1F491DBD26BC00965D02 /* Podfile */; };
 		374B1F4C1DBD28AA00965D02 /* RadarMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374B1F4B1DBD28AA00965D02 /* RadarMapViewController.swift */; };
 		3752B4DE1DE6641B0048B39B /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3752B4DD1DE6641B0048B39B /* CoreMotion.framework */; };
+		3752B4E01DE68F100048B39B /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3752B4DF1DE68F100048B39B /* Theme.swift */; };
 		375F190F1DC3C2EF00BAF39B /* RadarListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 375F190E1DC3C2EF00BAF39B /* RadarListViewController.swift */; };
 		37895A781D8859FE0094E286 /* ConfigurationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37895A771D8859FE0094E286 /* ConfigurationViewController.swift */; };
 		378E158B1D882CE400F94008 /* InputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 378E158A1D882CE400F94008 /* InputViewController.swift */; };
@@ -88,6 +89,7 @@
 		374B1F491DBD26BC00965D02 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		374B1F4B1DBD28AA00965D02 /* RadarMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RadarMapViewController.swift; sourceTree = "<group>"; };
 		3752B4DD1DE6641B0048B39B /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
+		3752B4DF1DE68F100048B39B /* Theme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		375F190E1DC3C2EF00BAF39B /* RadarListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RadarListViewController.swift; sourceTree = "<group>"; };
 		37895A771D8859FE0094E286 /* ConfigurationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigurationViewController.swift; sourceTree = "<group>"; };
 		378E158A1D882CE400F94008 /* InputViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputViewController.swift; sourceTree = "<group>"; };
@@ -395,6 +397,7 @@
 				B9A24C4F1D8D2C2B0007F3DD /* JsonConverter.swift */,
 				B9A24C531D8E2B5D0007F3DD /* AudioManager.swift */,
 				B9A24C551D8E32310007F3DD /* Utils.swift */,
+				3752B4DF1DE68F100048B39B /* Theme.swift */,
 			);
 			name = "Add-ins";
 			sourceTree = "<group>";
@@ -641,6 +644,7 @@
 				379F910E1DC58DE500B0493D /* CustomInfoView.swift in Sources */,
 				B9A24C501D8D2C2B0007F3DD /* JsonConverter.swift in Sources */,
 				B9AD03CD1D7F02F400466000 /* StoryPersistence.swift in Sources */,
+				3752B4E01DE68F100048B39B /* Theme.swift in Sources */,
 				37895A781D8859FE0094E286 /* ConfigurationViewController.swift in Sources */,
 				B9A24C4C1D8D132C0007F3DD /* TitleCardCollectionViewCell.swift in Sources */,
 				B964D9D61D7D035D00033B13 /* ContactCardCollectionViewCell.swift in Sources */,

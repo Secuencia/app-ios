@@ -94,18 +94,24 @@ class DashboardViewController: UIViewController {
         
         // Do any additional setup after loading the view, typically from a nib.
         
-        setUpViewMode()
+        setUpViewMode(true)
         
         
         //sensors
         
         becomeFirstResponder() // Necesary to receive notifications of events
         
+        // Brightness
+        
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(brightnessStateMonitor), name: "UIScreenBrightnessDidChangeNotification", object: nil)
+        
         // Proximity sensor
         
-        UIDevice.currentDevice().proximityMonitoringEnabled = true
-        
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(proximityStateMonitor), name: "UIDeviceProximityStateDidChangeNotification", object: nil)
+        
+        
+        // Orientation
         
         UIDevice.currentDevice().beginGeneratingDeviceOrientationNotifications()
         
@@ -117,6 +123,18 @@ class DashboardViewController: UIViewController {
         
     }
     
+    override func viewDidAppear(animated: Bool) {
+        
+        UIDevice.currentDevice().proximityMonitoringEnabled = true
+        
+    }
+    
+    override func viewDidDisappear(animated: Bool) {
+        
+        UIDevice.currentDevice().proximityMonitoringEnabled = false
+        
+    }
+    
     override func canBecomeFirstResponder() -> Bool {
         return true
     }
@@ -125,7 +143,7 @@ class DashboardViewController: UIViewController {
     
     let  motionManager = CMMotionManager()
     
-    override func motionEnded(motion: UIEventSubtype, withEvent event: UIEvent?) {
+    override func motionEnded(motion: UIEventSubtype, withEvent event: UIEvent?) { // This gets the notification automatically
         if (motion == .MotionShake){
             print("SHAKE")
             printMotion()
@@ -143,7 +161,6 @@ class DashboardViewController: UIViewController {
             //print(motionManager.accelerometerData?.acceleration)
             //print("Gyroscope")
             //print(motionManager.gyroData?.rotationRate)
-            printBrightness()
             retrieveMeasure()
         }
         
@@ -156,14 +173,16 @@ class DashboardViewController: UIViewController {
     
     // Ambient light
     
-    func printBrightness() {
-        print("Brightness")
-        print(UIScreen.mainScreen().brightness)
+    func brightnessStateMonitor(notification: NSNotificationCenter) {
+        let level = UIScreen.mainScreen().brightness
+        if level >= 0.50 {
+            setUpViewMode(false)
+        } else {
+            setUpViewMode(true)
+        }
     }
     
-    func setUpViewMode(){
-        
-        let nightMode = true
+    func setUpViewMode(nightMode: Bool){
         
         if nightMode {
             titleLabel.textColor = UIColor.lightGrayColor()
@@ -172,6 +191,13 @@ class DashboardViewController: UIViewController {
             radarButton.backgroundColor = UIColor.lightGrayColor()
             storiesButton.backgroundColor = UIColor.lightGrayColor()
             settingsButton.backgroundColor = UIColor.lightGrayColor()
+        } else {
+            titleLabel.textColor = UIColor.blackColor()
+            self.view.backgroundColor = UIColor.whiteColor()
+            contentsButton.backgroundColor = UIColor.clearColor()
+            radarButton.backgroundColor = UIColor.clearColor()
+            storiesButton.backgroundColor = UIColor.clearColor()
+            settingsButton.backgroundColor = UIColor.clearColor()
         }
         
     }
