@@ -10,6 +10,7 @@
 		374565FC1D8CAD7E00E725D7 /* ModuleCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374565FB1D8CAD7E00E725D7 /* ModuleCollectionViewCell.swift */; };
 		374B1F4A1DBD26BC00965D02 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 374B1F491DBD26BC00965D02 /* Podfile */; };
 		374B1F4C1DBD28AA00965D02 /* RadarMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374B1F4B1DBD28AA00965D02 /* RadarMapViewController.swift */; };
+		3752B4DE1DE6641B0048B39B /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3752B4DD1DE6641B0048B39B /* CoreMotion.framework */; };
 		375F190F1DC3C2EF00BAF39B /* RadarListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 375F190E1DC3C2EF00BAF39B /* RadarListViewController.swift */; };
 		37895A781D8859FE0094E286 /* ConfigurationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37895A771D8859FE0094E286 /* ConfigurationViewController.swift */; };
 		378E158B1D882CE400F94008 /* InputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 378E158A1D882CE400F94008 /* InputViewController.swift */; };
@@ -86,6 +87,7 @@
 		374565FB1D8CAD7E00E725D7 /* ModuleCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModuleCollectionViewCell.swift; sourceTree = "<group>"; };
 		374B1F491DBD26BC00965D02 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		374B1F4B1DBD28AA00965D02 /* RadarMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RadarMapViewController.swift; sourceTree = "<group>"; };
+		3752B4DD1DE6641B0048B39B /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
 		375F190E1DC3C2EF00BAF39B /* RadarListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RadarListViewController.swift; sourceTree = "<group>"; };
 		37895A771D8859FE0094E286 /* ConfigurationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigurationViewController.swift; sourceTree = "<group>"; };
 		378E158A1D882CE400F94008 /* InputViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputViewController.swift; sourceTree = "<group>"; };
@@ -158,6 +160,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3752B4DE1DE6641B0048B39B /* CoreMotion.framework in Frameworks */,
 				B9AD03911D7EF9B400466000 /* CoreData.framework in Frameworks */,
 				50065981EF1239BEF07F85C0 /* Pods_Isaacs.framework in Frameworks */,
 			);
@@ -176,6 +179,7 @@
 		133D4DDB6B77B7554CC66661 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3752B4DD1DE6641B0048B39B /* CoreMotion.framework */,
 				15C5384E050CB1A50A2C6A65 /* Pods_Isaacs.framework */,
 			);
 			name = Frameworks;

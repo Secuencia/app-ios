@@ -8,6 +8,12 @@
 
 import UIKit
 
+import EventKitUI
+
+import AVFoundation
+
+import CoreMotion
+
 class DashboardViewController: UIViewController {
 
    
@@ -90,13 +96,76 @@ class DashboardViewController: UIViewController {
         
         setUpViewMode()
         
+        
+        //sensors
+        
+        becomeFirstResponder() // Necesary to receive notifications of events
+        
+        // Proximity sensor
+        
+        UIDevice.currentDevice().proximityMonitoringEnabled = true
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(proximityStateMonitor), name: "UIDeviceProximityStateDidChangeNotification", object: nil)
+        
+        UIDevice.currentDevice().beginGeneratingDeviceOrientationNotifications()
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(orientationStateMonitor), name: "UIDeviceOrientationDidChangeNotification", object: nil)
+        
+        // Recorder
+        
+        initRecorder()
+        
+    }
+    
+    override func canBecomeFirstResponder() -> Bool {
+        return true
+    }
+    
+    // Motion
+    
+    let  motionManager = CMMotionManager()
+    
+    override func motionEnded(motion: UIEventSubtype, withEvent event: UIEvent?) {
+        if (motion == .MotionShake){
+            print("SHAKE")
+            printMotion()
+        }
+    }
+    
+    func printMotion() {
+        
+        motionManager.startAccelerometerUpdates()
+        motionManager.startGyroUpdates()
+        
+        if motionManager.accelerometerAvailable {
+            motionManager.accelerometerUpdateInterval = 0.1
+            //print("Accelerometer")
+            //print(motionManager.accelerometerData?.acceleration)
+            //print("Gyroscope")
+            //print(motionManager.gyroData?.rotationRate)
+            printBrightness()
+            retrieveMeasure()
+        }
+        
+        motionManager.stopDeviceMotionUpdates()
+    }
+    
+    func orientationStateMonitor(notification: NSNotificationCenter) {
+        print(UIDevice.currentDevice().orientation)
+    }
+    
+    // Ambient light
+    
+    func printBrightness() {
+        print("Brightness")
+        print(UIScreen.mainScreen().brightness)
     }
     
     func setUpViewMode(){
         
         let nightMode = true
         
-        if nightMode {            
+        if nightMode {
             titleLabel.textColor = UIColor.lightGrayColor()
             self.view.backgroundColor = UIColor.darkGrayColor()
             contentsButton.backgroundColor = UIColor.lightGrayColor()
@@ -106,6 +175,61 @@ class DashboardViewController: UIViewController {
         }
         
     }
+    
+    // Proximity sensor
+    
+    func proximityStateMonitor(notification: NSNotificationCenter){
+        if UIDevice.currentDevice().proximityState {
+            print("Device close to user")
+            printNumbers()
+        } else {
+            print("Device NOT close to user")
+        }
+    }
+   
+    func printNumbers() {
+        for i in 1...5 {
+            print(i)
+        }
+    }
+    
+    // Mic as noise sensor
+    
+    var recorder:AVAudioRecorder!
+    
+    let recordSettings = [AVSampleRateKey : NSNumber(float: Float(44100.0)),
+                          AVFormatIDKey : NSNumber(int: Int32(kAudioFormatAppleIMA4)),
+                          AVNumberOfChannelsKey : NSNumber(int: 1),
+                          AVLinearPCMBitDepthKey: NSNumber(int: 16),
+                          AVLinearPCMIsBigEndianKey: false,
+                          AVLinearPCMIsFloatKey: false]
+    
+    
+    
+    func initRecorder() {
+        
+        do{
+            try recorder = AVAudioRecorder(URL: NSURL(string: NSTemporaryDirectory().stringByAppendingString("tmp.caf"))!, settings: recordSettings)
+        }catch{
+        
+        }
+        recorder.meteringEnabled = true
+        
+        
+    }
+    
+    func retrieveMeasure() {
+        
+        recorder.record()
+        recorder.updateMeters()
+        let decibelsAvg = recorder.averagePowerForChannel(0)
+        let decibelsPeak = recorder.peakPowerForChannel(0)
+        print(decibelsAvg)
+        print(decibelsPeak)
+    
+    }
+    
+    
     
     // MARK: Navigation bar setup
     
@@ -142,6 +266,14 @@ class DashboardViewController: UIViewController {
         
 
     }
+    
+    
+    
+    // MARK: Sensors
+    
+    // Ambient light
+    
+    // Accelerometer
 
     
 }
