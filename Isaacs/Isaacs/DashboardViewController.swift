@@ -117,9 +117,15 @@ class DashboardViewController: UIViewController {
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(orientationStateMonitor), name: "UIDeviceOrientationDidChangeNotification", object: nil)
         
+        motionManager.startAccelerometerUpdates()
+        motionManager.startGyroUpdates()
+        motionManager.startDeviceMotionUpdates()
+        
         // Recorder
         
         initRecorder()
+        
+        
         
     }
     
@@ -152,23 +158,25 @@ class DashboardViewController: UIViewController {
     
     func printMotion() {
         
-        motionManager.startAccelerometerUpdates()
-        motionManager.startGyroUpdates()
-        
         if motionManager.accelerometerAvailable {
             motionManager.accelerometerUpdateInterval = 0.1
             //print("Accelerometer")
-            //print(motionManager.accelerometerData?.acceleration)
+            print(motionManager.accelerometerData?.acceleration)
             //print("Gyroscope")
-            //print(motionManager.gyroData?.rotationRate)
-            retrieveMeasure()
+            print(motionManager.gyroData?.rotationRate)
+            //retrieveMeasure()
+            print(motionManager.deviceMotion?.attitude)
         }
         
-        motionManager.stopDeviceMotionUpdates()
+        //motionManager.stopAccelerometerUpdates()
+        //motionManager.stopGyroUpdates()
+        //motionManager.stopDeviceMotionUpdates()
     }
     
     func orientationStateMonitor(notification: NSNotificationCenter) {
+        print("ORIENTATION")
         print(UIDevice.currentDevice().orientation)
+        print(UIDevice.currentDevice().orientation.isFlat)
     }
     
     // Ambient light
