@@ -22,7 +22,7 @@ class StoryDetailViewController: UICollectionViewController,UICollectionViewDele
     
     var sizes = [String: (CGFloat, CGFloat)]()
     
-    var story : Story!
+    var story : Story? = nil
     private var longPressGesture: UILongPressGestureRecognizer!
     
     override func viewDidLoad() {
@@ -68,12 +68,12 @@ class StoryDetailViewController: UICollectionViewController,UICollectionViewDele
     
     //Numero de celdas en coleccion
     override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        let numCells:Int
+        var numCells: Int = 0
         if(section == 0){
             numCells = 1
         }
-        else{
-            numCells = (self.story.contents?.count)!
+        else if (story != nil){
+            numCells = (self.story!.contents?.count)!
         }
         return numCells
     }
@@ -81,20 +81,26 @@ class StoryDetailViewController: UICollectionViewController,UICollectionViewDele
     //Render de celdas
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         var cell : UICollectionViewCell;
-        if(indexPath.section == 0){
-            let titleCell = collectionView.dequeueReusableCellWithReuseIdentifier("title_card", forIndexPath: indexPath) as! TitleCardCollectionViewCell
-            titleCell.storyTitle.text = story.title!
-            titleCell.storyBrief.text = story.brief ?? ""
-            cell = titleCell
+        if(story != nil){
+            if(indexPath.section == 0){
+                let titleCell = collectionView.dequeueReusableCellWithReuseIdentifier("title_card", forIndexPath: indexPath) as! TitleCardCollectionViewCell
+                titleCell.storyTitle.text = story!.title!
+                titleCell.storyBrief.text = story!.brief ?? ""
+                cell = titleCell
+            }
+            else {
+                let type : String = (story!.contents?.objectAtIndex(indexPath.row).type)!
+                switch type {
+                case Content.types.Picture.rawValue: cell = createPhotoCell(indexPath)
+                case Content.types.Audio.rawValue: cell = createAudioCell(indexPath)
+                case Content.types.Contact.rawValue:cell = createContactCell(indexPath)
+                default:
+                    cell = createTextCell(indexPath)            }
+            }
         }
-        else {
-            let type : String = (story.contents?.objectAtIndex(indexPath.row).type)!
-            switch type {
-            case Content.types.Picture.rawValue: cell = createPhotoCell(indexPath)
-            case Content.types.Audio.rawValue: cell = createAudioCell(indexPath)
-            case Content.types.Contact.rawValue:cell = createContactCell(indexPath)
-            default:
-                cell = createTextCell(indexPath)            }
+        else{
+            cell = collectionView.dequeueReusableCellWithReuseIdentifier("no_stories", forIndexPath: indexPath)
+
         }
         return cell
     }
@@ -105,7 +111,7 @@ class StoryDetailViewController: UICollectionViewController,UICollectionViewDele
         textCell.delete.tag = indexPath.row
         textCell.delete.addTarget(self, action: #selector(deleteCard), forControlEvents: .TouchUpInside)
         
-        let jsonData = story.contents?[indexPath.row].data ?? "No data"
+        let jsonData = story!.contents?[indexPath.row].data ?? "No data"
         textCell.textView.text = JsonConverter.jsonToDict((jsonData as! String))!["text"]
         
         return textCell
@@ -117,7 +123,7 @@ class StoryDetailViewController: UICollectionViewController,UICollectionViewDele
         photoCell.delete.tag = indexPath.row
         photoCell.delete.addTarget(self, action: #selector(deleteCard), forControlEvents: .TouchUpInside)
         
-        let jsonData = story.contents![indexPath.row].data ?? "No data"
+        let jsonData = story!.contents![indexPath.row].data ?? "No data"
         let imageName = JsonConverter.jsonToDict((jsonData as! String))!["image_file_name"]!
         let image = Utils.getImage(imageName)
         photoCell.image.image = image
@@ -131,7 +137,7 @@ class StoryDetailViewController: UICollectionViewController,UICollectionViewDele
         contactCell.delete.tag = indexPath.row
         contactCell.delete.addTarget(self, action: #selector(deleteCard), forControlEvents: .TouchUpInside)
 
-        let jsonData = story.contents![indexPath.row].data ?? "No data"
+        let jsonData = story!.contents![indexPath.row].data ?? "No data"
         let dict = JsonConverter.jsonToDict((jsonData as! String))!
         
         contactCell.nameLabel.text = dict["name"]
@@ -146,7 +152,7 @@ class StoryDetailViewController: UICollectionViewController,UICollectionViewDele
         audioCell.delete.tag = indexPath.row
         audioCell.delete.addTarget(self, action: #selector(deleteCard), forControlEvents: .TouchUpInside)
 
-        let jsonData = story.contents![indexPath.row].data ?? "No data"
+        let jsonData = story!.contents![indexPath.row].data ?? "No data"
         let dict = JsonConverter.jsonToDict((jsonData as! String))!
         
         audioCell.titleLabel.text = dict["title"]
@@ -162,15 +168,15 @@ class StoryDetailViewController: UICollectionViewController,UICollectionViewDele
         if(indexPath.section == 0){
             return CGSizeMake(collectionView.bounds.width, 300)
         }
-        let type : String = (story.contents?.objectAtIndex(indexPath.row).type)!
+        let type : String = (story!.contents?.objectAtIndex(indexPath.row).type)!
         return CGSizeMake(collectionView.bounds.width * self.sizes[type]!.0, 100 * self.sizes[type]!.1)
     }
     
     //Movimiento de celdas
     override func collectionView(collectionView: UICollectionView,moveItemAtIndexPath sourceIndexPath:NSIndexPath, toIndexPath destinationIndexPath: NSIndexPath) {
-        let contentA : Content = story.contents!.objectAtIndex(sourceIndexPath.row) as! Content
-        let contentB : Content = story.contents!.objectAtIndex(destinationIndexPath.row) as! Content
-        story.swap(contentA, contentB: contentB)
+        let contentA : Content = story!.contents!.objectAtIndex(sourceIndexPath.row) as! Content
+        let contentB : Content = story!.contents!.objectAtIndex(destinationIndexPath.row) as! Content
+        story!.swap(contentA, contentB: contentB)
         ContentPersistence().save()
         self.collectionView?.reloadData()
         print("entro a movimiento")
@@ -196,7 +202,7 @@ class StoryDetailViewController: UICollectionViewController,UICollectionViewDele
     }
     
     func deleteCard(sender: UIButton!){
-        story.mutableOrderedSetValueForKey("contents").removeObjectAtIndex(sender.tag)
+        story!.mutableOrderedSetValueForKey("contents").removeObjectAtIndex(sender.tag)
         StoryPersistence().save()
         collectionView?.reloadData()
     }

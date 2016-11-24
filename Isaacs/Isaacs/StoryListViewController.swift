@@ -18,7 +18,6 @@ class StoryListViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         stories = self.persistence.getAll("title", ascending: true);
     }
 
@@ -71,9 +70,16 @@ class StoryListViewController: UITableViewController {
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if(segue.identifier == "story_detail"){
-            let destination : StoryDetailViewController = segue.destinationViewController as! StoryDetailViewController
-            let path = self.tableView.indexPathForSelectedRow!
-            destination.story = self.stories[path.row]
+            if let indexPath = self.tableView.indexPathForSelectedRow {
+                let navController = (segue.destinationViewController as! UINavigationController)
+                let controller = navController.topViewController as! StoryDetailViewController
+                controller.story = self.stories[indexPath.row]
+                controller.navigationItem.leftBarButtonItem = self.splitViewController?.displayModeButtonItem()
+                controller.navigationItem.leftItemsSupplementBackButton = true
+            }
+        }
+        else if(segue.identifier == "isaacs_dashboard"){
+            self.dismissViewControllerAnimated(false, completion: nil)
         }
     }
     

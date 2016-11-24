@@ -14,7 +14,7 @@ import AVFoundation
 
 import CoreMotion
 
-class DashboardViewController: UIViewController {
+class DashboardViewController: UIViewController, UISplitViewControllerDelegate{
 
    
     // MARK: Properties - Interface
@@ -44,7 +44,6 @@ class DashboardViewController: UIViewController {
         case Gallery
         case Audio
     }
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -117,9 +116,15 @@ class DashboardViewController: UIViewController {
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(orientationStateMonitor), name: "UIDeviceOrientationDidChangeNotification", object: nil)
         
+        motionManager.startAccelerometerUpdates()
+        motionManager.startGyroUpdates()
+        motionManager.startDeviceMotionUpdates()
+        
         // Recorder
         
         initRecorder()
+        
+        
         
     }
     
@@ -152,23 +157,25 @@ class DashboardViewController: UIViewController {
     
     func printMotion() {
         
-        motionManager.startAccelerometerUpdates()
-        motionManager.startGyroUpdates()
-        
         if motionManager.accelerometerAvailable {
             motionManager.accelerometerUpdateInterval = 0.1
             //print("Accelerometer")
-            //print(motionManager.accelerometerData?.acceleration)
+            print(motionManager.accelerometerData?.acceleration)
             //print("Gyroscope")
-            //print(motionManager.gyroData?.rotationRate)
-            retrieveMeasure()
+            print(motionManager.gyroData?.rotationRate)
+            //retrieveMeasure()
+            print(motionManager.deviceMotion?.attitude)
         }
         
-        motionManager.stopDeviceMotionUpdates()
+        //motionManager.stopAccelerometerUpdates()
+        //motionManager.stopGyroUpdates()
+        //motionManager.stopDeviceMotionUpdates()
     }
     
     func orientationStateMonitor(notification: NSNotificationCenter) {
+        print("ORIENTATION")
         print(UIDevice.currentDevice().orientation)
+        print(UIDevice.currentDevice().orientation.isFlat)
     }
     
     // Ambient light
@@ -291,8 +298,25 @@ class DashboardViewController: UIViewController {
             inputController.entryModule = SelectedBarButtonTag.Audio.rawValue
         }
         
+        if (segue.identifier == "showStories") {
+            let inputController: StoriesSplitViewController = segue.destinationViewController as! StoriesSplitViewController
+            inputController.delegate = self;
+        }
 
     }
+    
+    func splitViewController(splitViewController: UISplitViewController, collapseSecondaryViewController secondaryViewController: UIViewController, ontoPrimaryViewController primaryViewController: UIViewController) -> Bool {
+        
+        guard let secondaryAsNavController = secondaryViewController as? UINavigationController else { return false }
+        guard let topAsDetailController = secondaryAsNavController.topViewController as? StoryDetailViewController else { return false }
+        if topAsDetailController.story == nil {
+            // Return true to indicate that we have handled the collapse by doing nothing; the secondary controller will be discarded.
+            return true
+        }
+        return false
+
+    }
+   
     
     
     
