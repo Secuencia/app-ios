@@ -9,6 +9,7 @@
 import UIKit
 import CoreLocation
 import GooglePlaces
+import AVFoundation
 
 class WeatherForecast {
     
@@ -46,11 +47,24 @@ class RadarListViewController: UIViewController, UITableViewDelegate, UITableVie
     
     var places = [GMSPlaceLikelihood]()
     
-    var services = ["Weather", "Places"]
+    var services = ["Context Info", "Weather", "Places"]
     
     var placesClient: GMSPlacesClient?
     
     let placesLimit = 5
+    
+    // Mic as noise sensor
+    
+    var recorder:AVAudioRecorder!
+    
+    let recordSettings = [AVSampleRateKey : NSNumber(float: Float(44100.0)),
+                          AVFormatIDKey : NSNumber(int: Int32(kAudioFormatAppleIMA4)),
+                          AVNumberOfChannelsKey : NSNumber(int: 1),
+                          AVLinearPCMBitDepthKey: NSNumber(int: 16),
+                          AVLinearPCMIsBigEndianKey: false,
+                          AVLinearPCMIsFloatKey: false]
+    
+    var currentNoiseLevel:Float?
     
 
     override func viewDidLoad() {
@@ -104,12 +118,17 @@ class RadarListViewController: UIViewController, UITableViewDelegate, UITableVie
         
         task.resume()
         
+        computeNoiseLevel()
+        
         tableView.reloadData()
         
     }
     
+    
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 0 {
+            return weatherForecasts.count
+        } else if section == 1 {
             return weatherForecasts.count
         } else {
             return places.count
@@ -117,7 +136,7 @@ class RadarListViewController: UIViewController, UITableViewDelegate, UITableVie
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 2
+        return 3
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
@@ -140,6 +159,20 @@ class RadarListViewController: UIViewController, UITableViewDelegate, UITableVie
             
             return cell
 
+        } else if indexPath.section == 1 {
+        
+            let cell = tableView.dequeueReusableCellWithIdentifier("weather_cell") as! ForecastTableViewCell
+            
+            let forecast = weatherForecasts[indexPath.row]
+            
+            cell.temperature.text = String(format: "%.2f ºC", forecast.temperature!) //String(forecast.temperature!)
+            
+            cell.icon.image = UIImage(named: forecast.icon!)
+            
+            cell.summary.text = forecast.summary
+            
+            return cell
+        
         } else {
             
             let cell = tableView.dequeueReusableCellWithIdentifier("place_cell") as! PlacesTableViewCell
@@ -278,6 +311,59 @@ class RadarListViewController: UIViewController, UITableViewDelegate, UITableVie
             }
         })
         
+    }
+    
+
+    
+    override func viewDidDisappear(animated: Bool) {
+        recorder.meteringEnabled = false
+    }
+    
+    func computeNoiseLevel() {
+        
+        do{
+            try recorder = AVAudioRecorder(URL: NSURL(string: NSTemporaryDirectory().stringByAppendingString("tmp.caf"))!, settings: recordSettings)
+        }catch{
+            
+        }
+        recorder.meteringEnabled = true
+        
+        recorder.record()
+        recorder.updateMeters()
+        let decibelsAvg = recorder.averagePowerForChannel(0)
+        let decibelsPeak = recorder.peakPowerForChannel(0)
+        print(decibelsAvg)
+        print(decibelsPeak)
+        currentNoiseLevel = decibelsAvg
+        
+        var toPrint = "Nothing"
+        
+        if currentNoiseLevel < 0 {
+                toPrint = "REALLY LOUD"
+        }
+        
+        if currentNoiseLevel < -15 {
+            toPrint = "KINDOF LOUD"
+        }
+        
+        if currentNoiseLevel < -30 {
+            toPrint = "LOUD"
+        }
+        
+        if currentNoiseLevel < -50 {
+            toPrint = "NORMAL"
+        }
+        
+        if currentNoiseLevel < -70 {
+            toPrint = "KINDOF QUIET"
+        }
+        
+        if currentNoiseLevel < -100 {
+            toPrint = "QUIET"
+        }
+        
+        print(toPrint)
+    
     }
 
     

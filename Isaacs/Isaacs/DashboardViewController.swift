@@ -208,6 +208,7 @@ class DashboardViewController: UIViewController {
         if UIDevice.currentDevice().proximityState {
             print("Device close to user")
             printNumbers()
+            performSegueWithIdentifier("photoSegue", sender: nil)
         } else {
             print("Device NOT close to user")
         }

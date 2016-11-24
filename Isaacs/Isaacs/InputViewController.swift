@@ -96,6 +96,9 @@ class InputViewController: UIViewController, UINavigationControllerDelegate, UII
         self.toolbarBottomConstraintInitialValue = toolbarBottomConstraint.constant
         enableKeyboardHideOnTap()
         
+        
+        print("Entry action")
+        print(entryModule)
         if let entryAction = entryModule {
             manageAction(entryAction)
         }
