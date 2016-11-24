@@ -13,6 +13,7 @@ import EventKitUI
 import AVFoundation
 
 import CoreMotion
+import LocalAuthentication
 
 class DashboardViewController: UIViewController, UISplitViewControllerDelegate{
 
@@ -34,7 +35,7 @@ class DashboardViewController: UIViewController, UISplitViewControllerDelegate{
     @IBOutlet weak var radarButton: UIButton!
     @IBOutlet weak var storiesButton: UIButton!
     
-    
+    let authenticationContext = LAContext()
     
     // MARK: Properties - Interface Utils
     
@@ -124,8 +125,80 @@ class DashboardViewController: UIViewController, UISplitViewControllerDelegate{
         
         initRecorder()
         
+        //LoadSettings
+        registerSettingsBundle()
+        updateDisplayFromDefaults()
+        NSNotificationCenter.defaultCenter().addObserver(self,
+                                                         selector: #selector(DashboardViewController.updateDisplayFromDefaults),
+                                                         name: NSUserDefaultsDidChangeNotification,
+                                                         object: nil)
+        var error:NSError?
+        guard authenticationContext.canEvaluatePolicy(.DeviceOwnerAuthenticationWithBiometrics, error: &error) else {
+            
+            showAlertViewIfNoBiometricSensorHasBeenDetected()
+            return
+            
+        }
         
+        authenticationContext.evaluatePolicy(
+            .DeviceOwnerAuthenticationWithBiometrics,
+            localizedReason: "Only awesome people are allowed",
+            reply: { [unowned self] (success, error) -> Void in
+                
+                if( success ) {
+                    
+                    // Fingerprint recognized
+                    // Go to view controller
+                    print("Logeado!")
+                    
+                }else {
+                    
+                    // Check if there is an error
+                    if let error = error {
+                        print("Error de logeado")
+                        //let message = self.errorMessageForLAErrorCode(error.code)
+                        //self.showAlertViewAfterEvaluatingPolicyWithMessage(message)
+                        
+                    }
+                    
+                }
+                
+            })
         
+    }
+    
+    func showAlertViewIfNoBiometricSensorHasBeenDetected(){
+        
+        showAlertWithTitle("Error", message: "This device does not have a TouchID sensor.")
+        
+    }
+    
+    func showAlertWithTitle( title:String, message:String ) {
+        
+        let alertVC = UIAlertController(title: title, message: message, preferredStyle: .Alert)
+        
+        let okAction = UIAlertAction(title: "Ok", style: .Default, handler: nil)
+        alertVC.addAction(okAction)
+        
+        dispatch_async(dispatch_get_main_queue()) { () -> Void in
+            
+            self.presentViewController(alertVC, animated: true, completion: nil)
+            
+        }
+        
+    }
+    
+    func updateDisplayFromDefaults(){
+        //Get the defaults
+        let defaults = NSUserDefaults.standardUserDefaults()
+        
+        //Set the controls to the default values.
+        contentsButton.enabled = defaults.boolForKey("fingerprint")
+    }
+    
+    func registerSettingsBundle(){
+        let appDefaults = [String:AnyObject]()
+        NSUserDefaults.standardUserDefaults().registerDefaults(appDefaults)
     }
     
     override func viewDidAppear(animated: Bool) {

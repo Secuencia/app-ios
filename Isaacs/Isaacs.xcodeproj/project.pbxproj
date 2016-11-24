@@ -67,6 +67,8 @@
 		B9A87ABA1D6C9C6D00145B93 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B9A87AB91D6C9C6D00145B93 /* Assets.xcassets */; };
 		B9A87ABD1D6C9C6D00145B93 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B9A87ABB1D6C9C6D00145B93 /* LaunchScreen.storyboard */; };
 		B9A87AC81D6C9C6D00145B93 /* IsaacsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A87AC71D6C9C6D00145B93 /* IsaacsTests.swift */; };
+		B9ACB3BE1DE7A8A500087BF5 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = B9ACB3BD1DE7A8A500087BF5 /* Settings.bundle */; };
+		B9ACB3C01DE7B06900087BF5 /* LocalAuthentication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B9ACB3BF1DE7B06900087BF5 /* LocalAuthentication.framework */; };
 		B9AD03911D7EF9B400466000 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B9AD03901D7EF9B400466000 /* CoreData.framework */; };
 		B9AD03941D7EF9F700466000 /* Stories.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B9AD03921D7EF9F700466000 /* Stories.xcdatamodeld */; };
 		B9AD03CD1D7F02F400466000 /* StoryPersistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9AD03CC1D7F02F400466000 /* StoryPersistence.swift */; };
@@ -150,6 +152,8 @@
 		B9A87AC31D6C9C6D00145B93 /* IsaacsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IsaacsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B9A87AC71D6C9C6D00145B93 /* IsaacsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IsaacsTests.swift; sourceTree = "<group>"; };
 		B9A87AC91D6C9C6D00145B93 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B9ACB3BD1DE7A8A500087BF5 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
+		B9ACB3BF1DE7B06900087BF5 /* LocalAuthentication.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LocalAuthentication.framework; path = System/Library/Frameworks/LocalAuthentication.framework; sourceTree = SDKROOT; };
 		B9AD03901D7EF9B400466000 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		B9AD03931D7EF9F700466000 /* Stories.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Stories.xcdatamodel; sourceTree = "<group>"; };
 		B9AD03CC1D7F02F400466000 /* StoryPersistence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryPersistence.swift; sourceTree = "<group>"; };
@@ -164,6 +168,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B9ACB3C01DE7B06900087BF5 /* LocalAuthentication.framework in Frameworks */,
 				3752B4DE1DE6641B0048B39B /* CoreMotion.framework in Frameworks */,
 				B9AD03911D7EF9B400466000 /* CoreData.framework in Frameworks */,
 				50065981EF1239BEF07F85C0 /* Pods_Isaacs.framework in Frameworks */,
@@ -183,6 +188,7 @@
 		133D4DDB6B77B7554CC66661 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B9ACB3BF1DE7B06900087BF5 /* LocalAuthentication.framework */,
 				3752B4DD1DE6641B0048B39B /* CoreMotion.framework */,
 				15C5384E050CB1A50A2C6A65 /* Pods_Isaacs.framework */,
 			);
@@ -328,6 +334,7 @@
 		B9A87AA61D6C9C6C00145B93 = {
 			isa = PBXGroup;
 			children = (
+				B9ACB3BD1DE7A8A500087BF5 /* Settings.bundle */,
 				374B1F491DBD26BC00965D02 /* Podfile */,
 				B9AD03901D7EF9B400466000 /* CoreData.framework */,
 				B9A87AB11D6C9C6C00145B93 /* Isaacs */,
@@ -538,6 +545,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B964D9DC1D7D03A700033B13 /* TextCardView.xib in Resources */,
+				B9ACB3BE1DE7A8A500087BF5 /* Settings.bundle in Resources */,
 				37C0E4B01DC6904E00960E18 /* PlacesTableViewCell.xib in Resources */,
 				37C4A1B11D8D104800C9AECF /* AudioTableViewCell.xib in Resources */,
 				B964D9DE1D7D03B400033B13 /* ContactCardView.xib in Resources */,
