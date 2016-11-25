@@ -136,6 +136,8 @@ class DashboardViewController: UIViewController, UISplitViewControllerDelegate{
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(brightnessStateMonitor), name: "UIScreenBrightnessDidChangeNotification", object: nil)
         
+        checkBrightness()
+        
         // Proximity sensor
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(proximityStateMonitor), name: "UIDeviceProximityStateDidChangeNotification", object: nil)
@@ -162,7 +164,7 @@ class DashboardViewController: UIViewController, UISplitViewControllerDelegate{
                                                          selector: #selector(DashboardViewController.updateDisplayFromDefaults),
                                                          name: NSUserDefaultsDidChangeNotification,
                                                          object: nil)
-        auth = false
+        auth = true
     }
     
     func promptAuthentication(){
@@ -280,6 +282,10 @@ class DashboardViewController: UIViewController, UISplitViewControllerDelegate{
     // Ambient light
     
     func brightnessStateMonitor(notification: NSNotificationCenter) {
+        checkBrightness()
+    }
+    
+    func checkBrightness(){
         let level = UIScreen.mainScreen().brightness
         if level >= 0.50 {
             setUpViewMode(false)

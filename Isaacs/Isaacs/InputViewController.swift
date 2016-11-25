@@ -85,8 +85,6 @@ class InputViewController: UIViewController, UINavigationControllerDelegate, UII
         collectionView.dataSource = self
         
         navigationBar.topItem?.title = "Entry Session"
-        navigationBar.barStyle = UIBarStyle.Black
-        navigationBar.tintColor = UIColor.whiteColor()
         
         tableView.registerNib(UINib(nibName: "PhotoTableViewCell", bundle: nil), forCellReuseIdentifier: "photo_cell")
         tableView.registerNib(UINib(nibName: "TextTableViewCell", bundle: nil), forCellReuseIdentifier: "text_cell")
@@ -103,6 +101,50 @@ class InputViewController: UIViewController, UINavigationControllerDelegate, UII
             manageAction(entryAction)
         }
         
+        // Brightness
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(brightnessStateMonitor), name: "UIScreenBrightnessDidChangeNotification", object: nil)
+        
+        checkBrightness()
+        
+        
+    }
+    
+    // MARK: Nightmode
+    
+    func brightnessStateMonitor(notification: NSNotificationCenter) {
+        checkBrightness()
+    }
+    
+    func checkBrightness(){
+        let level = UIScreen.mainScreen().brightness
+        if level >= 0.50 {
+            setUpViewMode(false)
+        } else {
+            setUpViewMode(true)
+        }
+    }
+    
+    func setUpViewMode(nightMode: Bool){
+        
+        if nightMode {
+            tableView.backgroundColor = UIColor.grayColor()
+            
+            navigationBar.barStyle = UIBarStyle.Black
+            navigationBar.tintColor = UIColor.whiteColor()
+            
+            collectionView.backgroundColor = UIColor.grayColor()
+            
+
+        } else {
+            tableView.backgroundColor = UIColor.clearColor()
+            
+            navigationBar.barStyle = UIBarStyle.Default
+            navigationBar.tintColor = UIColor.blackColor()
+            
+            collectionView.backgroundColor = UIColor.whiteColor()
+            
+        }
         
     }
     

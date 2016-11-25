@@ -17,9 +17,57 @@ class StoryListViewController: UITableViewController {
     weak var actionToEnable : UIAlertAction?
     var parent: StoriesSplitViewController? = nil
     
+    
+    @IBOutlet var storiesTableView: UITableView!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         stories = self.persistence.getAll("title", ascending: true);
+        
+        // Brightness
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(brightnessStateMonitor), name: "UIScreenBrightnessDidChangeNotification", object: nil)
+        
+        checkBrightness()
+    }
+    
+    // MARK: Nightmode
+    
+    func brightnessStateMonitor(notification: NSNotificationCenter) {
+        checkBrightness()
+    }
+    
+    func checkBrightness(){
+        let level = UIScreen.mainScreen().brightness
+        if level >= 0.50 {
+            setUpViewMode(false)
+        } else {
+            setUpViewMode(true)
+        }
+    }
+    
+    func setUpViewMode(nightMode: Bool){
+        
+        if nightMode {
+            storiesTableView.backgroundColor = UIColor.grayColor()
+            
+            navigationController?.navigationBar.barStyle = UIBarStyle.Black
+            navigationController?.navigationBar.tintColor = UIColor.whiteColor()
+
+            
+            
+            
+        } else {
+            storiesTableView.backgroundColor = UIColor.clearColor()
+            
+            navigationController?.navigationBar.barStyle = UIBarStyle.Default
+            navigationController?.navigationBar.tintColor = UIColor.blackColor()
+
+            
+            
+        }
+        
     }
 
     override func didReceiveMemoryWarning() {

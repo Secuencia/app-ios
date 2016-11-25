@@ -42,6 +42,48 @@ class RadarFiltersViewController: UIViewController, UITableViewDelegate, UITable
         
 
         // Do any additional setup after loading the view.
+        
+        // Brightness
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(brightnessStateMonitor), name: "UIScreenBrightnessDidChangeNotification", object: nil)
+        
+        checkBrightness()
+    }
+    
+    // MARK: Nightmode
+    
+    func brightnessStateMonitor(notification: NSNotificationCenter) {
+        checkBrightness()
+    }
+    
+    func checkBrightness(){
+        let level = UIScreen.mainScreen().brightness
+        if level >= 0.50 {
+            setUpViewMode(false)
+        } else {
+            setUpViewMode(true)
+        }
+    }
+    
+    func setUpViewMode(nightMode: Bool){
+        
+        if nightMode {
+            filtersTable.backgroundColor = UIColor.grayColor()
+            
+            navigationController?.navigationBar.barStyle = UIBarStyle.Black
+            navigationController?.navigationBar.tintColor = UIColor.whiteColor()
+            
+            
+        } else {
+            filtersTable.backgroundColor = UIColor.clearColor()
+            
+            navigationController?.navigationBar.barStyle = UIBarStyle.Default
+            navigationController?.navigationBar.tintColor = UIColor.blackColor()
+            
+            
+            
+        }
+        
     }
     
     

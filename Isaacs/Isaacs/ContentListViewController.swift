@@ -41,6 +41,54 @@ class ContentListViewController: UIViewController, UICollectionViewDelegate,UICo
         self.collectionView!.registerNib(UINib(nibName: "TextCardView", bundle: nil), forCellWithReuseIdentifier: "text_card")
         self.collectionView!.registerNib(UINib(nibName: "AudioCardView", bundle: nil), forCellWithReuseIdentifier: "audio_card")
         self.collectionView!.registerNib(UINib(nibName: "ContactCardView", bundle: nil), forCellWithReuseIdentifier: "contact_card")
+        
+        // Brightness
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(brightnessStateMonitor), name: "UIScreenBrightnessDidChangeNotification", object: nil)
+        
+        checkBrightness()
+    }
+    
+    // MARK: Nightmode
+    
+    func brightnessStateMonitor(notification: NSNotificationCenter) {
+        checkBrightness()
+    }
+    
+    func checkBrightness(){
+        let level = UIScreen.mainScreen().brightness
+        if level >= 0.50 {
+            setUpViewMode(false)
+        } else {
+            setUpViewMode(true)
+        }
+    }
+    
+    func setUpViewMode(nightMode: Bool){
+        
+        if nightMode {
+            collectionView.backgroundColor = UIColor.grayColor()
+            
+            navigationController?.navigationBar.barStyle = UIBarStyle.Black
+            navigationController?.navigationBar.tintColor = UIColor.whiteColor()
+            
+            //navigationBar.barStyle = UIBarStyle.Black
+            //navigationBar.tintColor = UIColor.whiteColor()
+            
+            
+            
+        } else {
+            collectionView.backgroundColor = UIColor.clearColor()
+            
+            navigationController?.navigationBar.barStyle = UIBarStyle.Default
+            navigationController?.navigationBar.tintColor = UIColor.blackColor()
+            
+            //navigationBar.barStyle = UIBarStyle.Default
+            //navigationBar.tintColor = UIColor.blackColor()
+            
+            
+        }
+        
     }
     
     override func didReceiveMemoryWarning() {

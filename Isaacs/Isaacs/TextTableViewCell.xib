@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="16A320" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -12,12 +15,14 @@
             <rect key="frame" x="0.0" y="0.0" width="405" height="132"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <frame key="frameInset" width="405" height="131"/>
+                <rect key="frame" x="0.0" y="0.0" width="405" height="131"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oKY-Te-Qll">
+                        <rect key="frame" x="4" y="4" width="397" height="123.5"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="GwU-lU-cyE">
+                                <rect key="frame" x="5" y="5" width="387" height="113.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -26,10 +31,10 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="GwU-lU-cyE" firstAttribute="leading" secondItem="oKY-Te-Qll" secondAttribute="leading" constant="1" id="77f-aw-3vu"/>
-                            <constraint firstAttribute="trailing" secondItem="GwU-lU-cyE" secondAttribute="trailing" constant="1" id="D6u-J9-OJt"/>
-                            <constraint firstAttribute="bottom" secondItem="GwU-lU-cyE" secondAttribute="bottom" constant="1" id="mFh-4H-r0k"/>
-                            <constraint firstItem="GwU-lU-cyE" firstAttribute="top" secondItem="oKY-Te-Qll" secondAttribute="top" constant="1" id="tzZ-uu-Cdo"/>
+                            <constraint firstItem="GwU-lU-cyE" firstAttribute="leading" secondItem="oKY-Te-Qll" secondAttribute="leading" constant="5" id="77f-aw-3vu"/>
+                            <constraint firstAttribute="trailing" secondItem="GwU-lU-cyE" secondAttribute="trailing" constant="5" id="D6u-J9-OJt"/>
+                            <constraint firstAttribute="bottom" secondItem="GwU-lU-cyE" secondAttribute="bottom" constant="5" id="mFh-4H-r0k"/>
+                            <constraint firstItem="GwU-lU-cyE" firstAttribute="top" secondItem="oKY-Te-Qll" secondAttribute="top" constant="5" id="tzZ-uu-Cdo"/>
                         </constraints>
                     </view>
                 </subviews>
