@@ -13,6 +13,8 @@
 		3752B4DE1DE6641B0048B39B /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3752B4DD1DE6641B0048B39B /* CoreMotion.framework */; };
 		3752B4E01DE68F100048B39B /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3752B4DF1DE68F100048B39B /* Theme.swift */; };
 		375F190F1DC3C2EF00BAF39B /* RadarListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 375F190E1DC3C2EF00BAF39B /* RadarListViewController.swift */; };
+		376E3ABC1DE889B600B65023 /* NoiseLevelTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 376E3ABA1DE889B600B65023 /* NoiseLevelTableViewCell.swift */; };
+		376E3ABD1DE889B600B65023 /* NoiseLevelTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 376E3ABB1DE889B600B65023 /* NoiseLevelTableViewCell.xib */; };
 		37895A781D8859FE0094E286 /* ConfigurationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37895A771D8859FE0094E286 /* ConfigurationViewController.swift */; };
 		378E158B1D882CE400F94008 /* InputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 378E158A1D882CE400F94008 /* InputViewController.swift */; };
 		379F91041DC4FE4100B0493D /* RadarFiltersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 379F91031DC4FE4100B0493D /* RadarFiltersViewController.swift */; };
@@ -94,6 +96,8 @@
 		3752B4DD1DE6641B0048B39B /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
 		3752B4DF1DE68F100048B39B /* Theme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		375F190E1DC3C2EF00BAF39B /* RadarListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RadarListViewController.swift; sourceTree = "<group>"; };
+		376E3ABA1DE889B600B65023 /* NoiseLevelTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoiseLevelTableViewCell.swift; sourceTree = "<group>"; };
+		376E3ABB1DE889B600B65023 /* NoiseLevelTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NoiseLevelTableViewCell.xib; sourceTree = "<group>"; };
 		37895A771D8859FE0094E286 /* ConfigurationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigurationViewController.swift; sourceTree = "<group>"; };
 		378E158A1D882CE400F94008 /* InputViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputViewController.swift; sourceTree = "<group>"; };
 		379F91031DC4FE4100B0493D /* RadarFiltersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RadarFiltersViewController.swift; sourceTree = "<group>"; };
@@ -241,6 +245,8 @@
 				37C0E4AB1DC67B2E00960E18 /* ForecastTableViewCell.swift */,
 				37C0E4AD1DC6904D00960E18 /* PlacesTableViewCell.swift */,
 				37C0E4AE1DC6904D00960E18 /* PlacesTableViewCell.xib */,
+				376E3ABA1DE889B600B65023 /* NoiseLevelTableViewCell.swift */,
+				376E3ABB1DE889B600B65023 /* NoiseLevelTableViewCell.xib */,
 			);
 			name = Services;
 			sourceTree = "<group>";
@@ -549,6 +555,7 @@
 				37C0E4B01DC6904E00960E18 /* PlacesTableViewCell.xib in Resources */,
 				37C4A1B11D8D104800C9AECF /* AudioTableViewCell.xib in Resources */,
 				B964D9DE1D7D03B400033B13 /* ContactCardView.xib in Resources */,
+				376E3ABD1DE889B600B65023 /* NoiseLevelTableViewCell.xib in Resources */,
 				B9A24C4D1D8D132C0007F3DD /* TitleCardView.xib in Resources */,
 				B9A87ABD1D6C9C6D00145B93 /* LaunchScreen.storyboard in Resources */,
 				B964D9E01D7D03BE00033B13 /* AudioCardView.xib in Resources */,
@@ -649,6 +656,7 @@
 				B95EC4DB1DE77A770099D3DC /* StoriesSplitViewController.swift in Sources */,
 				B964D9C81D7D01A700033B13 /* TextCaptureViewController.swift in Sources */,
 				374565FC1D8CAD7E00E725D7 /* ModuleCollectionViewCell.swift in Sources */,
+				376E3ABC1DE889B600B65023 /* NoiseLevelTableViewCell.swift in Sources */,
 				B9AD04491D7F715800466000 /* DataPersistence.swift in Sources */,
 				B9A24C441D8CE10C0007F3DD /* ContentListViewController.swift in Sources */,
 				B991C4641D8F9ADD00621CEA /* HeaderTableViewCell.swift in Sources */,

@@ -53,18 +53,7 @@ class RadarListViewController: UIViewController, UITableViewDelegate, UITableVie
     
     let placesLimit = 5
     
-    // Mic as noise sensor
-    
-    var recorder:AVAudioRecorder!
-    
-    let recordSettings = [AVSampleRateKey : NSNumber(float: Float(44100.0)),
-                          AVFormatIDKey : NSNumber(int: Int32(kAudioFormatAppleIMA4)),
-                          AVNumberOfChannelsKey : NSNumber(int: 1),
-                          AVLinearPCMBitDepthKey: NSNumber(int: 16),
-                          AVLinearPCMIsBigEndianKey: false,
-                          AVLinearPCMIsFloatKey: false]
-    
-    var currentNoiseLevel:Float?
+
     
 
     override func viewDidLoad() {
@@ -75,6 +64,7 @@ class RadarListViewController: UIViewController, UITableViewDelegate, UITableVie
         
         tableView.registerNib(UINib(nibName: "ForecastTableViewCell", bundle: nil), forCellReuseIdentifier: "weather_cell")
         tableView.registerNib(UINib(nibName: "PlacesTableViewCell", bundle: nil), forCellReuseIdentifier: "place_cell")
+        tableView.registerNib(UINib(nibName: "NoiseLevelTableViewCell", bundle: nil), forCellReuseIdentifier: "noise_cell")
         
         navigationItem.title = "Radar feed"
         
@@ -117,9 +107,7 @@ class RadarListViewController: UIViewController, UITableViewDelegate, UITableVie
         }
         
         task.resume()
-        
-        computeNoiseLevel()
-        
+                
         tableView.reloadData()
         
         // Brightness
@@ -170,7 +158,7 @@ class RadarListViewController: UIViewController, UITableViewDelegate, UITableVie
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 0 {
-            return weatherForecasts.count
+            return 1
         } else if section == 1 {
             return weatherForecasts.count
         } else {
@@ -190,15 +178,9 @@ class RadarListViewController: UIViewController, UITableViewDelegate, UITableVie
         
         if indexPath.section == 0 {
         
-            let cell = tableView.dequeueReusableCellWithIdentifier("weather_cell") as! ForecastTableViewCell
+            let cell = tableView.dequeueReusableCellWithIdentifier("noise_cell") as! NoiseLevelTableViewCell
             
-            let forecast = weatherForecasts[indexPath.row]
-            
-            cell.temperature.text = String(format: "%.2f ºC", forecast.temperature!) //String(forecast.temperature!)
-            
-            cell.icon.image = UIImage(named: forecast.icon!)
-            
-            cell.summary.text = forecast.summary
+            cell.setNoiseValue()
             
             return cell
 
@@ -358,56 +340,8 @@ class RadarListViewController: UIViewController, UITableViewDelegate, UITableVie
     
 
     
-    override func viewDidDisappear(animated: Bool) {
-        recorder.meteringEnabled = false
-    }
-    
-    func computeNoiseLevel() {
-        
-        do{
-            try recorder = AVAudioRecorder(URL: NSURL(string: NSTemporaryDirectory().stringByAppendingString("tmp.caf"))!, settings: recordSettings)
-        }catch{
-            
-        }
-        recorder.meteringEnabled = true
-        
-        recorder.record()
-        recorder.updateMeters()
-        let decibelsAvg = recorder.averagePowerForChannel(0)
-        let decibelsPeak = recorder.peakPowerForChannel(0)
-        print(decibelsAvg)
-        print(decibelsPeak)
-        currentNoiseLevel = decibelsAvg
-        
-        var toPrint = "Nothing"
-        
-        if currentNoiseLevel < 0 {
-                toPrint = "REALLY LOUD"
-        }
-        
-        if currentNoiseLevel < -15 {
-            toPrint = "KINDOF LOUD"
-        }
-        
-        if currentNoiseLevel < -30 {
-            toPrint = "LOUD"
-        }
-        
-        if currentNoiseLevel < -50 {
-            toPrint = "NORMAL"
-        }
-        
-        if currentNoiseLevel < -70 {
-            toPrint = "KINDOF QUIET"
-        }
-        
-        if currentNoiseLevel < -100 {
-            toPrint = "QUIET"
-        }
-        
-        print(toPrint)
-    
-    }
+
+
 
     
 

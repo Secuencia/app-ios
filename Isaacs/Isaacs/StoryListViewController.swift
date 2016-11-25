@@ -17,9 +17,7 @@ class StoryListViewController: UITableViewController {
     weak var actionToEnable : UIAlertAction?
     var parent: StoriesSplitViewController? = nil
     
-    
-    @IBOutlet var storiesTableView: UITableView!
-    
+        
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,16 +48,13 @@ class StoryListViewController: UITableViewController {
     func setUpViewMode(nightMode: Bool){
         
         if nightMode {
-            storiesTableView.backgroundColor = UIColor.grayColor()
+            tableView.backgroundColor = UIColor.grayColor()
             
             navigationController?.navigationBar.barStyle = UIBarStyle.Black
             navigationController?.navigationBar.tintColor = UIColor.whiteColor()
 
-            
-            
-            
         } else {
-            storiesTableView.backgroundColor = UIColor.clearColor()
+            tableView.backgroundColor = UIColor.clearColor()
             
             navigationController?.navigationBar.barStyle = UIBarStyle.Default
             navigationController?.navigationBar.tintColor = UIColor.blackColor()

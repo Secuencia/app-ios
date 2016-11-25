@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="noise_cell" rowHeight="107" id="KGk-i7-Jjw" customClass="NoiseLevelTableViewCell" customModule="Isaacs" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="474" height="107"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="474" height="106.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dxz-po-V8S">
+                        <rect key="frame" x="4" y="4" width="99" height="99"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="dxz-po-V8S" secondAttribute="height" multiplier="1:1" id="XBz-eU-N65"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Noise level" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uYI-Xm-pnw">
+                        <rect key="frame" x="113" y="13" width="93.5" height="21.5"/>
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hts-Pm-wk2">
+                        <rect key="frame" x="113" y="41.5" width="59" height="29"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8lG-cF-JJR">
+                        <rect key="frame" x="426" y="33.5" width="30" height="39"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                        <state key="normal" title="R"/>
+                        <connections>
+                            <action selector="updateNoiseLevel:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="Z6m-TL-IPo"/>
+                        </connections>
+                    </button>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="hts-Pm-wk2" firstAttribute="top" secondItem="uYI-Xm-pnw" secondAttribute="bottom" constant="7" id="6wo-Hs-BBw"/>
+                    <constraint firstItem="8lG-cF-JJR" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="BLA-re-O2y"/>
+                    <constraint firstItem="dxz-po-V8S" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="4" id="DaL-Tk-AIa"/>
+                    <constraint firstItem="uYI-Xm-pnw" firstAttribute="leading" secondItem="dxz-po-V8S" secondAttribute="trailing" constant="10" id="Lxu-hq-bFV"/>
+                    <constraint firstItem="uYI-Xm-pnw" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="5" id="M4T-A9-VFP"/>
+                    <constraint firstItem="hts-Pm-wk2" firstAttribute="leading" secondItem="dxz-po-V8S" secondAttribute="trailing" constant="10" id="OlZ-jq-wlw"/>
+                    <constraint firstAttribute="bottom" secondItem="dxz-po-V8S" secondAttribute="bottom" constant="4" id="UUH-j4-l9h"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="8lG-cF-JJR" secondAttribute="trailing" constant="10" id="bbJ-jd-Qh4"/>
+                    <constraint firstItem="dxz-po-V8S" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="4" id="wIf-hA-bQM"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="colorIndicatorLevel" destination="dxz-po-V8S" id="9SP-f8-hbU"/>
+                <outlet property="noiseLevelLabel" destination="hts-Pm-wk2" id="pGt-jo-JsS"/>
+            </connections>
+            <point key="canvasLocation" x="62" y="-7.5"/>
+        </tableViewCell>
+    </objects>
+</document>

@@ -91,6 +91,41 @@ class ContentListViewController: UIViewController, UICollectionViewDelegate,UICo
         
     }
     
+    // Quick capture
+    
+    override func motionEnded(motion: UIEventSubtype, withEvent event: UIEvent?) { // This gets the notification automatically
+        if (motion == .MotionShake){
+            print("SHAKE")
+            quickCaptureNewContent()
+        }
+    }
+    
+    func quickCaptureNewContent() {
+        let alert = UIAlertController(title: "Tipo de contenido",
+                                      message: "",
+                                      preferredStyle: .Alert)
+        
+        alert.addAction(UIAlertAction(title: "Text", style: .Default, handler: { (action: UIAlertAction!) in
+            print("Text")
+            
+        }))
+        
+        alert.addAction(UIAlertAction(title: "Photo", style: .Default, handler: { (action: UIAlertAction!) in
+            print("Photo")
+        }))
+        
+        alert.addAction(UIAlertAction(title: "Audio", style: .Default, handler: { (action: UIAlertAction!) in
+            print("Audio")
+        }))
+        
+        
+        presentViewController(alert,
+                              animated: true,
+                              completion: nil)
+    }
+    
+    
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
