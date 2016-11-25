@@ -15,6 +15,7 @@ class StoryListViewController: UITableViewController {
     let persistence : StoryPersistence = StoryPersistence()
     let contentPersistence : ContentPersistence = ContentPersistence()
     weak var actionToEnable : UIAlertAction?
+    var parent: StoriesSplitViewController? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -123,6 +124,11 @@ class StoryListViewController: UITableViewController {
         presentViewController(alert,
                               animated: true,
                               completion: nil)
+    }
+    
+    
+    @IBAction func dismiss(sender: AnyObject) {
+        self.parent?.dismissViewControllerAnimated(false, completion: nil)
     }
     
     func textChanged(sender:UITextField) {

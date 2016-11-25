@@ -24,7 +24,7 @@ class DashboardViewController: UIViewController, UISplitViewControllerDelegate{
     @IBOutlet weak var visualMediaContentButton: UIButton!
     @IBOutlet weak var galleryContentButton: UIButton!
     @IBOutlet weak var audioContentButton: UIButton!
-    
+    @IBOutlet weak var lockButton: UIButton!
     // ---------
     
     
@@ -35,7 +35,37 @@ class DashboardViewController: UIViewController, UISplitViewControllerDelegate{
     @IBOutlet weak var radarButton: UIButton!
     @IBOutlet weak var storiesButton: UIButton!
     
-    let authenticationContext = LAContext()
+    var authenticationContext = LAContext()
+    
+    var auth:Bool = false {
+        didSet {
+            if auth {
+                dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                    self.textContentButton.enabled = true
+                    self.visualMediaContentButton.enabled = true
+                    self.galleryContentButton.enabled = true
+                    self.audioContentButton.enabled = true
+                    self.contentsButton.enabled = true
+                    self.radarButton.enabled = true
+                    self.storiesButton.enabled = true
+                    self.lockButton.setTitle("Bloquear", forState: UIControlState.Normal)
+                })
+                
+            }
+            else{
+                dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                    self.textContentButton.enabled = false
+                    self.visualMediaContentButton.enabled = false
+                    self.galleryContentButton.enabled = false
+                    self.audioContentButton.enabled = false
+                    self.contentsButton.enabled = false
+                    self.radarButton.enabled = false
+                    self.storiesButton.enabled = false
+                    self.lockButton.setTitle("Desbloquear", forState: UIControlState.Normal)
+                })
+            }
+        }
+    }
     
     // MARK: Properties - Interface Utils
     
@@ -132,39 +162,35 @@ class DashboardViewController: UIViewController, UISplitViewControllerDelegate{
                                                          selector: #selector(DashboardViewController.updateDisplayFromDefaults),
                                                          name: NSUserDefaultsDidChangeNotification,
                                                          object: nil)
-        var error:NSError?
-        guard authenticationContext.canEvaluatePolicy(.DeviceOwnerAuthenticationWithBiometrics, error: &error) else {
-            
-            showAlertViewIfNoBiometricSensorHasBeenDetected()
-            return
-            
-        }
-        
+        auth = false
+    }
+    
+    func promptAuthentication(){
         authenticationContext.evaluatePolicy(
             .DeviceOwnerAuthenticationWithBiometrics,
-            localizedReason: "Only awesome people are allowed",
+            localizedReason: "Debes autenticarte para capturar y acceder a tus contenidos",
             reply: { [unowned self] (success, error) -> Void in
-                
                 if( success ) {
-                    
-                    // Fingerprint recognized
-                    // Go to view controller
-                    print("Logeado!")
-                    
-                }else {
+                   self.auth = true
+                }
+                else {
                     
                     // Check if there is an error
                     if let error = error {
-                        print("Error de logeado")
-                        //let message = self.errorMessageForLAErrorCode(error.code)
-                        //self.showAlertViewAfterEvaluatingPolicyWithMessage(message)
-                        
+                        if (error.code == LAError.TouchIDNotAvailable.rawValue){
+                            self.auth = self.promptForPin()
+                        }
+                        else{
+                            self.auth = false
+                        }
                     }
-                    
                 }
-                
             })
-        
+    }
+    
+    func promptForPin() -> Bool{
+        print("Autenticacion por pin")
+        return true
     }
     
     func showAlertViewIfNoBiometricSensorHasBeenDetected(){
@@ -193,7 +219,7 @@ class DashboardViewController: UIViewController, UISplitViewControllerDelegate{
         let defaults = NSUserDefaults.standardUserDefaults()
         
         //Set the controls to the default values.
-        contentsButton.enabled = defaults.boolForKey("fingerprint")
+        //contentsButton.enabled = defaults.boolForKey("fingerprint")
     }
     
     func registerSettingsBundle(){
@@ -336,6 +362,16 @@ class DashboardViewController: UIViewController, UISplitViewControllerDelegate{
     
     }
     
+    @IBAction func lockPressed(sender: AnyObject) {
+        if(self.auth){
+            auth = false
+            authenticationContext.invalidate()
+            authenticationContext = LAContext()
+        }
+        else{
+            promptAuthentication()
+        }
+    }
     
     
     // MARK: Navigation bar setup

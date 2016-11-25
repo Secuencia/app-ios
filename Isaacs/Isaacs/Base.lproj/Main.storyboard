@@ -19,7 +19,7 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="hGA-8A-RZT">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="92" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="hGA-8A-RZT" id="32Z-wM-saC">
                                     <frame key="frameInset" width="375" height="43"/>
@@ -68,15 +68,15 @@
                         </connections>
                     </tableView>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="Mis Historias" id="59x-Mq-enH">
-                        <barButtonItem key="leftBarButtonItem" title="Isaacs" id="fz0-go-z05">
+                    <navigationItem key="navigationItem" title="Mis Historias" id="vQE-e5-R92">
+                        <barButtonItem key="leftBarButtonItem" title="Isaacs" id="Gnn-bN-bKV">
                             <connections>
-                                <segue destination="Xa8-Rw-5Ox" kind="presentation" id="LZM-cj-FhU"/>
+                                <action selector="dismiss:" destination="fBH-eP-dn9" id="Rer-39-KOA"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="wUf-sO-zGV">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="qqq-vJ-YfP">
                             <connections>
-                                <action selector="createStory:" destination="fBH-eP-dn9" id="LYL-wX-INB"/>
+                                <action selector="createStory:" destination="fBH-eP-dn9" id="NMd-9U-1wX"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -237,6 +237,12 @@
                                     <segue destination="XMy-Pc-cN2" kind="show" id="Wv1-zA-0SP"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yc7-2F-3Ev">
+                                <state key="normal" title="Desbloquear"/>
+                                <connections>
+                                    <action selector="lockPressed:" destination="Xa8-Rw-5Ox" eventType="touchUpInside" id="7mr-7L-Avt"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -246,6 +252,7 @@
                             <constraint firstItem="Aao-yj-NI3" firstAttribute="top" secondItem="9zR-27-Vh8" secondAttribute="bottom" constant="20" id="ARq-4t-pMU"/>
                             <constraint firstItem="GH8-CU-OQQ" firstAttribute="leading" secondItem="8VR-HR-Uuh" secondAttribute="leadingMargin" id="GQT-s8-nYm"/>
                             <constraint firstItem="Aao-yj-NI3" firstAttribute="top" secondItem="Qc6-UC-o1Y" secondAttribute="bottom" constant="20" id="I21-bp-WLw"/>
+                            <constraint firstItem="Qc6-UC-o1Y" firstAttribute="top" secondItem="yc7-2F-3Ev" secondAttribute="bottom" constant="40" id="JRa-CA-DR7"/>
                             <constraint firstItem="a8P-Hn-ph7" firstAttribute="centerX" secondItem="8VR-HR-Uuh" secondAttribute="centerX" constant="1" id="Khu-Ir-vD3"/>
                             <constraint firstItem="s92-1G-jEP" firstAttribute="top" secondItem="DPS-Nf-oLM" secondAttribute="bottom" constant="8" id="L8P-ok-hi2"/>
                             <constraint firstItem="s92-1G-jEP" firstAttribute="leading" secondItem="8VR-HR-Uuh" secondAttribute="leadingMargin" id="Mb5-Ta-6yM"/>
@@ -256,6 +263,7 @@
                             <constraint firstItem="RA0-ya-eUh" firstAttribute="top" secondItem="TRC-cG-Tij" secondAttribute="bottom" constant="40" id="fT5-l6-30a"/>
                             <constraint firstItem="RA0-ya-eUh" firstAttribute="centerX" secondItem="8VR-HR-Uuh" secondAttribute="centerX" id="koF-F2-Dgk"/>
                             <constraint firstItem="Aao-yj-NI3" firstAttribute="top" secondItem="GH8-CU-OQQ" secondAttribute="bottom" constant="20" id="vGS-mz-kZH"/>
+                            <constraint firstItem="yc7-2F-3Ev" firstAttribute="centerX" secondItem="8VR-HR-Uuh" secondAttribute="centerX" id="xPl-Ep-Knu"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Title" id="K7O-B4-Nxp"/>
@@ -263,6 +271,7 @@
                         <outlet property="audioContentButton" destination="1hu-cY-Ihm" id="bdh-ph-fYU"/>
                         <outlet property="contentsButton" destination="GH8-CU-OQQ" id="tgw-b7-vkL"/>
                         <outlet property="galleryContentButton" destination="cmE-az-7ri" id="a58-8X-OwU"/>
+                        <outlet property="lockButton" destination="yc7-2F-3Ev" id="Q4w-7s-MhF"/>
                         <outlet property="radarButton" destination="Qc6-UC-o1Y" id="MSz-2T-W3a"/>
                         <outlet property="settingsButton" destination="s92-1G-jEP" id="O2M-Li-l8V"/>
                         <outlet property="storiesButton" destination="9zR-27-Vh8" id="JgW-h8-AEQ"/>
@@ -273,7 +282,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HbV-l9-eu8" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="980" y="-621"/>
+            <point key="canvasLocation" x="980" y="-621.13943028485767"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="ze1-j0-7XG">
@@ -496,7 +505,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="srm-Go-oCV">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="92" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="srm-Go-oCV" id="Muo-2t-IaN">
                                             <frame key="frameInset" width="375" height="43"/>
@@ -807,8 +816,7 @@
         <image name="settingsIcon" width="256" height="256"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="W4u-27-iI6"/>
-        <segue reference="LZM-cj-FhU"/>
         <segue reference="fqB-0G-bcE"/>
+        <segue reference="9gB-Mf-UBC"/>
     </inferredMetricsTieBreakers>
 </document>
