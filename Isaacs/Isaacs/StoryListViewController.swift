@@ -128,7 +128,7 @@ class StoryListViewController: UITableViewController {
     
     
     @IBAction func dismiss(sender: AnyObject) {
-        self.parent?.dismissViewControllerAnimated(false, completion: nil)
+        self.parent?.dismissViewControllerAnimated(true, completion: nil)
     }
     
     func textChanged(sender:UITextField) {

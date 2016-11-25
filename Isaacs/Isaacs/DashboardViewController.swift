@@ -167,7 +167,7 @@ class DashboardViewController: UIViewController, UISplitViewControllerDelegate{
     
     func promptAuthentication(){
         authenticationContext.evaluatePolicy(
-            .DeviceOwnerAuthenticationWithBiometrics,
+            .DeviceOwnerAuthentication,
             localizedReason: "Debes autenticarte para capturar y acceder a tus contenidos",
             reply: { [unowned self] (success, error) -> Void in
                 if( success ) {
