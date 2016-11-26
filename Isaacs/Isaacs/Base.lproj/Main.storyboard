@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="JNC-oV-pyB">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11761" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="JNC-oV-pyB">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -156,7 +155,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Isaacs" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a8P-Hn-ph7">
-                                <rect key="frame" x="68.5" y="117" width="240" height="95.5"/>
+                                <rect key="frame" x="69" y="117" width="240" height="96"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="80"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -173,18 +172,18 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qc6-UC-o1Y">
-                                <rect key="frame" x="167.5" y="607" width="40" height="40"/>
+                                <rect key="frame" x="168" y="607" width="40" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="DfK-gS-AZM"/>
                                     <constraint firstAttribute="width" constant="40" id="qNo-cD-xDw"/>
                                 </constraints>
                                 <state key="normal" backgroundImage="radar"/>
                                 <connections>
-                                    <segue destination="YP7-dd-C6S" kind="show" id="2uZ-bP-9PI"/>
+                                    <segue destination="v3H-80-yql" kind="presentation" id="oJ9-wt-bbE"/>
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="RA0-ya-eUh">
-                                <rect key="frame" x="97.5" y="361.5" width="180" height="40"/>
+                                <rect key="frame" x="98" y="362" width="180" height="40"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IcU-vF-gIw">
                                         <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
@@ -219,7 +218,7 @@
                                 </constraints>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TRC-cG-Tij">
-                                <rect key="frame" x="59" y="288.5" width="257" height="33"/>
+                                <rect key="frame" x="59" y="289" width="257" height="33"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                 <color key="tintColor" red="0.66666666669999997" green="0.66666666669999997" blue="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="   Escribe algo ...">
@@ -252,7 +251,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yc7-2F-3Ev">
-                                <rect key="frame" x="143.5" y="537" width="88" height="30"/>
+                                <rect key="frame" x="144" y="537" width="88" height="30"/>
                                 <state key="normal" title="Desbloquear"/>
                                 <connections>
                                     <action selector="lockPressed:" destination="Xa8-Rw-5Ox" eventType="touchUpInside" id="7mr-7L-Avt"/>
@@ -317,6 +316,35 @@
             </objects>
             <point key="canvasLocation" x="175" y="-957"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="aR2-dY-Bi4">
+            <objects>
+                <navigationController id="qAS-BC-eHX" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="GTL-mN-CmW">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="8q5-bc-ELj" kind="relationship" relationship="rootViewController" id="sos-U7-Z39"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hS3-je-B0o" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2118" y="-1979"/>
+        </scene>
+        <!--Split View Controller-->
+        <scene sceneID="tTa-NM-MaL">
+            <objects>
+                <splitViewController id="v3H-80-yql" sceneMemberID="viewController">
+                    <connections>
+                        <segue destination="qAS-BC-eHX" kind="relationship" relationship="masterViewController" id="gpg-A4-oRq"/>
+                        <segue destination="YP7-dd-C6S" kind="relationship" relationship="detailViewController" id="aTR-Wf-Wzs"/>
+                    </connections>
+                </splitViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NSi-45-MAz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="980" y="-1639"/>
+        </scene>
         <!--Radar Map View Controller-->
         <scene sceneID="Brg-Tn-lHo">
             <objects>
@@ -330,28 +358,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="olg-Dv-GN0">
-                                <rect key="frame" x="277.5" y="617" width="71.5" height="30"/>
+                                <rect key="frame" x="299" y="597" width="50" height="50"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y7G-as-vxz">
-                                        <rect key="frame" x="0.0" y="0.0" width="26" height="30"/>
-                                        <color key="tintColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <state key="normal" backgroundImage="Filters"/>
-                                        <connections>
-                                            <segue destination="MSL-XC-JAo" kind="show" identifier="filters" id="k8q-qr-qgR"/>
-                                        </connections>
-                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eMa-0s-wKt">
-                                        <rect key="frame" x="46" y="0.0" width="25.5" height="30"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                         <state key="normal" backgroundImage="ListView"/>
                                         <connections>
-                                            <segue destination="8q5-bc-ELj" kind="show" identifier="services" id="fYw-t1-fnY"/>
+                                            <segue destination="qAS-BC-eHX" kind="show" id="l0y-Nf-nrs"/>
                                         </connections>
                                     </button>
                                 </subviews>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="9VC-7N-SXM"/>
-                                    <constraint firstAttribute="width" secondItem="olg-Dv-GN0" secondAttribute="height" multiplier="31:13" id="jfS-NE-Uad"/>
-                                </constraints>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -364,7 +380,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lJ5-UC-Qqe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="639" y="-1719"/>
+            <point key="canvasLocation" x="2118" y="-1263"/>
         </scene>
         <!--Radar List View Controller-->
         <scene sceneID="dl6-Wi-rBv">
@@ -386,13 +402,14 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" id="bhD-F6-osM"/>
                     <connections>
                         <outlet property="tableView" destination="vUc-86-hOq" id="hXn-5P-he7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EAa-5z-HVy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1461.5999999999999" y="-1415.4422788605698"/>
+            <point key="canvasLocation" x="3148" y="-1979"/>
         </scene>
         <!--Extras-->
         <scene sceneID="Puj-rE-iW1">
@@ -503,45 +520,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eUV-0e-PWg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2338" y="-1417"/>
-        </scene>
-        <!--Radar Filters View Controller-->
-        <scene sceneID="SEK-jK-2aE">
-            <objects>
-                <viewController id="MSL-XC-JAo" customClass="RadarFiltersViewController" customModule="Isaacs" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="S0C-tK-B5I"/>
-                        <viewControllerLayoutGuide type="bottom" id="rwJ-QR-ayQ"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="aKq-Oi-mrl">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="gbg-tu-y3r">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="676"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="srm-Go-oCV">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="srm-Go-oCV" id="Muo-2t-IaN">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </prototypes>
-                            </tableView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <connections>
-                        <outlet property="filtersTable" destination="gbg-tu-y3r" id="KPJ-Fl-ugo"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="LgV-py-xoQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1470" y="-2079"/>
+            <point key="canvasLocation" x="-788" y="-376"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="OE0-jY-Gjz">
@@ -831,7 +810,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Filters" width="52" height="52"/>
         <image name="ListView" width="50" height="50"/>
         <image name="contentsIcon" width="52" height="52"/>
         <image name="historiesIcon" width="52" height="52"/>
@@ -839,6 +817,7 @@
         <image name="settingsIcon" width="256" height="256"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="l0y-Nf-nrs"/>
         <segue reference="JXm-w9-ETK"/>
         <segue reference="9gB-Mf-UBC"/>
     </inferredMetricsTieBreakers>
