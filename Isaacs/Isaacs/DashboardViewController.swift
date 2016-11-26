@@ -415,7 +415,7 @@ class DashboardViewController: UIViewController, UISplitViewControllerDelegate{
         
         if (segue.identifier == "showStories") {
             let inputController: StoriesSplitViewController = segue.destinationViewController as! StoriesSplitViewController
-            inputController.delegate = self;
+            inputController.delegate = self
         }
 
     }
