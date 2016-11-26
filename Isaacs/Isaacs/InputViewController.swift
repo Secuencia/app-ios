@@ -47,6 +47,8 @@ class InputViewController: UIViewController, UINavigationControllerDelegate, UII
     
     let persistenceContext = ContentPersistence()
     
+    var alreadyLoaded:Bool = false
+    
     
     // MARK: Properties - Logic
 
@@ -58,7 +60,6 @@ class InputViewController: UIViewController, UINavigationControllerDelegate, UII
     }
     
     var contents = [Content]()
-    
     
     
     // MARK: Program entry point
@@ -93,13 +94,7 @@ class InputViewController: UIViewController, UINavigationControllerDelegate, UII
         
         self.toolbarBottomConstraintInitialValue = toolbarBottomConstraint.constant
         enableKeyboardHideOnTap()
-        
-        
-        print("Entry action")
-        print(entryModule)
-        if let entryAction = entryModule {
-            manageAction(entryAction)
-        }
+       
         
         // Brightness
         
@@ -107,6 +102,13 @@ class InputViewController: UIViewController, UINavigationControllerDelegate, UII
         
         checkBrightness()
         
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        if (entryModule != nil && !alreadyLoaded) {
+            manageAction(entryModule!)
+            alreadyLoaded = true
+        }
         
     }
     
