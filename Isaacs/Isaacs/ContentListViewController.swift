@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ContentListViewController: UIViewController, UICollectionViewDelegate,UICollectionViewDelegateFlowLayout, UICollectionViewDataSource{
+class ContentListViewController: UIViewController, UICollectionViewDelegate,UICollectionViewDelegateFlowLayout, UICollectionViewDataSource, UIPopoverPresentationControllerDelegate{
     
     @IBOutlet weak var collectionView: UICollectionView!
     
@@ -186,7 +186,26 @@ class ContentListViewController: UIViewController, UICollectionViewDelegate,UICo
         }
         let vc = UIStoryboard(name:"Main", bundle:nil).instantiateViewControllerWithIdentifier("story_list") as! StorySelectViewController
         vc.content = finalContents[indexPath.row]
-        self.navigationController?.pushViewController(vc, animated:true)
+        let nav = UINavigationController(rootViewController: vc)
+        nav.modalPresentationStyle = UIModalPresentationStyle.Popover
+        let popover = nav.popoverPresentationController
+        vc.preferredContentSize = CGSizeMake(365,400)
+        let cell = self.collectionView.cellForItemAtIndexPath(indexPath)
+        popover!.delegate = self
+        popover!.sourceView = cell
+        popover!.sourceRect = CGRectMake((cell?.bounds.width)!/2,(cell?.bounds.height)!/2,0,0)
+        self.presentViewController(nav, animated: true, completion: nil)
+    }
+    
+    func presentationController(controller: UIPresentationController, viewControllerForAdaptivePresentationStyle style: UIModalPresentationStyle) -> UIViewController? {
+  
+        let currentNavigation = controller.presentedViewController as! UINavigationController
+        let presented = currentNavigation.topViewController as! StorySelectViewController
+        let navigationController = UINavigationController(rootViewController: presented)
+        let dismissButton  = UIBarButtonItem(title: "Done", style: .Done, target: presented, action: #selector(dismiss))
+        presented.navigationItem.rightBarButtonItem = dismissButton;
+        
+        return navigationController;
     }
     
     //Header
