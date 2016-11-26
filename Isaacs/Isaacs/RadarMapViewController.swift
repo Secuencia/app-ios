@@ -30,6 +30,8 @@ class RadarMapViewController: UIViewController, CLLocationManagerDelegate, GMSMa
     
     var lastLocationRetrieved: CLLocation? = nil
     
+    var parent: RadarSplitViewController? = nil
+    
     var criteria = ["general":["all_contents"], /* o podria decir todas las historias */ "stories" : [], /* historias por las que quiera filtrar, debe eliminar contenidos redundantes (recorrer por contenido) */ "modules" : ["twitter"] /* O nada, si hay mas servicios se añaden aca*/]
     
     //let exampleCriteria: [String:[String]] = ["general":[], /* o podria decir todas las historias */ "stories" : ["historia 1", "historia 2"], /* historias por las que quiera filtrar, debe eliminar contenidos redundantes (recorrer por contenido) */ "modules" : ["twitter"] /* O nada, si hay mas servicios se añaden aca*/]
@@ -385,11 +387,13 @@ class RadarMapViewController: UIViewController, CLLocationManagerDelegate, GMSMa
         }
         
         if segue.identifier == "services" {
-            let radarListController = segue.destinationViewController as! RadarListViewController
+            let destinationNavController = segue.destinationViewController as! UINavigationController
+            let radarListController = destinationNavController.topViewController as! RadarListViewController
             
             if let location = lastLocationRetrieved {
                 radarListController.location = location
             }
+            radarListController.parent = self.parent
             
         }
     }

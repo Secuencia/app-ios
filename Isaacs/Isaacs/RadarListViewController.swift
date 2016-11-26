@@ -24,6 +24,7 @@ class WeatherForecast {
     
     var temperature: Double?
     
+    
     init(location: CLLocation, time: Float, summary: String, icon: String, temperature: Double) {
         self.location = location
         self.time = time
@@ -53,8 +54,9 @@ class RadarListViewController: UIViewController, UITableViewDelegate, UITableVie
     
     let placesLimit = 5
     
-
+    var parent: RadarSplitViewController? = nil
     
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -338,6 +340,9 @@ class RadarListViewController: UIViewController, UITableViewDelegate, UITableVie
         
     }
     
+    @IBAction func dismiss(sender: AnyObject) {
+        self.parent?.dismissViewControllerAnimated(true, completion: nil)
+    }
 
     
 

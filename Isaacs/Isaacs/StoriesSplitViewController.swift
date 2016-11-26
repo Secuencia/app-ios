@@ -12,12 +12,14 @@ class StoriesSplitViewController: UISplitViewController{
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        let navigationController = self.viewControllers[self.viewControllers.count-1] as! UINavigationController
         
-        navigationController.topViewController!.navigationItem.leftBarButtonItem = self.displayModeButtonItem()
+        let detailNavigationController = self.viewControllers[self.viewControllers.count-1] as! UINavigationController
+        
+        detailNavigationController.topViewController!.navigationItem.leftBarButtonItem = self.displayModeButtonItem()
         
         let masterNavigationController = self.viewControllers[0] as! UINavigationController
         (masterNavigationController.topViewController as! StoryListViewController).parent = self
+        
         preferredDisplayMode = .AllVisible
         
     }
