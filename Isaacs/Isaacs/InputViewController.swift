@@ -36,6 +36,8 @@ class InputViewController: UIViewController, UINavigationControllerDelegate, UII
     
     var audioTuples = [(Int, String)]() // Editing stream index, name (is the date) 
     
+    var parentController: UIViewController?
+    
     
     // MARK: Properties - State vars
     
@@ -512,6 +514,10 @@ class InputViewController: UIViewController, UINavigationControllerDelegate, UII
         print(contents)
         
         self.dismissViewControllerAnimated(true, completion: nil)
+        
+        if let parent =  parentController as? ContentListViewController {
+            parent.collectionView.reloadData()
+        }
     }
     
     

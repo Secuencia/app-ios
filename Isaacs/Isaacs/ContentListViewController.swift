@@ -107,15 +107,37 @@ class ContentListViewController: UIViewController, UICollectionViewDelegate,UICo
         
         alert.addAction(UIAlertAction(title: "Text", style: .Default, handler: { (action: UIAlertAction!) in
             print("Text")
+            let storyboard = self.storyboard
+            let controller = storyboard!.instantiateViewControllerWithIdentifier( "InputViewController") as! InputViewController
+            controller.entryModule = DashboardViewController.SelectedBarButtonTag.Text.rawValue
+            self.presentViewController(controller, animated: true, completion: nil)
             
         }))
         
         alert.addAction(UIAlertAction(title: "Photo", style: .Default, handler: { (action: UIAlertAction!) in
             print("Photo")
+            let storyboard = self.storyboard
+            let controller = storyboard!.instantiateViewControllerWithIdentifier( "InputViewController") as! InputViewController
+            controller.entryModule = DashboardViewController.SelectedBarButtonTag.Camera.rawValue
+            controller.parentController = self
+            self.presentViewController(controller, animated: true, completion: nil)
         }))
+        
+        alert.addAction(UIAlertAction(title: "Gallery", style: .Default, handler: { (action: UIAlertAction!) in
+            print("Gallery")
+            let storyboard = self.storyboard
+            let controller = storyboard!.instantiateViewControllerWithIdentifier( "InputViewController") as! InputViewController
+            controller.entryModule = DashboardViewController.SelectedBarButtonTag.Gallery.rawValue
+            self.presentViewController(controller, animated: true, completion: nil)
+        }))
+
         
         alert.addAction(UIAlertAction(title: "Audio", style: .Default, handler: { (action: UIAlertAction!) in
             print("Audio")
+            let storyboard = self.storyboard
+            let controller = storyboard!.instantiateViewControllerWithIdentifier( "InputViewController") as! InputViewController
+            controller.entryModule = DashboardViewController.SelectedBarButtonTag.Audio.rawValue
+            self.presentViewController(controller, animated: true, completion: nil)
         }))
         
         
