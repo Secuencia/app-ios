@@ -22,8 +22,8 @@ public class AudioManager: NSObject, AVAudioRecorderDelegate, AVAudioPlayerDeleg
     let isRecorderAudioFile = false
     let recordSettings = [AVSampleRateKey : NSNumber(float: Float(44100.0)),
                           AVFormatIDKey : NSNumber(int: Int32(kAudioFormatMPEG4AAC)),
-                          AVNumberOfChannelsKey : NSNumber(int: 1),
-                          AVEncoderAudioQualityKey : NSNumber(int: Int32(AVAudioQuality.Medium.rawValue))]
+                          AVNumberOfChannelsKey : NSNumber(int: 2),
+                          AVEncoderAudioQualityKey : NSNumber(int: Int32(AVAudioQuality.Max.rawValue))]
     
     
     func directoryURL(title : String) -> NSURL? {
@@ -37,7 +37,7 @@ public class AudioManager: NSObject, AVAudioRecorderDelegate, AVAudioPlayerDeleg
     func record(title : String) {
         let audioSession = AVAudioSession.sharedInstance()
         do {
-            try audioSession.setCategory(AVAudioSessionCategoryPlayAndRecord)
+            try audioSession.setCategory(AVAudioSessionCategoryPlayAndRecord, withOptions: AVAudioSessionCategoryOptions.DefaultToSpeaker)
             try audioRecorder = AVAudioRecorder(URL: self.directoryURL(title)!,settings: recordSettings)
             audioRecorder.prepareToRecord()
             try audioSession.setActive(true)
