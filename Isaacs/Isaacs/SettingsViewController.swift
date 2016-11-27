@@ -20,7 +20,6 @@ class SettingsViewController: UIViewController {
     
     @IBOutlet weak var stealthModeSwitch: UISwitch!
     @IBOutlet weak var lowPowerModeSwitch: UISwitch!
-    @IBOutlet weak var authenticationSwitch: UISwitch!
     @IBOutlet weak var nightModeSwitch: UISwitch!
     
 
@@ -33,8 +32,7 @@ class SettingsViewController: UIViewController {
         stealthModeSwitch.on = defaults.boolForKey(KeysConstants.stealthKey)
         
         lowPowerModeSwitch.on = defaults.boolForKey(KeysConstants.lowPowerKey)
-        
-        authenticationSwitch.on = defaults.boolForKey(KeysConstants.authenticationKey)
+
         
         nightModeSwitch.on = defaults.boolForKey(KeysConstants.nightModeKey)
     
@@ -55,15 +53,10 @@ class SettingsViewController: UIViewController {
             
             defaults.setBool(sender.on, forKey: KeysConstants.lowPowerKey)
         
-        } else if sender.tag == 2 {
-            
-            defaults.setBool(sender.on, forKey: KeysConstants.authenticationKey)
         } else {
             
             defaults.setBool(sender.on, forKey: KeysConstants.nightModeKey)
-            
         }
-        
     }
     
 
