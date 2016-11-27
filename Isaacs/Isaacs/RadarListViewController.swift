@@ -68,8 +68,6 @@ class RadarListViewController: UIViewController, UITableViewDelegate, UITableVie
         tableView.registerNib(UINib(nibName: "PlacesTableViewCell", bundle: nil), forCellReuseIdentifier: "place_cell")
         tableView.registerNib(UINib(nibName: "NoiseLevelTableViewCell", bundle: nil), forCellReuseIdentifier: "noise_cell")
         
-        navigationItem.title = "Radar feed"
-        
         
         GMSPlacesClient.provideAPIKey("AIzaSyAGcvu0TRmu2CbCgpDbBesmF80NE0ZQ67o")
 
@@ -118,6 +116,17 @@ class RadarListViewController: UIViewController, UITableViewDelegate, UITableVie
         
         checkBrightness()
         
+    }
+    
+    override func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
+        if(size.width<size.height){
+            if (!(self.view.traitCollection.horizontalSizeClass == UIUserInterfaceSizeClass.Compact && self.view.traitCollection.verticalSizeClass == UIUserInterfaceSizeClass.Regular)) {
+                let item = UIBarButtonItem(image:.None, style: .Plain, target: self, action: #selector(dismiss))
+                item.title = "Isaacs"
+                self.navigationController?.navigationItem.leftBarButtonItem = nil
+                self.navigationItem.leftBarButtonItem = item
+            }
+        }
     }
     
     

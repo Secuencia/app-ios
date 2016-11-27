@@ -19,7 +19,7 @@ class RadarSplitViewController: UISplitViewController{
         let masterNavigationController = self.viewControllers[0] as! UINavigationController
         
         (masterNavigationController.topViewController as! RadarListViewController).parent = self
-        
+                
         preferredDisplayMode = .AllVisible
     }
     

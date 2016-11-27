@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -361,7 +362,7 @@
             </objects>
             <point key="canvasLocation" x="2377" y="-1337"/>
         </scene>
-        <!--Radar Recommendations-->
+        <!--Radar-->
         <scene sceneID="Brg-Tn-lHo">
             <objects>
                 <viewController id="YP7-dd-C6S" customClass="RadarMapViewController" customModule="Isaacs" customModuleProvider="target" sceneMemberID="viewController">
@@ -373,32 +374,51 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="olg-Dv-GN0">
-                                <rect key="frame" x="299" y="597" width="50" height="50"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eMa-0s-wKt">
-                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                        <state key="normal" backgroundImage="ListView"/>
-                                        <connections>
-                                            <segue destination="qAS-BC-eHX" kind="show" identifier="services" id="l0y-Nf-nrs"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t4V-3R-gjK">
+                                <rect key="frame" x="309" y="597" width="50" height="50"/>
+                                <state key="normal" backgroundImage="ListView"/>
+                                <connections>
+                                    <segue destination="qAS-BC-eHX" kind="show" identifier="services" id="rIb-Xy-bvo"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="olg-Dv-GN0" firstAttribute="trailing" secondItem="mTX-Qp-M5Z" secondAttribute="trailingMargin" constant="-10" id="SEE-1h-zbr"/>
-                            <constraint firstItem="iwA-4I-llF" firstAttribute="top" secondItem="olg-Dv-GN0" secondAttribute="bottom" constant="20" id="uvX-1r-6k1"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="t4V-3R-gjK" secondAttribute="trailing" id="Lef-CP-PyW"/>
+                            <constraint firstItem="iwA-4I-llF" firstAttribute="top" secondItem="t4V-3R-gjK" secondAttribute="bottom" constant="20" id="a41-h7-kOz"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="t4V-3R-gjK"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="a41-h7-kOz"/>
+                                <exclude reference="Lef-CP-PyW"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="t4V-3R-gjK"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="a41-h7-kOz"/>
+                                <include reference="Lef-CP-PyW"/>
+                            </mask>
+                        </variation>
                     </view>
-                    <navigationItem key="navigationItem" title="Radar Recommendations" id="Ktp-9e-zne"/>
+                    <navigationItem key="navigationItem" title="Radar" id="Ktp-9e-zne">
+                        <barButtonItem key="leftBarButtonItem" title="Isaacs" id="9Y3-L0-G3G">
+                            <connections>
+                                <action selector="dismiss:" destination="YP7-dd-C6S" id="jtf-LM-d36"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lJ5-UC-Qqe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3855" y="-1710"/>
+            <point key="canvasLocation" x="3854.1229385307352" y="-1711.2"/>
         </scene>
-        <!--Radar-->
+        <!--Radar Feed-->
         <scene sceneID="dl6-Wi-rBv">
             <objects>
                 <viewController id="8q5-bc-ELj" customClass="RadarListViewController" customModule="Isaacs" customModuleProvider="target" sceneMemberID="viewController">
@@ -410,26 +430,23 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="vUc-86-hOq">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="vUc-86-hOq">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="vUc-86-hOq" firstAttribute="top" secondItem="17M-9q-PeG" secondAttribute="top" id="D4g-bV-ab0"/>
+                            <constraint firstItem="vUc-86-hOq" firstAttribute="leading" secondItem="17M-9q-PeG" secondAttribute="leading" id="Ib4-FW-Ogg"/>
+                            <constraint firstAttribute="trailing" secondItem="vUc-86-hOq" secondAttribute="trailing" id="OfJ-qg-p0b"/>
+                            <constraint firstItem="fmL-JN-0GV" firstAttribute="top" secondItem="vUc-86-hOq" secondAttribute="bottom" id="Tbu-6U-w1e"/>
+                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Radar" id="bhD-F6-osM">
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="dSG-I1-ZXA">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="FYe-Zy-GRe">
-                                <rect key="frame" x="276" y="7" width="83" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Isaacs"/>
-                                <connections>
-                                    <action selector="dismiss:" destination="8q5-bc-ELj" eventType="touchUpInside" id="wqU-Y4-oM4"/>
-                                </connections>
-                            </button>
+                    <navigationItem key="navigationItem" title="Radar Feed" id="bhD-F6-osM">
+                        <barButtonItem key="leftBarButtonItem" title="Isaacs" id="3ft-PZ-Dsv">
                             <connections>
-                                <action selector="dismiss:" destination="8q5-bc-ELj" id="W7E-4V-NVX"/>
+                                <action selector="dismiss:" destination="8q5-bc-ELj" id="knE-jl-F6L"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -439,7 +456,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EAa-5z-HVy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3854" y="-2502"/>
+            <point key="canvasLocation" x="3853.125" y="-2503.125"/>
         </scene>
         <!--Extras-->
         <scene sceneID="Puj-rE-iW1">
@@ -847,8 +864,8 @@
         <image name="settingsIcon" width="256" height="256"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="l0y-Nf-nrs"/>
         <segue reference="lHi-8O-soY"/>
         <segue reference="9gB-Mf-UBC"/>
+        <segue reference="rIb-Xy-bvo"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -64,8 +64,10 @@ class RadarMapViewController: UIViewController, CLLocationManagerDelegate, GMSMa
         
         mapView!.myLocationEnabled = true
         mapView!.delegate = self
+        mapView!.autoresizingMask = [UIViewAutoresizing.FlexibleWidth, UIViewAutoresizing.FlexibleHeight]
         
-        view.insertSubview(mapView!, atIndex: 0)
+        
+        self.view.insertSubview(mapView!, atIndex: 0)
         
         //updateFilter()
         
@@ -73,9 +75,35 @@ class RadarMapViewController: UIViewController, CLLocationManagerDelegate, GMSMa
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(brightnessStateMonitor), name: "UIScreenBrightnessDidChangeNotification", object: nil)
         
+        if (self.view.traitCollection.horizontalSizeClass == UIUserInterfaceSizeClass.Regular) {
+            self.navigationItem.leftBarButtonItem = nil
+        }
+        
         checkBrightness()
         
 
+    }
+    
+    override func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
+        if(size.width>size.height){
+            //IPHONE 7 Plus
+            if (self.view.traitCollection.horizontalSizeClass == UIUserInterfaceSizeClass.Regular) {
+                self.navigationItem.leftBarButtonItem = nil
+                self.navigationController?.navigationItem.hidesBackButton = true
+            }
+            //IPHONE 7
+            if (self.view.traitCollection.horizontalSizeClass == UIUserInterfaceSizeClass.Regular && self.view.traitCollection.verticalSizeClass == UIUserInterfaceSizeClass.Compact) {
+                let item = UIBarButtonItem(title: "Isaacs", style: .Plain, target: self, action: #selector(dismiss))
+                self.navigationItem.leftBarButtonItem = item
+            }
+
+        }
+        else{
+            if (self.view.traitCollection.horizontalSizeClass == UIUserInterfaceSizeClass.Regular && self.view.traitCollection.verticalSizeClass == UIUserInterfaceSizeClass.Compact || self.view.traitCollection.horizontalSizeClass == UIUserInterfaceSizeClass.Compact && self.view.traitCollection.verticalSizeClass == UIUserInterfaceSizeClass.Compact) {
+                let item = UIBarButtonItem(title: "Isaacs", style: .Plain, target: self, action: #selector(dismiss))
+                self.navigationItem.leftBarButtonItem = item
+            }
+        }
     }
     
     // MARK: Nightmode
@@ -380,12 +408,7 @@ class RadarMapViewController: UIViewController, CLLocationManagerDelegate, GMSMa
     }
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "filters" {
-            let viewController = segue.destinationViewController as! RadarFiltersViewController
-            viewController.criteria = criteria
-            viewController.parentController = self
-        }
-        
+               
         if segue.identifier == "services" {
             let destinationNavController = segue.destinationViewController as! UINavigationController
             let radarListController = destinationNavController.topViewController as! RadarListViewController
@@ -393,12 +416,17 @@ class RadarMapViewController: UIViewController, CLLocationManagerDelegate, GMSMa
             if let location = lastLocationRetrieved {
                 radarListController.location = location
             }
-            radarListController.parent = self.parent
+            print(radarListController.navigationItem.title)
+            radarListController.navigationItem.leftBarButtonItem = nil
+            
             
         }
     }
   
-    
+    @IBAction func dismiss(sender: AnyObject) {
+        self.parent?.dismissViewControllerAnimated(true, completion: nil)
+    }
+
     /*override func viewWillAppear(animated: Bool) {
         self.navigationController?.navigationItem.title = "Mapa"
     }*/

@@ -20,7 +20,9 @@ class StoriesSplitViewController: UISplitViewController{
         let masterNavigationController = self.viewControllers[0] as! UINavigationController
         (masterNavigationController.topViewController as! StoryListViewController).parent = self
         
-        preferredDisplayMode = .AllVisible
+
+        
+        preferredDisplayMode = .PrimaryHidden
         
     }
 

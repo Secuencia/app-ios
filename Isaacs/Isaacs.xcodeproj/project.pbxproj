@@ -17,7 +17,6 @@
 		376E3ABD1DE889B600B65023 /* NoiseLevelTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 376E3ABB1DE889B600B65023 /* NoiseLevelTableViewCell.xib */; };
 		37895A781D8859FE0094E286 /* ConfigurationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37895A771D8859FE0094E286 /* ConfigurationViewController.swift */; };
 		378E158B1D882CE400F94008 /* InputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 378E158A1D882CE400F94008 /* InputViewController.swift */; };
-		379F91041DC4FE4100B0493D /* RadarFiltersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 379F91031DC4FE4100B0493D /* RadarFiltersViewController.swift */; };
 		379F910E1DC58DE500B0493D /* CustomInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 379F910D1DC58DE500B0493D /* CustomInfoView.swift */; };
 		379F91101DC58E0500B0493D /* CustomInfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 379F910F1DC58E0500B0493D /* CustomInfoView.xib */; };
 		379F91131DC5AB2F00B0493D /* ImageCustomInfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 379F91121DC5AB2F00B0493D /* ImageCustomInfoView.xib */; };
@@ -56,6 +55,7 @@
 		B964D9E01D7D03BE00033B13 /* AudioCardView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B964D9DF1D7D03BE00033B13 /* AudioCardView.xib */; };
 		B96E24611D8787F800182DA3 /* ContentPersistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96E24601D8787F800182DA3 /* ContentPersistence.swift */; };
 		B991C4641D8F9ADD00621CEA /* HeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B991C4631D8F9ADD00621CEA /* HeaderTableViewCell.swift */; };
+		B995770C1DEA189E00BDF634 /* RadarSplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B995770B1DEA189E00BDF634 /* RadarSplitViewController.swift */; };
 		B9A24C441D8CE10C0007F3DD /* ContentListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A24C431D8CE10C0007F3DD /* ContentListViewController.swift */; };
 		B9A24C4C1D8D132C0007F3DD /* TitleCardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A24C4A1D8D132C0007F3DD /* TitleCardCollectionViewCell.swift */; };
 		B9A24C4D1D8D132C0007F3DD /* TitleCardView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9A24C4B1D8D132C0007F3DD /* TitleCardView.xib */; };
@@ -100,7 +100,6 @@
 		376E3ABB1DE889B600B65023 /* NoiseLevelTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NoiseLevelTableViewCell.xib; sourceTree = "<group>"; };
 		37895A771D8859FE0094E286 /* ConfigurationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigurationViewController.swift; sourceTree = "<group>"; };
 		378E158A1D882CE400F94008 /* InputViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputViewController.swift; sourceTree = "<group>"; };
-		379F91031DC4FE4100B0493D /* RadarFiltersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RadarFiltersViewController.swift; sourceTree = "<group>"; };
 		379F910D1DC58DE500B0493D /* CustomInfoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomInfoView.swift; sourceTree = "<group>"; };
 		379F910F1DC58E0500B0493D /* CustomInfoView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomInfoView.xib; sourceTree = "<group>"; };
 		379F91121DC5AB2F00B0493D /* ImageCustomInfoView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ImageCustomInfoView.xib; sourceTree = "<group>"; };
@@ -139,6 +138,7 @@
 		B964D9DF1D7D03BE00033B13 /* AudioCardView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AudioCardView.xib; sourceTree = "<group>"; };
 		B96E24601D8787F800182DA3 /* ContentPersistence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentPersistence.swift; sourceTree = "<group>"; };
 		B991C4631D8F9ADD00621CEA /* HeaderTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderTableViewCell.swift; sourceTree = "<group>"; };
+		B995770B1DEA189E00BDF634 /* RadarSplitViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RadarSplitViewController.swift; sourceTree = "<group>"; };
 		B9A24C431D8CE10C0007F3DD /* ContentListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentListViewController.swift; sourceTree = "<group>"; };
 		B9A24C4A1D8D132C0007F3DD /* TitleCardCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitleCardCollectionViewCell.swift; sourceTree = "<group>"; };
 		B9A24C4B1D8D132C0007F3DD /* TitleCardView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TitleCardView.xib; sourceTree = "<group>"; };
@@ -300,6 +300,7 @@
 			isa = PBXGroup;
 			children = (
 				B95EC4DA1DE77A770099D3DC /* StoriesSplitViewController.swift */,
+				B995770B1DEA189E00BDF634 /* RadarSplitViewController.swift */,
 				B9A87AB41D6C9C6D00145B93 /* DashboardViewController.swift */,
 				B964D9C51D7D018900033B13 /* PictureCaptureViewController.swift */,
 				B964D9C71D7D01A700033B13 /* TextCaptureViewController.swift */,
@@ -313,7 +314,6 @@
 				B9A24C511D8E050B0007F3DD /* StorySelectViewController.swift */,
 				374B1F4B1DBD28AA00965D02 /* RadarMapViewController.swift */,
 				375F190E1DC3C2EF00BAF39B /* RadarListViewController.swift */,
-				379F91031DC4FE4100B0493D /* RadarFiltersViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -638,6 +638,7 @@
 				37C0E4AF1DC6904D00960E18 /* PlacesTableViewCell.swift in Sources */,
 				374B1F4C1DBD28AA00965D02 /* RadarMapViewController.swift in Sources */,
 				B9A24C521D8E050B0007F3DD /* StorySelectViewController.swift in Sources */,
+				B995770C1DEA189E00BDF634 /* RadarSplitViewController.swift in Sources */,
 				37C4A1A41D8D0A2400C9AECF /* PhotoTableViewCell.swift in Sources */,
 				B964D9D21D7D033E00033B13 /* PictureCardCollectionViewCell.swift in Sources */,
 				379F91171DC5AF5800B0493D /* AudioCustomInfoView.swift in Sources */,
@@ -669,7 +670,6 @@
 				B9A24C4C1D8D132C0007F3DD /* TitleCardCollectionViewCell.swift in Sources */,
 				B964D9D61D7D035D00033B13 /* ContactCardCollectionViewCell.swift in Sources */,
 				B964D9CC1D7D02C900033B13 /* AudioCaptureViewController.swift in Sources */,
-				379F91041DC4FE4100B0493D /* RadarFiltersViewController.swift in Sources */,
 				B9646F6A1D8A4DF3000516D9 /* Story.swift in Sources */,
 				B9A24C561D8E32310007F3DD /* Utils.swift in Sources */,
 				B964D9D41D7D035000033B13 /* TextCardCollectionViewCell.swift in Sources */,
