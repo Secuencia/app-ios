@@ -15,7 +15,6 @@
 		375F190F1DC3C2EF00BAF39B /* RadarListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 375F190E1DC3C2EF00BAF39B /* RadarListViewController.swift */; };
 		376E3ABC1DE889B600B65023 /* NoiseLevelTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 376E3ABA1DE889B600B65023 /* NoiseLevelTableViewCell.swift */; };
 		376E3ABD1DE889B600B65023 /* NoiseLevelTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 376E3ABB1DE889B600B65023 /* NoiseLevelTableViewCell.xib */; };
-		37895A781D8859FE0094E286 /* ConfigurationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37895A771D8859FE0094E286 /* ConfigurationViewController.swift */; };
 		378E158B1D882CE400F94008 /* InputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 378E158A1D882CE400F94008 /* InputViewController.swift */; };
 		3791F1D71DEAABF90082573B /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3791F1D61DEAABF90082573B /* SettingsViewController.swift */; };
 		379F910E1DC58DE500B0493D /* CustomInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 379F910D1DC58DE500B0493D /* CustomInfoView.swift */; };
@@ -98,7 +97,6 @@
 		375F190E1DC3C2EF00BAF39B /* RadarListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RadarListViewController.swift; sourceTree = "<group>"; };
 		376E3ABA1DE889B600B65023 /* NoiseLevelTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoiseLevelTableViewCell.swift; sourceTree = "<group>"; };
 		376E3ABB1DE889B600B65023 /* NoiseLevelTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NoiseLevelTableViewCell.xib; sourceTree = "<group>"; };
-		37895A771D8859FE0094E286 /* ConfigurationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigurationViewController.swift; sourceTree = "<group>"; };
 		378E158A1D882CE400F94008 /* InputViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputViewController.swift; sourceTree = "<group>"; };
 		3791F1D61DEAABF90082573B /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		379F910D1DC58DE500B0493D /* CustomInfoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomInfoView.swift; sourceTree = "<group>"; };
@@ -304,7 +302,6 @@
 				B9A1A35D1DEB356D003C0289 /* Contents */,
 				B9A1A35B1DEB354C003C0289 /* Radar */,
 				B9A87AB41D6C9C6D00145B93 /* DashboardViewController.swift */,
-				37895A771D8859FE0094E286 /* ConfigurationViewController.swift */,
 				3791F1D61DEAABF90082573B /* SettingsViewController.swift */,
 			);
 			name = Controllers;
@@ -698,7 +695,6 @@
 				B9A24C501D8D2C2B0007F3DD /* JsonConverter.swift in Sources */,
 				B9AD03CD1D7F02F400466000 /* StoryPersistence.swift in Sources */,
 				3752B4E01DE68F100048B39B /* Theme.swift in Sources */,
-				37895A781D8859FE0094E286 /* ConfigurationViewController.swift in Sources */,
 				B9A24C4C1D8D132C0007F3DD /* TitleCardCollectionViewCell.swift in Sources */,
 				B964D9D61D7D035D00033B13 /* ContactCardCollectionViewCell.swift in Sources */,
 				B964D9CC1D7D02C900033B13 /* AudioCaptureViewController.swift in Sources */,
