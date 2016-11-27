@@ -93,8 +93,13 @@ class DashboardViewController: UIViewController, UISplitViewControllerDelegate{
         
         
         // Visual Media button styling
+        var radius = 15
+        if (self.view.traitCollection.horizontalSizeClass == UIUserInterfaceSizeClass.Regular && self.view.traitCollection.verticalSizeClass == UIUserInterfaceSizeClass.Regular) {
+            radius = 25
+        }
         visualMediaContentButton.backgroundColor = UIColor.cyanColor()
-        visualMediaContentButton.layer.cornerRadius = 20
+        print(visualMediaContentButton.bounds.height)
+        visualMediaContentButton.layer.cornerRadius = CGFloat(radius)
         visualMediaContentButton.layer.borderWidth = 0
         visualMediaContentButton.layer.borderColor = UIColor.clearColor().CGColor
         visualMediaContentButton.setImage(UIImage(named: "Camera"), forState: .Normal)
@@ -103,7 +108,7 @@ class DashboardViewController: UIViewController, UISplitViewControllerDelegate{
         
         // Gallery Media button styling
         galleryContentButton.backgroundColor = UIColor.magentaColor()
-        galleryContentButton.layer.cornerRadius = 20
+        galleryContentButton.layer.cornerRadius = CGFloat(radius)
         galleryContentButton.layer.borderWidth = 0
         galleryContentButton.layer.borderColor = UIColor.clearColor().CGColor
         galleryContentButton.setImage(UIImage(named: "Gallery"), forState: .Normal)
@@ -113,7 +118,7 @@ class DashboardViewController: UIViewController, UISplitViewControllerDelegate{
         
         // Audio button styling
         audioContentButton.backgroundColor = UIColor.orangeColor()
-        audioContentButton.layer.cornerRadius = 20
+        audioContentButton.layer.cornerRadius = CGFloat(radius)
         audioContentButton.layer.borderWidth = 0
         audioContentButton.layer.borderColor = UIColor.clearColor().CGColor
         audioContentButton.setImage(UIImage(named: "Record"), forState: .Normal)
