@@ -49,6 +49,11 @@ class ContentListViewController: UIViewController, UICollectionViewDelegate,UICo
         checkBrightness()
     }
     
+    override func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
+        self.collectionView.reloadData()
+    }
+
+    
     // MARK: Nightmode
     
     func brightnessStateMonitor(notification: NSNotificationCenter) {
@@ -162,7 +167,7 @@ class ContentListViewController: UIViewController, UICollectionViewDelegate,UICo
     
     //Espacio entre celdas de coleccion
     func collectionView(collectionView: UICollectionView,layout collectionViewLayout: UICollectionViewLayout,minimumInteritemSpacingForSectionAtIndex section: Int) -> CGFloat{
-        return CGFloat(2.5)
+        return CGFloat(1.5)
     }
     
     //Numero de secciones en Coleccion
@@ -332,7 +337,16 @@ class ContentListViewController: UIViewController, UICollectionViewDelegate,UICo
             default: finalContents = contents
         }
         let type : String = (finalContents[indexPath.row].type)!
-        return CGSizeMake(collectionView.bounds.width * self.sizes[type]!.0, 100 * self.sizes[type]!.1)
+        if(type == Content.types.Audio.rawValue){
+            return CGSizeMake(collectionView.bounds.width, 50)
+        }
+        else{
+            let numColumns = CGFloat(3) //The total number of columns you want
+            let width = collectionView.bounds.width/numColumns
+            let height = CGFloat(collectionView.bounds.width/3) //whatever height you want
+            return CGSizeMake(width - 10, height);
+        }
+        
     }
     
     //Tamaño de seccion

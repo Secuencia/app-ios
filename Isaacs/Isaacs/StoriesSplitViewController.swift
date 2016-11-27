@@ -22,7 +22,7 @@ class StoriesSplitViewController: UISplitViewController{
         
 
         
-        preferredDisplayMode = .PrimaryHidden
+        preferredDisplayMode = .AllVisible
         
     }
 
