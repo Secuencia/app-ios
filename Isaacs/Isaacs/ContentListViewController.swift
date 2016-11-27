@@ -157,6 +157,10 @@ class ContentListViewController: UIViewController, UICollectionViewDelegate,UICo
             self.presentViewController(controller, animated: true, completion: nil)
         }))
         
+        alert.addAction(UIAlertAction(title: "Cancelar", style: .Cancel, handler: { (action: UIAlertAction!) in
+        }))
+      
+        
         
         presentViewController(alert,
                               animated: true,

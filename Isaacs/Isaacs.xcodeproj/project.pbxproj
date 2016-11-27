@@ -299,21 +299,12 @@
 		B964D9C01D7CFF0E00033B13 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				B95EC4DA1DE77A770099D3DC /* StoriesSplitViewController.swift */,
-				B995770B1DEA189E00BDF634 /* RadarSplitViewController.swift */,
+				B9A1A35C1DEB355B003C0289 /* Input */,
+				B9A1A35A1DEB353B003C0289 /* Stories */,
+				B9A1A35D1DEB356D003C0289 /* Contents */,
+				B9A1A35B1DEB354C003C0289 /* Radar */,
 				B9A87AB41D6C9C6D00145B93 /* DashboardViewController.swift */,
-				B964D9C51D7D018900033B13 /* PictureCaptureViewController.swift */,
-				B964D9C71D7D01A700033B13 /* TextCaptureViewController.swift */,
-				B964D9C91D7D01C100033B13 /* ContactCaptureViewController.swift */,
-				B964D9CB1D7D02C900033B13 /* AudioCaptureViewController.swift */,
-				B964D9CD1D7D02ED00033B13 /* StoryListViewController.swift */,
-				B964D9CF1D7D030800033B13 /* StoryDetailViewController.swift */,
-				378E158A1D882CE400F94008 /* InputViewController.swift */,
 				37895A771D8859FE0094E286 /* ConfigurationViewController.swift */,
-				B9A24C431D8CE10C0007F3DD /* ContentListViewController.swift */,
-				B9A24C511D8E050B0007F3DD /* StorySelectViewController.swift */,
-				374B1F4B1DBD28AA00965D02 /* RadarMapViewController.swift */,
-				375F190E1DC3C2EF00BAF39B /* RadarListViewController.swift */,
 				3791F1D61DEAABF90082573B /* SettingsViewController.swift */,
 			);
 			name = Controllers;
@@ -327,6 +318,47 @@
 				374565F81D8CACD800E725D7 /* Presentation */,
 			);
 			name = Cards;
+			sourceTree = "<group>";
+		};
+		B9A1A35A1DEB353B003C0289 /* Stories */ = {
+			isa = PBXGroup;
+			children = (
+				B95EC4DA1DE77A770099D3DC /* StoriesSplitViewController.swift */,
+				B964D9CD1D7D02ED00033B13 /* StoryListViewController.swift */,
+				B964D9CF1D7D030800033B13 /* StoryDetailViewController.swift */,
+			);
+			name = Stories;
+			sourceTree = "<group>";
+		};
+		B9A1A35B1DEB354C003C0289 /* Radar */ = {
+			isa = PBXGroup;
+			children = (
+				B995770B1DEA189E00BDF634 /* RadarSplitViewController.swift */,
+				374B1F4B1DBD28AA00965D02 /* RadarMapViewController.swift */,
+				375F190E1DC3C2EF00BAF39B /* RadarListViewController.swift */,
+			);
+			name = Radar;
+			sourceTree = "<group>";
+		};
+		B9A1A35C1DEB355B003C0289 /* Input */ = {
+			isa = PBXGroup;
+			children = (
+				B964D9C51D7D018900033B13 /* PictureCaptureViewController.swift */,
+				B964D9C71D7D01A700033B13 /* TextCaptureViewController.swift */,
+				B964D9C91D7D01C100033B13 /* ContactCaptureViewController.swift */,
+				B964D9CB1D7D02C900033B13 /* AudioCaptureViewController.swift */,
+				378E158A1D882CE400F94008 /* InputViewController.swift */,
+			);
+			name = Input;
+			sourceTree = "<group>";
+		};
+		B9A1A35D1DEB356D003C0289 /* Contents */ = {
+			isa = PBXGroup;
+			children = (
+				B9A24C431D8CE10C0007F3DD /* ContentListViewController.swift */,
+				B9A24C511D8E050B0007F3DD /* StorySelectViewController.swift */,
+			);
+			name = Contents;
 			sourceTree = "<group>";
 		};
 		B9A24C4E1D8D13440007F3DD /* TitleCard */ = {

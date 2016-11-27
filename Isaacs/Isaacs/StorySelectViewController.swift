@@ -240,6 +240,8 @@ class StorySelectViewController: UIViewController, UITableViewDataSource, UITabl
             self.presentViewController(controller, animated: true, completion: nil)
         }))
         
+        alert.addAction(UIAlertAction(title: "Cancelar", style: .Cancel, handler: { (action: UIAlertAction!) in
+        }))
         
         presentViewController(alert,
                               animated: true,
