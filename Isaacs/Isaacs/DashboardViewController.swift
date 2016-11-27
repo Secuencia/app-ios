@@ -41,27 +41,69 @@ class DashboardViewController: UIViewController, UISplitViewControllerDelegate{
         didSet {
             if auth {
                 dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                    let alpha = CGFloat(1)
+                    
+                    self.titleLabel.alpha = 1
+                    
                     self.textContentButton.enabled = true
+                    self.textContentButton.alpha = alpha
+                    
                     self.visualMediaContentButton.enabled = true
+                    self.visualMediaContentButton.alpha = alpha
+                    
                     self.galleryContentButton.enabled = true
+                    self.galleryContentButton.alpha = alpha
+                    
                     self.audioContentButton.enabled = true
+                    self.audioContentButton.alpha = alpha
+                    
                     self.contentsButton.enabled = true
+                    self.contentsButton.alpha = alpha
+                    
                     self.radarButton.enabled = true
+                    self.radarButton.alpha = alpha
+                    
                     self.storiesButton.enabled = true
-                    self.lockButton.setTitle("Bloquear", forState: UIControlState.Normal)
+                    self.storiesButton.alpha = alpha
+                    
+                    self.settingsButton.enabled = true
+                    self.settingsButton.alpha = alpha
+                    
+                    self.lockButton.setBackgroundImage(UIImage(named: "unlocked-normal"), forState: .Normal)
                 })
                 
             }
             else{
                 dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                    let alpha = CGFloat(0.2)
+                    
+                    self.titleLabel.alpha = alpha
+                    
                     self.textContentButton.enabled = false
+                    self.textContentButton.alpha = alpha
+                    
                     self.visualMediaContentButton.enabled = false
+                    self.visualMediaContentButton.alpha = alpha
+                    
                     self.galleryContentButton.enabled = false
+                    self.galleryContentButton.alpha = alpha
+                    
                     self.audioContentButton.enabled = false
+                    self.audioContentButton.alpha = alpha
+                    
                     self.contentsButton.enabled = false
+                    self.contentsButton.alpha = alpha
+                    
                     self.radarButton.enabled = false
+                    self.radarButton.alpha = alpha
+                    
                     self.storiesButton.enabled = false
-                    self.lockButton.setTitle("Desbloquear", forState: UIControlState.Normal)
+                    self.storiesButton.alpha = alpha
+                    
+                    self.settingsButton.enabled = false
+                    self.settingsButton.alpha = alpha
+                    
+                    self.lockButton.setBackgroundImage(UIImage(named: "locked-normal"), forState: .Normal)
                 })
             }
         }
@@ -93,7 +135,7 @@ class DashboardViewController: UIViewController, UISplitViewControllerDelegate{
         
         
         // Visual Media button styling
-        var radius = 15
+        var radius = 20
         if (self.view.traitCollection.horizontalSizeClass == UIUserInterfaceSizeClass.Regular && self.view.traitCollection.verticalSizeClass == UIUserInterfaceSizeClass.Regular) {
             radius = 25
         }
@@ -136,27 +178,7 @@ class DashboardViewController: UIViewController, UISplitViewControllerDelegate{
         
         becomeFirstResponder() // Necesary to receive notifications of events
         
-        // Brightness
         
-        
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(brightnessStateMonitor), name: "UIScreenBrightnessDidChangeNotification", object: nil)
-        
-        checkBrightness()
-        
-        // Proximity sensor
-        
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(proximityStateMonitor), name: "UIDeviceProximityStateDidChangeNotification", object: nil)
-        
-        
-        // Orientation
-        
-        UIDevice.currentDevice().beginGeneratingDeviceOrientationNotifications()
-        
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(orientationStateMonitor), name: "UIDeviceOrientationDidChangeNotification", object: nil)
-        
-        motionManager.startAccelerometerUpdates()
-        motionManager.startGyroUpdates()
-        motionManager.startDeviceMotionUpdates()
         
         // Recorder
         
@@ -169,7 +191,7 @@ class DashboardViewController: UIViewController, UISplitViewControllerDelegate{
                                                          selector: #selector(DashboardViewController.updateDisplayFromDefaults),
                                                          name: NSUserDefaultsDidChangeNotification,
                                                          object: nil)
-        auth = true
+        auth = false
     }
     
     func promptAuthentication(){
@@ -236,13 +258,13 @@ class DashboardViewController: UIViewController, UISplitViewControllerDelegate{
     
     override func viewDidAppear(animated: Bool) {
         
-        UIDevice.currentDevice().proximityMonitoringEnabled = true
+        if NSUserDefaults.standardUserDefaults().boolForKey(KeysConstants.stealthKey) {UIDevice.currentDevice().proximityMonitoringEnabled = true}
         
     }
     
     override func viewDidDisappear(animated: Bool) {
         
-        UIDevice.currentDevice().proximityMonitoringEnabled = false
+        if NSUserDefaults.standardUserDefaults().boolForKey(KeysConstants.stealthKey) {UIDevice.currentDevice().proximityMonitoringEnabled = false}
         
     }
     
@@ -252,37 +274,55 @@ class DashboardViewController: UIViewController, UISplitViewControllerDelegate{
     
     // Motion
     
-    let  motionManager = CMMotionManager()
+    var motionManager: CMMotionManager? = CMMotionManager()
     
-    override func motionEnded(motion: UIEventSubtype, withEvent event: UIEvent?) { // This gets the notification automatically
-        if (motion == .MotionShake){
-            print("SHAKE")
-            printMotion()
-        }
-    }
-    
-    func printMotion() {
+    func setUpMotion() {
         
-        if motionManager.accelerometerAvailable {
-            motionManager.accelerometerUpdateInterval = 0.1
-            //print("Accelerometer")
-            print(motionManager.accelerometerData?.acceleration)
-            //print("Gyroscope")
-            print(motionManager.gyroData?.rotationRate)
-            //retrieveMeasure()
-            print(motionManager.deviceMotion?.attitude)
-        }
+        motionManager!.deviceMotionUpdateInterval = 1 / 10
         
-        //motionManager.stopAccelerometerUpdates()
-        //motionManager.stopGyroUpdates()
-        //motionManager.stopDeviceMotionUpdates()
+        motionManager?.startDeviceMotionUpdatesToQueue(NSOperationQueue.currentQueue()!, withHandler: { (data, error) in
+            if let attitude = data?.attitude {
+                
+                let pitch = NSString(format:"%.2f",(attitude.pitch)) as String
+                let roll = NSString(format:"%.2f",(attitude.roll)) as String
+                let yaw = NSString(format:"%.2f",(attitude.yaw)) as String
+                
+                if (attitude.pitch) < 0 {
+                    self.addView()
+                } else {
+                    self.deleteView()
+                }
+                
+            }
+        })
+        
     }
     
-    func orientationStateMonitor(notification: NSNotificationCenter) {
-        print("ORIENTATION")
-        print(UIDevice.currentDevice().orientation)
-        print(UIDevice.currentDevice().orientation.isFlat)
+    func finishMotion() {
+        
+        motionManager!.stopDeviceMotionUpdates()
+        
+        motionManager = nil
+    
     }
+    
+    func addView() {
+        
+        let myView = UIView(frame: CGRect(x: 0, y: 0, width: UIScreen.mainScreen().bounds.width, height: UIScreen.mainScreen().bounds.height))
+        myView.backgroundColor = UIColor.blackColor()
+        myView.tag = 100
+        self.view.addSubview(myView)
+    }
+    
+    func deleteView() {
+        
+        if let myView = self.view.viewWithTag(100) {
+            myView.removeFromSuperview()
+        }
+        
+    }
+
+    
     
     // Ambient light
     
@@ -304,19 +344,27 @@ class DashboardViewController: UIViewController, UISplitViewControllerDelegate{
         if nightMode {
             titleLabel.textColor = UIColor.lightGrayColor()
             self.view.backgroundColor = UIColor.darkGrayColor()
-            contentsButton.backgroundColor = UIColor.lightGrayColor()
-            radarButton.backgroundColor = UIColor.lightGrayColor()
-            storiesButton.backgroundColor = UIColor.lightGrayColor()
-            settingsButton.backgroundColor = UIColor.lightGrayColor()
+            
+            contentsButton.setBackgroundImage(UIImage(named: "contents-nm"), forState: .Normal)
+            radarButton.setBackgroundImage(UIImage(named: "radar-nm"), forState: .Normal)
+            storiesButton.setBackgroundImage(UIImage(named: "stories-nm"), forState: .Normal)
+            settingsButton.setBackgroundImage(UIImage(named: "settings-nm"), forState: .Normal)
         } else {
-            titleLabel.textColor = UIColor.blackColor()
-            self.view.backgroundColor = UIColor.whiteColor()
-            contentsButton.backgroundColor = UIColor.clearColor()
-            radarButton.backgroundColor = UIColor.clearColor()
-            storiesButton.backgroundColor = UIColor.clearColor()
-            settingsButton.backgroundColor = UIColor.clearColor()
+            setDayTheme()
         }
         
+    }
+    
+    func setDayTheme() {
+        
+        titleLabel.textColor = UIColor.blackColor()
+        self.view.backgroundColor = UIColor.whiteColor()
+        
+        contentsButton.setBackgroundImage(UIImage(named: "contents-normal"), forState: .Normal)
+        radarButton.setBackgroundImage(UIImage(named: "radar-normal"), forState: .Normal)
+        storiesButton.setBackgroundImage(UIImage(named: "stories-normal"), forState: .Normal)
+        settingsButton.setBackgroundImage(UIImage(named: "settings-nm"), forState: .Normal)
+    
     }
     
     // Proximity sensor
@@ -324,18 +372,12 @@ class DashboardViewController: UIViewController, UISplitViewControllerDelegate{
     func proximityStateMonitor(notification: NSNotificationCenter){
         if UIDevice.currentDevice().proximityState {
             print("Device close to user")
-            printNumbers()
-            performSegueWithIdentifier("photoSegue", sender: nil)
+            //performSegueWithIdentifier("photoSegue", sender: nil)
         } else {
             print("Device NOT close to user")
         }
     }
    
-    func printNumbers() {
-        for i in 1...5 {
-            print(i)
-        }
-    }
     
     // Mic as noise sensor
     
@@ -387,12 +429,40 @@ class DashboardViewController: UIViewController, UISplitViewControllerDelegate{
     
     // MARK: Navigation bar setup
     
+    
+    
     override func viewWillAppear(animated: Bool) {
         self.navigationController?.navigationBarHidden = true
+        
+        // Brightness
+        
+        
+        if NSUserDefaults.standardUserDefaults().boolForKey(KeysConstants.nightModeKey){
+            
+            NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(brightnessStateMonitor), name: "UIScreenBrightnessDidChangeNotification", object: nil)
+            checkBrightness()
+        } else {
+            
+            setDayTheme()
+        }
+        
+        
+        // Proximity sensor
+        
+        if NSUserDefaults.standardUserDefaults().boolForKey(KeysConstants.stealthKey) {NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(proximityStateMonitor), name: "UIDeviceProximityStateDidChangeNotification", object: nil)}
+        
+        // Gyroscope
+        
+        if NSUserDefaults.standardUserDefaults().boolForKey(KeysConstants.lowPowerKey) {setUpMotion()}
+        
     }
+    
     
     override func viewWillDisappear(animated: Bool) {
         self.navigationController?.navigationBarHidden = false
+        
+        if NSUserDefaults.standardUserDefaults().boolForKey(KeysConstants.lowPowerKey) {finishMotion()}
+        
     }
     
 
@@ -445,6 +515,8 @@ class DashboardViewController: UIViewController, UISplitViewControllerDelegate{
     // Ambient light
     
     // Accelerometer
+    
+    
 
     
 }

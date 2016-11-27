@@ -110,11 +110,7 @@ class RadarListViewController: UIViewController, UITableViewDelegate, UITableVie
                 
         tableView.reloadData()
         
-        // Brightness
-        
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(brightnessStateMonitor), name: "UIScreenBrightnessDidChangeNotification", object: nil)
-        
-        checkBrightness()
+
         
     }
     
@@ -126,6 +122,20 @@ class RadarListViewController: UIViewController, UITableViewDelegate, UITableVie
                 self.navigationController?.navigationItem.leftBarButtonItem = nil
                 self.navigationItem.leftBarButtonItem = item
             }
+        }
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        
+        // Brightness
+        
+        if NSUserDefaults.standardUserDefaults().boolForKey(KeysConstants.nightModeKey){
+            
+            NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(brightnessStateMonitor), name: "UIScreenBrightnessDidChangeNotification", object: nil)
+            checkBrightness()
+        } else {
+            
+            setDayTheme()
         }
     }
     
@@ -148,22 +158,21 @@ class RadarListViewController: UIViewController, UITableViewDelegate, UITableVie
     func setUpViewMode(nightMode: Bool){
         
         if nightMode {
-            tableView.backgroundColor = UIColor.grayColor()
             
             navigationController?.navigationBar.barStyle = UIBarStyle.Black
             navigationController?.navigationBar.tintColor = UIColor.whiteColor()
             
             
         } else {
-            tableView.backgroundColor = UIColor.clearColor()
-            
-            navigationController?.navigationBar.barStyle = UIBarStyle.Default
-            navigationController?.navigationBar.tintColor = UIColor.blackColor()
-            
-            
-            
+            setDayTheme()
+  
         }
         
+    }
+    
+    func setDayTheme() {
+        navigationController?.navigationBar.barStyle = UIBarStyle.Default
+        navigationController?.navigationBar.tintColor = UIColor.blackColor()
     }
     
     
@@ -354,6 +363,60 @@ class RadarListViewController: UIViewController, UITableViewDelegate, UITableVie
     }
 
     
+    // MARK: Quick capture
+    
+    override func motionEnded(motion: UIEventSubtype, withEvent event: UIEvent?) { // This gets the notification automatically
+        if (motion == .MotionShake){
+            print("SHAKE")
+            quickCaptureNewContent()
+        }
+    }
+    
+    func quickCaptureNewContent() {
+        let alert = UIAlertController(title: "Captura rápida",
+                                      message: "",
+                                      preferredStyle: .Alert)
+        
+        alert.addAction(UIAlertAction(title: "Texto", style: .Default, handler: { (action: UIAlertAction!) in
+            print("Text")
+            let storyboard = self.storyboard
+            let controller = storyboard!.instantiateViewControllerWithIdentifier( "InputViewController") as! InputViewController
+            controller.entryModule = DashboardViewController.SelectedBarButtonTag.Text.rawValue
+            self.presentViewController(controller, animated: true, completion: nil)
+            
+        }))
+        
+        alert.addAction(UIAlertAction(title: "Foto", style: .Default, handler: { (action: UIAlertAction!) in
+            print("Photo")
+            let storyboard = self.storyboard
+            let controller = storyboard!.instantiateViewControllerWithIdentifier( "InputViewController") as! InputViewController
+            controller.entryModule = DashboardViewController.SelectedBarButtonTag.Camera.rawValue
+            controller.parentController = self
+            self.presentViewController(controller, animated: true, completion: nil)
+        }))
+        
+        alert.addAction(UIAlertAction(title: "Galería", style: .Default, handler: { (action: UIAlertAction!) in
+            print("Gallery")
+            let storyboard = self.storyboard
+            let controller = storyboard!.instantiateViewControllerWithIdentifier( "InputViewController") as! InputViewController
+            controller.entryModule = DashboardViewController.SelectedBarButtonTag.Gallery.rawValue
+            self.presentViewController(controller, animated: true, completion: nil)
+        }))
+        
+        
+        alert.addAction(UIAlertAction(title: "Audio", style: .Default, handler: { (action: UIAlertAction!) in
+            print("Audio")
+            let storyboard = self.storyboard
+            let controller = storyboard!.instantiateViewControllerWithIdentifier( "InputViewController") as! InputViewController
+            controller.entryModule = DashboardViewController.SelectedBarButtonTag.Audio.rawValue
+            self.presentViewController(controller, animated: true, completion: nil)
+        }))
+        
+        
+        presentViewController(alert,
+                              animated: true,
+                              completion: nil)
+    }
 
 
 

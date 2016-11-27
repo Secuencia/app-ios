@@ -42,15 +42,24 @@ class ContentListViewController: UIViewController, UICollectionViewDelegate,UICo
         self.collectionView!.registerNib(UINib(nibName: "AudioCardView", bundle: nil), forCellWithReuseIdentifier: "audio_card")
         self.collectionView!.registerNib(UINib(nibName: "ContactCardView", bundle: nil), forCellWithReuseIdentifier: "contact_card")
         
-        // Brightness
-        
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(brightnessStateMonitor), name: "UIScreenBrightnessDidChangeNotification", object: nil)
-        
-        checkBrightness()
+
     }
     
     override func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
         self.collectionView.reloadData()
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        // Brightness
+        
+        if NSUserDefaults.standardUserDefaults().boolForKey(KeysConstants.nightModeKey){
+            
+            NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(brightnessStateMonitor), name: "UIScreenBrightnessDidChangeNotification", object: nil)
+            checkBrightness()
+        } else {
+            
+            setDayTheme()
+        }
     }
 
     
@@ -77,26 +86,29 @@ class ContentListViewController: UIViewController, UICollectionViewDelegate,UICo
             navigationController?.navigationBar.barStyle = UIBarStyle.Black
             navigationController?.navigationBar.tintColor = UIColor.whiteColor()
             
+            collectionView.backgroundView?.backgroundColor = UIColor.darkGrayColor()
             //navigationBar.barStyle = UIBarStyle.Black
             //navigationBar.tintColor = UIColor.whiteColor()
             
             
             
         } else {
-            collectionView.backgroundColor = UIColor.clearColor()
             
-            navigationController?.navigationBar.barStyle = UIBarStyle.Default
-            navigationController?.navigationBar.tintColor = UIColor.blackColor()
-            
-            //navigationBar.barStyle = UIBarStyle.Default
-            //navigationBar.tintColor = UIColor.blackColor()
-            
+            setDayTheme()
             
         }
         
     }
     
-    // Quick capture
+    func setDayTheme() {
+        collectionView.backgroundColor = UIColor.clearColor()
+            
+        navigationController?.navigationBar.barStyle = UIBarStyle.Default
+        navigationController?.navigationBar.tintColor = UIColor.blackColor()
+            
+    }
+    
+    // MARK: Quick capture
     
     override func motionEnded(motion: UIEventSubtype, withEvent event: UIEvent?) { // This gets the notification automatically
         if (motion == .MotionShake){
@@ -106,11 +118,11 @@ class ContentListViewController: UIViewController, UICollectionViewDelegate,UICo
     }
     
     func quickCaptureNewContent() {
-        let alert = UIAlertController(title: "Tipo de contenido",
+        let alert = UIAlertController(title: "Captura rápida",
                                       message: "",
                                       preferredStyle: .Alert)
         
-        alert.addAction(UIAlertAction(title: "Text", style: .Default, handler: { (action: UIAlertAction!) in
+        alert.addAction(UIAlertAction(title: "Texto", style: .Default, handler: { (action: UIAlertAction!) in
             print("Text")
             let storyboard = self.storyboard
             let controller = storyboard!.instantiateViewControllerWithIdentifier( "InputViewController") as! InputViewController
@@ -119,7 +131,7 @@ class ContentListViewController: UIViewController, UICollectionViewDelegate,UICo
             
         }))
         
-        alert.addAction(UIAlertAction(title: "Photo", style: .Default, handler: { (action: UIAlertAction!) in
+        alert.addAction(UIAlertAction(title: "Foto", style: .Default, handler: { (action: UIAlertAction!) in
             print("Photo")
             let storyboard = self.storyboard
             let controller = storyboard!.instantiateViewControllerWithIdentifier( "InputViewController") as! InputViewController
@@ -128,7 +140,7 @@ class ContentListViewController: UIViewController, UICollectionViewDelegate,UICo
             self.presentViewController(controller, animated: true, completion: nil)
         }))
         
-        alert.addAction(UIAlertAction(title: "Gallery", style: .Default, handler: { (action: UIAlertAction!) in
+        alert.addAction(UIAlertAction(title: "Galería", style: .Default, handler: { (action: UIAlertAction!) in
             print("Gallery")
             let storyboard = self.storyboard
             let controller = storyboard!.instantiateViewControllerWithIdentifier( "InputViewController") as! InputViewController
@@ -379,6 +391,7 @@ class ContentListViewController: UIViewController, UICollectionViewDelegate,UICo
         contents = persistence.getAll(nil)
         collectionView?.reloadData()
     }
+    
     
     
     

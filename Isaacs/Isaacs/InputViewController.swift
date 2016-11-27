@@ -98,18 +98,23 @@ class InputViewController: UIViewController, UINavigationControllerDelegate, UII
         enableKeyboardHideOnTap()
        
         
-        // Brightness
-        
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(brightnessStateMonitor), name: "UIScreenBrightnessDidChangeNotification", object: nil)
-        
-        checkBrightness()
-        
     }
     
     override func viewWillAppear(animated: Bool) {
         if (entryModule != nil && !alreadyLoaded) {
             manageAction(entryModule!)
             alreadyLoaded = true
+        }
+        
+        // Brightness
+        
+        if NSUserDefaults.standardUserDefaults().boolForKey(KeysConstants.nightModeKey){
+            
+            NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(brightnessStateMonitor), name: "UIScreenBrightnessDidChangeNotification", object: nil)
+            checkBrightness()
+        } else {
+            
+            setDayTheme()
         }
         
     }
@@ -141,15 +146,21 @@ class InputViewController: UIViewController, UINavigationControllerDelegate, UII
             
 
         } else {
-            tableView.backgroundColor = UIColor.clearColor()
             
-            navigationBar.barStyle = UIBarStyle.Default
-            navigationBar.tintColor = UIColor.blackColor()
-            
-            collectionView.backgroundColor = UIColor.whiteColor()
+            setDayTheme()
             
         }
         
+    }
+    
+    func setDayTheme() {
+        tableView.backgroundColor = UIColor.clearColor()
+            
+        navigationBar.barStyle = UIBarStyle.Default
+        navigationBar.tintColor = UIColor.blackColor()
+            
+        collectionView.backgroundColor = UIColor.whiteColor()
+    
     }
     
     // MARK: Location

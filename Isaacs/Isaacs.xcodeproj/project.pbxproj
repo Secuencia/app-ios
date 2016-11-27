@@ -17,6 +17,7 @@
 		376E3ABD1DE889B600B65023 /* NoiseLevelTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 376E3ABB1DE889B600B65023 /* NoiseLevelTableViewCell.xib */; };
 		37895A781D8859FE0094E286 /* ConfigurationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37895A771D8859FE0094E286 /* ConfigurationViewController.swift */; };
 		378E158B1D882CE400F94008 /* InputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 378E158A1D882CE400F94008 /* InputViewController.swift */; };
+		3791F1D71DEAABF90082573B /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3791F1D61DEAABF90082573B /* SettingsViewController.swift */; };
 		379F910E1DC58DE500B0493D /* CustomInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 379F910D1DC58DE500B0493D /* CustomInfoView.swift */; };
 		379F91101DC58E0500B0493D /* CustomInfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 379F910F1DC58E0500B0493D /* CustomInfoView.xib */; };
 		379F91131DC5AB2F00B0493D /* ImageCustomInfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 379F91121DC5AB2F00B0493D /* ImageCustomInfoView.xib */; };
@@ -100,6 +101,7 @@
 		376E3ABB1DE889B600B65023 /* NoiseLevelTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NoiseLevelTableViewCell.xib; sourceTree = "<group>"; };
 		37895A771D8859FE0094E286 /* ConfigurationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigurationViewController.swift; sourceTree = "<group>"; };
 		378E158A1D882CE400F94008 /* InputViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputViewController.swift; sourceTree = "<group>"; };
+		3791F1D61DEAABF90082573B /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		379F910D1DC58DE500B0493D /* CustomInfoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomInfoView.swift; sourceTree = "<group>"; };
 		379F910F1DC58E0500B0493D /* CustomInfoView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomInfoView.xib; sourceTree = "<group>"; };
 		379F91121DC5AB2F00B0493D /* ImageCustomInfoView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ImageCustomInfoView.xib; sourceTree = "<group>"; };
@@ -314,6 +316,7 @@
 				B9A24C511D8E050B0007F3DD /* StorySelectViewController.swift */,
 				374B1F4B1DBD28AA00965D02 /* RadarMapViewController.swift */,
 				375F190E1DC3C2EF00BAF39B /* RadarListViewController.swift */,
+				3791F1D61DEAABF90082573B /* SettingsViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -643,6 +646,7 @@
 				B964D9D21D7D033E00033B13 /* PictureCardCollectionViewCell.swift in Sources */,
 				379F91171DC5AF5800B0493D /* AudioCustomInfoView.swift in Sources */,
 				B964D9D81D7D037500033B13 /* AudioCardCollectionViewCell.swift in Sources */,
+				3791F1D71DEAABF90082573B /* SettingsViewController.swift in Sources */,
 				378E158B1D882CE400F94008 /* InputViewController.swift in Sources */,
 				37C4A1AC1D8D0F6500C9AECF /* ContactTableViewCell.swift in Sources */,
 				379F91151DC5AB4600B0493D /* ImageCustomInfoView.swift in Sources */,
