@@ -184,13 +184,6 @@ class DashboardViewController: UIViewController, UISplitViewControllerDelegate{
         
         initRecorder()
         
-        //LoadSettings
-        registerSettingsBundle()
-        updateDisplayFromDefaults()
-        NSNotificationCenter.defaultCenter().addObserver(self,
-                                                         selector: #selector(DashboardViewController.updateDisplayFromDefaults),
-                                                         name: NSUserDefaultsDidChangeNotification,
-                                                         object: nil)
         auth = false
     }
     
@@ -205,13 +198,8 @@ class DashboardViewController: UIViewController, UISplitViewControllerDelegate{
                 else {
                     
                     // Check if there is an error
-                    if let error = error {
-                        if (error.code == LAError.TouchIDNotAvailable.rawValue){
-                            self.auth = self.promptForPin()
-                        }
-                        else{
-                            self.auth = false
-                        }
+                    if error != nil {
+                        self.auth = false
                     }
                 }
             })
@@ -241,14 +229,6 @@ class DashboardViewController: UIViewController, UISplitViewControllerDelegate{
             
         }
         
-    }
-    
-    func updateDisplayFromDefaults(){
-        //Get the defaults
-        let defaults = NSUserDefaults.standardUserDefaults()
-        
-        //Set the controls to the default values.
-        //contentsButton.enabled = defaults.boolForKey("fingerprint")
     }
     
     func registerSettingsBundle(){
@@ -283,9 +263,9 @@ class DashboardViewController: UIViewController, UISplitViewControllerDelegate{
         motionManager?.startDeviceMotionUpdatesToQueue(NSOperationQueue.currentQueue()!, withHandler: { (data, error) in
             if let attitude = data?.attitude {
                 
-                let pitch = NSString(format:"%.2f",(attitude.pitch)) as String
-                let roll = NSString(format:"%.2f",(attitude.roll)) as String
-                let yaw = NSString(format:"%.2f",(attitude.yaw)) as String
+                _ = NSString(format:"%.2f",(attitude.pitch)) as String
+                _ = NSString(format:"%.2f",(attitude.roll)) as String
+                _ = NSString(format:"%.2f",(attitude.yaw)) as String
                 
                 if (attitude.pitch) < 0 {
                     self.addView()
@@ -372,7 +352,7 @@ class DashboardViewController: UIViewController, UISplitViewControllerDelegate{
     func proximityStateMonitor(notification: NSNotificationCenter){
         if UIDevice.currentDevice().proximityState {
             print("Device close to user")
-            //performSegueWithIdentifier("photoSegue", sender: nil)
+            performSegueWithIdentifier("audioSegue", sender: nil)
         } else {
             print("Device NOT close to user")
         }

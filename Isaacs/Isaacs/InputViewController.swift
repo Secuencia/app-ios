@@ -294,6 +294,7 @@ class InputViewController: UIViewController, UINavigationControllerDelegate, UII
             }
             
         }
+        audioCell.recordWithSender(UIButton())
         
         return audioCell
     }
