@@ -17,7 +17,7 @@
             <rect key="frame" x="0.0" y="0.0" width="474" height="107"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="474" height="106.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="474" height="106"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dxz-po-V8S">
@@ -42,9 +42,9 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8lG-cF-JJR">
-                        <rect key="frame" x="426" y="33.5" width="30" height="39"/>
+                        <rect key="frame" x="408" y="29" width="48" height="48"/>
                         <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                        <state key="normal" title="R"/>
+                        <state key="normal" backgroundImage="refresh"/>
                         <connections>
                             <action selector="updateNoiseLevel:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="Z6m-TL-IPo"/>
                         </connections>
@@ -69,4 +69,7 @@
             <point key="canvasLocation" x="62" y="-7.5"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="refresh" width="48" height="48"/>
+    </resources>
 </document>
