@@ -258,6 +258,11 @@ class DashboardViewController: UIViewController, UISplitViewControllerDelegate{
     
     func setUpMotion() {
         
+        if motionManager == nil {
+            motionManager = CMMotionManager()
+        }
+        
+        
         motionManager!.deviceMotionUpdateInterval = 1 / 10
         
         motionManager?.startDeviceMotionUpdatesToQueue(NSOperationQueue.currentQueue()!, withHandler: { (data, error) in
@@ -282,7 +287,7 @@ class DashboardViewController: UIViewController, UISplitViewControllerDelegate{
         
         motionManager!.stopDeviceMotionUpdates()
         
-        motionManager = nil
+       motionManager = nil
     
     }
     
